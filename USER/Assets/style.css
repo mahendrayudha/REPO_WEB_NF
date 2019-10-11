@@ -5,6 +5,7 @@
   letter-spacing: 2px;
 }
 
+/* NAVBAR */
 .navbar {
   overflow: hidden;
   background-color: #333;
@@ -30,6 +31,7 @@
   text-decoration: none;
 }
 
+/* DROPDOWN */
 .dropdown {
   float: left;
   overflow: hidden;
