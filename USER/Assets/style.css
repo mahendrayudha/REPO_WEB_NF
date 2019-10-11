@@ -8,7 +8,8 @@ body {
   letter-spacing: 2px;
 }
 
-.navbar {
+.navbar li {
+  text-decoration: none;
   overflow: hidden;
   background-color: #333;
 }
