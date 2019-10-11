@@ -13,9 +13,14 @@ body {
   background-color: #333;
 }
 
+.navbar img {
+  width: 50px;
+  float: left;
+}
+
 .navbar li {
-    list-style-type: none;
-    text-decoration: none;
+  list-style-type: none;
+  text-decoration: none;
 }
 
 .navbar a {
