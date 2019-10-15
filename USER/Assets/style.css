@@ -24,7 +24,7 @@
 
 .navbar a {
   float: left;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   text-align: center;
   padding: 14px 16px;
@@ -37,7 +37,6 @@
 }
 
 .dropdown .dropbtn {
-  font-size: 16px;
   border: none;
   outline: none;
   color: white;
@@ -77,10 +76,6 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
-/* .navbar ul li a {
-  float: right;
-} */
 /*//////////////////////////////////////////////////////////////////////////*/
 
 /*///////////////////////////////// JUMBOTRON //////////////////////////////*/
@@ -95,7 +90,6 @@
 }
 
 .jumbotron {
-  font-family: "Raleway", sans-serif;
   width: 100%;
   padding: 100px 40px;
   box-sizing: border-box;
