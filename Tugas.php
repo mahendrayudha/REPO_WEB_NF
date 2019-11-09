@@ -33,11 +33,11 @@
 
     error_reporting(0);
     $a = $_POST["awal"];
-    $d = $_POST["data"];
-    $b = $_POST["beda"];
+    $b = $_POST["data"];
+    $c = $_POST["beda"];
 
-    for($i = 1; $i <= $d; $i++) {
-        $Un = $a + ($i - 1) * $b;
+    for($i = 1; $i <= $b; $i++) {
+        $Un = $a + ($i - 1) * $c;
         $bulan = $i;
 
         echo " Penjualan di bulan ke $bulan :", ($Un);
