@@ -1,0 +1,296 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #181818;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 12pt;
+  font-weight: 200;
+  color: #ffffff;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+p,
+ol,
+ul {
+  margin-top: 0;
+}
+
+p {
+  line-height: 180%;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.container {
+  overflow: hidden;
+  margin: 0px auto;
+  width: 1200px;
+}
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.4;
+}
+
+#header,
+#banner {
+  position: relative;
+}
+
+.header-wrapper {
+  position: relative;
+  padding: 1em 0em 11em 0em;
+  background: #111111 url(../assets/images/bg1.jpg) no-repeat center;
+  background-size: cover;
+}
+
+#header {
+  position: relative;
+  padding: 5em 0em;
+}
+
+/*********************************************************************************/
+/* LOGO                                                                          */
+/*********************************************************************************/
+
+.logo {
+  position: absolute;
+  top: 48px;
+}
+
+.logo img {
+  width: 70px;
+  vertical-align: middle;
+}
+
+.logo h1 {
+  font-size: 41.6px;
+  color: #ffffff;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/*********************************************************************************/
+/* NAVBAR                                                                          */
+/*********************************************************************************/
+
+#navbar {
+  position: absolute;
+  top: 4.5em;
+  right: 0;
+}
+
+#navbar ul {
+  display: inline-block;
+}
+
+#navbar a:hover,
+.dropdown:hover .dropbtn,
+.dropbtn:focus {
+  background-color: #79c255;
+}
+
+#navbar li {
+  display: block;
+  float: left;
+  text-align: center;
+}
+
+#navbar li a,
+#navbar li span {
+  padding: 1em 1.5em;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/*********************************************************************************/
+/* BANNER                                                                        */
+/*********************************************************************************/
+#banner {
+  padding-top: 160px;
+  text-align: center;
+}
+
+#banner .title h2 {
+  font-size: 64px;
+}
+
+#banner .subtitle {
+  color: #9e9e9e;
+}
+
+#banner .title .subtitle {
+  font-size: 32px;
+}
+
+#banner .button {
+  margin-top: 72px;
+  padding: 22.4px 48px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+#banner ul.actions {
+  list-style: none;
+}
+
+/*********************************************************************************/
+/* CONTENT PROFIL                                                                      */
+/*********************************************************************************/
+#content-profil {
+  position: relative;
+  padding: 100px 0px 50px 0px;
+  background: #f2f2f2;
+}
+
+#profil-column {
+  text-align: justify;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 15px;
+  align-items: center;
+}
+
+#profil-column.container-profil {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+#profil-column img {
+  width: 200px;
+  float: left;
+  margin: 0px 10px;
+}
+
+#profil-column p {
+  text-align: justify;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 15px;
+  text-indent: 50px;
+}
+
+/*********************************************************************************/
+/* CONTENT PRODUK-BUAH                                                                        */
+/*********************************************************************************/
+#content-produk {
+  position: relative;
+  padding: 50px 0px 50px 0px;
+  background: #f2f2f2;
+}
+
+#produk-buah.card h2 {
+  margin: 0px 50px;
+}
+
+#produk-buah {
+  text-align: justify;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 15px;
+  align-items: center;
+}
+
+#produk-buah.card {
+  width: 1000px;
+  height: 500px;
+  /* margin: 0 auto; */
+}
+
+#content-produk .title p {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 15px;
+  text-indent: 50px;
+}
+
+.box-red,
+.box-white {
+  background-color: #ffffff;
+  text-align: center;
+  margin: 0px 0px 0px 50px;
+  width: 384px;
+  float: left;
+  padding: 20px 20px;
+  border: solid rgba(0, 0, 0, 0.2) 1px;
+}
+
+.box-red img,
+.box-white img {
+  width: 256px;
+  height: 256px;
+  align-content: center;
+}
+
+.box-red h3 p,
+.box-white h3 p {
+  padding-top: 10px;
+  text-indent: 0px;
+  text-align: center;
+}
+
+.box-red .button-alt,
+.box-white .button-alt {
+  margin-top: 10px;
+}
+
+/*********************************************************************************/
+/* Button Style                                                                  */
+/*********************************************************************************/
+
+.button {
+  display: inline-block;
+  padding: 16px 32px 16px 32px;
+  letter-spacing: 0.1em;
+  margin-top: 32px;
+  padding: 16.4px 48px;
+  background: #7bbb5e;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.button-alt {
+  padding: 1em 2em;
+  border-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+}
+
+/*********************************************************************************/
+/* FOOTER                                                                     */
+/*********************************************************************************/
+#copyright {
+  overflow: hidden;
+  padding: 16px 0;
+}
+
+#copyright p {
+  text-align: center;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.4);
+}
