@@ -170,31 +170,31 @@
 }
 /*////////////////////////// PROFIL SECTION ///////////////////////*/
 
-.projects-section {
+.produk-section {
   padding: 10rem 0;
 }
 
-.projects-section .featured-text {
+.produk-section .featured-text {
   padding: 2rem;
 }
 
 @media (min-width: 992px) {
-  .projects-section .featured-text {
+  .produk-section .featured-text {
     padding: 0 0 0 2rem;
     border-left: 0.5rem solid #64a19d;
   }
 }
 
-.projects-section .project-text {
+.produk-section .project-text {
   padding: 3rem;
   font-size: 90%;
 }
 
 @media (min-width: 992px) {
-  .projects-section .project-text {
+  .produk-section .project-text {
     padding: 5rem;
   }
-  .projects-section .project-text hr {
+  .produk-section .project-text hr {
     border-color: #64a19d;
     border-width: .25rem;
     width: 30%;
@@ -291,10 +291,6 @@ img.avatar {
   border-radius: 50%;
 }
 
-.container {
-  padding: 16px;
-}
-
 span.psw {
   float: right;
   padding-top: 16px;
@@ -320,7 +316,7 @@ span.psw {
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 50%; /* Could be more or less, depending on screen size */
+  width: 30%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button (x) */
