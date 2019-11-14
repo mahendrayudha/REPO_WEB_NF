@@ -101,6 +101,7 @@
 .masthead h2 {
   max-width: 20rem;
   font-size: 2rem;
+  margin: auto;
   color: rgba(255, 255, 255, 0.9);
 }
 
