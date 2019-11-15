@@ -298,7 +298,7 @@ label {
   color: white;
 }
 
-.text {
+.text,.text1, .text2, .text3, .text4, .text5, .text6 {
   margin-top: 0.5rem;
 }
 
@@ -411,8 +411,8 @@ span.psw .rgst a:hover {
 }
 
 body {
-  background: #007bff;
-  background: linear-gradient(to right, #0062E6, #33AEFF);
+  background: #ffffff;
+  background: linear-gradient(to right, #f8f9fa, #f8f9fa);
 }
 
 .card-signin {
