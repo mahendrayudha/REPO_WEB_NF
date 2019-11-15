@@ -64,7 +64,7 @@
                 <h1 class="mx-auto my-0 text-uppercase">Selamat Datang di Naura Farm</h1>
                 <h2 class="">Agrowisata Buah Naga Jember</h2>
 
-                <!-- /*////////////////////////// FORM LOGIN ///////////////////////*/ -->
+<!-- /*/////////////////////////////////////////// FORM LOGIN /////////////////////////////////////////*/ -->
 
                 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
                     Masuk
@@ -73,9 +73,9 @@
         </div>
     </header>
 
-    <div id="id01" class="modal">
+    <div id="id02" class="modal">
         <form class="modal-content animate" action="/action_page.php" method="post">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">
                 &times;
             </span>
             <div class="imgcontainer">
@@ -86,21 +86,21 @@
                 <label for="uname"><b>Nama</b></label>
                 <input type="text" placeholder="Enter Name" name="uname" required />
 
-                <label for="uname"><b>Nomor Telpon</b></label>
+                <div class="text"></div><label for="uname"><b>Nomor Telpon</b></label>
                 <input type="text" placeholder="Enter Nomor Telpon" name="uname" required />
 
-                <label for="uname"><b>Alamat</b></label>
+                <div class="text1"></div><label for="uname"><b>Alamat</b></label>
                 <input type="text" placeholder="Enter Alamat" name="uname" required />
 
-                <label for="uname"><b>Email</b></label>
+                <div class="text2"></div><label for="uname"><b>Email</b></label>
                 <input type="text" placeholder="Enter Email" name="uname" required />
 
-                <label for="uname"><b>Username</b></label>
+                <div class="text3"></div><label for="uname"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="uname" required />
 
-                <div class="text"></div><label for="psw"><b>Password</b></label>
+                <div class="text4"></div><label for="psw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="psw" value="" id="myInput" required />
-                <input type="checkbox" onclick="myFunction()">
+                <div class="text5"></div><input type="checkbox" onclick="myFunction()">
                 <div class="show">Show Password</div>
 
                 <script>
@@ -116,7 +116,7 @@
 
                 <button type="submit">Login</button>
                 <label>
-                    <input type="checkbox" checked="checked" name="remember" />
+                    <div class="text6"></div><input type="checkbox" checked="checked" name="remember" />
                     Remember me
                 </label>
             </div>
@@ -128,8 +128,7 @@
           class="cancelbtn">
           Cancel
         </button> -->
-                <span class="psw"><a href="#">Lupa Password</a></span>
-                <span class="rgst"><a href="daftar.html">Daftar Sekarang</a></span>
+                <span class="psw">Sudah Punya Akun? <a href="homepage.html">Masuk</a></span>
 
             </div>
         </form>
