@@ -139,8 +139,8 @@
           </div>
 
           <div class="container">
-              <!-- <input type="text" name="ID_USER" value="" readonly />
-              <input type="text" name="ID_STATUS" value="02" readonly /> -->
+              <input type="text" name="ID_USER" value="" readonly />
+              <input type="text" name="ID_STATUS" value="02" readonly />
               
               <label for="uname"><b>Nama</b></label>
               <input type="text" placeholder="Enter Name" name="name" required />
@@ -243,31 +243,31 @@
 
  <!-- ////////////////////////////////////////DATABASE REGISTER////////////////////////////////////////// -->
  <?php
-// require 'functions.php';
+require 'functions.php';
 
-// //cek tombol sudah ditekan atau belum
-// if( isset ($_POST['daftar']) )
-// {
+//cek tombol sudah ditekan atau belum
+if( isset ($_POST['daftar']) )
+{
  
-//         //cek data berhasil ditambah?
-//         if( tambah($_POST) > 0 )
-//         {
-//                 echo "<script>
-//                 alert('Data Berhasil Ditambahkan');
-//                 document.location.href = 'homepage.php';
-//                 </script>";
-//         }
-//         else
-//         {
-//                 echo "<script>alert('Gagal Menambahkan Data')</script>";
-//         }
+        //cek data berhasil ditambah?
+        if( tambah($_POST) > 0 )
+        {
+                echo "<script>
+                alert('Data Berhasil Ditambahkan');
+                document.location.href = 'homepage.php';
+                </script>";
+        }
+        else
+        {
+                echo "<script>alert('Gagal Menambahkan Data')</script>";
+        }
        
-// }
-// if(isset($_POST["batal"]))
-// {
-//         header("Location: homepage.php");
-//         exit;
-// }
+}
+if(isset($_POST["batal"]))
+{
+        header("Location: homepage.php");
+        exit;
+}
 ?>
 
 

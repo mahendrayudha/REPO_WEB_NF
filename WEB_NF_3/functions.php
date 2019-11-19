@@ -31,8 +31,7 @@ function tambah($data)
         //     return false;
         // }
 
-        $qu = mysqli_query($conn, "INSERT INTO user VALUES 
-        ('$nama','$notelp','$alamat','$email','$username','$password')");
+        $qu = mysqli_query($conn, "INSERT INTO user(ID_USER, ID_STATUS, NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD) VALUES ('$nama','$notelp','$alamat','$email','$username','$password')");
 
         return $qu;
 
