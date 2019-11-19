@@ -73,7 +73,7 @@
   </header>
 
   <div id="id01" class="modal">
-    <form class="modal-content animate" action="/action_page.php" method="post">
+    <form class="modal-content animate" method="post">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Tutup">
         &times;
       </span>
@@ -101,7 +101,7 @@
           }
         </script>
 
-        <button type="submit">Login</button>
+        <button type="submit" name="masuk">Masuk</button>
         <label>
           <input type="checkbox" checked="checked" name="remember" />
           Remember me
@@ -127,8 +127,10 @@
     </form>
   </div>
 
+<!-- action="/action_page.php"  -->
+
   <div id="id02" class="modal">
-      <form class="modal-content animate" action="/action_page.php" method="post">
+      <form class="modal-content animate" method="post">
           <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Tutup">
               &times;
           </span>
@@ -137,20 +139,23 @@
           </div>
 
           <div class="container">
+              <!-- <input type="text" name="ID_USER" value="" readonly />
+              <input type="text" name="ID_STATUS" value="02" readonly /> -->
+              
               <label for="uname"><b>Nama</b></label>
-              <input type="text" placeholder="Enter Name" name="uname" required />
+              <input type="text" placeholder="Enter Name" name="name" required />
 
               <div class="text"></div><label for="uname"><b>Nomor Telpon</b></label>
-              <input type="text" placeholder="Enter Nomor Telpon" name="uname" required />
+              <input type="text" placeholder="Enter Nomor Telpon" name="notelp" required />
 
               <div class="text1"></div><label for="uname"><b>Alamat</b></label>
-              <input type="text" placeholder="Enter Alamat" name="uname" required />
+              <input type="text" placeholder="Enter Alamat" name="alamat" required />
 
               <div class="text2"></div><label for="uname"><b>Email</b></label>
-              <input type="text" placeholder="Enter Email" name="uname" required />
+              <input type="text" placeholder="Enter Email" name="email" required />
 
               <div class="text3"></div><label for="uname"><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required />
+              <input type="text" placeholder="Enter Username" name="username" required />
 
               <div class="text4"></div><label for="psw"><b>Password</b></label>
               <input type="password" placeholder="Enter Password" name="psw" value="" id="myInput" required />
@@ -168,7 +173,7 @@
                   }
               </script>
 
-              <button type="submit">Login</button>
+              <button type="submit" name="daftar">Daftar</button>
               <label>
                   <div class="text6"></div><input type="checkbox" checked="checked" name="remember" />
                   Remember me
@@ -181,7 +186,7 @@
         class="cancelbtn">
         Cancel
       </button> -->
-              <span class="psw">Sudah Punya Akun? <a href="#" onclick="back()">Masuk</a></span>
+              <span class="psw">Sudah Punya Akun? <a href="" onclick="back()">Masuk</a></span>
               <script>
           function back() {
             document.getElementById('id02').style.display = 'none';
@@ -204,6 +209,68 @@
       }
     };
   </script>
+
+  <!-- /*/////////////////////////////////// CONNECTION DATABASE //////////////////////////////////*/ -->
+  <!-- DATABASE LOGIN -->
+  <?php
+//   require 'functions.php';
+//   session_start();
+//   if(isset($_POST["daftar"])){
+
+//   $username = $_POST["uname"];
+//   $password = $_POST["psw"];
+
+
+//   $result = mysqli_query($conn, "SELECT * FROM user WHERE USERNAME = '$username' AND PASSWORD = '$password'");
+
+  
+
+//   if( mysqli_num_rows($result) === 1 )
+//   {
+//     //cek password
+//     $row = mysqli_fetch_assoc($result);
+//     $_SESSION["login"] = true;
+//     $_SESSION['user'] = $row ["NAMA_ANGGOTA"];
+//     header("location: homepage.php");
+    
+//   }
+//   else
+//   {
+//     header("location: login.php?gagal");
+//   }
+// }
+?>
+
+ <!-- DATABASE REGISTER -->
+ <?php
+// require 'functions.php';
+
+// //cek tombol sudah ditekan atau belum
+// if( isset ($_POST["masuk"]) )
+// {
+ 
+//         //cek data berhasil ditambah?
+//         if( tambah($_POST) > 0 )
+//         {
+//                 echo "<script>
+//                 alert('Data Berhasil Ditambahkan');
+//                 document.location.href = 'homepage.php';
+//                 </script>";
+//         }
+//         else
+//         {
+//                 echo "<script>alert('Gagal Menambahkan Data')</script>";
+//         }
+       
+// }
+// if(isset($_POST["batal"]))
+// {
+//         header("Location: homepage.php");
+//         exit;
+// }
+?>
+
+
 
   <!-- Profil Section -->
   <section id="profil" class="profil-section text-center">
