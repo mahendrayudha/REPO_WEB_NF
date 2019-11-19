@@ -186,7 +186,7 @@
         class="cancelbtn">
         Cancel
       </button> -->
-              <span class="psw">Sudah Punya Akun? <a href="" onclick="back()">Masuk</a></span>
+              <span class="psw">Sudah Punya Akun? <a href="" onclick="back() name="daftar" ">Masuk</a></span>
               <script>
           function back() {
             document.getElementById('id02').style.display = 'none';
@@ -246,7 +246,7 @@
 // require 'functions.php';
 
 // //cek tombol sudah ditekan atau belum
-// if( isset ($_POST["masuk"]) )
+// if( isset ($_POST['daftar']) )
 // {
  
 //         //cek data berhasil ditambah?
