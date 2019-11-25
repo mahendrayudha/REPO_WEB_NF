@@ -49,6 +49,9 @@
             <a class="nav-link js-scroll-trigger" href="#produk">Produk</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#fasilitas">Fasilitas</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#kontak_kami">Kontak Kami</a>
           </li>
         </ul>
@@ -82,8 +85,8 @@
       </div>
 
       <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required />
+        <label for="nama"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="nama" required />
 
         <div class="text"></div><label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" value="" id="myInput" required />
@@ -139,22 +142,22 @@
           </div>
 
           <div class="container">
-              <input type="text" name="ID_USER" value="" readonly />
-              <input type="text" name="ID_STATUS" value="02" readonly />
+              <input type="hidden" name="ID_USER" value="" readonly />
+              <input type="hidden" name="ID_STATUS" value="02" readonly />
               
-              <label for="uname"><b>Nama</b></label>
-              <input type="text" placeholder="Enter Name" name="name" required />
+              <label for="nama"><b>Nama</b></label>
+              <input type="text" placeholder="Enter Name" name="nama" required />
 
-              <div class="text"></div><label for="uname"><b>Nomor Telpon</b></label>
+              <div class="text"></div><label for="notelp"><b>Nomor Telpon</b></label>
               <input type="text" placeholder="Enter Nomor Telpon" name="notelp" required />
 
-              <div class="text1"></div><label for="uname"><b>Alamat</b></label>
+              <div class="text1"></div><label for="alamat"><b>Alamat</b></label>
               <input type="text" placeholder="Enter Alamat" name="alamat" required />
 
-              <div class="text2"></div><label for="uname"><b>Email</b></label>
+              <div class="text2"></div><label for="email"><b>Email</b></label>
               <input type="text" placeholder="Enter Email" name="email" required />
 
-              <div class="text3"></div><label for="uname"><b>Username</b></label>
+              <div class="text3"></div><label for="username"><b>Username</b></label>
               <input type="text" placeholder="Enter Username" name="username" required />
 
               <div class="text4"></div><label for="psw"><b>Password</b></label>
@@ -215,10 +218,10 @@
   <?php
 //   require 'functions.php';
 //   session_start();
-//   if(isset($_POST["daftar"])){
+//   if(isset($_POST["masuk"])){
 
-//   $username = $_POST["uname"];
-//   $password = $_POST["psw"];
+//   $username = $_POST['nama'];
+//   $password = $_POST['psw'];
 
 
 //   $result = mysqli_query($conn, "SELECT * FROM user WHERE USERNAME = '$username' AND PASSWORD = '$password'");
@@ -243,31 +246,31 @@
 
  <!-- ////////////////////////////////////////DATABASE REGISTER////////////////////////////////////////// -->
  <?php
-require 'functions.php';
+// require 'functions.php';
 
-//cek tombol sudah ditekan atau belum
-if( isset ($_POST['daftar']) )
-{
+// //cek tombol sudah ditekan atau belum
+// if( isset ($_POST["daftar"]) )
+// {
  
-        //cek data berhasil ditambah?
-        if( tambah($_POST) > 0 )
-        {
-                echo "<script>
-                alert('Data Berhasil Ditambahkan');
-                document.location.href = 'homepage.php';
-                </script>";
-        }
-        else
-        {
-                echo "<script>alert('Gagal Menambahkan Data')</script>";
-        }
+//         //cek data berhasil ditambah?
+//         if( tambah($_POST) > 0 )
+//         {
+//                 echo "<script>
+//                 alert('Data Berhasil Ditambahkan');
+//                 document.location.href = 'homepage.php';
+//                 </script>";
+//         }
+//         else
+//         {
+//                 echo "<script>alert('Gagal Menambahkan Data')</script>";
+//         }
        
-}
-if(isset($_POST["batal"]))
-{
-        header("Location: homepage.php");
-        exit;
-}
+// }
+// if(isset($_POST["batal"]))
+// {
+//         header("Location: homepage.php");
+//         exit;
+// }
 ?>
 
 
@@ -290,7 +293,7 @@ if(isset($_POST["batal"]))
   </section>
 
   <!-- Produk Section -->
-  <section id="produk" class="produk-section bg-light">
+  <section id="fasilitas" class="produk-section bg-light">
     <div class="container">
 
       <!-- Featured Project Row -->
@@ -349,11 +352,29 @@ if(isset($_POST["batal"]))
   </section>
 
   <!-- Contact Section -->
-  <section id="kontak_kami" class="kontak_kami-section">
+  <section id="kontak_kami" class="kontak_kami_section">
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-lg-8 mx-auto text-center">
 
+        <table class="kontak_kami_content"; style="padding-left: 100px; padding-right: 100px">
+        <tr>
+          <td>Alamat</td>
+          <td>
+            : Jl. Tidar No.27, Kloncing Sumbersari, Kab. Jember, Jawa Timur
+            68124
+          </td>
+        </tr>
+
+        <tr>
+          <td>Telepon/WA</td>
+          <td>: 085229728848</td>
+        </tr>
+        <tr>
+          <td>Instagram</td>
+          <td>: @naurafarm_jember</td>
+        </tr>
+      </table>
 
         </div>
       </div>
