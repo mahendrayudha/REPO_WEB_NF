@@ -292,7 +292,7 @@
     </div>
   </section>
 
-  <!-- Produk Section -->
+  <!-- fasilitas Section -->
   <section id="fasilitas" class="produk-section bg-light">
     <div class="container">
 
@@ -311,7 +311,7 @@
       </div>
 
       <!-- Project One Row -->
-      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+      <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
           <img class="img-fluid" src="img/demo-image-01.jpg" alt="">
         </div>
