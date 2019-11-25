@@ -349,11 +349,29 @@ if(isset($_POST["batal"]))
   </section>
 
   <!-- Contact Section -->
-  <section id="kontak_kami" class="kontak_kami-section">
+  <section id="kontak_kami" class="kontak_kami_section">
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-lg-8 mx-auto text-center">
 
+        <table class="kontak_kami_content"; style="padding-left: 100px; padding-right: 100px">
+        <tr>
+          <td>Alamat</td>
+          <td>
+            : Jl. Tidar No.27, Kloncing Sumbersari, Kab. Jember, Jawa Timur
+            68124
+          </td>
+        </tr>
+
+        <tr>
+          <td>Telepon/WA</td>
+          <td>: 085229728848</td>
+        </tr>
+        <tr>
+          <td>Instagram</td>
+          <td>: @naurafarm_jember</td>
+        </tr>
+      </table>
 
         </div>
       </div>
