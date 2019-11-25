@@ -275,7 +275,7 @@
 
 
 
-  <!-- Profil Section -->
+<!-- ////////////////////////////Profil Section/////////////////////////// -->
   <section id="profil" class="profil-section text-center">
     <div class="container">
       <div class="row">
@@ -292,32 +292,11 @@
     </div>
   </section>
 
-  <!-- Fasilitas Section -->
-  <section id="fasilitas" class="produk-section bg-light">
-    <div class="container">
-
-      <!-- Featured Project Row -->
-      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-        <div class="col-xl-8 col-lg-7">
-          <img class="img-fluid mb-3 mb-lg-0" src="img/Agrowisata.png" alt="">
-        </div>
-        <div class="col-xl-4 col-lg-5">
-          <div class="featured-text text-center text-lg-left">
-            <h4>Pesan Produk</h4>
-            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any
-              project - even commercial projects! Download it, customize it, and publish your website!</p>
-          </div>
-        </div>
-      </div>
-      <!-- Produk Buah Merah -->
-    </div>
-  </section>
-
-  <!-- fasilitas Section -->
+<!-- ////////////////////////////Produk Section/////////////////////////// -->
   <section id="produk" class="produk-section bg-light">
     <div class="container">
 
-      <!-- Produk Jus Section -->
+  <!-- /////////////////////Produk Buah Naga Merah//////////////////////// -->
       <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
           <img class="img-fluid" src="img/buah_merah.jpg" alt="">
@@ -337,8 +316,7 @@
         </div>
       </div>
 
-      <!-- Produk Buah Putih -->
-      <!-- Produk Keripik Section -->
+  <!-- ///////////////////////Produk Buah Naga Putih///////////////////// -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
           <img class="img-fluid" src="img/buah_putih.jpg" alt="">
@@ -356,6 +334,53 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+<!-- //////////////////////////Fasilitas Section////////////////////////// -->
+  <section id="fasilitas" class="produk-section bg-light">
+    <div class="container">
+
+  <!-- ////////////////////////Fasilitas Agrowisata/////////////////////// -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-8 col-lg-7">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/Agrowisata.png" alt="">
+        </div>
+        <div class="col-xl-4 col-lg-5">
+          <div class="featured-text text-center text-lg-left">
+            <h4>Agrowisata</h4>
+            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any
+              project - even commercial projects! Download it, customize it, and publish your website!</p>
+          </div>
+        </div>
+        
+  <!-- ////////////////////////Fasilitas Petik Buah/////////////////////// -->
+  <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-8 col-lg-7">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/petik_buah.png" alt="">
+        </div>
+        <div class="col-xl-4 col-lg-5">
+          <div class="featured-text text-center text-lg-left">
+            <h4>Petik Buah</h4>
+            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any
+              project - even commercial projects! Download it, customize it, and publish your website!</p>
+          </div>
+        </div>
+
+        <!-- ////////////////////////Fasilitas Penjualan Produk/////////////////////// -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-8 col-lg-7">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/penjualan_produk.png" alt="">
+        </div>
+        <div class="col-xl-4 col-lg-5">
+          <div class="featured-text text-center text-lg-left">
+            <h4>Penjualan Produk</h4>
+            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any
+              project - even commercial projects! Download it, customize it, and publish your website!</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
