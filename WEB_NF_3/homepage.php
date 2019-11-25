@@ -82,8 +82,8 @@
       </div>
 
       <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required />
+        <label for="nama"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="nama" required />
 
         <div class="text"></div><label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" value="" id="myInput" required />
@@ -139,22 +139,22 @@
           </div>
 
           <div class="container">
-              <input type="text" name="ID_USER" value="" readonly />
-              <input type="text" name="ID_STATUS" value="02" readonly />
+              <input type="hidden" name="ID_USER" value="" readonly />
+              <input type="hidden" name="ID_STATUS" value="02" readonly />
               
-              <label for="uname"><b>Nama</b></label>
-              <input type="text" placeholder="Enter Name" name="name" required />
+              <label for="nama"><b>Nama</b></label>
+              <input type="text" placeholder="Enter Name" name="nama" required />
 
-              <div class="text"></div><label for="uname"><b>Nomor Telpon</b></label>
+              <div class="text"></div><label for="notelp"><b>Nomor Telpon</b></label>
               <input type="text" placeholder="Enter Nomor Telpon" name="notelp" required />
 
-              <div class="text1"></div><label for="uname"><b>Alamat</b></label>
+              <div class="text1"></div><label for="alamat"><b>Alamat</b></label>
               <input type="text" placeholder="Enter Alamat" name="alamat" required />
 
-              <div class="text2"></div><label for="uname"><b>Email</b></label>
+              <div class="text2"></div><label for="email"><b>Email</b></label>
               <input type="text" placeholder="Enter Email" name="email" required />
 
-              <div class="text3"></div><label for="uname"><b>Username</b></label>
+              <div class="text3"></div><label for="username"><b>Username</b></label>
               <input type="text" placeholder="Enter Username" name="username" required />
 
               <div class="text4"></div><label for="psw"><b>Password</b></label>
@@ -213,32 +213,32 @@
   <!-- /*/////////////////////////////////// CONNECTION DATABASE //////////////////////////////////*/ -->
   <!-- ////////////////////////////////////////DATABASE LOGIN///////////////////////////////////////// -->
   <?php
-//   require 'functions.php';
-//   session_start();
-//   if(isset($_POST["daftar"])){
+  require 'functions.php';
+  session_start();
+  if(isset($_POST["masuk"])){
 
-//   $username = $_POST["uname"];
-//   $password = $_POST["psw"];
+  $username = $_POST['nama'];
+  $password = $_POST['psw'];
 
 
-//   $result = mysqli_query($conn, "SELECT * FROM user WHERE USERNAME = '$username' AND PASSWORD = '$password'");
+  $result = mysqli_query($conn, "SELECT * FROM user WHERE USERNAME = '$username' AND PASSWORD = '$password'");
 
   
 
-//   if( mysqli_num_rows($result) === 1 )
-//   {
-//     //cek password
-//     $row = mysqli_fetch_assoc($result);
-//     $_SESSION["login"] = true;
-//     $_SESSION['user'] = $row ["NAMA_ANGGOTA"];
-//     header("location: homepage.php");
+  if( mysqli_num_rows($result) === 1 )
+  {
+    //cek password
+    $row = mysqli_fetch_assoc($result);
+    $_SESSION["login"] = true;
+    $_SESSION['user'] = $row ["NAMA_ANGGOTA"];
+    header("location: homepage.php");
     
-//   }
-//   else
-//   {
-//     header("location: login.php?gagal");
-//   }
-// }
+  }
+  else
+  {
+    header("location: login.php?gagal");
+  }
+}
 ?>
 
  <!-- ////////////////////////////////////////DATABASE REGISTER////////////////////////////////////////// -->
@@ -246,7 +246,7 @@
 require 'functions.php';
 
 //cek tombol sudah ditekan atau belum
-if( isset ($_POST['daftar']) )
+if( isset ($_POST["daftar"]) )
 {
  
         //cek data berhasil ditambah?
