@@ -360,10 +360,7 @@
         <table class="kontak_kami_content"; style="padding-left: 100px; padding-right: 100px">
         <tr>
           <td>Alamat</td>
-          <td>
-            : Jl. Tidar No.27, Kloncing Sumbersari, Kab. Jember, Jawa Timur
-            68124
-          </td>
+          <td>: Jl. Tidar No.27, Kloncing Sumbersari, Kab. Jember, Jawa Timur 68124</td>
         </tr>
 
         <tr>
