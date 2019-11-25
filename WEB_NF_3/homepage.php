@@ -367,9 +367,15 @@
         </tr>
 
         <tr>
-          <td>Telepon/WA</td>
+          <td>Telepon</td>
           <td>: 085229728848</td>
         </tr>
+
+        <tr>
+          <td>Whatsapp</td>
+          <td>: 085229728848</td>
+        </tr>
+
         <tr>
           <td>Instagram</td>
           <td>: @naurafarm_jember</td>
