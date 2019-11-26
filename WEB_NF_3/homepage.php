@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php session_start();
+require 'functions.php';?>
 <head>
 
   <meta charset="utf-8">
@@ -104,7 +105,14 @@
           }
         </script>
 
-        <button type="submit" name="masuk">Masuk</button>
+        <button type="submit" name="masuk" onclick="hidden()">Masuk</button>
+        <!-- <script>
+          function hidden {
+            if (masuk.onclick) {
+              
+            }
+          }
+        </script> -->
         <label>
           <input type="checkbox" checked="checked" name="remember" />
           Remember me
@@ -216,8 +224,6 @@
   <!-- /*/////////////////////////////////// CONNECTION DATABASE //////////////////////////////////*/ -->
   <!-- ////////////////////////////////////////DATABASE LOGIN///////////////////////////////////////// -->
   <?php
-  require 'functions.php';
-  session_start();
   if(isset($_POST["masuk"])){
 
   $username = $_POST['nama'];
@@ -226,17 +232,14 @@
 
   $result = mysqli_query($conn, "SELECT * FROM user WHERE USERNAME = '$username' AND PASSWORD = '$password'");
 
-  
-
   if( mysqli_num_rows($result) === 1 )
   {
     //cek password
     $row = mysqli_fetch_assoc($result);
     $_SESSION["login"] = true;
-    $_SESSION['user'] = $row ["NAMA_ANGGOTA"];
-    echo "<script>alert ('Login Berhasil')</script>";
+    $_SESSION['user'] = $row ["NAMA"];
     // header("location: homepage.php");
-    
+    echo "<script>alert ('Login Berhasil')</script>";
   }
   else
   {
@@ -248,7 +251,6 @@
 
  <!-- ////////////////////////////////////////DATABASE REGISTER////////////////////////////////////////// -->
  <?php
-require 'functions.php';
 
 //cek tombol sudah ditekan atau belum
 if( isset ($_POST["daftar"]) )
