@@ -300,7 +300,7 @@ if(isset($_POST["batal"]))
   <section id="produk" class="produk-section bg-light">
     <div class="container">
 
-  <!-- /////////////////////Produk Buah Naga Merah//////////////////////// -->
+<!-- /////////////////////Produk Buah Naga Merah//////////////////////// -->
       <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
 
@@ -311,9 +311,7 @@ if(isset($_POST["batal"]))
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
                 <h4 class="text-white">Buah Naga Merah</h4>
-                <h4 class="text-white">Jus Buah Naga</h4>
-                <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else,
-                  along with a description.</p>
+                <p class="mb-0 text-white-50">Disebut dengan buah naga merah, karena daging buahnya berwarna merah keunggulan. warna kulit buahnya cenderung gelap. buah ini rasanya manis sekali. Meskipun begitu, baik untuk kita konsumsi karena kadar gula alaminya tidak terlalu bnyak. Buah naga merah mengandung antioksidan, kalsium, fosfor yang tinggi. Selain itu, buah ini juga mengandung betasianin yang bisa melindungi tubuh kita dari peyakit hati.</p>
                 <hr class="d-none d-lg-block mb-0 ml-0">
               </div>
             </div>
@@ -331,9 +329,7 @@ if(isset($_POST["batal"]))
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-right">
                 <h4 class="text-white">Buah Naga Putih</h4>
-                <h4 class="text-white">Keripik Buah Naga</h4>
-                <p class="mb-0 text-white-50">Another example of a project with its respective description. These
-                  sections work well responsively as well, try this theme on a small screen!</p>
+                <p class="mb-0 text-white-50">Buah naga putih, daging buahnya berwarna putih. kulit buahnya berwarna merah muda yang lebih cerah daripada buah naga merah. Ukurannya pun lebih kecil dibandingkan buah naga merah. Buah naga putih kaya akan vitamin C dan antioksidan. Hanya saja, antioksidan di dalam buah naga putih lebih sedikit. jadi, jika dibandingkan buah naga putih dan merah, buah naga merah kandugannya lebih banyak.</p>
                 <hr class="d-none d-lg-block mb-0 mr-0">
               </div>
             </div>
@@ -341,7 +337,74 @@ if(isset($_POST["batal"]))
         </div>
       </div>
     </div>
-  </section>
+    </section>
+
+    <!-- ////////////////////////////Produk Section/////////////////////////// -->
+  <section id="produk" class="produk-section bg-light">
+    <div class="container">
+
+  <!-- /////////////////////Produk Jus Buah Naga//////////////////////// -->
+  <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6">
+
+          <img class="img-fluid" src="img/buah_merah.jpg" alt="">
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <h4 class="text-white">Jus Buah Naga</h4>
+                <p class="mb-0 text-white-50">Cara mengkonsumsi buah naga sangatlah mudah, salah satu cara mengkonsumsinya adalah dengan menjadikannya jus buah naga. Dengan dijadikannya jus buah kita jadi mudah untuk membawanya kemana – mana tanpa takut buah naga tersebut terhimpit oleh barang bawaan yang lainnya. Dan nutrisi yang terkandung di dalamnya tidak akan hancur atau hilang.</p>
+                <hr class="d-none d-lg-block mb-0 ml-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <!-- ///////////////////////Produk Selai Buah Naga///////////////////// -->
+  <div class="row justify-content-center no-gutters">
+        <div class="col-lg-6">
+          <img class="img-fluid" src="img/selai.jpg" alt="">
+        </div>
+        <div class="col-lg-6 order-lg-first">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-right">
+                <h4 class="text-white">Selai Buah Naga</h4>
+                <p class="mb-0 text-white-50">Selai buah naga adalah salah satu jenis makanan awetan berupa sari buah yang sudah dihancurkan, ditambah gula dan dimasak hingga kental atau berbentuk setengah padat. Selai tidak dimakan begitu saja, melainkan untuk dioleskan di atas roti tawar atau sebagai isi roti manis, isian pada kue kering seperti nastar dan pemanis pada minuman seperti yogurt.</p>
+                <hr class="d-none d-lg-block mb-0 mr-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- ////////////////////////////Produk Section/////////////////////////// -->
+  <section id="produk" class="produk-section bg-light">
+    <div class="container">
+
+  <!-- /////////////////////Produk Keripik Naga Merah//////////////////////// -->
+  <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6">
+
+          <img class="img-fluid" src="img/Kripik.jpg" alt="">
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <h4 class="text-white">Keripik Buah Naga</h4>
+                <p class="mb-0 text-white-50">Salah satu olahan makanan yang terbuat dari buah naga adalah keripik buah naga. Olahan makanan keripik buah naga ini memiliki cita rasa yang unik. Keripik buah naga ini memang sangat cocok untuk Anda jadikan camilan yang bisa Anda nikmati bersama keluarga tercinta Anda atau bersama rekan terdekat Anda. Olahan camilan keripik buah memang sudah tidak asing lagi, namun keripik buah naga bisa dibilang ini masih jarang kita jumpai. Namun meskipun olahan keripik buah naga ini jarang kita temui olahan makanan ini juga menjadi salah satu olahan makanan yang difavoritkan oleh masyarakat mulai dari kalangan anak-anak hingga kalangan dewasa.</p>
+                <hr class="d-none d-lg-block mb-0 ml-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 <!-- //////////////////////////Fasilitas Section////////////////////////// -->
   <section id="fasilitas" class="produk-section bg-light">
@@ -368,8 +431,7 @@ if(isset($_POST["batal"]))
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
             <h4>Petik Buah</h4>
-            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any
-              project - even commercial projects! Download it, customize it, and publish your website!</p>
+            <p class="text-black-50 mb-0">Salah satu fasilitas yang di tawarkan oleh Naura Farm adalah petik buah.Dimana pengunjung dapat melakukan pemetikan buah naga langsung dari pohonnya. Hasil yang di dapat bisa langsung dibawa pulang dengan harga yang terjangkau. Sehingga pengunjung tidak usah khawatir tentang kualitas buah yang ada di Naura Farm.</p>
           </div>
         </div>
 
@@ -381,8 +443,7 @@ if(isset($_POST["batal"]))
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
             <h4>Penjualan Produk</h4>
-            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any
-              project - even commercial projects! Download it, customize it, and publish your website!</p>
+            <p class="text-black-50 mb-0">Penjualan merupakan suatu kegiatan transaksi yang dilakukan oleh 2 (dua) belah pihak/lebih dengan menggunakan alat pembayaran yang sah. Selain buah naga, terdapat beberapa olahan buah naga yang ditawarkan oleh Naura Farm yaitu selai buah, keripik buah, dan jus buah naga. Penjualan dapat dilakukan secara grosir maupun eceran.</p>
           </div>
         </div>
 
