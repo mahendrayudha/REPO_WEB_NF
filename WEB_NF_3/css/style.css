@@ -169,7 +169,7 @@
 /*////////////////////////// PROFIL SECTION ///////////////////////*/
 
 .produk-section {
-  padding: 10rem 0;
+  padding: 1rem;
 }
 
 .produk-section .featured-text {
@@ -199,13 +199,17 @@
   }
 }
 
-.kontak_kami-section {
+.kontak_kami_section {
   padding: 10rem 0;
   background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.3) 75%, #161616 100%), url("../img/bg-kontak_kami.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
+}
+
+.kontak_kami_content tr td {
+  color: #fff;
 }
 
 /*////////////////////////// FORM LOGIN ///////////////////////*/
@@ -512,14 +516,4 @@ body {
   padding-bottom: calc(var(--input-padding-y) / 3);
   font-size: 12px;
   color: #777;
-}
-
-.btn-google {
-  color: white;
-  background-color: #ea4335;
-}
-
-.btn-facebook {
-  color: white;
-  background-color: #3b5998;
 }

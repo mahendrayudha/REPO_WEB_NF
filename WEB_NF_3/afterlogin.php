@@ -69,9 +69,9 @@ require 'functions.php';?>
 
         <!-- /*/////////////////////////////////// FORM LOGIN //////////////////////////////////*/ -->
 
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+        <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
           Masuk
-        </button>
+        </button> -->
       </div>
     </div>
   </header>
@@ -105,14 +105,7 @@ require 'functions.php';?>
           }
         </script>
 
-        <button type="submit" name="masuk" onclick="hidden()">Masuk</button>
-        <!-- <script>
-          function hidden {
-            if (masuk.onclick) {
-              
-            }
-          }
-        </script> -->
+        <button type="submit" name="masuk">Masuk</button>
         <label>
           <input type="checkbox" checked="checked" name="remember" />
           Remember me
@@ -232,13 +225,15 @@ require 'functions.php';?>
 
   $result = mysqli_query($conn, "SELECT * FROM user WHERE USERNAME = '$username' AND PASSWORD = '$password'");
 
+  
+
   if( mysqli_num_rows($result) === 1 )
   {
     //cek password
     $row = mysqli_fetch_assoc($result);
     $_SESSION["login"] = true;
     $_SESSION['user'] = $row ["NAMA"];
-    // header("location: homepage.php");
+    header("location: homepage.php");
     echo "<script>alert ('Login Berhasil')</script>";
   }
   else
