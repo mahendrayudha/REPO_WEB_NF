@@ -139,8 +139,8 @@
           </div>
 
           <div class="container">
-              <input type="text" name="ID_USER" value="" readonly />
-              <input type="text" name="ID_STATUS" value="02" readonly />
+              <input type="hidden" name="ID_USER" value="" readonly />
+              <input type="hidden" name="ID_STATUS" value="02" readonly />
               
               <label for="uname"><b>Nama</b></label>
               <input type="text" placeholder="Enter Name" name="name" required />
