@@ -302,7 +302,7 @@ require 'functions.php'; ?>
       <!-- ///////////////////////Produk Buah Naga Putih///////////////////// -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img class="img-fluidku" width="555" height="453" src="img/buah_putih.jpg" alt="">
+          <img class="img-fluidku" style="float: right;" width="555" height="453" src="img/buah_putih.jpg" alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
