@@ -517,3 +517,16 @@ body {
   font-size: 12px;
   color: #777;
 }
+
+.menu ul {
+  padding: 0;
+}
+
+.menu ul li {
+  display: inline-block;
+}
+
+.menu ul li a {
+  padding: 10px 20px;
+  text-decoration: none;
+}
