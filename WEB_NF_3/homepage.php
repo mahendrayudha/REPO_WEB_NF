@@ -291,7 +291,6 @@ require 'functions.php'; ?>
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
                 <h4 class="text-white">Buah Naga Merah</h4>
-                <h4 class="text-white">Jus Buah Naga</h4>
                 <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else,
                   along with a description.</p>
                 <hr class="d-none d-lg-block mb-0 ml-0">
@@ -311,7 +310,6 @@ require 'functions.php'; ?>
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-right">
                 <h4 class="text-white">Buah Naga Putih</h4>
-                <h4 class="text-white">Keripik Buah Naga</h4>
                 <p class="mb-0 text-white-50">Another example of a project with its respective description. These
                   sections work well responsively as well, try this theme on a small screen!</p>
                 <hr class="d-none d-lg-block mb-0 mr-0">
@@ -320,6 +318,27 @@ require 'functions.php'; ?>
           </div>
         </div>
       </div>
+
+      <!-- ///////////////////////Produk Selai Buah Naga ///////////////////// -->
+      <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6">
+        
+          <img class="img-fluid" src="img/buah_merah.jpg" alt="">
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <h4 class="text-white"> Selai Buah Naga</h4>
+                <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else,
+                  along with a description.</p>
+                <hr class="d-none d-lg-block mb-0 ml-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
