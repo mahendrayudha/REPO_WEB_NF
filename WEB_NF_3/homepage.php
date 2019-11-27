@@ -21,7 +21,6 @@ require 'functions.php'; ?>
 
   <!-- Web Icon -->
   <link rel="shortcut icon" href="img/ic_nf.ico" />
-
 </head>
 
 <body id="page-top">
