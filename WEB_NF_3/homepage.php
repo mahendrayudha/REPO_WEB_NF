@@ -359,7 +359,7 @@ require 'functions.php'; ?>
       <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
           <div class="col-lg-6">
 
-          <img class="img-fluidku"  width="555" height="510" src="img/Kripik.jpg" alt="">
+          <img class="img-fluidku"  width="555" height="516.85" src="img/Kripik.jpg" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
