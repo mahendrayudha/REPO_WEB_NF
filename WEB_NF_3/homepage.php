@@ -291,8 +291,6 @@ require 'functions.php'; ?>
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
                 <h4 class="text-white">Buah Naga Merah</h4>
-                <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else,
-                  along with a description.</p>
                 <p class="mb-0 text-white-50">Disebut dengan buah naga merah, karena daging buahnya berwarna merah keunggulan. warna kulit buahnya cenderung gelap. buah ini rasanya manis sekali. Meskipun begitu, baik untuk kita konsumsi karena kadar gula alaminya tidak terlalu bnyak. Buah naga merah mengandung antioksidan, kalsium, fosfor yang tinggi. Selain itu, buah ini juga mengandung betasianin yang bisa melindungi tubuh kita dari peyakit hati.</p>
                 <hr class="d-none d-lg-block mb-0 ml-0">
               </div>
@@ -311,9 +309,6 @@ require 'functions.php'; ?>
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-right">
                 <h4 class="text-white">Buah Naga Putih</h4>
-                <p class="mb-0 text-white-50">Another example of a project with its respective description. These
-                  sections work well responsively as well, try this theme on a small screen!</p>
-
                 <p class="mb-0 text-white-50">Buah naga putih, daging buahnya berwarna putih. kulit buahnya berwarna merah muda yang lebih cerah daripada buah naga merah. Ukurannya pun lebih kecil dibandingkan buah naga merah. Buah naga putih kaya akan vitamin C dan antioksidan. Hanya saja, antioksidan di dalam buah naga putih lebih sedikit. jadi, jika dibandingkan buah naga putih dan merah, buah naga merah kandugannya lebih banyak.</p>
                 <hr class="d-none d-lg-block mb-0 mr-0">
               </div>
