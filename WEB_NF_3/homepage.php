@@ -284,7 +284,7 @@ require 'functions.php'; ?>
       <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
 
-          <img class="img-fluid" src="img/buah_merah.jpg" alt="">
+          <img class="img-fluidku" width="555" height="453" src="img/buah_merah.jpg" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
@@ -304,7 +304,7 @@ require 'functions.php'; ?>
       <!-- ///////////////////////Produk Buah Naga Putih///////////////////// -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img class="img-fluid" src="img/buah_putih.jpg" alt="">
+          <img class="img-fluidku" width="555" height="453" src="img/buah_putih.jpg" alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
@@ -322,38 +322,11 @@ require 'functions.php'; ?>
         </div>
       </div>
 
-      <!-- ///////////////////////Produk Selai Buah Naga ///////////////////// -->
-      <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
-        <div class="col-lg-6">
-        
-          <img class="img-fluid" src="img/buah_merah.jpg" alt="">
-        </div>
-        <div class="col-lg-6">
-          <div class="bg-black text-center h-100 project">
-            <div class="d-flex h-100">
-              <div class="project-text w-100 my-auto text-center text-lg-left">
-                <h4 class="text-white"> Selai Buah Naga</h4>
-                <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else,
-                  along with a description.</p>
-                <hr class="d-none d-lg-block mb-0 ml-0">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <!-- /////////////////////Produk Jus Buah Naga//////////////////////// -->
+        <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
+          <div class="col-lg-6">
 
-    </div>
-    </section>
-
-    <!-- ////////////////////////////Produk Section/////////////////////////// -->
-  <section id="produk" class="produk-section bg-light">
-    <div class="container">
-
-  <!-- /////////////////////Produk Jus Buah Naga//////////////////////// -->
-  <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
-        <div class="col-lg-6">
-
-          <img class="img-fluid" src="img/buah_merah.jpg" alt="">
+          <img class="img-fluidku"  width="555" height="453" src="img/jus.jpg" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
@@ -371,7 +344,7 @@ require 'functions.php'; ?>
   <!-- ///////////////////////Produk Selai Buah Naga///////////////////// -->
   <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img class="img-fluid" src="img/selai.jpg" alt="">
+          <img class="img-fluidku"  width="555" height="453" src="img/selai.jpg" alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
@@ -385,31 +358,31 @@ require 'functions.php'; ?>
           </div>
         </div>
       </div>
-    </div>
-    </section>
+    <!-- </div> -->
 
-    <!-- ////////////////////////////Produk Section/////////////////////////// -->
-  <section id="produk" class="produk-section bg-light">
-    <div class="container">
+      <!-- /////////////////////Produk Keripik Naga Merah//////////////////////// -->
+      <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
+          <div class="col-lg-6">
 
-  <!-- /////////////////////Produk Keripik Naga Merah//////////////////////// -->
-  <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
-        <div class="col-lg-6">
-
-          <img class="img-fluid" src="img/Kripik.jpg" alt="">
+          <img class="img-fluidku"  width="555" height="510" src="img/Kripik.jpg" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
-                <h4 class="text-white">Keripik Buah Naga</h4>
-                <p class="mb-0 text-white-50">Salah satu olahan makanan yang terbuat dari buah naga adalah keripik buah naga. Olahan makanan keripik buah naga ini memiliki cita rasa yang unik. Keripik buah naga ini memang sangat cocok untuk Anda jadikan camilan yang bisa Anda nikmati bersama keluarga tercinta Anda atau bersama rekan terdekat Anda. Olahan camilan keripik buah memang sudah tidak asing lagi, namun keripik buah naga bisa dibilang ini masih jarang kita jumpai. Namun meskipun olahan keripik buah naga ini jarang kita temui olahan makanan ini juga menjadi salah satu olahan makanan yang difavoritkan oleh masyarakat mulai dari kalangan anak-anak hingga kalangan dewasa.</p>
+                <h4 class="text-white">Keripik Buah Naga Merah</h4>
+                <p class="mb-0 text-white-50"> Salah satu olahan makanan yang terbuat dari buah naga adalah keripik buah naga. Olahan makanan keripik buah naga ini memiliki cita rasa yang unik. Keripik buah naga ini memang sangat cocok untuk anda jadikan camilan yang bisa anda nikmati bersama keluarga tercinta anda atau bersama rekan terdekat anda. Olahan camilan keripik buah naga memang sudah tidak asing lagi, namun keripik buah naga bisa dibilang ini masih jarang kita jumpai. Namun meskipun olahan keripik buah naga ini jarang kita temui olahan makanan ini juga menjadi salah satu olahan makanan yang difavoritkan oleh masyarakat mulai dari kalangan anak - anak hingga kalangan dewasa. </p>
                 <hr class="d-none d-lg-block mb-0 ml-0">
               </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- ////////////////////////////Produk Section/////////////////////////// -->
+  <section id="produk" class="produk-section bg-light">
+    <div class="container">
     </section>
 
   <!-- //////////////////////////Fasilitas Section////////////////////////// -->
