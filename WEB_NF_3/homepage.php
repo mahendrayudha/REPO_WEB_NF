@@ -284,7 +284,7 @@ require 'functions.php'; ?>
       <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
 
-          <img class="img-fluidku" width="555" height="453" src="img/buah_merah.jpg" alt="">
+          <img width="555" height="453" src="img/buah_merah.jpg" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
@@ -302,7 +302,7 @@ require 'functions.php'; ?>
       <!-- ///////////////////////Produk Buah Naga Putih///////////////////// -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img class="img-fluidku" style="float: left;" width="555" height="453" src="img/buah_putih.jpg" alt="">
+          <img width="555" height="470" src="img/buah_putih.jpg" alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
@@ -321,7 +321,7 @@ require 'functions.php'; ?>
         <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
           <div class="col-lg-6">
 
-          <img class="img-fluidku"  width="555" height="453" src="img/jus.jpg" alt="">
+          <img  width="555" height="453" src="img/jus.jpg" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
@@ -339,7 +339,7 @@ require 'functions.php'; ?>
   <!-- ///////////////////////Produk Selai Buah Naga///////////////////// -->
   <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img class="img-fluidku"  width="555" height="453" src="img/selai.jpg" alt="">
+          <img width="555" height="453" src="img/selai.jpg" alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
@@ -359,7 +359,7 @@ require 'functions.php'; ?>
       <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
           <div class="col-lg-6">
 
-          <img class="img-fluidku"  width="555" height="516.85" src="img/Kripik.jpg" alt="">
+          <img  width="555" height="516.85" src="img/Kripik.jpg" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
