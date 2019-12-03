@@ -51,6 +51,13 @@ require 'functions.php'; ?>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#kontak_kami">Kontak Kami</a>
           </li>
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+              <a href="#"><img src="img/user.png" style="width: 30px; "></a></button>
+            <ul class="dropdown-menu">
+              <li><a href="homepage.php">Logout</a></li>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
@@ -279,7 +286,7 @@ require 'functions.php'; ?>
   <section id="produk" class="produk-section bg-light">
     <div class="container">
 
-<!-- /////////////////////Produk Buah Naga Merah//////////////////////// -->
+      <!-- /////////////////////Produk Buah Naga Merah//////////////////////// -->
       <!-- /////////////////////Produk Buah Naga Merah//////////////////////// -->
       <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
@@ -317,11 +324,11 @@ require 'functions.php'; ?>
         </div>
       </div>
 
-        <!-- /////////////////////Produk Jus Buah Naga//////////////////////// -->
-        <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
-          <div class="col-lg-6">
+      <!-- /////////////////////Produk Jus Buah Naga//////////////////////// -->
+      <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6">
 
-          <img  width="555" height="453" src="img/jus.jpg" alt="">
+          <img width="555" height="453" src="img/jus.jpg" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
@@ -336,8 +343,8 @@ require 'functions.php'; ?>
         </div>
       </div>
 
-  <!-- ///////////////////////Produk Selai Buah Naga///////////////////// -->
-  <div class="row justify-content-center no-gutters">
+      <!-- ///////////////////////Produk Selai Buah Naga///////////////////// -->
+      <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
           <img width="555" height="453" src="img/selai.jpg" alt="">
         </div>
@@ -353,13 +360,13 @@ require 'functions.php'; ?>
           </div>
         </div>
       </div>
-    <!-- </div> -->
+      <!-- </div> -->
 
       <!-- /////////////////////Produk Keripik Naga Merah//////////////////////// -->
       <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
-          <div class="col-lg-6">
+        <div class="col-lg-6">
 
-          <img  width="555" height="516.85" src="img/Kripik.jpg" alt="">
+          <img width="555" height="516.85" src="img/Kripik.jpg" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
@@ -373,18 +380,18 @@ require 'functions.php'; ?>
           </div>
         </div>
       </div>
-    </section>
+  </section>
 
-    <!-- ////////////////////////////Produk Section/////////////////////////// -->
+  <!-- ////////////////////////////Produk Section/////////////////////////// -->
   <section id="produk" class="produk-section bg-light">
     <div class="container">
-    </section>
+  </section>
 
   <!-- //////////////////////////Fasilitas Section////////////////////////// -->
   <section id="fasilitas" class="produk-section bg-light">
     <div class="container">
 
-  <!-- ////////////////////////Fasilitas Agrowisata/////////////////////// -->
+      <!-- ////////////////////////Fasilitas Agrowisata/////////////////////// -->
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
           <img class="img-fluid mb-3 mb-lg-0" src="img/Agrowisata.png" alt="">
@@ -396,22 +403,22 @@ require 'functions.php'; ?>
               project - even commercial projects! Download it, customize it, and publish your website!</p>
           </div>
         </div>
-        
-<!-- ////////////////////////Fasilitas Petik Buah/////////////////////// -->
-       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-        <div class="col-xl-8 col-lg-7">
-          <img class="img-fluid mb-3 mb-lg-0" src="img/petik_buah.png" alt="">
-        </div>
-        <div class="col-xl-4 col-lg-5">
-          <div class="featured-text text-center text-lg-left">
-            <h4>Petik Buah</h4>
-            <p class="text-black-50 mb-0">Salah satu fasilitas yang di tawarkan oleh Naura Farm adalah petik buah.Dimana pengunjung dapat melakukan pemetikan buah naga langsung dari pohonnya. Hasil yang di dapat bisa langsung dibawa pulang dengan harga yang terjangkau. Sehingga pengunjung tidak usah khawatir tentang kualitas buah yang ada di Naura Farm.</p>
-            </div>
+
+        <!-- ////////////////////////Fasilitas Petik Buah/////////////////////// -->
+        <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+          <div class="col-xl-8 col-lg-7">
+            <img class="img-fluid mb-3 mb-lg-0" src="img/petik_buah.png" alt="">
+          </div>
+          <div class="col-xl-4 col-lg-5">
+            <div class="featured-text text-center text-lg-left">
+              <h4>Petik Buah</h4>
+              <p class="text-black-50 mb-0">Salah satu fasilitas yang di tawarkan oleh Naura Farm adalah petik buah.Dimana pengunjung dapat melakukan pemetikan buah naga langsung dari pohonnya. Hasil yang di dapat bisa langsung dibawa pulang dengan harga yang terjangkau. Sehingga pengunjung tidak usah khawatir tentang kualitas buah yang ada di Naura Farm.</p>
             </div>
           </div>
         </div>
+      </div>
 
-  <!-- ////////////////////////Fasilitas Penjualan Produk/////////////////////// -->
+      <!-- ////////////////////////Fasilitas Penjualan Produk/////////////////////// -->
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
           <img class="img-fluid mb-3 mb-lg-0" src="img/penjualan_produk.png" alt="">
@@ -420,10 +427,10 @@ require 'functions.php'; ?>
           <div class="featured-text text-center text-lg-left">
             <h4>Penjualan Produk</h4>
             <p class="text-black-50 mb-0">Penjualan merupakan suatu kegiatan transaksi yang dilakukan oleh 2 (dua) belah pihak/lebih dengan menggunakan alat pembayaran yang sah. Selain buah naga, terdapat beberapa olahan buah naga yang ditawarkan oleh Naura Farm yaitu selai buah, keripik buah, dan jus buah naga. Penjualan dapat dilakukan secara grosir maupun eceran.</p>
-              </div>
-            </div>
           </div>
         </div>
+      </div>
+    </div>
   </section>
 
   <!-- Contact Section -->
