@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php session_start();
-require 'functions.php'; ?>
 
 <head>
 
@@ -55,7 +53,12 @@ require 'functions.php'; ?>
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
               <a href="#"><img src="img/user.png" style="width: 30px; "></a></button>
             <ul class="dropdown-menu">
-              <li><a href="homepage.php">Logout</a></li>
+              <li><a href="homepage.php">Register</a></li>
+              <li><a href=""><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+                  Login
+                </button>
+                </a>
+              </li>
             </ul>
           </div>
         </ul>
@@ -96,6 +99,33 @@ require 'functions.php'; ?>
         <input type="password" placeholder="Enter Password" name="psw" value="" id="myInput" required />
         <input type="checkbox" onclick="myFunction()">
         <div class="show">Show Password</div>
+
+        <?php
+            if (isset($_SESSION['cek'])) {
+              if($_SESSION['level'] == "3"){
+        ?>
+          <a href="homepage.php"> <?php echo $_SESSION['NAMA'] ?></a> atau 
+          <a class="rgst" href="homepage.php"> keluar </a> </p>
+        <?php
+          }else{
+            ?>
+            <a href="#" class="logbtn" data-toggle="modal"> <?php echo $_SESSION['NAMA'] ?></a> atau
+            <a class="rgst" href="homepage.php"> keluar </a> </p>
+        <?php
+          }
+            }else{
+        ?>
+              <a href="#login_box" class="modal" data-toggle="modal"> Login </a> atau
+              <a class="rgst" href="homepage.php"> Register </a> </p>
+        <?php
+          }
+        ?>
+        
+
+        if (isset($_POST['masuk'])) {
+          
+        }
+        
 
         <script>
           function myFunction() {
