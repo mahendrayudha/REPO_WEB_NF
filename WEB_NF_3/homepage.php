@@ -101,7 +101,7 @@
         <div class="show">Show Password</div>
 
         <?php
-            if (isset($_SESSION['cek'])) {
+            if (isset($_SESSION['kode'])) {
               if($_SESSION['level'] == "3"){
         ?>
           <a href="homepage.php"> <?php echo $_SESSION['NAMA'] ?></a> atau 
@@ -122,11 +122,22 @@
         ?>
         
 
+        <?php
         if (isset($_POST['masuk'])) {
-          
+          $getdata = mysqli_query($conn, "SELECT * From user where 'username' = '$_POST[username]' and 'password' = md5('$_POST[password]')");
+          $hitung  = mysqli_num_rows($getdata);
+          if ($hitung > 0) {
+            $getdatalogin = mysqli_fetch_array($getdata);
+            $_SESSION['kode'] = $getdatalogin['ID_USER'];
+            $_SESSION['level'] = $getdatalogin['LEVEL'];
+            $_SESSION['nama'] = $getdatalogin['NAMA'];
+            if($getdatalogin['level'] == 1) {
+              
+            }
+          }
         }
+        ?>
         
-
         <script>
           function myFunction() {
             var x = document.getElementById("myInput");
