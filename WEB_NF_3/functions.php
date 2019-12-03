@@ -1,4 +1,5 @@
 <?php
+session_start();
 $conn = mysqli_connect("localhost","root","","naura_farm");
 
 function query($query)
@@ -35,7 +36,7 @@ function tambah($data)
         // $qu = mysqli_query($conn, "INSERT INTO user(ID_USER, ID_STATUS, NAMA, NOMOR_TELEPON, ALAMAT, EMAIL,
         //  USERNAME, PASSWORD) VALUES ('', '01', '$nama','$notelp','$alamat','$email','$username','$password')");
 
-        $qu = mysqli_query($conn, "INSERT INTO user VALUES ('', '$id_status', '$nama','$notelp','$alamat','$email','$username','$password')");
+        $qu = mysqli_query($conn, "INSERT INTO user VALUES ('', '$id_status', '$nama','$notelp','$alamat','$email','$username','$password', '3')");
 
         return $qu;
 }
