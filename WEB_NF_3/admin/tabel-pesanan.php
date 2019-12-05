@@ -35,7 +35,7 @@
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" placeholder="Pencarian..." aria-label="Cari" aria-describedby="basic-addon2">
         <div class="input-group-append">
           <button class="btn btn-primary" type="button">
             <i class="fas fa-search"></i>
@@ -221,7 +221,7 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © Your Website 2019</span>
+            <span>Copyright © Teknik Informatika POLIJE 2019 | Naura Farm Jember</span>
           </div>
         </div>
       </footer>

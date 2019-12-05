@@ -147,7 +147,7 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © Your Website 2019</span>
+            <span>Copyright © Teknik Informatika POLIJE 2019 | Naura Farm Jember</span>
           </div>
         </div>
       </footer>

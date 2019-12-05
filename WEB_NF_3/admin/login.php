@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin Naura Farm</title>
+  <title>Login Admin Naura Farm</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -28,8 +28,8 @@
         <form>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Alamat email" required="required" autofocus="autofocus">
-              <label for="inputEmail">Alamat Email</label>
+              <input type="username" id="inputUsername" class="form-control" placeholder="Username" required="required" autofocus="autofocus">
+              <label for="inputEmail">Username</label>
             </div>
           </div>
           <div class="form-group">
