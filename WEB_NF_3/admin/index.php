@@ -1,6 +1,6 @@
 <?php
 
-  $koneksi = new mysqli ("localhost","root","","web_naura_farm");
+  $conn = new mysqli ("localhost","root","","naura_farm");
 
 ?>
 
