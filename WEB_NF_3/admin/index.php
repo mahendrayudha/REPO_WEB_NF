@@ -81,7 +81,6 @@
         </div>
       </li>
     </ul>
-
   </nav>
 
   <div id="wrapper">
@@ -119,6 +118,10 @@
         <a class="nav-link" href="tabel-user.php">
           <i class="fas fa-fw fa-table"></i>
           <span>Tabel User</span></a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          <span>Keluar</span></a>
       </li>
     </ul>
 
