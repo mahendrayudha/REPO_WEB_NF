@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Tabel User</title>
+  <title>Admin - Tabel Pesanan</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -26,7 +26,7 @@
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">Admin Naura Farm</a>
+    <a class="navbar-brand mr-1" href="index.php">Admin Naura Farm</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -82,7 +82,6 @@
         </div>
       </li>
     </ul>
-
   </nav>
 
   <div id="wrapper">
@@ -90,7 +89,7 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
@@ -108,12 +107,12 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="charts.php">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Charts</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="tables.php">
           <i class="fas fa-fw fa-table"></i>
           <span>Tabel User</span></a>
       </li>
@@ -141,28 +140,28 @@
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>ID User</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Nomor Telepon</th>
-                    <th>Alamat</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Status</th>
+                    <th>ID Transaksi</th>
+                    <th>Nama Pembeli</th>
+                    <th>Tanggal</th>
+                    <th>Status Bayar</th>
+                    <th>Alamat Pengiriman</th>
+                    <th>Opsi Pembayaran</th>
+                    <th>Tujuan Pembayaran</th>
+                    <th>Grand Total</th>
                   </tr>
                 </thead>
-                <tfoot>
+                <!-- <tfoot>
                   <tr>
-                    <th>ID User</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Nomor Telepon</th>
-                    <th>Alamat</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Status</th>
+                    <th>ID Transaksi</th>
+                    <th>Nama Pembeli</th>
+                    <th>Tanggal</th>
+                    <th>Status Bayar</th>
+                    <th>Alamat Pengiriman</th>
+                    <th>Opsi Pembayaran</th>
+                    <th>Tujuan Pembayaran</th>
+                    <th>Grand Total</th>
                   </tr>
-                </tfoot>
+                </tfoot> -->
                 <tbody>
                   <tr>
                     <td>U01</td>
@@ -251,7 +250,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="login.php">Logout</a>
         </div>
       </div>
     </div>

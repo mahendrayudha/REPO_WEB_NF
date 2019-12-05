@@ -46,11 +46,11 @@
               </label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="index.html">Login</a>
+          <a class="btn btn-primary btn-block" href="index.php">Login</a>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="register.html">Daftar Akun</a>
-          <a class="d-block small" href="forgot-password.html">Lupa kata sandi?</a>
+          <a class="d-block small mt-3" href="register.php">Daftar Akun</a>
+          <a class="d-block small" href="forgot-password.php">Lupa kata sandi?</a>
         </div>
       </div>
     </div>

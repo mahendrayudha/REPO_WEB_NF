@@ -36,11 +36,11 @@
               <label for="inputEmail">Masukan alamat email</label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="login.html">Ubah Kata Sandi</a>
+          <a class="btn btn-primary btn-block" href="login.php">Ubah Kata Sandi</a>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="register.html">Daftar Akun</a>
-          <a class="d-block small" href="login.html">Masuk</a>
+          <a class="d-block small mt-3" href="register.php">Daftar Akun</a>
+          <a class="d-block small" href="login.php">Masuk</a>
         </div>
       </div>
     </div>
