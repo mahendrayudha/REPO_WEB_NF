@@ -100,43 +100,7 @@
         <input type="checkbox" onclick="myFunction()">
         <div class="show">Show Password</div>
 
-        <?php
-            if (isset($_SESSION['kode'])) {
-              if($_SESSION['level'] == "3"){
-        ?>
-          <a href="homepage.php"> <?php echo $_SESSION['NAMA'] ?></a> atau 
-          <a class="rgst" href="homepage.php"> keluar </a> </p>
-        <?php
-          }else{
-            ?>
-            <a href="#" class="logbtn" data-toggle="modal"> <?php echo $_SESSION['NAMA'] ?></a> atau
-            <a class="rgst" href="homepage.php"> keluar </a> </p>
-        <?php
-          }
-            }else{
-        ?>
-              <a href="#login_box" class="modal" data-toggle="modal"> Login </a> atau
-              <a class="rgst" href="homepage.php"> Register </a> </p>
-        <?php
-          }
-        ?>
         
-
-        <?php
-        if (isset($_POST['masuk'])) {
-          $getdata = mysqli_query($conn, "SELECT * From user where 'username' = '$_POST[username]' and 'password' = md5('$_POST[password]')");
-          $hitung  = mysqli_num_rows($getdata);
-          if ($hitung > 0) {
-            $getdatalogin = mysqli_fetch_array($getdata);
-            $_SESSION['kode'] = $getdatalogin['ID_USER'];
-            $_SESSION['level'] = $getdatalogin['LEVEL'];
-            $_SESSION['nama'] = $getdatalogin['NAMA'];
-            if($getdatalogin['level'] == 1) {
-              
-            }
-          }
-        }
-        ?>
         
         <script>
           function myFunction() {

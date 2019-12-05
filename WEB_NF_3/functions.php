@@ -21,7 +21,6 @@ function tambah($data)
         // $id_user = htmlspecialchars($data["ID_ANGGOTA"]);
         $nama = htmlspecialchars($data['nama']);
         $notelp = htmlspecialchars($data['notelp']);
-        $id_status = htmlspecialchars($data['ID_STATUS']);
         $alamat = htmlspecialchars($data['alamat']);
         $email = htmlspecialchars($data['email']);
         $username = htmlspecialchars($data['username']);
@@ -36,7 +35,7 @@ function tambah($data)
         // $qu = mysqli_query($conn, "INSERT INTO user(ID_USER, ID_STATUS, NAMA, NOMOR_TELEPON, ALAMAT, EMAIL,
         //  USERNAME, PASSWORD) VALUES ('', '01', '$nama','$notelp','$alamat','$email','$username','$password')");
 
-        $qu = mysqli_query($conn, "INSERT INTO user VALUES ('', '$id_status', '$nama','$notelp','$alamat','$email','$username','$password', '3')");
+        $qu = mysqli_query($conn, "INSERT INTO user VALUES ('','$nama','$notelp','$alamat','$email','$username','$password', '3')");
 
         return $qu;
 }
