@@ -1,6 +1,6 @@
 <?php
 
-  $koneksi = new mysqli ("localhost","root","","web_naura_farm");
+  $conn = new mysqli ("localhost","root","","naura_farm");
 
 ?>
 
@@ -174,7 +174,7 @@
                 </tfoot> -->
                 <tbody>
                   <?php
-                    $sql = $koneksi->query("select * from user");
+                    $sql = $conn->query("select * from user");
                     while($data = $sql->fetch_assoc()) {
                   ?>
                   <tr>
