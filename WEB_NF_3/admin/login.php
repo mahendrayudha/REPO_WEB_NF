@@ -23,7 +23,7 @@
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Login</div>
+      <div class="card-header">Masuk</div>
       <div class="card-body">
         <form>
           <div class="form-group">
@@ -46,7 +46,7 @@
               </label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="index.php">Login</a>
+          <a class="btn btn-primary btn-block" href="index.php">Masuk</a>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.php">Daftar Akun</a>

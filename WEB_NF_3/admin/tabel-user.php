@@ -1,3 +1,9 @@
+<?php
+
+  $koneksi = new mysqli ("localhost","root","","web_naura_farm");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -117,19 +123,18 @@
           <span>Tabel User</span></a>
       </li>
       <li class="nav-item">
-      <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
           <span>Keluar</span></a>
       </li>
     </ul>
 
     <div id="content-wrapper">
-
       <div class="container-fluid">
 
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="#">Dashboard</a>
+            <a href="index.php">Dashboard</a>
           </li>
           <li class="breadcrumb-item active">Tabel User</li>
         </ol>
@@ -137,8 +142,8 @@
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fas fa-table"></i>
-            Data Table Example</div>
+          <a href="tambah-user.php" class="btn btn-primary">Tambah User</a>
+          </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -152,6 +157,7 @@
                     <th>Username</th>
                     <th>Password</th>
                     <th>Status</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <!-- <tfoot>
@@ -167,51 +173,30 @@
                   </tr>
                 </tfoot> -->
                 <tbody>
+                  <?php
+                    $sql = $koneksi->query("select * from user");
+                    while($data = $sql->fetch_assoc()) {
+                  ?>
                   <tr>
-                    <td>U01</td>
-                    <td>Andrea Santana Adzani</td>
-                    <td>andrea@gmail.com</td>
-                    <td>081222333444</td>
-                    <td>Jember</td>
-                    <td>andrea_santana</td>
-                    <td>12345</td>
-                    <td>belum cuy :v</td>
+                    <td><?php echo $data['ID_USER']; ?></td>
+                    <td><?php echo $data['NAMA']; ?></td>
+                    <td><?php echo $data['EMAIL']; ?></td>
+                    <td><?php echo $data['NOMOR_TELEPON']; ?></td>
+                    <td><?php echo $data['ALAMAT']; ?></td>
+                    <td><?php echo $data['USERNAME']; ?></td>
+                    <td><?php echo $data['PASSWORD']; ?></td>
+                    <td><?php echo $data['LEVEL']; ?></td>
+                    <td>
+                      <a href="" class="btn btn-info" >Edit</a>
+                      <a href="" class="btn btn-danger" >Hapus</a>
+                    </td>
                   </tr>
-                  <tr>
-                    <td>U02</td>
-                    <td>Maulidya Priswanti</td>
-                    <td>maul@gmail.com</td>
-                    <td>081222333444</td>
-                    <td>Jember</td>
-                    <td>maulidya_priswanti</td>
-                    <td>12345</td>
-                    <td>belum cuy :v</td>
-                  </tr>
-                  <tr>
-                    <td>U03</td>
-                    <td>Dicky Irqi Zulkarnaen</td>
-                    <td>dicky@gmail.com</td>
-                    <td>081222333444</td>
-                    <td>Jember</td>
-                    <td>dicky_irqi</td>
-                    <td>12345</td>
-                    <td>belum cuy :v</td>
-                  </tr>
-                  <tr>
-                    <td>U04</td>
-                    <td>Octavian Yudha Mahendra</td>
-                    <td>yudha@gmail.com</td>
-                    <td>081222333444</td>
-                    <td>Jember</td>
-                    <td>mahendrayudha</td>
-                    <td>12345</td>
-                    <td>belum cuy :v</td>
-                  </tr>
+                  <?php } ?>
                 </tbody>
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
         </div>
       </div>
       <!-- /.container-fluid -->
