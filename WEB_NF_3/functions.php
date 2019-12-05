@@ -65,14 +65,14 @@ function tambah_stok($data)
 }
 
 //hapus data stok
-function hapus_data($data)
-{
-mysql_connect("localhost","root","","naura_farm");
-mysql_select_db("naura_farm");
+// function hapus_data($data)
+// {
+// mysql_connect("localhost","root","","naura_farm");
+// mysql_select_db("naura_farm");
 
-//setting timer
-$lama = 3;
-$query ="DELETE FROM transaksi WHERE DATEDIFF(CURDATE(), tanggal) > $lama";
-$hasil = mysql_query($query);
-}
+// //setting timer
+// $lama = 3;
+// $query ="DELETE FROM transaksi WHERE DATEDIFF(CURDATE(), tanggal) > $lama";
+// $hasil = mysql_query($query);
+// }
 ?>
