@@ -36,8 +36,8 @@ function tambah($data)
         //  USERNAME, PASSWORD) VALUES ('', '01', '$nama','$notelp','$alamat','$email','$username','$password')");
 
         $qu = mysqli_query($conn, "INSERT INTO user VALUES ('','$nama','$notelp','$alamat','$email','$username','$password', '3')");
-
-        return $qu;
+        //return $qu;
+        echo "INSERT INTO user VALUES ('','$nama','$notelp','$alamat','$email','$username','$password', '3'))";
 }
 
 //tambah data stok
