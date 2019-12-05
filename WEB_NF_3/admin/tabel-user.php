@@ -1,3 +1,9 @@
+<?php
+
+  $koneksi = new mysqli ("localhost","root","","web_naura_farm");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - 404 Error</title>
+  <title>Admin - Tabel User</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -26,7 +32,7 @@
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand mr-1" href="index.php">Admin Naura Farm</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -35,7 +41,7 @@
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" placeholder="Pencarian..." aria-label="Cari" aria-describedby="basic-addon2">
         <div class="input-group-append">
           <button class="btn btn-primary" type="button">
             <i class="fas fa-search"></i>
@@ -82,7 +88,6 @@
         </div>
       </li>
     </ul>
-
   </nav>
 
   <div id="wrapper">
@@ -90,7 +95,7 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
@@ -98,50 +103,101 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
+          <span>Transaksi</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Login Screens:</h6>
-          <a class="dropdown-item" href="login.html">Login</a>
-          <a class="dropdown-item" href="register.html">Register</a>
-          <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Other Pages:</h6>
-          <a class="dropdown-item active" href="404.html">404 Page</a>
-          <a class="dropdown-item" href="blank.html">Blank Page</a>
+          <a class="dropdown-item" href="#">Pesanan Masuk</a>
+          <a class="dropdown-item" href="#">Verifikasi Pembayaran</a>
+          <a class="dropdown-item" href="#">Pesanan Lunas</a>
+          <a class="dropdown-item" href="#">Pesanan Dibatalkan</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="grafik-penjualan.php">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+          <span>Grafik Penjualan</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="tabel-user.php">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Tabel User</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          <span>Keluar</span></a>
       </li>
     </ul>
 
     <div id="content-wrapper">
-
       <div class="container-fluid">
 
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="index.html">Dashboard</a>
+            <a href="index.php">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">404 Error</li>
+          <li class="breadcrumb-item active">Tabel User</li>
         </ol>
 
-        <!-- Page Content -->
-        <h1 class="display-1">404</h1>
-        <p class="lead">Page not found. You can
-          <a href="javascript:history.back()">go back</a>
-          to the previous page, or
-          <a href="index.html">return home</a>.</p>
-
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+          <div class="card-header">
+          <a href="tambah-user.php" class="btn btn-primary">Tambah User</a>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>ID User</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Nomor Telepon</th>
+                    <th>Alamat</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <!-- <tfoot>
+                  <tr>
+                    <th>ID User</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Nomor Telepon</th>
+                    <th>Alamat</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Status</th>
+                  </tr>
+                </tfoot> -->
+                <tbody>
+                  <?php
+                    $sql = $koneksi->query("select * from user");
+                    while($data = $sql->fetch_assoc()) {
+                  ?>
+                  <tr>
+                    <td><?php echo $data['ID_USER']; ?></td>
+                    <td><?php echo $data['NAMA']; ?></td>
+                    <td><?php echo $data['EMAIL']; ?></td>
+                    <td><?php echo $data['NOMOR_TELEPON']; ?></td>
+                    <td><?php echo $data['ALAMAT']; ?></td>
+                    <td><?php echo $data['USERNAME']; ?></td>
+                    <td><?php echo $data['PASSWORD']; ?></td>
+                    <td><?php echo $data['LEVEL']; ?></td>
+                    <td>
+                      <a href="" class="btn btn-info" >Edit</a>
+                      <a href="" class="btn btn-danger" >Hapus</a>
+                    </td>
+                  </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
+        </div>
       </div>
       <!-- /.container-fluid -->
 
@@ -149,11 +205,10 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © Your Website 2019</span>
+            <span>Copyright © Teknik Informatika POLIJE 2019 | Naura Farm Jember</span>
           </div>
         </div>
       </footer>
-
     </div>
     <!-- /.content-wrapper -->
 
@@ -170,15 +225,15 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Apakah Anda ingin keluar?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">Pilih "Logout" jika Anda ingin keluar, pilih "Batal" jika ingin kembali ke Panel Admin.</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+          <a class="btn btn-primary" href="login.php">Logout</a>
         </div>
       </div>
     </div>
@@ -191,8 +246,15 @@
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 

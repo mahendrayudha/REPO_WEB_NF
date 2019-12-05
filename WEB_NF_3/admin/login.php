@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Lupa Kata Sandi</title>
+  <title>Login Admin Naura Farm</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -20,29 +20,37 @@
 </head>
 
 <body class="bg-dark">
-  
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Ubah Password</div>
+      <div class="card-header">Masuk</div>
       <div class="card-body">
-        <div class="text-center mb-4">
-          <h4>Lupa Kata Sandi?</h4>
-          <p>Masukkan alamat email Anda dan kami akan mengirim cara merubah kata sandi Anda.</p>
-        </div>
         <form>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Enter email address"
-                required="required" autofocus="autofocus">
-              <label for="inputEmail">Masukan alamat email</label>
+              <input type="username" id="inputUsername" class="form-control" placeholder="Username" required="required" autofocus="autofocus">
+              <label for="inputEmail">Username</label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="login.html">Ubah Kata Sandi</a>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="password" id="inputPassword" class="form-control" placeholder="Kata Sandi" required="required">
+              <label for="inputPassword">Kata Sandi</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="remember-me">
+                Ingat saya
+              </label>
+            </div>
+          </div>
+          <a class="btn btn-primary btn-block" href="index.php">Masuk</a>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="register.html">Daftar Akun</a>
-          <a class="d-block small" href="login.html">Masuk</a>
+          <a class="d-block small mt-3" href="register.php">Daftar Akun</a>
+          <a class="d-block small" href="forgot-password.php">Lupa kata sandi?</a>
         </div>
       </div>
     </div>
