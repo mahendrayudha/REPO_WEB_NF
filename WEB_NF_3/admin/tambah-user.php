@@ -143,7 +143,7 @@ $namalengkap = $_POST['alamat'];
 $namalengkap = $_POST['email'];
 $namalengkap = $_POST['username'];
 $namalengkap = $_POST['katasandi'];
-$namalengkap = $_POST['status'];
+// $namalengkap = $_POST['status'];
 $namalengkap = $_POST['tambahuser'];
 ?>
 
