@@ -83,7 +83,7 @@
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <a class="dropdown-item" href="#">Akun</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Keluar</a>
         </div>
       </li>
     </ul>
@@ -94,7 +94,7 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="?page=dashboard">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
@@ -105,212 +105,55 @@
           <span>Transaksi</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="page/transaksi/masuk.php">Pesanan Masuk</a>
-          <a class="dropdown-item" href="page/transaksi/verifikasi.php">Verifikasi Pembayaran</a>
-          <a class="dropdown-item" href="page/transaksi/lunas.php">Pesanan Lunas</a>
-          <a class="dropdown-item" href="page/transaksi/batal.php">Pesanan Dibatalkan</a>
+          <a class="dropdown-item" href="?page=pesanan-masuk">Pesanan Masuk</a>
+          <a class="dropdown-item" href="?page=pesanan-verifikasi">Verifikasi Pembayaran</a>
+          <a class="dropdown-item" href="?page=pesanan-lunas">Pesanan Lunas</a>
+          <a class="dropdown-item" href="?page=pesanan-batal">Pesanan Dibatalkan</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="grafik-penjualan.php">
+        <a class="nav-link" href="?page=grafik-penjualan">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Grafik Penjualan</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="tabel-user.php">
+        <a class="nav-link" href="?page=tabel-user">
           <i class="fas fa-fw fa-table"></i>
           <span>Tabel User</span></a>
       </li>
       <li class="nav-item">
-      <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+      <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">Keluar</a>
           <span>Keluar</span></a>
       </li>
     </ul>
 
-    <!-- rene le -->
-
     <div id="content-wrapper">
       <div class="container-fluid">
 
-        <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="#">Dashboard</a>
-          </li>
-          <li class="breadcrumb-item active">Overview</li>
-        </ol>
+      <?php
+//      $aksi = $_GET['aksi'];
 
-        <!-- Icon Cards-->
-        <div class="row">
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-primary o-hidden h-100">
-              <div class="card-body">
-                <!-- <div class="card-body-icon">
-                  <i class="fas fa-fw fa-comments"></i>
-                </div> -->
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
-                </div>
-                <div class="mr-5">Pesanan Masuk</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-warning o-hidden h-100">
-              <div class="card-body">
-                <!-- <div class="card-body-icon">
-                  <i class="fas fa-fw fa-list"></i>
-                </div> -->
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
-                </div>
-                <div class="mr-5">Verifikasi Pembayaran</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-success o-hidden h-100">
-              <div class="card-body">
-                <!-- <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
-                </div> -->
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
-                </div>
-                <div class="mr-5">Pesanan Lunas</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-danger o-hidden h-100">
-              <div class="card-body">
-                <!-- <div class="card-body-icon">
-                  <i class="fas fa-fw fa-life-ring"></i>
-                </div> -->
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
-                </div>
-                <div class="mr-5">Pesanan Dibatalkan</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
+      if(isset($_GET['page'])) {
+        $page = $_GET['page'];
 
-        <!-- Area Chart Example-->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-chart-area"></i>
-            Grafik Penjualan</div>
-          <div class="card-body">
-            <canvas id="myAreaChart" width="100%" height="30"></canvas>
-          </div>
-          <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
-        </div>
+        if($page == "dashboard") {
+          include "dashboard.php";
+        } elseif ($page == "pesanan-masuk") {
+          include "pesanan-masuk.php";
+        } elseif ($page == "pesanan-verifikasi") {
+          include "pesanan-verifikasi.php";
+        } elseif ($page == "pesanan-lunas") {
+          include "pesanan-lunas.php";
+        } elseif ($page == "pesanan-batal") {
+          include "pesanan-batal.php";
+        } elseif ($page == "grafik-penjualan") {
+          include "grafik-penjualan.php";
+        } elseif ($page == "tabel-user") {
+          include "tabel-user.php";
+        }
+      }
+      ?>
 
-        <!-- DataTables Example -->
-        <!-- <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
-            Tabel Pesanan
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>ID User</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Nomor Telepon</th>
-                    <th>Alamat</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tfoot>
-                  <tr>
-                    <th>ID User</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Nomor Telepon</th>
-                    <th>Alamat</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Status</th>
-                  </tr>
-                </tfoot>
-                <tbody>
-                  <tr>
-                    <td>U01</td>
-                    <td>Andrea Santana Adzani</td>
-                    <td>andrea@gmail.com</td>
-                    <td>081222333444</td>
-                    <td>Jember</td>
-                    <td>andrea_santana</td>
-                    <td>12345</td>
-                    <td>belum cuy :v</td>
-                  </tr>
-                  <tr>
-                    <td>U02</td>
-                    <td>Maulidya Priswanti</td>
-                    <td>maul@gmail.com</td>
-                    <td>081222333444</td>
-                    <td>Jember</td>
-                    <td>maulidya_priswanti</td>
-                    <td>12345</td>
-                    <td>belum cuy :v</td>
-                  </tr>
-                  <tr>
-                    <td>U03</td>
-                    <td>Dicky Irqi Zulkarnaen</td>
-                    <td>dicky@gmail.com</td>
-                    <td>081222333444</td>
-                    <td>Jember</td>
-                    <td>dicky_irqi</td>
-                    <td>12345</td>
-                    <td>belum cuy :v</td>
-                  </tr>
-                  <tr>
-                    <td>U04</td>
-                    <td>Octavian Yudha Mahendra</td>
-                    <td>yudha@gmail.com</td>
-                    <td>081222333444</td>
-                    <td>Jember</td>
-                    <td>mahendrayudha</td>
-                    <td>12345</td>
-                    <td>belum cuy :v</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-        </div> -->
       </div>
       <!-- /.container-fluid -->
 
@@ -344,10 +187,10 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Pilih "Logout" jika Anda ingin keluar, pilih "Batal" jika ingin kembali ke Panel Admin.</div>
+        <div class="modal-body">Pilih "Keluar" jika Anda ingin keluar, pilih "Batal" jika ingin kembali ke Panel Admin.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-          <a class="btn btn-primary" href="login.php">Logout</a>
+          <a class="btn btn-primary" href="login.php">Keluar</a>
         </div>
       </div>
     </div>
