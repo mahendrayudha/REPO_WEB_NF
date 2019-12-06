@@ -1,9 +1,3 @@
-<?php
-
-  $conn = new mysqli ("localhost","root","","naura_farm");
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +30,7 @@
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
-          <a href="tambah-user.php" class="btn btn-primary">Tambah User</a>
+          <a href="?page=user&aksi=tambah" class="btn btn-primary">Tambah User</a>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -54,7 +48,7 @@
                     <th>Aksi</th>
                   </tr>
                 </thead>
-                <!-- <tfoot>
+                <tfoot>
                   <tr>
                     <th>ID User</th>
                     <th>Nama</th>
@@ -65,7 +59,7 @@
                     <th>Password</th>
                     <th>Status</th>
                   </tr>
-                </tfoot> -->
+                </tfoot>
                 <tbody>
                   <?php
                     $sql = $conn->query("select * from user");
