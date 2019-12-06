@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Dashboard</title>
+  <title>Admin - Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,11 +23,8 @@
 </head>
 
 <body id="page-top">
-
   <div id="wrapper">
-
     <div id="content-wrapper">
-
       <div class="container-fluid">
 
         <!-- Icon Cards-->
@@ -145,7 +142,7 @@
         <div class="modal-body">Pilih "Keluar" jika Anda ingin keluar, pilih "Batal" jika ingin kembali ke Panel Admin.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-          <a class="btn btn-primary" href="login.html">Keluar</a>
+          <a class="btn btn-primary" href="login.php">Keluar</a>
         </div>
       </div>
     </div>
