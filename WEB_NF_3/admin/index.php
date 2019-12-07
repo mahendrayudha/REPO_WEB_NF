@@ -1,6 +1,9 @@
 <?php
 
   $conn = new mysqli ("localhost","root","","naura_farm");
+  if($conn === false) {
+    die("Ono error iki lo: " . mysqli_connect_error());
+  }
 
 ?>
 
@@ -136,7 +139,6 @@
       <div class="container-fluid">
 
       <?php
-//      $aksi = $_GET['aksi'];
 
       if(isset($_GET['page'])) {
         $page = $_GET['page'];
@@ -157,6 +159,8 @@
         
         if($aksi == "tambah") {
           include "tambah-user.php";
+        } elseif ($aksi == "edit") {
+          include "edit-user.php";
         }
       }
       ?>
@@ -197,7 +201,7 @@
         <div class="modal-body">Pilih "Keluar" jika Anda ingin keluar, pilih "Batal" jika ingin kembali ke Panel Admin.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-          <a class="btn btn-primary" href="login.php">Keluar</a>
+          <a class="btn btn-danger" href="login.php">Keluar</a>
         </div>
       </div>
     </div>

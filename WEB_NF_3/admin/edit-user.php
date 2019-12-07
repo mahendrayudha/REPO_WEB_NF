@@ -1,3 +1,9 @@
+<!-- <?php
+  $id = $_GET['id'];
+  $sql = $conn->query("select * from user where id='$id'");
+  $tampil = $sql->fetch_assoc();
+?> -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Registrasi User</title>
+  <title>Admin - Ubah Data User</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -18,6 +24,8 @@
   <link href="css/sb-admin.css" rel="stylesheet">
 
 </head>
+
+<!-- value="<?php echo $tampil['NAMA'];?>" -->
 
 <body>
 <div class="card-header">Tambah User</div>
@@ -31,7 +39,8 @@
                placeholder="Nama lengkap"
                required="required"
                name="namalengkap"
-               autofocus="autofocus">
+               autofocus="autofocus"
+               >
         <label for="fullName">Nama Lengkap</label>
       </div>
     </div>
@@ -129,7 +138,7 @@
      class="btn btn-primary"
      name="tambahuser"
      href="login.php">
-     Tambah User
+     Edit User
   </button>
 
   </form>
@@ -145,16 +154,16 @@ $namalengkap = isset($_POST['namalengkap']) ? $_POST['namalengkap'] : null;
 $nomortelepon = isset($_POST['nomortelepon']) ? $_POST['nomortelepon'] : null;
 $alamat = isset($_POST['alamat']) ? $_POST['alamat'] : null;
 $email = isset($_POST['email']) ? $_POST['email'] : null;
-$username = isset($_G_POSTET['username']) ? $_POST['username'] : null;
+$username = isset($_POST['username']) ? $_POST['username'] : null;
 $katasandi = isset($_POST['katasandi']) ? $_POST['katasandi'] : null;
 $tambahuser = isset($_POST['tambahuseralamat']) ? $_POST['tambahuser'] : null;
 
 if(isset ($_POST['tambahuser'])) {
-    $sql = $conn ->query("insert into user (NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD)values('$namalengkap', '$nomortelepon', '$alamat', '$email', '$username', '$katasandi')");
+    $sql = $conn ->query("update user set NAMA='$namalengkap', NOMOR_TELEPON='$nomortelepon', ALAMAT='$alamat', EMAIL='$email', USERNAME='$username', PASSWORD='$katasandi' where id='$id'");
     if($sql){
         ?>
         <script type="text/javascript">
-        alert ("Data Berhasil Disimpan");
+        alert ("Edit Data Berhasil");
         window.location.href="?page=tabel-user";
         </script>
         <?php
