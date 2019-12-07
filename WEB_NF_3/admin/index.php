@@ -99,7 +99,7 @@
           <span>Dashboard</span>
         </a>
       </li>
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
           <span>Transaksi</span>
@@ -110,11 +110,16 @@
           <a class="dropdown-item" href="?page=pesanan-lunas">Pesanan Lunas</a>
           <a class="dropdown-item" href="?page=pesanan-batal">Pesanan Dibatalkan</a>
         </div>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" href="?page=grafik-penjualan">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Grafik Penjualan</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="?page=tabel-pesanan">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Tabel Pesanan</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="?page=tabel-user">
@@ -138,16 +143,10 @@
 
         if($page == "dashboard") {
           include "dashboard.php";
-        } elseif ($page == "pesanan-masuk") {
-          include "pesanan-masuk.php";
-        } elseif ($page == "pesanan-verifikasi") {
-          include "pesanan-verifikasi.php";
-        } elseif ($page == "pesanan-lunas") {
-          include "pesanan-lunas.php";
-        } elseif ($page == "pesanan-batal") {
-          include "pesanan-batal.php";
         } elseif ($page == "grafik-penjualan") {
           include "grafik-penjualan.php";
+        } elseif ($page == "tabel-pesanan") {
+          include "tabel-pesanan.php";
         } elseif ($page == "tabel-user") {
           include "tabel-user.php";
         }

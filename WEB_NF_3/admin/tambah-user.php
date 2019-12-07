@@ -137,14 +137,29 @@
 </div>
 
 <?php
-$namalengkap = $_POST['namalengkap'];
-$namalengkap = $_POST['nomortelepon'];
-$namalengkap = $_POST['alamat'];
-$namalengkap = $_POST['email'];
-$namalengkap = $_POST['username'];
-$namalengkap = $_POST['katasandi'];
-// $namalengkap = $_POST['status'];
-$namalengkap = $_POST['tambahuser'];
+$conn = mysqli_connect("localhost", "root", "", "naura_farm");
+if($conn === false){
+    die("Ono error iki lo: " . mysqli_connect_error());
+}
+
+$namalengkap = isset($_POST['namalengkap']) ? $_POST['namalengkap'] : null;
+$nomortelepon = isset($_POST['nomortelepon']) ? $_POST['nomortelepon'] : null;
+$alamat = isset($_POST['alamat']) ? $_POST['alamat'] : null;
+$email = isset($_POST['email']) ? $_POST['email'] : null;
+$username = isset($_G_POSTET['username']) ? $_POST['username'] : null;
+$katasandi = isset($_POST['katasandi']) ? $_POST['katasandi'] : null;
+$tambahuser = isset($_POST['tambahuseralamat']) ? $_POST['tambahuser'] : null;
+
+if(isset ($_POST['tambahuser'])) {
+    $sql = $conn ->query("insert into user (NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD)values('$namalengkap', '$nomortelepon', '$alamat', '$email', '$username', '$katasandi')");
+    if($sql){
+        ?>
+        <script type="text/javascript">
+        alert ("Data Berhasil Disimpan");
+        </script>
+        <?php
+    }
+}
 ?>
 
   <!-- Bootstrap core JavaScript-->

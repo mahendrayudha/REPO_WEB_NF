@@ -1,3 +1,9 @@
+<?php
+
+  $conn = new mysqli ("localhost","root","","naura_farm");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Tabel Pesanan</title>
+  <title>Admin - Tabel User</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,208 +29,70 @@
 </head>
 
 <body id="page-top">
-
-  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-
-    <a class="navbar-brand mr-1" href="index.php">Admin Naura Farm</a>
-
-    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Pencarian..." aria-label="Cari" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
-    <!-- Navbar -->
-    <ul class="navbar-nav ml-auto ml-md-0">
-      <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-bell fa-fw"></i>
-          <span class="badge badge-danger">9+</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-envelope fa-fw"></i>
-          <span class="badge badge-danger">7</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user-circle fa-fw"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">Settings</a>
-          <a class="dropdown-item" href="#">Activity Log</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Keluar</a>
-        </div>
-      </li>
-    </ul>
-  </nav>
-
   <div id="wrapper">
-
-    <!-- Sidebar -->
-    <ul class="sidebar navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="index.php">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
-        </a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Transaksi</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="#">Pesanan Masuk</a>
-          <a class="dropdown-item" href="#">Verifikasi Pembayaran</a>
-          <a class="dropdown-item" href="#">Pesanan Lunas</a>
-          <a class="dropdown-item" href="#">Pesanan Dibatalkan</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="charts.php">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="tables.php">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tabel User</span></a>
-      </li>
-    </ul>
-
     <div id="content-wrapper">
-
       <div class="container-fluid">
-
-        <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="#">Dashboard</a>
-          </li>
-          <li class="breadcrumb-item active">Tabel User</li>
-        </ol>
 
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fas fa-table"></i>
-            Data Table Example</div>
+          <a href="?page=user&aksi=tambah" class="btn btn-primary">Tambah User</a>
+          </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>ID Transaksi</th>
-                    <th>Nama Pembeli</th>
-                    <th>Tanggal</th>
-                    <th>Status Bayar</th>
-                    <th>Alamat Pengiriman</th>
-                    <th>Opsi Pembayaran</th>
-                    <th>Tujuan Pembayaran</th>
-                    <th>Grand Total</th>
+                    <th>ID User</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Nomor Telepon</th>
+                    <th>Alamat</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
-                <!-- <tfoot>
+                <tfoot>
                   <tr>
-                    <th>ID Transaksi</th>
-                    <th>Nama Pembeli</th>
-                    <th>Tanggal</th>
-                    <th>Status Bayar</th>
-                    <th>Alamat Pengiriman</th>
-                    <th>Opsi Pembayaran</th>
-                    <th>Tujuan Pembayaran</th>
-                    <th>Grand Total</th>
+                    <th>ID User</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Nomor Telepon</th>
+                    <th>Alamat</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Status</th>
                   </tr>
-                </tfoot> -->
+                </tfoot>
                 <tbody>
+                  <?php
+                    $sql = $conn->query("select * from user");
+                    while($data = $sql->fetch_assoc()) {
+                  ?>
                   <tr>
-                    <td>U01</td>
-                    <td>Andrea Santana Adzani</td>
-                    <td>andrea@gmail.com</td>
-                    <td>081222333444</td>
-                    <td>Jember</td>
-                    <td>andrea_santana</td>
-                    <td>12345</td>
-                    <td>belum cuy :v</td>
+                    <td><?php echo $data['ID_USER']; ?></td>
+                    <td><?php echo $data['NAMA']; ?></td>
+                    <td><?php echo $data['EMAIL']; ?></td>
+                    <td><?php echo $data['NOMOR_TELEPON']; ?></td>
+                    <td><?php echo $data['ALAMAT']; ?></td>
+                    <td><?php echo $data['USERNAME']; ?></td>
+                    <td><?php echo $data['PASSWORD']; ?></td>
+                    <td><?php echo $data['LEVEL']; ?></td>
+                    <td>
+                      <a href="" class="btn btn-info" >Edit</a>
+                      <a href="" class="btn btn-danger" >Hapus</a>
+                    </td>
                   </tr>
-                  <tr>
-                    <td>U02</td>
-                    <td>Maulidya Priswanti</td>
-                    <td>maul@gmail.com</td>
-                    <td>081222333444</td>
-                    <td>Jember</td>
-                    <td>maulidya_priswanti</td>
-                    <td>12345</td>
-                    <td>belum cuy :v</td>
-                  </tr>
-                  <tr>
-                    <td>U03</td>
-                    <td>Dicky Irqi Zulkarnaen</td>
-                    <td>dicky@gmail.com</td>
-                    <td>081222333444</td>
-                    <td>Jember</td>
-                    <td>dicky_irqi</td>
-                    <td>12345</td>
-                    <td>belum cuy :v</td>
-                  </tr>
-                  <tr>
-                    <td>U04</td>
-                    <td>Octavian Yudha Mahendra</td>
-                    <td>yudha@gmail.com</td>
-                    <td>081222333444</td>
-                    <td>Jember</td>
-                    <td>mahendrayudha</td>
-                    <td>12345</td>
-                    <td>belum cuy :v</td>
-                  </tr>
+                  <?php } ?>
                 </tbody>
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
-
-        <p class="small text-center text-muted my-5">
-          <em>More table examples coming soon...</em>
-        </p>
-
       </div>
       <!-- /.container-fluid -->
-
-      <!-- Sticky Footer -->
-      <footer class="sticky-footer">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright © Teknik Informatika POLIJE 2019 | Naura Farm Jember</span>
-          </div>
-        </div>
-      </footer>
 
     </div>
     <!-- /.content-wrapper -->
