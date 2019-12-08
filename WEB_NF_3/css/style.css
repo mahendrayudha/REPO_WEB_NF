@@ -271,6 +271,18 @@ button {
   border-radius: 6px;
 }
 
+.out {
+  background-color: red!important;
+  color: white;
+  padding: 6px 14px;
+  margin: 5px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 6px;
+}
+}
+
 button:hover {
   opacity: 0.8;
 }
