@@ -2,7 +2,7 @@
 
   $conn = new mysqli ("localhost","root","","naura_farm");
   if($conn === false) {
-    die("Ono error iki lo: " . mysqli_connect_error());
+    die("ERROR: " . mysqli_connect_error());
   }
 
 ?>
@@ -125,6 +125,11 @@
           <span>Tabel Pesanan</span></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="?page=tabel-produk">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Tabel Produk</span></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="?page=tabel-user">
           <i class="fas fa-fw fa-table"></i>
           <span>Tabel User</span></a>
@@ -151,16 +156,26 @@
           include "tabel-pesanan.php";
         } elseif ($page == "tabel-user") {
           include "tabel-user.php";
+        } elseif ($page == "tabel-produk") {
+          include "tabel-produk.php";
         }
       }
 
       if(isset($_GET['aksi'])) {
         $aksi = $_GET['aksi'];
         
-        if($aksi == "tambah") {
+        if($aksi == "tambah-user") {
           include "tambah-user.php";
-        } elseif ($aksi == "edit") {
+        } elseif ($aksi == "edit-user") {
           include "edit-user.php";
+        } elseif ($aksi == "hapus-user") {
+          include "hapus-user.php";
+        } elseif ($aksi == "tambah-produk") {
+          include "tambah-produk.php";
+        } elseif ($aksi == "edit-produk") {
+          include "edit-produk.php";
+        } elseif ($aksi == "hapus-produk") {
+          include "hapus-produk.php";
         }
       }
       ?>

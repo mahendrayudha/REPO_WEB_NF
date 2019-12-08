@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Tabel User</title>
+  <title>Admin - Tabel Produk</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,54 +36,45 @@
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
-          <a href="?page=user&aksi=tambah-user" class="btn btn-primary">Tambah User</a>
+          <a href="?page=produk&aksi=tambah-produk" class="btn btn-primary">Tambah Produk</a>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>ID User</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Nomor Telepon</th>
-                    <th>Alamat</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Status</th>
+                    <th>ID Produk</th>
+                    <th>Nama Produk</th>
+                    <th>Stok</th>
+                    <th>Harga Beli</th>
+                    <th>Harga Jual</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
-                    <th>ID User</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Nomor Telepon</th>
-                    <th>Alamat</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Status</th>
+                    <th>ID Produk</th>
+                    <th>Nama Produk</th>
+                    <th>Stok</th>
+                    <th>Harga Beli</th>
+                    <th>Harga Jual</th>
                     <th>Aksi</th>
                   </tr>
                 </tfoot>
                 <tbody>
                   <?php
-                    $sql = $conn->query("select * from user");
+                    $sql = $conn->query("select * from produk");
                     while($data = $sql->fetch_assoc()) {
                   ?>
                   <tr>
-                    <td><?php echo $data['ID_USER']; ?></td>
-                    <td><?php echo $data['NAMA']; ?></td>
-                    <td><?php echo $data['EMAIL']; ?></td>
-                    <td><?php echo $data['NOMOR_TELEPON']; ?></td>
-                    <td><?php echo $data['ALAMAT']; ?></td>
-                    <td><?php echo $data['USERNAME']; ?></td>
-                    <td><?php echo $data['PASSWORD']; ?></td>
-                    <td><?php echo $data['LEVEL']; ?></td>
+                    <td><?php echo $data['ID_PRODUK']; ?></td>
+                    <td><?php echo $data['NAMA_PRODUK']; ?></td>
+                    <td><?php echo $data['STOK_PRODUK']; ?></td>
+                    <td><?php echo $data['HARGA_BELI']; ?></td>
+                    <td><?php echo $data['HARGA_JUAL']; ?></td>
                     <td>
-                      <a href="?page=user&aksi=edit-user&id=<?php echo $data['ID_USER'];?>" class="btn btn-info" >Edit</a>
-                      <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="?page=user&aksi=hapus-user&id=<?php echo $data['ID_USER'];?>" class="btn btn-danger" >Hapus</a>
+                      <a href="?page=produk&aksi=edit-produk&id=<?php echo $data['ID_PRODUK'];?>" class="btn btn-info" >Edit</a>
+                      <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="?page=produk&aksi=hapus&id=<?php echo $data['ID_PRODUK'];?>" class="btn btn-danger" >Hapus</a>
                     </td>
                   </tr>
                   <?php } ?>
