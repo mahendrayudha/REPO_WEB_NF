@@ -1,8 +1,8 @@
-<!-- <?php
+<?php
   $id = $_GET['id'];
-  $sql = $conn->query("select * from user where id='$id'");
+  $sql = $conn->query("select * from user where ID_USER='$id'");
   $tampil = $sql->fetch_assoc();
-?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Ubah Data User</title>
+  <title>Admin - Edit Data User</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,12 +25,23 @@
 
 </head>
 
-<!-- value="<?php echo $tampil['NAMA'];?>" -->
-
 <body>
-<div class="card-header">Tambah User</div>
+<div class="card-header">Edit Data User</div>
 <div class="card-body">
   <form method="POST">
+  <div class="form-group">
+      <div class="form-label-group">
+        <input type="text"
+               id="id"
+               class="form-control"
+               placeholder="ID User"
+               required="required"
+               name="namalengkap"
+               value="<?php echo $tampil['ID_USER'];?>" disabled>
+        <label for="id">ID User</label>
+      </div>
+    </div>
+
     <div class="form-group">
       <div class="form-label-group">
         <input type="text"
@@ -40,7 +51,7 @@
                required="required"
                name="namalengkap"
                autofocus="autofocus"
-               >
+               value="<?php echo $tampil['NAMA'];?>">
         <label for="fullName">Nama Lengkap</label>
       </div>
     </div>
@@ -52,7 +63,8 @@
                class="form-control"
                placeholder="Nomor telepon"
                name="nomortelepon"
-               required="required">
+               required="required"
+               value="<?php echo $tampil['NOMOR_TELEPON'];?>">
         <label for="phoneNumber">Nomor Telepon</label>
       </div>
     </div>
@@ -64,7 +76,8 @@
                class="form-control"
                placeholder="Alamat"
                name="alamat"
-                required="required">
+                required="required"
+                value="<?php echo $tampil['ALAMAT'];?>">
         <label for="address">Alamat</label>
       </div>
     </div>
@@ -76,7 +89,8 @@
                class="form-control"
                placeholder="Email"
                name="email"
-               required="required">
+               required="required"
+               value="<?php echo $tampil['EMAIL'];?>">
         <label for="inputEmail">Email</label>
       </div>
     </div>
@@ -88,26 +102,28 @@
                class="form-control"
                placeholder="Username"
                required="required"
-               name="username">
+               name="username"
+               value="<?php echo $tampil['USERNAME'];?>">
         <label for="username">Username</label>
       </div>
     </div>
 
     <div class="form-group">
-      <div class="form-row">
-        <div class="col-md-6">
+      <!-- <div class="form-row">
+        <div class="col-md-6"> -->
           <div class="form-label-group">
             <input type="password"
                    id="inputPassword"
                    class="form-control"
                    placeholder="Kata sandi"
                    name="katasandi"
-                   required="required">
+                   required="required"
+                   value="<?php echo $tampil['PASSWORD'];?>">
             <label for="inputPassword">Kata Sandi</label>
           </div>
-        </div>
+        <!-- </div> -->
 
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
           <div class="form-label-group">
             <input type="password"
                    id="confirmPassword"
@@ -116,8 +132,8 @@
                    required="required">
             <label for="confirmPassword">Konfirmasi Kata Sandi</label>
           </div>
-        </div>
-      </div>
+        </div> -->
+      <!-- </div> -->
     </div>
 
     <!-- <div class="form-group">
@@ -136,8 +152,8 @@
     
   <button type="submit"
      class="btn btn-primary"
-     name="tambahuser"
-     href="login.php">
+     name="edituser"
+     href="tabel-user.php">
      Edit User
   </button>
 
@@ -147,19 +163,19 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "", "naura_farm");
 if($conn === false){
-    die("Ono error iki lo: " . mysqli_connect_error());
+    die("ERROR: " . mysqli_connect_error());
 }
 
-$namalengkap = isset($_POST['namalengkap']) ? $_POST['namalengkap'] : null;
-$nomortelepon = isset($_POST['nomortelepon']) ? $_POST['nomortelepon'] : null;
-$alamat = isset($_POST['alamat']) ? $_POST['alamat'] : null;
-$email = isset($_POST['email']) ? $_POST['email'] : null;
-$username = isset($_POST['username']) ? $_POST['username'] : null;
-$katasandi = isset($_POST['katasandi']) ? $_POST['katasandi'] : null;
-$tambahuser = isset($_POST['tambahuseralamat']) ? $_POST['tambahuser'] : null;
+$namalengkap = isset($_POST['namalengkap']);
+$nomortelepon = isset($_POST['nomortelepon']);
+$alamat = isset($_POST['alamat']);
+$email = isset($_POST['email']);
+$username = isset($_POST['username']);
+$katasandi = isset($_POST['katasandi']);
+$tambahuser = isset($_POST['tambahuser']);
 
-if(isset ($_POST['tambahuser'])) {
-    $sql = $conn ->query("update user set NAMA='$namalengkap', NOMOR_TELEPON='$nomortelepon', ALAMAT='$alamat', EMAIL='$email', USERNAME='$username', PASSWORD='$katasandi' where id='$id'");
+if(isset ($_POST['edituser'])) {
+    $sql = $conn ->query("update user set NAMA='$namalengkap', NOMOR_TELEPON='$nomortelepon', ALAMAT='$alamat', EMAIL='$email', USERNAME='$username', PASSWORD='$katasandi' where ID_USER='$id'");
     if($sql){
         ?>
         <script type="text/javascript">

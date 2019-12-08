@@ -90,7 +90,7 @@
       </div>
     </div> -->
 
-      <button type="submit" class="btn btn-primary" name="tambahuser" href="login.php">
+      <button type="submit" class="btn btn-primary" name="tambahuser" href="tabel-user.php">
         Tambah User
       </button>
 
@@ -100,7 +100,7 @@
   <?php
   $conn = mysqli_connect("localhost", "root", "", "naura_farm");
   if ($conn === false) {
-    die("Ono error iki lo: " . mysqli_connect_error());
+    die("ERROR: " . mysqli_connect_error());
   }
 
   $namalengkap = isset($_POST['namalengkap']) ? $_POST['namalengkap'] : null;
@@ -109,7 +109,7 @@
   $email = isset($_POST['email']) ? $_POST['email'] : null;
   $username = isset($_POST['username']) ? $_POST['username'] : null;
   $katasandi = isset($_POST['katasandi']) ? $_POST['katasandi'] : null;
-  $tambahuser = isset($_POST['tambahuseralamat']) ? $_POST['tambahuser'] : null;
+  $tambahuser = isset($_POST['tambahuser']) ? $_POST['tambahuser'] : null;
 
   if (isset($_POST['tambahuser'])) {
     $sql = $conn->query("insert into user (NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD)
