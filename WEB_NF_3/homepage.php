@@ -55,19 +55,12 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
             <a class="nav-link js-scroll-trigger" href="#kontak_kami">Kontak Kami</a>
           </li>
           <div class="dropdown">
-            <!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-              <a href="#"><img src="img/user.png" style="width: 30px; "></a></button>
-            <ul class="dropdown-menu">
-              <li><a href="homepage.php">Register</a></li>
-              <li><a href=""><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                  Login
-                </button>
-                </a> -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user-circle fa-fw"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <!-- Session utk merubah nav akun login/register menjadi akun/keluar saat kondisi user sedang login -->
                 <?php
                 if (isset($_SESSION['login'])) {
                   ?>
@@ -76,14 +69,9 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
                 <?php
                 } else {
                   ?>
-                  <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Login</a>
-                  <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'">Register</a>
+                  <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Masuk</a>
+                  <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'">Daftar</a>
                 <?php } ?>
-                <!-- <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-              </div> -->
-            </li>
-
             </li>
         </ul>
       </div>
@@ -101,24 +89,24 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
 
         <!-- /*/////////////////////////////////// FORM LOGIN //////////////////////////////////*/ -->
 
+        <!-- Session utk merubah button masuk menjadi keluar saat kondisi user sedang login -->
         <?php
-        if (isset($_SESSION['login'])) {
-          ?>
-          <a href="keluar.php">
-            <button class="out" style="width:auto;">
-              Keluar
-            </button>
-          </a>
-        <?php
-        } else {
-          ?>
-          <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-            Masuk
-          </button>
-        <?php
-        }
+          if (isset($_SESSION['login'])) {
+            ?>
+            <a href="keluar.php">
+              <button class="out" style="width:auto;">
+                Keluar
+              </button>
+            </a>
+              <?php
+                } else {
+                  ?>
+                  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+                    Masuk
+                  </button>
+              <?php
+          }
         ?>
-
       </div>
     </div>
   </header>
@@ -137,7 +125,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
         <input type="text" placeholder="Enter Username" name="nama" required />
 
         <div class="text"></div><label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" value="" id="myInput" required />
+        <input type="password" placeholder="Enter Password" name="psw" value="" id="myInput" required minlength="8" maxlength="20"/>
         <input type="checkbox" onclick="myFunction()">
         <div class="show">Show Password</div>
 
@@ -160,12 +148,6 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       </div>
 
       <div class="container" style="background-color:#f1f1f1">
-        <!-- <button
-          type="button"
-          onclick="document.getElementById('id01').style.display='none'"
-          class="cancelbtn">
-          Cancel
-        </button> -->
         <span class="psw"><a href="#" onclick="document.getElementById('id03').style.display='block'">Lupa Password</a></span>
         <span class="rgst"><a href="#" onclick="hide()">Daftar Sekarang</a></span>
         <script>
@@ -209,10 +191,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
         <input type="text" placeholder="Enter Username" name="username" required />
 
         <div class="text4"></div><label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" value="" id="my-Input" required />
-
-        <!-- <div class="text5"></div><label for="psw"><b>Konfirmasi Password</b></label>
-        <input type="password" placeholder="Konfirmasi Password" value="" id="myInput" required /> -->
+        <input type="password" placeholder="Enter Password" name="psw" value="" id="my-Input" required  minlength="8" maxlength="20"/>
 
         <input type="checkbox" onclick="myfunction()">
         <div class="show">Show Password</div>
@@ -304,7 +283,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
   if (isset($_POST['daftar'])) {
     $sql = $conn->query("insert into user (NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD)
             values('$nama','$notelp','$alamat','$email','$username','$password')");
-    
+
     if ($sql) {
       ?>
       <script type="text/javascript">
