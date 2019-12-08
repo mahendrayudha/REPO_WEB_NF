@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $conn = mysqli_connect("localhost","root","","naura_farm");
 
 function query($query)
@@ -37,7 +37,7 @@ function tambah($data)
         // values ('','$nama','$notelp','$alamat','$email','$username','$password')");
         // return $qu;
         // echo "INSERT INTO user VALUES ('','$nama','$notelp','$alamat','$email','$username','$password', '3'))";
-        if (isset($_POST['tambahuser'])) {
+        if (isset($_POST['daftar'])) {
             $sql = $conn->query("insert into user (NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD)
             values('','$nama','$notelp','$alamat','$email','$username','$password')");
             if ($sql) {
