@@ -2,7 +2,9 @@
 <html lang="en">
 <?php
 session_start();
+$conn = mysqli_connect("localhost", "root", "", "naura_farm");
 ?>
+
 <head>
 
   <meta charset="utf-8">
@@ -27,7 +29,8 @@ session_start();
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
+    <div class="container-fluid" style="padding-left: 100px!important;
+    padding-right: 100px!important;">
       <div class="logo">
         <a class="navbar-brand js-scroll-trigger" href="#page-top"> <img src="img/logo_nf.png" style="width: 60px;">
           Naura Farm
@@ -65,8 +68,17 @@ session_start();
                 <i class="fas fa-user-circle fa-fw"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Login</a>
-                <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'">Register</a>
+                <?php
+                if (isset($_SESSION['login'])) {
+                  ?>
+                  <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Akun</a>
+                  <a class="dropdown-item" href="keluar.php">Keluar</a>
+                <?php
+                } else {
+                  ?>
+                  <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Login</a>
+                  <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'">Register</a>
+                <?php } ?>
                 <!-- <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
               </div> -->
@@ -89,9 +101,24 @@ session_start();
 
         <!-- /*/////////////////////////////////// FORM LOGIN //////////////////////////////////*/ -->
 
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-          Masuk
-        </button>
+        <?php
+        if (isset($_SESSION['login'])) {
+          ?>
+          <a href="keluar.php">
+            <button class="out" style="width:auto;">
+              Keluar
+            </button>
+          </a>
+        <?php
+        } else {
+          ?>
+          <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+            Masuk
+          </button>
+        <?php
+        }
+        ?>
+
       </div>
     </div>
   </header>
@@ -242,7 +269,7 @@ session_start();
     $password = $_POST['psw'];
 
 
-    $result = mysqli_query($conn, "SELECT * FROM user WHERE USERNAME = '$username' AND PASSWORD = '$password'");
+    $result =  $conn->query("SELECT * FROM user WHERE USERNAME = '$username' AND PASSWORD = '$password'");
 
     if (mysqli_num_rows($result) === 1) {
       //cek password
@@ -250,7 +277,7 @@ session_start();
       $_SESSION["login"] = true;
       $_SESSION['user'] = $row["NAMA"];
       // header("location: homepage.php");
-      echo "<script>alert ('Login Berhasil')</script>";
+      echo "<script>alert ('Login Berhasil');window.location.href='homepage.php'</script>";
     } else {
       echo "<script>alert ('Login Gagal')</script>";
       // header("location: login.php?gagal");
@@ -259,33 +286,34 @@ session_start();
   ?>
 
   <!-- ////////////////////////////////////////DATABASE REGISTER////////////////////////////////////////// -->
-    <?php
+  <?php
   $conn = mysqli_connect("localhost", "root", "", "naura_farm");
   if ($conn === false) {
     die("Ono error iki lo: " . mysqli_connect_error());
   }
-    global $conn;
-        // $id_user = htmlspecialchars($data["ID_ANGGOTA"]);
-        $nama = htmlspecialchars($data['nama']) ? $_POST['nama'] : null;
-        $notelp = htmlspecialchars($data['notelp']) ? $_POST['notelp'] : null;
-        $alamat = htmlspecialchars($data['alamat']) ? $_POST['alamat'] : null;
-        $email = htmlspecialchars($data['email']) ? $_POST['email'] : null; 
-        $username = htmlspecialchars($data['username']) ? $_POST['username'] : null;
-        $password = htmlspecialchars($data['psw']) ? $_POST['psw'] : null;
-        $daftar = isset($_POST['daftar']) ? $_POST['daftar'] : null;
-        
-        if (isset($_POST['daftar'])) {
-            $sql = $conn->query("insert into user (NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD)
-            values('','$nama','$notelp','$alamat','$email','$username','$password')");
-            if ($sql) {
-              ?>
-              <script type="text/javascript">
-                alert("Data Berhasil Disimpan");
-                window.location.href = "homepage.php";
-              </script>
-          <?php
-            }
-          }
+  global $conn;
+  // $id_user = htmlspecialchars($data["ID_ANGGOTA"]);
+  $nama = htmlspecialchars(isset($_POST['nama'])) ? $_POST['nama'] : null;
+  $notelp = htmlspecialchars(isset($_POST['notelp'])) ? $_POST['notelp'] : null;
+  $alamat = htmlspecialchars(isset($_POST['alamat'])) ? $_POST['alamat'] : null;
+  $email = htmlspecialchars(isset($_POST['email'])) ? $_POST['email'] : null;
+  $username = htmlspecialchars(isset($_POST['username'])) ? $_POST['username'] : null;
+  $password = htmlspecialchars(isset($_POST['psw'])) ? $_POST['psw'] : null;
+  $daftar = isset($_POST['daftar']) ? $_POST['daftar'] : null;
+
+  if (isset($_POST['daftar'])) {
+    $sql = $conn->query("insert into user (NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD)
+            values('$nama','$notelp','$alamat','$email','$username','$password')");
+    
+    if ($sql) {
+      ?>
+      <script type="text/javascript">
+        alert("Data Berhasil Disimpan");
+        window.location.href = "homepage.php";
+      </script> -->
+  <?php
+    }
+  }
   ?>
   <!-- cek tombol sudah ditekan atau belum
   if (isset($_POST["daftar"])) {
