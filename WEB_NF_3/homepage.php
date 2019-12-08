@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+?>
 <head>
 
   <meta charset="utf-8">
@@ -198,7 +201,7 @@
           }
         </script>
 
-        <button type="submit" name="daftar">Daftar</button>
+        <button type="submit" name="daftar" href="homepage.php">Daftar</button>
       </div>
       <div class="container" style="background-color:#f1f1f1">
         <!-- <button
@@ -256,26 +259,52 @@
   ?>
 
   <!-- ////////////////////////////////////////DATABASE REGISTER////////////////////////////////////////// -->
-  <?php
-
-  //cek tombol sudah ditekan atau belum
+    <?php
+  $conn = mysqli_connect("localhost", "root", "", "naura_farm");
+  if ($conn === false) {
+    die("Ono error iki lo: " . mysqli_connect_error());
+  }
+    global $conn;
+        // $id_user = htmlspecialchars($data["ID_ANGGOTA"]);
+        $nama = htmlspecialchars($data['nama']) ? $_POST['nama'] : null;
+        $notelp = htmlspecialchars($data['notelp']) ? $_POST['notelp'] : null;
+        $alamat = htmlspecialchars($data['alamat']) ? $_POST['alamat'] : null;
+        $email = htmlspecialchars($data['email']) ? $_POST['email'] : null; 
+        $username = htmlspecialchars($data['username']) ? $_POST['username'] : null;
+        $password = htmlspecialchars($data['psw']) ? $_POST['psw'] : null;
+        $daftar = isset($_POST['daftar']) ? $_POST['daftar'] : null;
+        
+        if (isset($_POST['daftar'])) {
+            $sql = $conn->query("insert into user (NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD)
+            values('','$nama','$notelp','$alamat','$email','$username','$password')");
+            if ($sql) {
+              ?>
+              <script type="text/javascript">
+                alert("Data Berhasil Disimpan");
+                window.location.href = "homepage.php";
+              </script>
+          <?php
+            }
+          }
+  ?>
+  <!-- cek tombol sudah ditekan atau belum
   if (isset($_POST["daftar"])) {
 
-    //cek data berhasil ditambah?
-    if (tambah($_POST) > 0) {
-      echo "<script>
-                alert('Data Berhasil Ditambahkan');
-                document.location.href = 'homepage.php';
-                </script>";
-    } else {
-      echo "<script>alert('Gagal Menambahkan Data')</script>";
-    }
-  }
-  if (isset($_POST["batal"])) {
-    header("Location: homepage.php");
-    exit;
-  }
-  ?>
+  //cek data berhasil ditambah?
+if (tambah($_POST) > 0) {
+  echo "<script>
+alert('Data Berhasil Ditambahkan');
+document.location.href = 'homepage.php';
+</script>";
+} else {
+echo "<script>alert('Gagal Menambahkan Data')</script>";
+}
+}
+if (isset($_POST["batal"])) {
+   header("Location: homepage.php");
+  /exit;
+} -->
+
 
 
 
