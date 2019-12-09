@@ -272,7 +272,7 @@ require 'functions.php'; ?>
         <div class="col-lg-8 mx-auto">
           <img src="img/logo_nf.png" class="img-fluid" alt="Logo Naura Farm" style="width: 466px;">
           <h2 class="text-white mb-4">Apa itu Naura Farm?</h2>
-          <p class="text-white-50">Naura Farm adalah perusahaan buah naga yang berada di kabupaten Jember
+          <p class="text-white-50" style="text-align:justify">Naura Farm adalah perusahaan buah naga yang berada di kabupaten Jember
             tepatnya di desa Karangrejo, Sumbersari. Perusahaan ini menghasilkan buah naga organik. Tanaman
             buah naga merupakan salah satu produk holtikultura yang termasuk komoditas Internasional. Tentu
             saja menjadi pertimbangan untuk agribisnis, mengingat harga jualnya yang tinggi dan bisa juga
@@ -298,7 +298,7 @@ require 'functions.php'; ?>
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
                 <h4 class="text-white">Buah Naga Merah</h4>
-                <p class="mb-0 text-white-50">Disebut dengan buah naga merah, karena daging buahnya berwarna merah keunggulan. warna kulit buahnya cenderung gelap. buah ini rasanya manis sekali. Meskipun begitu, baik untuk kita konsumsi karena kadar gula alaminya tidak terlalu bnyak. Buah naga merah mengandung antioksidan, kalsium, fosfor yang tinggi. Selain itu, buah ini juga mengandung betasianin yang bisa melindungi tubuh kita dari peyakit hati.</p>
+                <p class="mb-0 text-white-50" style="text-align:justify">Disebut dengan buah naga merah, karena daging buahnya berwarna merah keunggulan. warna kulit buahnya cenderung gelap. buah ini rasanya manis sekali. Meskipun begitu, baik untuk kita konsumsi karena kadar gula alaminya tidak terlalu bnyak. Buah naga merah mengandung antioksidan, kalsium, fosfor yang tinggi. Selain itu, buah ini juga mengandung betasianin yang bisa melindungi tubuh kita dari peyakit hati.</p>
                 <hr class="d-none d-lg-block mb-0 ml-0">
               </div>
             </div>
@@ -316,7 +316,7 @@ require 'functions.php'; ?>
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-right">
                 <h4 class="text-white">Buah Naga Putih</h4>
-                <p class="mb-0 text-white-50">Buah naga putih, daging buahnya berwarna putih. kulit buahnya berwarna merah muda yang lebih cerah daripada buah naga merah. Ukurannya pun lebih kecil dibandingkan buah naga merah. Buah naga putih kaya akan vitamin C dan antioksidan. Hanya saja, antioksidan di dalam buah naga putih lebih sedikit. jadi, jika dibandingkan buah naga putih dan merah, buah naga merah kandugannya lebih banyak.</p>
+                <p class="mb-0 text-white-50" style="text-align:justify">Buah naga putih, daging buahnya berwarna putih. kulit buahnya berwarna merah muda yang lebih cerah daripada buah naga merah. Ukurannya pun lebih kecil dibandingkan buah naga merah. Buah naga putih kaya akan vitamin C dan antioksidan. Hanya saja, antioksidan di dalam buah naga putih lebih sedikit. jadi, jika dibandingkan buah naga putih dan merah, buah naga merah kandugannya lebih banyak.</p>
                 <hr class="d-none d-lg-block mb-0 mr-0">
               </div>
             </div>
@@ -335,7 +335,7 @@ require 'functions.php'; ?>
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
                 <h4 class="text-white">Jus Buah Naga</h4>
-                <p class="mb-0 text-white-50">Cara mengkonsumsi buah naga sangatlah mudah, salah satu cara mengkonsumsinya adalah dengan menjadikannya jus buah naga. Dengan dijadikannya jus buah kita jadi mudah untuk membawanya kemana – mana tanpa takut buah naga tersebut terhimpit oleh barang bawaan yang lainnya. Dan nutrisi yang terkandung di dalamnya tidak akan hancur atau hilang.</p>
+                <p class="mb-0 text-white-50" style="text-align:justify">Cara mengkonsumsi buah naga sangatlah mudah, salah satu cara mengkonsumsinya adalah dengan menjadikannya jus buah naga. Dengan dijadikannya jus buah kita jadi mudah untuk membawanya kemana – mana tanpa takut buah naga tersebut terhimpit oleh barang bawaan yang lainnya. Dan nutrisi yang terkandung di dalamnya tidak akan hancur atau hilang.</p>
                 <hr class="d-none d-lg-block mb-0 ml-0">
               </div>
             </div>
@@ -353,7 +353,7 @@ require 'functions.php'; ?>
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-right">
                 <h4 class="text-white">Selai Buah Naga</h4>
-                <p class="mb-0 text-white-50">Selai buah naga adalah salah satu jenis makanan awetan berupa sari buah yang sudah dihancurkan, ditambah gula dan dimasak hingga kental atau berbentuk setengah padat. Selai tidak dimakan begitu saja, melainkan untuk dioleskan di atas roti tawar atau sebagai isi roti manis, isian pada kue kering seperti nastar dan pemanis pada minuman seperti yogurt.</p>
+                <p class="mb-0 text-white-50" style="text-align:justify">Selai buah naga adalah salah satu jenis makanan awetan berupa sari buah yang sudah dihancurkan, ditambah gula dan dimasak hingga kental atau berbentuk setengah padat. Selai tidak dimakan begitu saja, melainkan untuk dioleskan di atas roti tawar atau sebagai isi roti manis, isian pada kue kering seperti nastar dan pemanis pada minuman seperti yogurt.</p>
                 <hr class="d-none d-lg-block mb-0 mr-0">
               </div>
             </div>
@@ -373,7 +373,7 @@ require 'functions.php'; ?>
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
                 <h4 class="text-white">Keripik Buah Naga Merah</h4>
-                <p class="mb-0 text-white-50"> Salah satu olahan makanan yang terbuat dari buah naga adalah keripik buah naga. Olahan makanan keripik buah naga ini memiliki cita rasa yang unik. Keripik buah naga ini memang sangat cocok untuk anda jadikan camilan yang bisa anda nikmati bersama keluarga tercinta anda atau bersama rekan terdekat anda. Olahan camilan keripik buah naga memang sudah tidak asing lagi, namun keripik buah naga bisa dibilang ini masih jarang kita jumpai. Namun meskipun olahan keripik buah naga ini jarang kita temui olahan makanan ini juga menjadi salah satu olahan makanan yang difavoritkan oleh masyarakat mulai dari kalangan anak - anak hingga kalangan dewasa. </p>
+                <p class="mb-0 text-white-50" style="text-align:justify"> Salah satu olahan makanan yang terbuat dari buah naga adalah keripik buah naga. Olahan makanan keripik buah naga ini memiliki cita rasa yang unik. Keripik buah naga ini memang sangat cocok untuk anda jadikan camilan yang bisa anda nikmati bersama keluarga tercinta anda atau bersama rekan terdekat anda. Olahan camilan keripik buah naga memang sudah tidak asing lagi, namun keripik buah naga bisa dibilang ini masih jarang kita jumpai. Namun meskipun olahan keripik buah naga ini jarang kita temui olahan makanan ini juga menjadi salah satu olahan makanan yang difavoritkan oleh masyarakat mulai dari kalangan anak - anak hingga kalangan dewasa. </p>
                 <hr class="d-none d-lg-block mb-0 ml-0">
               </div>
             </div>
@@ -399,7 +399,7 @@ require 'functions.php'; ?>
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
             <h4>Agrowisata</h4>
-            <p class="text-black-50 mb-0">Salah suatu fasilitas kunjungan yang di tawarkan oleh Naura Farm yang di kombinasikan menjadi tempat destinasi yang menarik bagi masyarakat. Pengunjung dapat belajar tentang merawat buah naga, menanam buah naga serta, menikmati buah segar hasil petikan langsung dari pohonnya. Selain itu, pengunjung juga bisa sekedar jalan-jalan dan menghirup udara segar.</p>
+            <p class="text-black-50 mb-0" style="text-align:justify">Salah suatu fasilitas kunjungan yang di tawarkan oleh Naura Farm yang di kombinasikan menjadi tempat destinasi yang menarik bagi masyarakat. Pengunjung dapat belajar tentang merawat buah naga, menanam buah naga serta, menikmati buah segar hasil petikan langsung dari pohonnya. Selain itu, pengunjung juga bisa sekedar jalan-jalan dan menghirup udara segar.</p>
           </div>
         </div>
 
@@ -411,7 +411,7 @@ require 'functions.php'; ?>
           <div class="col-xl-4 col-lg-5">
             <div class="featured-text text-center text-lg-left">
               <h4>Petik Buah</h4>
-              <p class="text-black-50 mb-0">Salah satu fasilitas yang di tawarkan oleh Naura Farm adalah petik buah.Dimana pengunjung dapat melakukan pemetikan buah naga langsung dari pohonnya. Hasil yang di dapat bisa langsung dibawa pulang dengan harga yang terjangkau. Sehingga pengunjung tidak usah khawatir tentang kualitas buah yang ada di Naura Farm.</p>
+              <p class="text-black-50 mb-0" style="text-align:justify">Salah satu fasilitas yang di tawarkan oleh Naura Farm adalah petik buah.Dimana pengunjung dapat melakukan pemetikan buah naga langsung dari pohonnya. Hasil yang di dapat bisa langsung dibawa pulang dengan harga yang terjangkau. Sehingga pengunjung tidak usah khawatir tentang kualitas buah yang ada di Naura Farm.</p>
             </div>
           </div>
         </div>
@@ -425,7 +425,7 @@ require 'functions.php'; ?>
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
             <h4>Penjualan Produk</h4>
-            <p class="text-black-50 mb-0">Kita juga menjual Produk Buah Naga merah dan putih yang kita produksi sendri dan beberapa produk olahan yang di buat oleh Naura Farm yaitu selai buah, keripik buah, dan jus buah naga.</p>
+            <p class="text-black-50 mb-0" style="text-align:justify">Kita juga menjual Produk Buah Naga merah dan putih yang kita produksi sendri dan beberapa produk olahan yang di buat oleh Naura Farm yaitu selai buah, keripik buah, dan jus buah naga.</p>
           </div>
         </div>
       </div>
