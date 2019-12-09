@@ -112,8 +112,8 @@
   $tambahuser = isset($_POST['tambahuser']) ? $_POST['tambahuser'] : null;
 
   if (isset($_POST['tambahuser'])) {
-    $sql = $conn->query("insert into user (NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD)
-    values('$namalengkap', '$nomortelepon', '$alamat', '$email', '$username', '$katasandi')");
+    $sql = $conn->query("INSERT INTO user (NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD, LEVEL)
+    values('$namalengkap', '$nomortelepon', '$alamat', '$email', '$username', '$katasandi', '2')");
     if ($sql) {
       ?>
       <script type="text/javascript">

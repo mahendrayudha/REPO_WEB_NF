@@ -1,3 +1,19 @@
+<?php
+$carikode = mysqli_query($conn, "SELECT max(ID_PRODUK) FROM produk") or die(mysqli_error($conn));
+$datakode = mysqli_fetch_array($carikode);
+if($datakode)
+{
+        $nilaikode = substr($datakode[0], 2);
+        $kode = (int) $nilaikode;
+        $kode = $kode + 1;
+        $hasilkode = "P" .str_pad($kode, 1, "0", STR_PAD_LEFT);
+}
+else
+{
+        $hasilkode = "P01";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,6 +67,20 @@
         </div>
       </div>
 
+      <!-- <div class="form-group">
+      <div class="form-label-group">
+        <select id="status"
+                class="form-control"
+                required="required"
+                name="status"
+                autofocus="autofocus">
+        <label for="status">Status</label>
+        <option value="admin">1 Admin</option>
+        <option value="karyawan">2 Karyawan</option>
+        <option value="user">3 User</option>
+      </div>
+    </div> -->
+
       <button type="submit" class="btn btn-primary" name="tambahproduk" href="tabel-produk.php">
         Tambah Produk
       </button>
@@ -64,14 +94,14 @@
     die("ERROR: " . mysqli_connect_error());
   }
 
-  $namaproduk = isset($_POST['namaproduk']);
-  $stokproduk = isset($_POST['stokproduk']);
-  $hargabeli = isset($_POST['hargabeli']);
-  $hargajual = isset($_POST['hargajual']);
+  $namaproduk = isset($_POST['namaproduk']) ? $_POST['namaproduk'] : null;
+  $stokproduk = isset($_POST['nomortelepon']) ? $_POST['nomortelepon'] : null;
+  $hargabeli = isset($_POST['hargabeli']) ? $_POST['hargabeli'] : null;
+  $hargajual = isset($_POST['hargajual']) ? $_POST['hargajual'] : null;
   $tambahproduk = isset($_POST['tambahproduk']) ? $_POST['tambahproduk'] : null;
 
-  if (isset($_POST['tambaproduk'])) {
-    $sql = $conn->query("insert into produk (NAMA_PRODUK, STOK_PRODUK, HARGA_BELI, HARGA_JUAL)
+  if (isset($_POST['tambahproduk'])) {
+    $sql = $conn->query("INSERT INTO produk (NAMA_PRODUK, STOK_PRODUK, HARGA_BELI, HARGA_JUAL)
     values('$namaproduk', '$stokproduk', '$hargabeli', '$hargajual')");
     if ($sql) {
       ?>
