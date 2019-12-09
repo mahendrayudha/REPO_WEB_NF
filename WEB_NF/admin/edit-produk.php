@@ -1,6 +1,11 @@
 <?php
+$conn = mysqli_connect("localhost", "root", "", "naura_farm");
+if($conn === false){
+    die("ERROR: " . mysqli_connect_error());
+}
+
   $id = $_GET['id'];
-  $sql = $conn->query("select * from produk where ID_PRODUK='$id'");
+  $sql = $conn->query("SELECT * FROM produk WHERE ID_PRODUK='$id'");
   $tampil = $sql->fetch_assoc();
 ?>
 
@@ -29,32 +34,30 @@
 <div class="card-header">Edit Data Produk</div>
 <div class="card-body">
   <form method="POST">
-  <div class="form-group">
-      <div class="form-label-group">
-        <input type="text"
-               id="id"
-               class="form-control"
-               placeholder="ID Produk"
-               required="required"
-               name="idproduk"
-               value="<?php echo $tampil['ID_PRODUK'];?>" disabled>
-        <label for="id">ID PRODUK</label>
+      <div class="form-group">
+        <div class="form-label-group">
+          <input type="text"
+                 id="idproduk"
+                 class="form-control"
+                 placeholder="ID Produk"
+                 required="required"
+                 name="idproduk"
+                 value="<?php echo $tampil['ID_PRODUK'];?>" disabled>
+          <label for="idproduk">ID Produk</label>
+        </div>
       </div>
-    </div>
 
-    <div class="form-group">
-      <div class="form-label-group">
-        <input type="text"
-               id="namaproduk"
-               class="form-control"
-               placeholder="Nama produk"
-               required="required"
-               name="namaproduk"
-               autofocus="autofocus"
-               value="<?php echo $tampil['NAMA_PRODUK'];?>">
-        <label for="namaproduk">Nama Produk</label>
+      <div class="form-group">
+        <div class="form-label-group">
+          <input type="text" id="namaproduk"
+                 class="form-control"
+                 placeholder="Nama produk"
+                 required="required"
+                 name="namaproduk"
+                 value="<?php echo $tampil['NAMA_PRODUK'];?>">
+          <label for="namaproduk">Nama Produk</label>
+        </div>
       </div>
-    </div>
     
     <div class="form-group">
       <div class="form-label-group">
@@ -72,7 +75,7 @@
     <div class="form-group">
       <div class="form-label-group">
         <input type="number"
-               id="address"
+               id="hargabeli"
                class="form-control"
                placeholder="Harga beli"
                name="hargabeli"
@@ -94,11 +97,12 @@
         <label for="hargajual">Harga Jual</label>
       </div>
     </div>
-    
+
   <button type="submit"
      class="btn btn-primary"
      name="editproduk"
-     href="tabel-produk.php">
+     href="tabel-produk.php"
+     value="">
      Edit Produk
   </button>
 
@@ -106,28 +110,39 @@
 </div>
 
 <?php
-$conn = mysqli_connect("localhost", "root", "", "naura_farm");
-if($conn === false){
-    die("ERROR: " . mysqli_connect_error());
+
+if( isset ($_POST["editproduk"])) {
+  //cek data berhasil ditambah?
+  if('editproduk'($_POST) > 0){
+    echo "<script>
+    alert('Data Berhasil Diubah');
+    document.location.href = '?page=tabel-produk';
+    </script>";
+  } else {
+      echo "<script>alert('Gagal Mengubah Data')</script>";
+    }   
 }
 
-$namaproduk = isset($_POST['namaprooduk']);
-$stokproduk = isset($_POST['stokproduk']);
-$hargabeli = isset($_POST['hargabeli']);
-$hargajual = isset($_POST['hargajual']);
-$tambahproduk = isset($_POST['tambahproduk']);
-
-if(isset ($_POST['editproduk'])) {
-    $sql = $conn ->query("update produk set NAMA_PRODUK='$namaproduk', STOK_PRODUK='$stokproduk', HARGA_BELI='$hargabeli', HARGA_JUAL='$hargajual' where ID_PRODUK='$id'");
-    if($sql){
-        ?>
-        <script type="text/javascript">
-        alert ("Edit Data Berhasil");
-        window.location.href="?page=tabel-produk";
-        </script>
-        <?php
-    }
+//ubah data
+function editproduk($data) {
+  global $conn;
+    $id = isset($_GET['id']) ? $_GET['id'] : null;
+    $namaproduk = isset($_POST['namaproduk']) ? $_POST['namaproduk'] : null;
+    $stokproduk = isset($_POST['stokproduk']) ? $_POST['stokproduk'] : null;
+    $hargabeli = isset($_POST['hargabeli']) ? $_POST['hargabeli'] : null;
+    $hargajual = isset($_POST['hargajual']) ? $_POST['hargajual'] : null;
+        
+$query = "UPDATE produk SET
+  ID_PRODUK='$id',
+  NAMA_PRODUK='$namaproduk',
+  STOK_PRODUK='$stokproduk',
+  HARGA_BELI='$hargabeli',
+  HARGA_JUAL='$hargajual',
+  WHERE ID_PRODUK='$id'";
+$sql= mysqli_query($conn, $query);
+return mysqli_affected_rows($conn);
 }
+
 ?>
 
   <!-- Bootstrap core JavaScript-->

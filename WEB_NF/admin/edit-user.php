@@ -1,4 +1,9 @@
 <?php
+$conn = mysqli_connect("localhost", "root", "", "naura_farm");
+if($conn === false){
+    die("ERROR: " . mysqli_connect_error());
+}
+
   $id = $_GET['id'];
   $sql = $conn->query("select * from user where ID_USER='$id'");
   $tampil = $sql->fetch_assoc();
@@ -29,32 +34,30 @@
 <div class="card-header">Edit Data User</div>
 <div class="card-body">
   <form method="POST">
-  <div class="form-group">
-      <div class="form-label-group">
-        <input type="text"
-               id="id"
-               class="form-control"
-               placeholder="ID User"
-               required="required"
-               name="namalengkap"
-               value="<?php echo $tampil['ID_USER'];?>" disabled>
-        <label for="id">ID User</label>
+      <div class="form-group">
+        <div class="form-label-group">
+          <input type="text"
+                 id="iduser"
+                 class="form-control"
+                 placeholder="ID User"
+                 required="required"
+                 name="iduser"
+                 value="<?php echo $tampil['ID_USER'];?>" disabled>
+          <label for="iduser">ID USER</label>
+        </div>
       </div>
-    </div>
 
-    <div class="form-group">
-      <div class="form-label-group">
-        <input type="text"
-               id="fullName"
-               class="form-control"
-               placeholder="Nama lengkap"
-               required="required"
-               name="namalengkap"
-               autofocus="autofocus"
-               value="<?php echo $tampil['NAMA'];?>">
-        <label for="fullName">Nama Lengkap</label>
+      <div class="form-group">
+        <div class="form-label-group">
+          <input type="text" id="fullName"
+                 class="form-control"
+                 placeholder="Nama lengkap"
+                 required="required"
+                 name="namalengkap"
+                 value="<?php echo $tampil['NAMA'];?>">
+          <label for="fullName">Nama Lengkap</label>
+        </div>
       </div>
-    </div>
     
     <div class="form-group">
       <div class="form-label-group">
@@ -109,51 +112,23 @@
     </div>
 
     <div class="form-group">
-      <!-- <div class="form-row">
-        <div class="col-md-6"> -->
-          <div class="form-label-group">
-            <input type="password"
-                   id="inputPassword"
-                   class="form-control"
-                   placeholder="Kata sandi"
-                   name="katasandi"
-                   required="required"
-                   value="<?php echo $tampil['PASSWORD'];?>">
-            <label for="inputPassword">Kata Sandi</label>
-          </div>
-        <!-- </div> -->
-
-        <!-- <div class="col-md-6">
-          <div class="form-label-group">
-            <input type="password"
-                   id="confirmPassword"
-                   class="form-control"
-                   placeholder="Konfirmasi kata sandi"
-                   required="required">
-            <label for="confirmPassword">Konfirmasi Kata Sandi</label>
-          </div>
-        </div> -->
-      <!-- </div> -->
-    </div>
-
-    <!-- <div class="form-group">
       <div class="form-label-group">
-        <select id="status"
+        <input type="password"
+                id="inputPassword"
                 class="form-control"
+                placeholder="Kata sandi"
+                name="katasandi"
                 required="required"
-                name="status"
-                autofocus="autofocus">
-        <label for="status">Status</label>
-        <option value="admin">1 Admin</option>
-        <option value="karyawan">2 Karyawan</option>
-        <option value="user">3 User</option>
+                value="<?php echo $tampil['PASSWORD'];?>">
+        <label for="inputPassword">Kata Sandi</label>
       </div>
-    </div> -->
+    </div>
     
   <button type="submit"
      class="btn btn-primary"
      name="edituser"
-     href="tabel-user.php">
+     href="tabel-user.php"
+     value="">
      Edit User
   </button>
 
@@ -161,29 +136,42 @@
 </div>
 
 <?php
-$conn = mysqli_connect("localhost", "root", "", "naura_farm");
-if($conn === false){
-    die("ERROR: " . mysqli_connect_error());
+
+if( isset ($_POST["edituser"])) {
+  //cek data berhasil ditambah?
+  if('edituser'($_POST) > 0){
+    echo "<script>
+    alert('Data Berhasil Diubah');
+    document.location.href = '?page=tabel-user';
+    </script>";
+  } else {
+      echo "<script>alert('Gagal Mengubah Data')</script>";
+    }   
 }
 
-$namalengkap = isset($_POST['namalengkap']);
-$nomortelepon = isset($_POST['nomortelepon']);
-$alamat = isset($_POST['alamat']);
-$email = isset($_POST['email']);
-$username = isset($_POST['username']);
-$katasandi = isset($_POST['katasandi']);
-$tambahuser = isset($_POST['tambahuser']);
-
-if(isset ($_POST['edituser'])) {
-    $sql = $conn ->query("update user set NAMA='$namalengkap', NOMOR_TELEPON='$nomortelepon', ALAMAT='$alamat', EMAIL='$email', USERNAME='$username', PASSWORD='$katasandi' where ID_USER='$id'");
-    if($sql){
-        ?>
-        <script type="text/javascript">
-        alert ("Edit Data Berhasil");
-        window.location.href="?page=tabel-user";
-        </script>
-        <?php
-    }
+//ubah data
+function edituser($data) {
+  global $conn;
+    $id = isset($_GET['id']) ? $_GET['id'] : null;
+    $namalengkap = isset($_POST['namalengkap']) ? $_POST['namalengkap'] : null;
+    $nomortelepon = isset($_POST['nomortelepon']) ? $_POST['nomortelepon'] : null;
+    $alamat = isset($_POST['alamat']) ? $_POST['alamat'] : null;
+    $email = isset($_POST['email']) ? $_POST['email'] : null;
+    $username = isset($_POST['username']) ? $_POST['username'] : null;
+    $katasandi = isset($_POST['katasandi']) ? $_POST['katasandi'] : null;
+    $tambahuser = isset($_POST['tambahuser']) ? $_POST['tambahuser'] : null;
+        
+$query = "UPDATE user SET
+ID_USER='$id',
+  NAMA='$namalengkap',
+  NOMOR_TELEPON='$nomortelepon',
+  ALAMAT='$alamat',
+  EMAIL='$email',
+  USERNAME='$username',
+  PASSWORD='$katasandi'
+  WHERE ID_USER='$id'";
+$sql= mysqli_query($conn, $query);
+return mysqli_affected_rows($conn);
 }
 ?>
 
