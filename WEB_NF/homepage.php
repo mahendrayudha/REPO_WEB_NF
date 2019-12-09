@@ -91,21 +91,21 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
 
         <!-- Session utk merubah button masuk menjadi keluar saat kondisi user sedang login -->
         <?php
-          if (isset($_SESSION['login'])) {
-            ?>
-            <a href="keluar.php">
-              <button class="out" style="width:auto;">
-                Keluar
-              </button>
-            </a>
-              <?php
-                } else {
-                  ?>
-                  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                    Masuk
-                  </button>
-              <?php
-          }
+        if (isset($_SESSION['login'])) {
+          ?>
+          <a href="keluar.php">
+            <button class="out" style="width:auto;">
+              Keluar
+            </button>
+          </a>
+        <?php
+        } else {
+          ?>
+          <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+            Masuk
+          </button>
+        <?php
+        }
         ?>
       </div>
     </div>
@@ -125,7 +125,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
         <input type="text" placeholder="Enter Username" name="nama" required />
 
         <div class="text"></div><label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" value="" id="myInput" required minlength="8" maxlength="20"/>
+        <input type="password" placeholder="Enter Password" name="psw" value="" id="myInput" required minlength="8" maxlength="20" />
         <input type="checkbox" onclick="myFunction()">
         <div class="show">Show Password</div>
 
@@ -148,7 +148,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       </div>
 
       <div class="container" style="background-color:#f1f1f1">
-        <span class="psw"><a href="#" onclick="document.getElementById('id03').style.display='block'">Lupa Password</a></span>
+        <span class="psw"><a href="forgotpassword.php" >Lupa Password</a></span>
         <span class="rgst"><a href="#" onclick="hide()">Daftar Sekarang</a></span>
         <script>
           function hide() {
@@ -173,13 +173,12 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
 
       <div class="container">
         <input type="hidden" name="ID_USER" value="" readonly />
-        <input type="hidden" name="ID_STATUS" value="02" readonly />
 
         <label for="nama"><b>Nama</b></label>
         <input type="text" placeholder="Enter Name" name="nama" required />
 
         <div class="text"></div><label for="notelp"><b>Nomor Telpon</b></label>
-        <input type="text" placeholder="Enter Nomor Telpon" name="notelp" required />
+        <input type="text" placeholder="Enter Nomor Telpon" name="notelp" required maxlength="13" />
 
         <div class="text1"></div><label for="alamat"><b>Alamat</b></label>
         <input type="text" placeholder="Enter Alamat" name="alamat" required />
@@ -191,7 +190,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
         <input type="text" placeholder="Enter Username" name="username" required />
 
         <div class="text4"></div><label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" value="" id="my-Input" required  minlength="8" maxlength="20"/>
+        <input type="password" placeholder="Enter Password" name="psw" value="" id="my-Input" required minlength="8" maxlength="20" />
 
         <input type="checkbox" onclick="myfunction()">
         <div class="show">Show Password</div>
@@ -255,7 +254,11 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       $row = mysqli_fetch_assoc($result);
       $_SESSION["login"] = true;
       $_SESSION['user'] = $row["NAMA"];
-      // header("location: homepage.php");
+      if ($row['LEVEL'] == 1) {
+        header('location:admin/index.php');
+      } else {
+        header('location:homepage.php');
+      }
       echo "<script>alert ('Login Berhasil');window.location.href='homepage.php'</script>";
     } else {
       echo "<script>alert ('Login Gagal')</script>";
@@ -281,8 +284,8 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
   $daftar = isset($_POST['daftar']) ? $_POST['daftar'] : null;
 
   if (isset($_POST['daftar'])) {
-    $sql = $conn->query("insert into user (NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD)
-            values('$nama','$notelp','$alamat','$email','$username','$password')");
+    $sql = $conn->query("insert into user (NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD, LEVEL)
+            values('$nama','$notelp','$alamat','$email','$username','$password','3')");
 
     if ($sql) {
       ?>
