@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <?php
 session_start();
 $conn = mysqli_connect("localhost", "root", "", "naura_farm");
@@ -29,10 +30,12 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container-fluid" style="padding-left: 100px!important;
-    padding-right: 100px!important;">
+    <div class="container-fluid" style="padding-left: 100px!important; padding-right: 100px!important;">
       <div class="logo">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top"> <img src="img/logo_nf.png" style="width: 60px;">
+        <a class="navbar-brand js-scroll-trigger"
+           href="#page-top">
+           <img src="img/logo_nf.png"
+           style="width: 60px">
           Naura Farm
         </a>
       </div>
@@ -91,19 +94,21 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
 
         <!-- Session utk merubah button masuk menjadi keluar saat kondisi user sedang login -->
         <?php
-        if (isset($_SESSION['login'])) {
-          ?>
-          <a href="keluar.php">
-            <button class="out" style="width:auto;">
-              Keluar
-            </button>
-          </a>
-        <?php
-        } else {
-          ?>
-          <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-            Masuk
+          if (isset($_SESSION['login'])) {
+        ?>
+        <a href="keluar.php">
+          <button class="out" style="width:auto;">
+            Keluar
           </button>
+        </a>
+        <?php
+          } else {
+        ?>
+            <button onclick="document.getElementById('id01').style.display='block'"
+                    class="btn btn-primary"
+                    style="width:auto; margin-top:50px;">
+                    Masuk
+            </button>
         <?php
         }
         ?>
@@ -111,7 +116,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
     </div>
   </header>
 
-  <div id="id01" class="modal">
+  <div id="id01" class="modal" style="overflow-y: hidden">
     <form class="modal-content animate" method="post">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Tutup">
         &times;
@@ -120,14 +125,43 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
         <img src="img/user.svg" alt="Avatar" class="avatar" />
       </div>
 
-      <div class="container">
-        <label for="nama"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="nama" required />
+      <div class="card-body">
+        <!-- <label for="nama"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="nama" required /> -->
 
-        <div class="text"></div><label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" value="" id="myInput" required minlength="8" maxlength="20" />
-        <input type="checkbox" onclick="myFunction()">
-        <div class="show">Show Password</div>
+        <div class="form-group">
+          <div class="form-label-group">
+            <input type="text"
+                   id="username"
+                   class="form-control"
+                   placeholder="Masukan username Anda"
+                   required="required"
+                   name="nama">
+            <label for="username">Username</label>
+          </div>
+        </div>
+
+        <!-- <div class="text"></div><label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" value="" id="myInput" required minlength="8" maxlength="20" /> -->
+        <div class="form-group">
+          <div class="form-label-group">
+            <input type="password"
+                   id="myInput"
+                   class="form-control"
+                   placeholder="Masukan kata sandi Anda"
+                   required="required"
+                   name="psw"
+                   minlength="8" maxlength="20">
+            <label for="inputPassword">Kata Sandi</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="form-label-group">
+            <input type="checkbox" onclick="myFunction()">
+            <div class="show"> Show Password</div>
+          </div>
+        </div>
 
         <script>
           function myFunction() {
@@ -140,14 +174,15 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
           }
         </script>
 
-        <button type="submit" name="masuk">Masuk</button>
+        <button type="submit" class="btn btn-primary" name="masuk">Masuk</button>
+        
         <label>
-          <input type="checkbox" checked="checked" name="remember" />
-          Remember me
+          <input type="checkbox" checked="checked" name="remember">
+           Remember me
         </label>
       </div>
 
-      <div class="container" style="background-color:#f1f1f1">
+      <div class="modal-footer" style="background-color: white">
         <span class="psw"><a href="forgotpassword.php" >Lupa Password</a></span>
         <span class="rgst"><a href="#" onclick="hide()">Daftar Sekarang</a></span>
         <script>
@@ -319,7 +354,7 @@ if (isset($_POST["batal"])) {
 
 
   <!-- ////////////////////////////Profil Section/////////////////////////// -->
-  <section id="profil" class="profil-section text-center">
+  <section id="profil" class="masthead text-center">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
@@ -447,7 +482,7 @@ if (isset($_POST["batal"])) {
       <!-- ////////////////////////Fasilitas Agrowisata/////////////////////// -->
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
-          <img width="650" height="516.85" src="img/Agrowisata.png" alt="">
+          <img width="580" height="416" src="img/Agrowisata.png" alt="Gambar Fasilitas Agrowisata">
         </div>
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
@@ -455,17 +490,17 @@ if (isset($_POST["batal"])) {
             <p class="text-black-50 mb-0" style="text-align:justify">Salah suatu fasilitas kunjungan yang di tawarkan oleh Naura Farm yang di kombinasikan menjadi tempat destinasi yang menarik bagi masyarakat. Pengunjung dapat belajar tentang merawat buah naga, menanam buah naga serta, menikmati buah segar hasil petikan langsung dari pohonnya. Selain itu, pengunjung juga bisa sekedar jalan-jalan dan menghirup udara segar.</p>
           </div>
         </div>
+      </div>
 
-        <!-- ////////////////////////Fasilitas Petik Buah/////////////////////// -->
-        <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-          <div class="col-xl-8 col-lg-7">
-            <img width="650" height="516.85" src="img/petik_buah.png" alt="">
-          </div>
-          <div class="col-xl-4 col-lg-5">
-            <div class="featured-text text-center text-lg-left">
-              <h4>Petik Buah</h4>
-              <p class="text-black-50 mb-0" style="text-align:justify">Salah satu fasilitas yang di tawarkan oleh Naura Farm adalah petik buah.Dimana pengunjung dapat melakukan pemetikan buah naga langsung dari pohonnya. Hasil yang di dapat bisa langsung dibawa pulang dengan harga yang terjangkau. Sehingga pengunjung tidak usah khawatir tentang kualitas buah yang ada di Naura Farm.</p>
-            </div>
+      <!-- ////////////////////////Fasilitas Petik Buah/////////////////////// -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-8 col-lg-7">
+          <img width="580" height="416" src="img/petik_buah.png" alt="Gambar Fasilitas Petik Buah">
+        </div>
+        <div class="col-xl-4 col-lg-5">
+          <div class="featured-text text-center text-lg-left">
+            <h4>Petik Buah</h4>
+            <p class="text-black-50 mb-0" style="text-align:justify">Salah satu fasilitas yang di tawarkan oleh Naura Farm adalah petik buah.Dimana pengunjung dapat melakukan pemetikan buah naga langsung dari pohonnya. Hasil yang di dapat bisa langsung dibawa pulang dengan harga yang terjangkau. Sehingga pengunjung tidak usah khawatir tentang kualitas buah yang ada di Naura Farm.</p>
           </div>
         </div>
       </div>
@@ -473,12 +508,17 @@ if (isset($_POST["batal"])) {
       <!-- ////////////////////////Fasilitas Penjualan Produk/////////////////////// -->
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
-          <img width="650" height="516.85" src="img/penjualan_produk.png" alt="">
+          <img width="580" height="416" src="img/penjualan_produk.png" alt="Gambar Fasilitas Penjualan Produk">
         </div>
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
             <h4>Penjualan Produk</h4>
             <p class="text-black-50 mb-0" style="text-align:justify">Kita juga menjual Produk Buah Naga merah dan putih yang kita produksi sendri dan beberapa produk olahan yang di buat oleh Naura Farm yaitu selai buah, keripik buah, dan jus buah naga.</p>
+            <button onclick="document.getElementById('id01').style.display='block'"
+                    class="btn btn-primary"
+                    style="width:auto; margin-top:50px;">
+                    Beli Produk
+            </button>
           </div>
         </div>
       </div>
@@ -489,12 +529,11 @@ if (isset($_POST["batal"])) {
   <section id="kontak_kami" class="kontak_kami_section">
     <div class="container">
       <div class="row">
-        <div class="col-md-10 col-lg-8 mx-auto text-center">
-
-          <table class="kontak_kami_content" ; style="padding-left: 100px; padding-right: 100px">
+        <div class="col-md-10 col-lg-8 mx-auto">
+          <table class="kontak_kami_content">
             <tr>
               <td>Alamat</td>
-              <td>: Jl. Tidar No.27, Kloncing Sumbersari, Kab. Jember, Jawa Timur 68124</td>
+              <td>: Jl. Tidar No.27, Kloncing Sumbersari, Kab. Jember, Jawa Timur</td>
             </tr>
 
             <tr>

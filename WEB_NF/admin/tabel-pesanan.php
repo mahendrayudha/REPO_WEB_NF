@@ -80,8 +80,8 @@
                     <td><?php echo $data['OPSI_PENGIRIMAN']; ?></td>
                     <td><?php echo $data['ALAMAT_PENGIRIMAN']; ?></td>
                     <td>
-                      <a href="?page=transaksi&aksi=edit-transaksi&id=<?php echo $data['ID_TRANSAKSI'];?>" class="btn btn-info" >Edit</a>
-                      <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="?page=transaksi&aksi=hapus-transaksi&id=<?php echo $data['ID_TRANSAKSI'];?>" class="btn btn-danger" >Hapus</a>
+                      <a href="?page=transaksi&aksi=edit-transaksi&id=<?php echo $data['ID_TRANSAKSI'];?>" class="fas fa-edit"></a>
+                      <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="?page=transaksi&aksi=hapus-transaksi&id=<?php echo $data['ID_TRANSAKSI'];?>" class="fas fa-trash"></a>
                     </td>
                   </tr>
                   <!-- <?php //} ?> -->

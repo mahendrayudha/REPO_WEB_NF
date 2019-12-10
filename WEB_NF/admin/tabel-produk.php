@@ -63,8 +63,8 @@
                     <td><?php echo $data['HARGA_BELI']; ?></td>
                     <td><?php echo $data['HARGA_JUAL']; ?></td>
                     <td>
-                      <a href="?page=produk&aksi=edit-produk&id=<?php echo $data['ID_PRODUK'];?>" class="btn btn-info" >Edit</a>
-                      <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="?page=produk&aksi=hapus-produk&id=<?php echo $data['ID_PRODUK'];?>" class="btn btn-danger">Hapus</a>
+                      <a href="?page=produk&aksi=edit-produk&id=<?php echo $data['ID_PRODUK'];?>" class="fas fa-edit"></a>
+                      <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="?page=produk&aksi=hapus-produk&id=<?php echo $data['ID_PRODUK'];?>" class="fas fa-trash"></a>
                     </td>
                   </tr>
                   <?php } ?>

@@ -36,7 +36,7 @@
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
-          <a href="?page=user&aksi=tambah-user" class="btn btn-primary">Tambah User</a>
+          <a href="?page=user&aksi=tambah-user" class="btn btn-primary fas fa-user"> Tambah User</a>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -56,8 +56,9 @@
                 </thead>
                 <tbody>
                   <?php
-                    $sql = $conn->query("select * from user");
+                    $sql = $conn->query("SELECT * FROM user");
                     while($data = $sql->fetch_assoc()) {
+                      $level = ($data['LEVEL']==2)?"Karyawan":"User";
                   ?>
                   <tr>
                     <td><?php echo $data['ID_USER']; ?></td>
@@ -67,10 +68,10 @@
                     <td><?php echo $data['ALAMAT']; ?></td>
                     <td><?php echo $data['USERNAME']; ?></td>
                     <td><?php echo $data['PASSWORD']; ?></td>
-                    <td><?php echo $data['LEVEL']; ?></td>
+                    <td><?php echo $level; ?></td>
                     <td>
-                      <a href="?page=user&aksi=edit-user&id=<?php echo $data['ID_USER'];?>" class="btn btn-info" >Edit</a>
-                      <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="?page=user&aksi=hapus-user&id=<?php echo $data['ID_USER'];?>" class="btn btn-danger" >Hapus</a>
+                      <a href="?page=user&aksi=edit-user&id=<?php echo $data['ID_USER'];?>" class="fas fa-edit"></a>
+                      <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="?page=user&aksi=hapus-user&id=<?php echo $data['ID_USER'];?>" class="fas fa-trash"></a>
                     </td>
                   </tr>
                   <?php } ?>

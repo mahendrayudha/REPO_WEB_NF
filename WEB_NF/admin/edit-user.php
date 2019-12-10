@@ -125,19 +125,18 @@ if($conn === false){
     </div>
     
   <button type="submit"
-     class="btn btn-primary"
-     name="edituser"
-     href="tabel-user.php"
-     value="">
-     Edit User
+    class="btn btn-primary"
+    name="edituser"
+    href="tabel-user.php"
+    value="">
+    Simpan
   </button>
-
   </form>
 </div>
 
 <?php
 
-if( isset ($_POST["edituser"])) {
+if(isset($_POST["edituser"])) {
   //cek data berhasil ditambah?
   if('edituser'($_POST) > 0){
     echo "<script>
