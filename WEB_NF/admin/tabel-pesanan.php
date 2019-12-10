@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Tabel User</title>
+  <title>Admin - Tabel Pesanan</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,57 +35,65 @@
 
         <!-- DataTables Example -->
         <div class="card mb-3">
-          <div class="card-header">
-          <a href="?page=user&aksi=tambah" class="btn btn-primary">Tambah User</a>
-          </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>ID User</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Nomor Telepon</th>
-                    <th>Alamat</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Status</th>
+                    <th>ID Transaksi</th>
+                    <th>Nama Pemesan</th>
+                    <th>Tanggal Pesanan</th>
+                    <th>Produk Pesanan</th>
+                    <th>Sub Total</th>
+                    <th>Jumlah Pesanan</th>
+                    <th>Grand Total</th>
+                    <th>Opsi Pembayaran</th>
+                    <th>Status Bayar</th>
+                    <th>Opsi Pengiriman</th>
+                    <th>Alamat Pengiriman</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
-                    <th>ID User</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Nomor Telepon</th>
-                    <th>Alamat</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Status</th>
+                  <th>ID Transaksi</th>
+                    <th>Nama Pemesan</th>
+                    <th>Tanggal Pesanan</th>
+                    <th>Produk Pesanan</th>
+                    <th>Sub Total</th>
+                    <th>Jumlah Pesanan</th>
+                    <th>Grand Total</th>
+                    <th>Opsi Pembayaran</th>
+                    <th>Status Bayar</th>
+                    <th>Opsi Pengiriman</th>
+                    <th>Alamat Pengiriman</th>
+                    <th>Aksi</th>
                   </tr>
                 </tfoot>
                 <tbody>
                   <?php
-                    $sql = $conn->query("select * from user");
-                    while($data = $sql->fetch_assoc()) {
+                    $sql = $conn->query("SELECT * FROM 'user', 'transaksi', "); 
+//                    while($data = $sql->fetch_assoc()) {
                   ?>
                   <tr>
-                    <td><?php echo $data['ID_USER']; ?></td>
+                    <td><?php echo $data['ID_TRANSAKSI']; ?></td>
                     <td><?php echo $data['NAMA']; ?></td>
-                    <td><?php echo $data['EMAIL']; ?></td>
-                    <td><?php echo $data['NOMOR_TELEPON']; ?></td>
-                    <td><?php echo $data['ALAMAT']; ?></td>
-                    <td><?php echo $data['USERNAME']; ?></td>
-                    <td><?php echo $data['PASSWORD']; ?></td>
-                    <td><?php echo $data['LEVEL']; ?></td>
+                    <td><?php echo $data['TANGGAL_TRANSAKSI']; ?></td>
+                    <td><?php echo $data['NAMA_PRODUK']; ?></td>
+                    <td><?php echo $data['SUB_TOTAL']; ?></td>
+                    <td><?php echo $data['JUMLAH_BELI']; ?></td>
+                    <td><?php echo $data['GRAND_TOTAL']; ?></td>
+                    <td><?php echo $data['OPSI_PEMBAYARAN']; ?></td>
+                    <td><?php echo $data['STATUS_BAYAR']; ?></td>
+                    <td><?php echo $data['OPSI_PENGIRIMAN']; ?></td>
+                    <td><?php echo $data['ALAMAT_PENGIRIMAN']; ?></td>
                     <td>
-                      <a href="" class="btn btn-info" >Edit</a>
-                      <a href="" class="btn btn-danger" >Hapus</a>
+                      <a href="?page=transaksi&aksi=edit-transaksi&id=<?php echo $data['ID_TRANSAKSI'];?>" class="btn btn-info" >Edit</a>
+                      <a href="?page=transaksi&aksi=lunas-transaksi&id=<?php echo $data['ID_TRANSAKSI'];?>" class="btn btn-success" >Lunas</a>
+                      <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="?page=transaksi&aksi=hapus-transaksi&id=<?php echo $data['ID_TRANSAKSI'];?>" class="btn btn-danger" >Hapus</a>
                     </td>
                   </tr>
-                  <?php } ?>
+                  <!-- <?php //} ?> -->
                 </tbody>
               </table>
             </div>

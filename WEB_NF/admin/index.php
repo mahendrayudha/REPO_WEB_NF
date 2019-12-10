@@ -176,6 +176,12 @@
           include "edit-produk.php";
         } elseif ($aksi == "hapus-produk") {
           include "hapus-produk.php";
+        } elseif ($aksi == "edit-transaksi") {
+          include "edit-transaksi.php";
+        } elseif ($aksi == "lunas-transaksi") {
+          include "lunas-transaksi.php";
+        } elseif ($aksi == "hapus-transaksi") {
+          include "hapus-transaksi.php";
         }
       }
       ?>

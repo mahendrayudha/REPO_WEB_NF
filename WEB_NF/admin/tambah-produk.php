@@ -1,17 +1,17 @@
 <?php
-$carikode = mysqli_query($conn, "SELECT max(ID_PRODUK) FROM produk") or die(mysqli_error($conn));
-$datakode = mysqli_fetch_array($carikode);
-if($datakode)
-{
-        $nilaikode = substr($datakode[0], 2);
-        $kode = (int) $nilaikode;
-        $kode = $kode + 1;
-        $hasilkode = "P" .str_pad($kode, 1, "0", STR_PAD_LEFT);
-}
-else
-{
-        $hasilkode = "P01";
-}
+// $carikode = mysqli_query($conn, "SELECT max(ID_PRODUK) FROM produk") or die(mysqli_error($conn));
+// $datakode = mysqli_fetch_array($carikode);
+// if($datakode)
+// {
+//         $nilaikode = substr($datakode[0], 2);
+//         $kode = (int) $nilaikode;
+//         $kode = $kode + 1;
+//         $hasilkode = "P" .str_pad($kode, 1, "0", STR_PAD_LEFT);
+// }
+// else
+// {
+//         $hasilkode = "P01";
+// }
 ?>
 
 <!DOCTYPE html>
@@ -95,14 +95,14 @@ else
   }
 
   $namaproduk = isset($_POST['namaproduk']) ? $_POST['namaproduk'] : null;
-  $stokproduk = isset($_POST['nomortelepon']) ? $_POST['nomortelepon'] : null;
+  $stokproduk = isset($_POST['stokproduk']) ? $_POST['stokproduk'] : null;
   $hargabeli = isset($_POST['hargabeli']) ? $_POST['hargabeli'] : null;
   $hargajual = isset($_POST['hargajual']) ? $_POST['hargajual'] : null;
   $tambahproduk = isset($_POST['tambahproduk']) ? $_POST['tambahproduk'] : null;
 
   if (isset($_POST['tambahproduk'])) {
-    $sql = $conn->query("INSERT INTO produk (NAMA_PRODUK, STOK_PRODUK, HARGA_BELI, HARGA_JUAL)
-    values('$namaproduk', '$stokproduk', '$hargabeli', '$hargajual')");
+    $sql = $conn->query("INSERT INTO produk (ID_PRODUK, NAMA_PRODUK, STOK_PRODUK, HARGA_BELI, HARGA_JUAL)
+    values('', '$namaproduk', '$stokproduk', '$hargabeli', '$hargajual')");
     if ($sql) {
       ?>
       <script type="text/javascript">
