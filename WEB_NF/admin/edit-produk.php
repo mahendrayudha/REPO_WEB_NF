@@ -133,16 +133,15 @@ function editproduk($data) {
     $hargajual = isset($_POST['hargajual']) ? $_POST['hargajual'] : null;
         
 $query = "UPDATE produk SET
-  ID_PRODUK='$id',
-  NAMA_PRODUK='$namaproduk',
-  STOK_PRODUK='$stokproduk',
-  HARGA_BELI='$hargabeli',
-  HARGA_JUAL='$hargajual',
-  WHERE ID_PRODUK='$id'";
+ID_PRODUK='$id',
+NAMA_PRODUK='$namaproduk',
+STOK_PRODUK='$stokproduk',
+HARGA_BELI='$hargabeli',
+HARGA_JUAL='$hargajual'
+WHERE ID_PRODUK='$id'";
 $sql= mysqli_query($conn, $query);
 return mysqli_affected_rows($conn);
 }
-
 ?>
 
   <!-- Bootstrap core JavaScript-->

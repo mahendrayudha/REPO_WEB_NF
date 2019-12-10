@@ -5,7 +5,7 @@ if($conn === false){
 }
 
   $id = $_GET['id'];
-  $sql = $conn->query("select * from user where ID_USER='$id'");
+  $sql = $conn->query("SELECT * FROM user WHERE ID_USER='$id'");
   $tampil = $sql->fetch_assoc();
 ?>
 
@@ -159,7 +159,6 @@ function edituser($data) {
     $email = isset($_POST['email']) ? $_POST['email'] : null;
     $username = isset($_POST['username']) ? $_POST['username'] : null;
     $katasandi = isset($_POST['katasandi']) ? $_POST['katasandi'] : null;
-    $tambahuser = isset($_POST['tambahuser']) ? $_POST['tambahuser'] : null;
         
 $query = "UPDATE user SET
 ID_USER='$id',

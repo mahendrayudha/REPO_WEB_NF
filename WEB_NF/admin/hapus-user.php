@@ -1,6 +1,6 @@
 <?php
   $id = $_GET['id'];
-  $conn->query("delete from user where ID_USER = '$id'");
+  $conn->query("DELETE FROM user WHERE ID_USER = '$id'");
 ?>
 
 <script type="text/javascript">

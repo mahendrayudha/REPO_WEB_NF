@@ -51,16 +51,6 @@
                     <th>Aksi</th>
                   </tr>
                 </thead>
-                <tfoot>
-                  <tr>
-                    <th>ID Produk</th>
-                    <th>Nama Produk</th>
-                    <th>Stok</th>
-                    <th>Harga Beli</th>
-                    <th>Harga Jual</th>
-                    <th>Aksi</th>
-                  </tr>
-                </tfoot>
                 <tbody>
                   <?php
                     $sql = $conn->query("select * from produk");
@@ -74,7 +64,7 @@
                     <td><?php echo $data['HARGA_JUAL']; ?></td>
                     <td>
                       <a href="?page=produk&aksi=edit-produk&id=<?php echo $data['ID_PRODUK'];?>" class="btn btn-info" >Edit</a>
-                      <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="?page=produk&aksi=hapus&id=<?php echo $data['ID_PRODUK'];?>" class="btn btn-danger" >Hapus</a>
+                      <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="?page=produk&aksi=hapus-produk&id=<?php echo $data['ID_PRODUK'];?>" class="btn btn-danger">Hapus</a>
                     </td>
                   </tr>
                   <?php } ?>

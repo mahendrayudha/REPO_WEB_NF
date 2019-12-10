@@ -54,19 +54,6 @@
                     <th>Aksi</th>
                   </tr>
                 </thead>
-                <tfoot>
-                  <tr>
-                    <th>ID User</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Nomor Telepon</th>
-                    <th>Alamat</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                  </tr>
-                </tfoot>
                 <tbody>
                   <?php
                     $sql = $conn->query("select * from user");

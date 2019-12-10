@@ -54,25 +54,14 @@
                     <th>Aksi</th>
                   </tr>
                 </thead>
-                <tfoot>
-                  <tr>
-                  <th>ID Transaksi</th>
-                    <th>Nama Pemesan</th>
-                    <th>Tanggal Pesanan</th>
-                    <th>Produk Pesanan</th>
-                    <th>Sub Total</th>
-                    <th>Jumlah Pesanan</th>
-                    <th>Grand Total</th>
-                    <th>Opsi Pembayaran</th>
-                    <th>Status Bayar</th>
-                    <th>Opsi Pengiriman</th>
-                    <th>Alamat Pengiriman</th>
-                    <th>Aksi</th>
-                  </tr>
-                </tfoot>
                 <tbody>
                   <?php
-                    $sql = $conn->query("SELECT * FROM 'user', 'transaksi', "); 
+                    $sql = $conn->query("SELECT transaksi.ID_TRANSAKSI, user.NAMA
+                                         FROM transaksi, user
+                                         WHERE transaksi.ID_TRANSAKSI=user.ID_USER");
+//                     SELECT pelanggan.id_pelanggan, pelanggan.nm_pelanggan, pesan.id_pesan, pesan.tgl_pesan
+// FROM pelanggan, pesan
+// WHERE pelanggan.id_pelanggan=pesan.id_pelanggan; 
 //                    while($data = $sql->fetch_assoc()) {
                   ?>
                   <tr>
@@ -84,12 +73,14 @@
                     <td><?php echo $data['JUMLAH_BELI']; ?></td>
                     <td><?php echo $data['GRAND_TOTAL']; ?></td>
                     <td><?php echo $data['OPSI_PEMBAYARAN']; ?></td>
-                    <td><?php echo $data['STATUS_BAYAR']; ?></td>
+                    <td>
+                      <?php echo $data['STATUS_BAYAR']; ?>
+                      <a href="?page=transaksi&aksi=lunas-transaksi&id=<?php echo $data['ID_TRANSAKSI'];?>" class="btn btn-success" >Lunas</a>
+                   </td>
                     <td><?php echo $data['OPSI_PENGIRIMAN']; ?></td>
                     <td><?php echo $data['ALAMAT_PENGIRIMAN']; ?></td>
                     <td>
                       <a href="?page=transaksi&aksi=edit-transaksi&id=<?php echo $data['ID_TRANSAKSI'];?>" class="btn btn-info" >Edit</a>
-                      <a href="?page=transaksi&aksi=lunas-transaksi&id=<?php echo $data['ID_TRANSAKSI'];?>" class="btn btn-success" >Lunas</a>
                       <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="?page=transaksi&aksi=hapus-transaksi&id=<?php echo $data['ID_TRANSAKSI'];?>" class="btn btn-danger" >Hapus</a>
                     </td>
                   </tr>
