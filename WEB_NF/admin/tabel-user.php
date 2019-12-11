@@ -58,7 +58,12 @@
                   <?php
                     $sql = $conn->query("SELECT * FROM user");
                     while($data = $sql->fetch_assoc()) {
-                      $level = ($data['LEVEL']==2)?"Karyawan":"User";
+                      $admin = ($data['LEVEL']==1);
+                      $admin = 'Admin';
+                      $karyawan = ($data['LEVEL']==2);
+                      $karyawan = 'Karyawan';
+                      $user = ($data['LEVEL']==3);
+                      $user = 'User';
                   ?>
                   <tr>
                     <td><?php echo $data['ID_USER']; ?></td>
@@ -68,7 +73,13 @@
                     <td><?php echo $data['ALAMAT']; ?></td>
                     <td><?php echo $data['USERNAME']; ?></td>
                     <td><?php echo $data['PASSWORD']; ?></td>
-                    <td><?php echo $level; ?></td>
+                    <td><?php if($data ['LEVEL']==2) {
+                      echo $karyawan;
+                    } elseif($data ['LEVEL']==1) {
+                      echo $admin;
+                    } elseif($data['LEVEL']==3) {
+                      echo $user;
+                    } ?></td>
                     <td>
                       <a href="?page=user&aksi=edit-user&id=<?php echo $data['ID_USER'];?>" class="fas fa-edit"></a>
                       <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="?page=user&aksi=hapus-user&id=<?php echo $data['ID_USER'];?>" class="fas fa-trash"></a>

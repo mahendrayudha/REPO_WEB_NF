@@ -36,11 +36,17 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
            href="#page-top">
            <img src="img/logo_nf.png"
            style="width: 60px">
-          Naura Farm
+           Naura Farm
         </a>
       </div>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
+      <button class="navbar-toggler navbar-toggler-right"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarResponsive"
+              aria-controls="navbarResponsive"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+              Menu
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -61,6 +67,10 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user-circle fa-fw"></i>
+                <?php
+                if(isset($_SESSION['login'])) {
+                  echo $_SESSION["user"];
+                } ?>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <!-- Session utk merubah nav akun login/register menjadi akun/keluar saat kondisi user sedang login -->
@@ -76,10 +86,10 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
                   <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'">Daftar</a>
                 <?php } ?>
             </li>
+          </div>
         </ul>
       </div>
       </ul>
-    </div>
     </div>
   </nav>
 
@@ -209,11 +219,33 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       <div class="container">
         <input type="hidden" name="ID_USER" value="" readonly />
 
-        <label for="nama"><b>Nama</b></label>
-        <input type="text" placeholder="Enter Name" name="nama" required />
+        <!-- <label for="nama"><b>Nama</b></label>
+        <input type="text" placeholder="Enter Name" name="nama" required /> -->
+        <div class="form-group">
+          <div class="form-label-group">
+            <input type="text"
+                   id="nama"
+                   class="form-control"
+                   required="required"
+                   name="nama"
+                   required maxlength="100">
+            <label for="nama">Nama Lengkap</label>
+          </div>
+        </div>
 
-        <div class="text"></div><label for="notelp"><b>Nomor Telpon</b></label>
-        <input type="text" placeholder="Enter Nomor Telpon" name="notelp" required maxlength="13" />
+        <!-- <div class="text"></div><label for="notelp"><b>Nomor Telpon</b></label>
+        <input type="text" placeholder="Enter Nomor Telpon" name="notelp" required maxlength="13" /> -->
+        <div class="form-group">
+          <div class="form-label-group">
+            <input type="number"
+                   id="notelp"
+                   class="form-control"
+                   required="required"
+                   name="notelp"
+                   required maxlength="13">
+            <label for="notelp">Nomor Telepon</label>
+          </div>
+        </div>
 
         <div class="text1"></div><label for="alamat"><b>Alamat</b></label>
         <input type="text" placeholder="Enter Alamat" name="alamat" required />
@@ -288,7 +320,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       //cek password
       $row = mysqli_fetch_assoc($result);
       $_SESSION["login"] = true;
-      $_SESSION['user'] = $row["NAMA"];
+      $_SESSION['user'] = $row["USERNAME"];
       if ($row['LEVEL'] == 1) {
         header('location:admin/index.php');
       } else {
@@ -306,7 +338,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
   <?php
   $conn = mysqli_connect("localhost", "root", "", "naura_farm");
   if ($conn === false) {
-    die("Ono error iki lo: " . mysqli_connect_error());
+    die("ERROR: " . mysqli_connect_error());
   }
   global $conn;
   // $id_user = htmlspecialchars($data["ID_ANGGOTA"]);

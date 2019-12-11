@@ -48,6 +48,13 @@
 
       <div class="form-group">
         <div class="form-label-group">
+          <input type="file" id="fotoproduk" class="form-control" placeholder="Foto produk" required="required" name="fotoproduk" autofocus="autofocus">
+          <label for="fotoproduk">Foto Produk</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-label-group">
           <input type="number" id="stokproduk" class="form-control" placeholder="Stok produk" name="stokproduk" required="required">
           <label for="stokproduk">Stok Produk</label>
         </div>
@@ -95,14 +102,15 @@
   }
 
   $namaproduk = isset($_POST['namaproduk']) ? $_POST['namaproduk'] : null;
+  $fotoproduk = isset($_POST['fotoproduk']) ? $_POST['fotoproduk'] : null;
   $stokproduk = isset($_POST['stokproduk']) ? $_POST['stokproduk'] : null;
   $hargabeli = isset($_POST['hargabeli']) ? $_POST['hargabeli'] : null;
   $hargajual = isset($_POST['hargajual']) ? $_POST['hargajual'] : null;
   $tambahproduk = isset($_POST['tambahproduk']) ? $_POST['tambahproduk'] : null;
 
   if (isset($_POST['tambahproduk'])) {
-    $sql = $conn->query("INSERT INTO produk (ID_PRODUK, NAMA_PRODUK, STOK_PRODUK, HARGA_BELI, HARGA_JUAL)
-    values('', '$namaproduk', '$stokproduk', '$hargabeli', '$hargajual')");
+    $sql = $conn->query("INSERT INTO produk (ID_PRODUK, NAMA_PRODUK, FOTO_PRODUK, STOK_PRODUK, HARGA_BELI, HARGA_JUAL)
+    values('', '$namaproduk', '$fotoproduk', '$stokproduk', '$hargabeli', '$hargajual')");
     if ($sql) {
       ?>
       <script type="text/javascript">
