@@ -542,6 +542,10 @@ body {
   text-decoration: none;
 }
 
+.bg-light {
+  padding-top:5rem;
+}
+
 .container {
   width: 100%;
   padding-right: 15px;
