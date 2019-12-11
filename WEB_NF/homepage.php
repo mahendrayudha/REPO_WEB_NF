@@ -126,7 +126,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
     </div>
   </header>
 
-  <div id="id01" class="modal" style="overflow-y: hidden">
+  <div id="id01" class="modal">
     <form class="modal-content animate" method="post">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Tutup">
         &times;
@@ -364,27 +364,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
     }
   }
   ?>
-  <!-- cek tombol sudah ditekan atau belum
-  if (isset($_POST["daftar"])) {
-
-  //cek data berhasil ditambah?
-if (tambah($_POST) > 0) {
-  echo "<script>
-alert('Data Berhasil Ditambahkan');
-document.location.href = 'homepage.php';
-</script>";
-} else {
-echo "<script>alert('Gagal Menambahkan Data')</script>";
-}
-}
-if (isset($_POST["batal"])) {
-   header("Location: homepage.php");
-  /exit;
-} -->
-
-
-
-
+  
   <!-- ////////////////////////////Profil Section/////////////////////////// -->
   <section id="profil" class="masthead text-center">
     <div class="container">
@@ -429,7 +409,7 @@ if (isset($_POST["batal"])) {
       <!-- ///////////////////////Produk Buah Naga Putih///////////////////// -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img width="555" height="470" src="img/buah_putih.jpg" alt="">
+          <img width="465" height="470" src="img/buah_putih.jpg" alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
@@ -466,7 +446,7 @@ if (isset($_POST["batal"])) {
       <!-- ///////////////////////Produk Selai Buah Naga///////////////////// -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img width="555" height="453" src="img/selai.jpg" alt="">
+          <img width="455" height="453" src="img/selai.jpg" alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
