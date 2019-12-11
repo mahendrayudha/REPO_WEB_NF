@@ -41,35 +41,64 @@
     <form method="POST">
       <div class="form-group">
         <div class="form-label-group">
-          <input type="text" id="namaproduk" class="form-control" placeholder="Nama produk" required="required" name="namaproduk" autofocus="autofocus">
+          <input type="text"
+                 id="namaproduk"
+                 class="form-control"
+                 placeholder="Nama produk"
+                 required="required"
+                 name="namaproduk"
+                 autofocus="autofocus">
           <label for="namaproduk">Nama Produk</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="file" id="fotoproduk" class="form-control" placeholder="Foto produk" required="required" name="fotoproduk" autofocus="autofocus">
+          <input type="file"
+                 id="fotoproduk"
+                 class="form-control"
+                 required="required"
+                 name="fotoproduk"
+                 autofocus="autofocus">
           <label for="fotoproduk">Foto Produk</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="number" id="stokproduk" class="form-control" placeholder="Stok produk" name="stokproduk" required="required">
+          <input type="text"
+                 id="stokproduk"
+                 class="form-control"
+                 placeholder="Stok produk"
+                 name="stokproduk"
+                 required="required"
+                 onkeypress="return hanyaAngka(event)">
           <label for="stokproduk">Stok Produk</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="number" id="hargabeli" class="form-control" placeholder="Harga beli" name="hargabeli" required="required">
+          <input type="text"
+                 id="hargabeli"
+                 class="form-control"
+                 placeholder="Harga beli"
+                 name="hargabeli"
+                 required="required"
+                 onkeypress="return hanyaAngka(event)">
           <label for="hargabeli">Harga Beli</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="number" id="hargajual" class="form-control" placeholder="Harga jual" name="hargajual" required="required">
+          <input type="text"
+                 id="hargajual"
+                 class="form-control"
+                 placeholder="Harga jual"
+                 name="hargajual"
+                 required="required"
+                 onkeypress="return hanyaAngka(event)">
           <label for="hargajual">Harga Jual</label>
         </div>
       </div>
@@ -121,6 +150,15 @@
     }
   }
   ?>
+
+  <script>
+		function hanyaAngka(evt) {
+		  var charCode = (evt.which) ? evt.which : event.keyCode
+		   if (charCode > 31 && (charCode < 48 || charCode > 57))
+		    return false;
+		  return true;
+		}
+	</script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

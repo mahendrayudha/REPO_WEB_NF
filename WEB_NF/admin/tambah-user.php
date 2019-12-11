@@ -25,35 +25,61 @@
     <form method="POST">
       <div class="form-group">
         <div class="form-label-group">
-          <input type="text" id="fullName" class="form-control" placeholder="Nama lengkap" required="required" name="namalengkap" autofocus="autofocus">
+          <input type="text"
+                 id="fullName"
+                 class="form-control"
+                 placeholder="Nama lengkap"
+                 required="required"
+                 name="namalengkap"
+                 autofocus="autofocus">
           <label for="fullName">Nama Lengkap</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="text" id="phoneNumber" class="form-control" placeholder="Nomor telepon" name="nomortelepon" required="required">
+          <input type="text"
+                 id="phoneNumber"
+                 class="form-control"
+                 placeholder="Nomor telepon"
+                 name="nomortelepon"
+                 required="required"
+                 onkeypress="return hanyaAngka(event)">
           <label for="phoneNumber">Nomor Telepon</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="text" id="address" class="form-control" placeholder="Alamat" name="alamat" required="required">
+          <input type="text"
+                 id="address"
+                 class="form-control"
+                 placeholder="Alamat"name="alamat"
+                 required="required">
           <label for="address">Alamat</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="email" id="inputEmail" class="form-control" placeholder="Email" name="email" required="required">
+          <input type="email"
+                 id="inputEmail"
+                 class="form-control"
+                 placeholder="Email"
+                 name="email"
+                 required="required">
           <label for="inputEmail">Email</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="text" id="username" class="form-control" placeholder="Username" required="required" name="username">
+          <input type="text"
+                 id="username"
+                 class="form-control"
+                 placeholder="Username"
+                 required="required"
+                 name="username">
           <label for="username">Username</label>
         </div>
       </div>
@@ -62,33 +88,28 @@
         <div class="form-row">
           <div class="col-md-6">
             <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Kata sandi" name="katasandi" required="required">
+              <input type="password"
+                     id="inputPassword"
+                     class="form-control"
+                     placeholder="Kata sandi"
+                     name="katasandi"
+                     required="required">
               <label for="inputPassword">Kata Sandi</label>
             </div>
           </div>
 
           <div class="col-md-6">
             <div class="form-label-group">
-              <input type="password" id="confirmPassword" class="form-control" placeholder="Konfirmasi kata sandi" required="required">
+              <input type="password"
+                     id="confirmPassword"
+                     class="form-control"
+                     placeholder="Konfirmasi kata sandi"
+                     required="required">
               <label for="confirmPassword">Konfirmasi Kata Sandi</label>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- <div class="form-group">
-      <div class="form-label-group">
-        <select id="status"
-                class="form-control"
-                required="required"
-                name="status"
-                autofocus="autofocus">
-        <label for="status">Status</label>
-        <option value="admin">1 Admin</option>
-        <option value="karyawan">2 Karyawan</option>
-        <option value="user">3 User</option>
-      </div>
-    </div> -->
 
       <button type="submit" class="btn btn-primary" name="tambahuser" href="tabel-user.php">
         Tambah User
@@ -124,6 +145,15 @@
     }
   }
   ?>
+
+  <script>
+		function hanyaAngka(evt) {
+		  var charCode = (evt.which) ? evt.which : event.keyCode
+		   if (charCode > 31 && (charCode < 48 || charCode > 57))
+		    return false;
+		  return true;
+		}
+	</script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

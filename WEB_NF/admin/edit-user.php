@@ -67,6 +67,8 @@ if($conn === false){
                placeholder="Nomor telepon"
                name="nomortelepon"
                required="required"
+               onkeypress="return hanyaAngka(event)"
+               maxlength="14"
                value="<?php echo $tampil['NOMOR_TELEPON'];?>">
         <label for="phoneNumber">Nomor Telepon</label>
       </div>
@@ -172,6 +174,15 @@ $sql= mysqli_query($conn, $query);
 return mysqli_affected_rows($conn);
 }
 ?>
+
+  <script>
+		function hanyaAngka(evt) {
+		  var charCode = (evt.which) ? evt.which : event.keyCode
+		   if (charCode > 31 && (charCode < 48 || charCode > 57))
+		    return false;
+		  return true;
+		}
+	</script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

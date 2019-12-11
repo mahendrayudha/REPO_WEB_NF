@@ -67,6 +67,7 @@ if($conn === false){
                placeholder="Stok produk"
                name="stokproduk"
                required="required"
+               onkeypress="return hanyaAngka(event)"
                value="<?php echo $tampil['STOK_PRODUK'];?>">
         <label for="stokproduk">Stok Produk</label>
       </div>
@@ -74,25 +75,27 @@ if($conn === false){
 
     <div class="form-group">
       <div class="form-label-group">
-        <input type="number"
+        <input type="text"
                id="hargabeli"
                class="form-control"
                placeholder="Harga beli"
                name="hargabeli"
-                required="required"
-                value="<?php echo $tampil['HARGA_BELI'];?>">
+               required="required"
+               onkeypress="return hanyaAngka(event)"
+               value="<?php echo $tampil['HARGA_BELI'];?>">
         <label for="hargabeli">Harga Beli</label>
       </div>
     </div>
 
     <div class="form-group">
       <div class="form-label-group">
-        <input type="number"
+        <input type="text"
                id="hargajual"
                class="form-control"
                placeholder="Harga jual"
                name="hargajual"
                required="required"
+               onkeypress="return hanyaAngka(event)"
                value="<?php echo $tampil['HARGA_JUAL'];?>">
         <label for="hargajual">Harga Jual</label>
       </div>
@@ -143,6 +146,15 @@ $sql= mysqli_query($conn, $query);
 return mysqli_affected_rows($conn);
 }
 ?>
+
+  <script>
+		function hanyaAngka(evt) {
+		  var charCode = (evt.which) ? evt.which : event.keyCode
+		   if (charCode > 31 && (charCode < 48 || charCode > 57))
+		    return false;
+		  return true;
+		}
+	</script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
