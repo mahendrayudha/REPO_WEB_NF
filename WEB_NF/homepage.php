@@ -124,18 +124,15 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       <div class="imgcontainer">
         <img src="img/user.svg" alt="Avatar" class="avatar" />
       </div>
-
       <div class="card-body">
         <!-- <label for="nama"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="nama" required /> -->
-
         <div class="form-group">
           <div class="form-label-group">
             <input type="text" id="username" class="form-control" placeholder="Masukan username Anda" required="required" name="nama">
             <label for="username">Username</label>
           </div>
         </div>
-
         <!-- <div class="text"></div><label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" value="" id="myInput" required minlength="8" maxlength="20" /> -->
         <div class="form-group">
@@ -144,7 +141,6 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
             <label for="inputPassword">Kata Sandi</label>
           </div>
         </div>
-
         <div class="form-group">
           <div class="form-label-group">
             <input type="checkbox" onclick="myFunction()">
@@ -298,7 +294,6 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       echo "<script>alert ('Login Berhasil');window.location.href='homepage.php'</script>";
     } else {
       echo "<script>alert ('Login Gagal')</script>";
-      // header("location: login.php?gagal");
     }
   }
   ?>
