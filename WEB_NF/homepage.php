@@ -32,21 +32,13 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container-fluid" style="padding-left: 100px!important; padding-right: 100px!important;">
       <div class="logo">
-        <a class="navbar-brand js-scroll-trigger"
-           href="#page-top">
-           <img src="img/logo_nf.png"
-           style="width: 60px">
-           Naura Farm
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+          <img src="img/logo_nf.png" style="width: 60px">
+          Naura Farm
         </a>
       </div>
-      <button class="navbar-toggler navbar-toggler-right"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarResponsive"
-              aria-controls="navbarResponsive"
-              aria-expanded="false"
-              aria-label="Toggle navigation">
-              Menu
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -68,7 +60,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user-circle fa-fw"></i>
                 <?php
-                if(isset($_SESSION['login'])) {
+                if (isset($_SESSION['login'])) {
                   echo $_SESSION["user"];
                 } ?>
               </a>
@@ -104,21 +96,19 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
 
         <!-- Session utk merubah button masuk menjadi keluar saat kondisi user sedang login -->
         <?php
-          if (isset($_SESSION['login'])) {
-        ?>
-        <a href="keluar.php">
-          <button class="out" style="width:auto;">
-            Keluar
-          </button>
-        </a>
-        <?php
-          } else {
-        ?>
-            <button onclick="document.getElementById('id01').style.display='block'"
-                    class="btn btn-primary"
-                    style="width:auto; margin-top:50px;">
-                    Masuk
+        if (isset($_SESSION['login'])) {
+          ?>
+          <!-- <a href="keluar.php">
+            <button class="out" style="width:auto;">
+              Keluar
             </button>
+          </a> -->
+        <?php
+        } else {
+          ?>
+          <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-primary" style="width:auto; margin-top:50px;">
+            Masuk
+          </button>
         <?php
         }
         ?>
@@ -141,12 +131,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
 
         <div class="form-group">
           <div class="form-label-group">
-            <input type="text"
-                   id="username"
-                   class="form-control"
-                   placeholder="Masukan username Anda"
-                   required="required"
-                   name="nama">
+            <input type="text" id="username" class="form-control" placeholder="Masukan username Anda" required="required" name="nama">
             <label for="username">Username</label>
           </div>
         </div>
@@ -155,13 +140,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
         <input type="password" placeholder="Enter Password" name="psw" value="" id="myInput" required minlength="8" maxlength="20" /> -->
         <div class="form-group">
           <div class="form-label-group">
-            <input type="password"
-                   id="myInput"
-                   class="form-control"
-                   placeholder="Masukan kata sandi Anda"
-                   required="required"
-                   name="psw"
-                   minlength="8" maxlength="20">
+            <input type="password" id="myInput" class="form-control" placeholder="Masukan kata sandi Anda" required="required" name="psw" minlength="8" maxlength="20">
             <label for="inputPassword">Kata Sandi</label>
           </div>
         </div>
@@ -185,7 +164,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
         </script>
 
         <button type="submit" class="btn btn-primary" name="masuk">Masuk</button>
-        
+
         <label>
           <input type="checkbox" checked="checked" name="remember">
            Remember me
@@ -193,7 +172,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       </div>
 
       <div class="modal-footer" style="background-color: white">
-        <span class="psw"><a href="forgotpassword.php" >Lupa Password</a></span>
+        <span class="psw"><a href="forgotpassword.php">Lupa Password</a></span>
         <span class="rgst"><a href="#" onclick="hide()">Daftar Sekarang</a></span>
         <script>
           function hide() {
@@ -223,12 +202,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
         <input type="text" placeholder="Enter Name" name="nama" required /> -->
         <div class="form-group">
           <div class="form-label-group">
-            <input type="text"
-                   id="nama"
-                   class="form-control"
-                   required="required"
-                   name="nama"
-                   required maxlength="100">
+            <input type="text" id="nama" class="form-control" required="required" name="nama" required maxlength="100">
             <label for="nama">Nama Lengkap</label>
           </div>
         </div>
@@ -237,12 +211,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
         <input type="text" placeholder="Enter Nomor Telpon" name="notelp" required maxlength="13" /> -->
         <div class="form-group">
           <div class="form-label-group">
-            <input type="number"
-                   id="notelp"
-                   class="form-control"
-                   required="required"
-                   name="notelp"
-                   required maxlength="13">
+            <input type="number" id="notelp" class="form-control" required="required" name="notelp" required maxlength="13">
             <label for="notelp">Nomor Telepon</label>
           </div>
         </div>
@@ -364,7 +333,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
     }
   }
   ?>
-  
+
   <!-- ////////////////////////////Profil Section/////////////////////////// -->
   <section id="profil" class="masthead text-center">
     <div class="container">
@@ -446,7 +415,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       <!-- ///////////////////////Produk Selai Buah Naga///////////////////// -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img width="455" height="453" src="img/selai.jpg" alt="">
+          <img width="465" height="453" src="img/selai.jpg" alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
@@ -466,7 +435,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
 
-          <img width="555" height="516.85" src="img/Kripik.jpg" alt="">
+          <img width="555" height="700" src="img/Kripik.jpg" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
@@ -526,11 +495,24 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
           <div class="featured-text text-center text-lg-left">
             <h4>Penjualan Produk</h4>
             <p class="text-black-50 mb-0" style="text-align:justify">Kita juga menjual Produk Buah Naga merah dan putih yang kita produksi sendri dan beberapa produk olahan yang di buat oleh Naura Farm yaitu selai buah, keripik buah, dan jus buah naga.</p>
-            <button onclick="document.getElementById('id01').style.display='block'"
-                    class="btn btn-primary"
-                    style="width:auto; margin-top:50px;">
-                    Beli Produk
-            </button>
+            <?php
+            if (isset($_SESSION['login'])) {
+              ?>
+              <a href="transaksi.php">
+                <button class="out" style="width:auto;" class="btn btn-primary" style="width:auto; margin-top:50px;">
+                  Beli Produk
+                </button>
+              </a>
+            <?php
+            } else {
+              ?>
+              <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-primary" style="width:auto; margin-top:50px;">
+                Beli Produk
+              </button>
+            <?php
+            }
+            ?>
+
           </div>
         </div>
       </div>
