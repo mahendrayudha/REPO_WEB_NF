@@ -23,12 +23,68 @@
 </head>
 
 <body id="page-top">
-
   <div id="wrapper">
-
     <div id="content-wrapper">
-
       <div class="container-fluid">
+
+      <!-- DataTables Example -->
+      <div class="card mb-3">
+          <div class="card-header">
+          <a href="?page=user&aksi=tambah-user" class="btn btn-primary fas fa-user"> Tambah User</a>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>ID User</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Nomor Telepon</th>
+                    <th>Alamat</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                    $sql = $conn->query("SELECT * FROM user");
+                    while($data = $sql->fetch_assoc()) {
+                      $admin = ($data['LEVEL']==1);
+                      $admin = 'Admin';
+                      $karyawan = ($data['LEVEL']==2);
+                      $karyawan = 'Karyawan';
+                      $user = ($data['LEVEL']==3);
+                      $user = 'User';
+                  ?>
+                  <tr>
+                    <td><?php echo $data['ID_USER']; ?></td>
+                    <td><?php echo $data['NAMA']; ?></td>
+                    <td><?php echo $data['EMAIL']; ?></td>
+                    <td><?php echo $data['NOMOR_TELEPON']; ?></td>
+                    <td><?php echo $data['ALAMAT']; ?></td>
+                    <td><?php echo $data['USERNAME']; ?></td>
+                    <td><?php echo $data['PASSWORD']; ?></td>
+                    <td><?php if($data ['LEVEL']==2) {
+                      echo $karyawan;
+                    } elseif($data ['LEVEL']==1) {
+                      echo $admin;
+                    } elseif($data['LEVEL']==3) {
+                      echo $user;
+                    } ?></td>
+                    <td>
+                      <a href="?page=user&aksi=edit-user&id=<?php echo $data['ID_USER'];?>" class="fas fa-edit"></a>
+                      <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="?page=user&aksi=hapus-user&id=<?php echo $data['ID_USER'];?>" class="fas fa-trash"></a>
+                    </td>
+                  </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
 
         <!-- Area Grafik Penjualan-->
         <div class="card mb-3">

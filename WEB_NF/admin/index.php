@@ -96,33 +96,33 @@
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="?page=dashboard">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="?page=grafik-penjualan">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Grafik Penjualan</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="?page=tabel-pesanan">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tabel Pesanan</span></a>
-      </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="?page=tabel-produk">
           <i class="fas fa-fw fa-table"></i>
           <span>Tabel Produk</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
+        <a class="nav-link" href="?page=tabel-pesanan">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Tabel Pesanan</span></a>
+      </li>
+      <li class="nav-item active">
         <a class="nav-link" href="?page=tabel-user">
           <i class="fas fa-fw fa-table"></i>
           <span>Tabel User</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
+        <a class="nav-link" href="?page=laporan-penjualan">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Laporan Penjualan</span></a>
+      </li>
+      <li class="nav-item active">
       <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">Keluar</a>
           <span>Keluar</span></a>
       </li>
@@ -138,8 +138,8 @@
 
         if($page == "dashboard") {
           include "dashboard.php";
-        } elseif ($page == "grafik-penjualan") {
-          include "grafik-penjualan.php";
+        } elseif ($page == "laporan-penjualan") {
+          include "laporan-penjualan.php";
         } elseif ($page == "tabel-pesanan") {
           include "tabel-pesanan.php";
         } elseif ($page == "tabel-user") {
