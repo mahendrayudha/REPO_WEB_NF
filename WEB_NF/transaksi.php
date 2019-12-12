@@ -90,7 +90,19 @@
         <header class="masthead">
             <div class="container d-flex h-100 align-items-center">
                 <div class="mx-auto text-center">
-                    
+                   <div class="container">
+                       <h1>Produk</h1>
+                       <div class="row">
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <img src="img/buah_merah.jpg" alt="" height="100" width="100">
+                                <div class="caption">
+                                    <h3>Buah Naga Merah</h3>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                   </div>
                 </div>
             </div>
         </header>
