@@ -118,7 +118,7 @@
           <span>Tabel User</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="?page=grafik-penjualan">
+        <a class="nav-link" href="?page=laporan-penjualan">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Laporan Penjualan</span></a>
       </li>
@@ -138,8 +138,8 @@
 
         if($page == "dashboard") {
           include "dashboard.php";
-        } elseif ($page == "grafik-penjualan") {
-          include "grafik-penjualan.php";
+        } elseif ($page == "laporan-penjualan") {
+          include "laporan-penjualan.php";
         } elseif ($page == "tabel-pesanan") {
           include "tabel-pesanan.php";
         } elseif ($page == "tabel-user") {
