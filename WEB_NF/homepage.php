@@ -125,11 +125,8 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
         <img src="img/user.svg" alt="Avatar" class="avatar" />
       </div>
       <div class="card-body">
-        <<<<<<< HEAD <!-- <label for="nama"><b>Username</b></label>
+        <!-- <label for="nama"><b>Username</b></label>
           <input type="text" placeholder="Enter Username" name="nama" required /> -->
-          =======
-
-          >>>>>>> 7c3c10f74c485713e17d251bc3b3699686252fbf
           <div class="form-group">
             <div class="form-label-group">
               <input type="text" id="username" class="form-control" placeholder="Username" required="required" name="nama">
@@ -302,6 +299,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       $row = mysqli_fetch_assoc($result);
       $_SESSION["login"] = true;
       $_SESSION['user'] = $row["USERNAME"];
+      $_SESSION['id_user'] = $row["ID_USER"];
       if ($row['LEVEL'] == 1) {
         header('location:admin/index.php');
       } else {
@@ -389,7 +387,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       <!-- ///////////////////////Produk Buah Naga Putih///////////////////// -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img width="465" height="470" src="img/buah_putih.jpg" alt="">
+          <img width="465" height="480" src="img/buah_putih.jpg" alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
