@@ -216,11 +216,8 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
         <img src="img/user.svg" alt="Avatar" class="avatar" />
       </div>
 
-      <div class="container">
-        <input type="hidden" name="ID_USER" value="" readonly />
-
-        <!-- <label for="nama"><b>Nama</b></label>
-        <input type="text" placeholder="Enter Name" name="nama" required /> -->
+      <div class="card-body">
+        
         <div class="form-group">
           <div class="form-label-group">
             <input type="text"
@@ -228,36 +225,74 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
                    class="form-control"
                    required="required"
                    name="nama"
+                   placeholder="Nama Lengkap"
                    required maxlength="100">
             <label for="nama">Nama Lengkap</label>
           </div>
         </div>
 
-        <!-- <div class="text"></div><label for="notelp"><b>Nomor Telpon</b></label>
-        <input type="text" placeholder="Enter Nomor Telpon" name="notelp" required maxlength="13" /> -->
         <div class="form-group">
           <div class="form-label-group">
-            <input type="number"
+            <input type="text"
                    id="notelp"
                    class="form-control"
                    required="required"
                    name="notelp"
+                   placeholder="Nomor Telepon"
+                   onkeypress="return hanyaAngka(event)"
                    required maxlength="13">
             <label for="notelp">Nomor Telepon</label>
           </div>
         </div>
 
-        <div class="text1"></div><label for="alamat"><b>Alamat</b></label>
-        <input type="text" placeholder="Enter Alamat" name="alamat" required />
+        <div class="form-group">
+          <div class="form-label-group">
+            <input type="text"
+                   id="alamat"
+                   class="form-control"
+                   required="required"
+                   placeholder="Alamat"
+                   name="alamat">
+            <label for="alamat">Alamat</label>
+          </div>
+        </div>
 
-        <div class="text2"></div><label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required />
+        <div class="form-group">
+          <div class="form-label-group">
+            <input type="email"
+                   id="email"
+                   class="form-control"
+                   required="required"
+                   placeholder="Email"
+                   name="email">
+            <label for="email">Email</label>
+          </div>
+        </div>
 
-        <div class="text3"></div><label for="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" required />
+        <div class="form-group">
+          <div class="form-label-group">
+            <input type="text"
+                   id="username"
+                   class="form-control"
+                   required="required"
+                   placeholder="Username"
+                   name="usrname">
+            <label for="username">Username</label>
+          </div>
+        </div>
 
-        <div class="text4"></div><label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" value="" id="my-Input" required minlength="8" maxlength="20" />
+        <div class="form-group">
+          <div class="form-label-group">
+            <input type="password"
+                   id="my-Input"
+                   class="form-control"
+                   required="required"
+                   placeholder="Password"
+                   minlength="8" maxlength="20"
+                   name="psw">
+            <label for="psw">Password</label>
+          </div>
+        </div>
 
         <input type="checkbox" onclick="myfunction()">
         <div class="show">Show Password</div>
@@ -575,6 +610,15 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       Copyright &copy; Naura Farm | Politeknik Negeri Jember
     </div>
   </footer>
+
+  <script>
+		function hanyaAngka(evt) {
+		  var charCode = (evt.which) ? evt.which : event.keyCode
+		   if (charCode > 31 && (charCode < 48 || charCode > 57))
+		    return false;
+		  return true;
+		}
+	</script>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

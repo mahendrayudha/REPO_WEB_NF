@@ -21,13 +21,6 @@
 
 <body class="bg-dark">
 
-nama lengkap
-nomor telepon
-alamat
-email
-username
-pass
-
   <div class="container">
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Daftar Akun</div>
