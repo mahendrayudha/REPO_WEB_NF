@@ -126,21 +126,28 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       </div>
 
       <div class="card-body">
-        <!-- <label for="nama"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="nama" required /> -->
 
         <div class="form-group">
           <div class="form-label-group">
-            <input type="text" id="username" class="form-control" placeholder="Masukan username Anda" required="required" name="nama">
+            <input type="text"
+                   id="username"
+                   class="form-control"
+                   placeholder="Username"
+                   required="required"
+                   name="nama">
             <label for="username">Username</label>
           </div>
         </div>
 
-        <!-- <div class="text"></div><label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" value="" id="myInput" required minlength="8" maxlength="20" /> -->
         <div class="form-group">
           <div class="form-label-group">
-            <input type="password" id="myInput" class="form-control" placeholder="Masukan kata sandi Anda" required="required" name="psw" minlength="8" maxlength="20">
+            <input type="password"
+                   id="myInput"
+                   class="form-control"
+                   placeholder="Password"
+                   required="required"
+                   name="psw"
+                   minlength="8" maxlength="20">
             <label for="inputPassword">Kata Sandi</label>
           </div>
         </div>

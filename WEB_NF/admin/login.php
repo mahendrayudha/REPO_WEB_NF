@@ -1,3 +1,32 @@
+<?php
+  $conn = new mysqli ("localhost","root","","naura_farm");
+  if($conn === false) {
+    die("ERROR: " . mysqli_connect_error());
+  }
+
+  if (isset($_POST["masuk"])) {
+    $username = $_POST['nama'];
+    $password = $_POST['psw'];
+
+    $result =  $conn->query("SELECT * FROM user WHERE USERNAME = '$username' AND PASSWORD = '$password'");
+
+    if (mysqli_num_rows($result) === 1) {
+      //cek password
+      $row = mysqli_fetch_assoc($result);
+      $_SESSION["login"] = true;
+      $_SESSION['user'] = $row["USERNAME"];
+      if ($row['LEVEL'] == 1) {
+        header('location:admin/index.php');
+      } else {
+        header('location:homepage.php');
+      }
+      echo "<script>alert ('Login Berhasil');window.location.href='homepage.php'</script>";
+    } else {
+      echo "<script>alert ('Login Gagal')</script>";
+      // header("location: login.php?gagal");
+    }
+  }
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,13 +57,23 @@
         <form>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="username" id="inputUsername" class="form-control" placeholder="Username" required="required" autofocus="autofocus">
+              <input type="username"
+                     id="inputUsername"
+                     class="form-control"
+                     placeholder="Username"
+                     required="required"
+                     autofocus="autofocus">
               <label for="inputEmail">Username</label>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Kata Sandi" required="required">
+              <input type="password"
+                     id="inputPassword"
+                     class="form-control"
+                     placeholder="Kata Sandi"
+                     minlength="8" maxlength="20"
+                     required="required">
               <label for="inputPassword">Kata Sandi</label>
             </div>
           </div>
