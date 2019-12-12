@@ -1,10 +1,43 @@
 <?php
+session_start();
 require 'functions.php';
 
+//mengambil id
+$idu = $_SESSION['id_user'];
 $id = $_GET['id'];
 
+//cek session
+if(!isset($_SESSION["login"])){
+    header("location: homepage.php");
+    exit;
+}
+
+//auto increment id transaksi
+
+$carikode = mysqli_query($conn, "select max(ID_TRANSAKSI)from keranjang") or die (mysqli_error($conn));
+$datakode = mysqli_fetch_array($carikode);
+if($datakode) {
+    $nilaikode = substr($datakode[0], 1 );
+    $kode = (int) $nilaikode;
+    $kode = $kode + 1;
+    $hasilkode = "T" .str_pad($kode, 3, "0", STR_PAD_LEFT);
+}else{
+    $hasilkode = "T001";
+}
+
+
+//menampilkan produk berdasarkan id
 $ambil = $conn->query("SELECT * FROM produk WHERE ID_PRODUK = '$id'");
 $perproduk = mysqli_fetch_array($ambil);
+
+//memasukkan keranjang
+if (isset($_POST['beli'])){
+    if (keranjang($_POST) == 1 ) {
+        echo "<script>alert ('Berhasil Memasukkan ke Keranjang');</script>";
+    }else {
+        echo "<script>alert ('Gagal Memasukkan ke Keranjang');</script>";
+    }
+}
 
 ?>
 
@@ -104,27 +137,65 @@ $perproduk = mysqli_fetch_array($ambil);
         </nav>
     </header>
     <section>
-        <form action="">
+        <form action="" method="POST">
             <h1><?php echo $perproduk["NAMA_PRODUK"]; ?></h1>
             <div class="transaksi-content tambah">
                 <img src="img/<?php echo $perproduk["FOTO_PRODUK"]; ?>" alt="">
                 <table>
                     <tr>
                         <td>
-                            <input id="harga" type="text" name="" onkeyup="hitung()" value="<?php echo $perproduk["HARGA_JUAL"]; ?>" readonly>
-                            Harga
+                            <input type="hidden" name="tanggal" id="tanggal" value="<?php
+                                $tanggal= mktime(date("d"),date("m"),date("Y"));
+                                echo " ".date("d/m/Y", $tanggal)." ";
+                                date_default_timezone_set('Asia/Jakarta');
+                                // echo date("h:i:sa");
+                                ?>" readonly
+                            >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="id_transaksi" value="<?php echo $hasilkode?>">
+                            <input type="text" name="id_produk" value="<?php echo $perproduk["ID_PRODUK"]; ?>">
+                            <input type="text" name="id_user" value="<?php echo $idu ?>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="harga" type="text" name="harga" onkeyup="hitung();" value="<?php echo $perproduk["HARGA_JUAL"]; ?>" readonly>
+                            Harga : 
                         </td>
                     </tr>
                     <tr>
                         <td><input type="text" name="" id="" value="<?php echo $perproduk["STOK_PRODUK"]; ?>" readonly>
-                            Stok
+                            Stok : 
                         </td>
                     </tr>
                     <tr>
-                        <td><input id="jumlah" type="number" placeholder="Jumlah beli" onkeyup="hitung()">Jumlah Beli</td>
+                        <td><input id="jumlah" name="jumlah" type="number" placeholder="Jumlah beli" onkeyup="hitung();" required>Jumlah Beli : </td>
                     </tr>
                     <tr>
-                        <td><input id="total" type="number">Total Harga</td>
+                        <td><input id="total" name="total" type="number" readonly>Total Harga : </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea name="alamat" id="alamat" placeholder="Alamat" rows="5" required></textarea>Alamat : 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="opsi">Opsi Pembayaran
+                                <select name="opsi" id="opsi" style="color: black">
+                                    <option value="1" style="color: black">Transfer</option>
+                                    <option value="2" style="color: black">Cash</option>
+                                </select>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button  name="beli" class="btn btn-primary">Masukkan Keranjang</button>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -132,14 +203,13 @@ $perproduk = mysqli_fetch_array($ambil);
     </section>
 
     <script>
-        function hitung(); {
+        function hitung() {
             var txtFirstNumberValue = document.getElementById('harga').value;
             var txtSecondNumberValue = document.getElementById('jumlah').value;
             var result = parseInt(txtFirstNumberValue) * parseInt(txtSecondNumberValue);
             if (!isNaN(txtSecondNumberValue)) {
                 document.getElementById('total').value = result;
             }
-
         }
     </script>
 </body>
