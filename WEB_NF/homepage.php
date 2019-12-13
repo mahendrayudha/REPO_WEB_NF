@@ -4,6 +4,20 @@
 <?php
 session_start();
 $conn = mysqli_connect("localhost", "root", "", "naura_farm");
+
+//auto increment id user
+
+$carikode = mysqli_query($conn, "select max(ID_USER)from user") or die (mysqli_error($conn));
+$datakode = mysqli_fetch_array($carikode);
+if($datakode) {
+    $nilaikode = substr($datakode[0], 1 );
+    $kode = (int) $nilaikode;
+    $kode = $kode + 1;
+    $hasilkode = "U" .str_pad($kode, 3, "0", STR_PAD_LEFT);
+}else{
+    $hasilkode = "U001";
+}
+
 ?>
 
 <head>
@@ -225,7 +239,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
 
         <div class="form-group">
           <div class="form-label-group">
-            <input type="text" id="username" class="form-control" required="required" placeholder="Username" name="usrname">
+            <input type="text" id="username" class="form-control" required="required" placeholder="Username" name="username">
             <label for="username">Username</label>
           </div>
         </div>
@@ -329,8 +343,8 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
   $daftar = isset($_POST['daftar']) ? $_POST['daftar'] : null;
 
   if (isset($_POST['daftar'])) {
-    $sql = $conn->query("insert into user (NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD, LEVEL)
-            values('$nama','$notelp','$alamat','$email','$username','$password','3')");
+    $sql = $conn->query("insert into user (ID_USER, NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD, LEVEL)
+            values('$hasilkode', '$nama','$notelp','$alamat','$email','$username','$password','3')");
 
     if ($sql) {
       ?>

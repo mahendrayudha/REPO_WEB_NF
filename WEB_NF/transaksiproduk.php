@@ -12,7 +12,7 @@ if(!isset($_SESSION["login"])){
     exit;
 }
 
-//auto increment id transaksi
+//auto increment id produk
 
 $carikode = mysqli_query($conn, "select max(ID_TRANSAKSI)from keranjang") or die (mysqli_error($conn));
 $datakode = mysqli_fetch_array($carikode);
@@ -155,9 +155,9 @@ if (isset($_POST['beli'])){
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="id_transaksi" value="<?php echo $hasilkode?>">
-                            <input type="text" name="id_produk" value="<?php echo $perproduk["ID_PRODUK"]; ?>">
-                            <input type="text" name="id_user" value="<?php echo $idu ?>">
+                            <input type="hidden" name="id_transaksi" value="<?php echo $hasilkode?>">
+                            <input type="hidden" name="id_produk" value="<?php echo $perproduk["ID_PRODUK"]; ?>">
+                            <input type="hidden" name="id_user" value="<?php echo $idu ?>">
                         </td>
                     </tr>
                     <tr>

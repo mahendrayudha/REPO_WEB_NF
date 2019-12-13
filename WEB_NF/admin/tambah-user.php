@@ -1,3 +1,20 @@
+<?php 
+
+//auto increment id user
+
+$carikode = mysqli_query($conn, "select max(ID_USER)from user") or die (mysqli_error($conn));
+$datakode = mysqli_fetch_array($carikode);
+if($datakode) {
+    $nilaikode = substr($datakode[0], 1 );
+    $kode = (int) $nilaikode;
+    $kode = $kode + 1;
+    $hasilkode = "U" .str_pad($kode, 3, "0", STR_PAD_LEFT);
+}else{
+    $hasilkode = "U001";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -133,8 +150,8 @@
   $tambahuser = isset($_POST['tambahuser']) ? $_POST['tambahuser'] : null;
 
   if (isset($_POST['tambahuser'])) {
-    $sql = $conn->query("INSERT INTO user (NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD, LEVEL)
-    values('$namalengkap', '$nomortelepon', '$alamat', '$email', '$username', '$katasandi', '2')");
+    $sql = $conn->query("INSERT INTO user (ID_USER, NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD, LEVEL)
+    values('$hasilkode', '$namalengkap', '$nomortelepon', '$alamat', '$email', '$username', '$katasandi', '2')");
     if ($sql) {
       ?>
       <script type="text/javascript">

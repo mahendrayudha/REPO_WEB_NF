@@ -1,17 +1,17 @@
 <?php
-// $carikode = mysqli_query($conn, "SELECT max(ID_PRODUK) FROM produk") or die(mysqli_error($conn));
-// $datakode = mysqli_fetch_array($carikode);
-// if($datakode)
-// {
-//         $nilaikode = substr($datakode[0], 2);
-//         $kode = (int) $nilaikode;
-//         $kode = $kode + 1;
-//         $hasilkode = "P" .str_pad($kode, 1, "0", STR_PAD_LEFT);
-// }
-// else
-// {
-//         $hasilkode = "P01";
-// }
+
+//auto increment id transaksi
+
+$carikode = mysqli_query($conn, "select max(ID_PRODUK)from produk") or die(mysqli_error($conn));
+$datakode = mysqli_fetch_array($carikode);
+if ($datakode) {
+  $nilaikode = substr($datakode[0], 1);
+  $kode = (int) $nilaikode;
+  $kode = $kode + 1;
+  $hasilkode = "P" . str_pad($kode, 3, "0", STR_PAD_LEFT);
+} else {
+  $hasilkode = "P001";
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,64 +41,35 @@
     <form method="POST">
       <div class="form-group">
         <div class="form-label-group">
-          <input type="text"
-                 id="namaproduk"
-                 class="form-control"
-                 placeholder="Nama produk"
-                 required="required"
-                 name="namaproduk"
-                 autofocus="autofocus">
+          <input type="text" id="namaproduk" class="form-control" placeholder="Nama produk" required="required" name="namaproduk" autofocus="autofocus">
           <label for="namaproduk">Nama Produk</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="file"
-                 id="fotoproduk"
-                 class="form-control"
-                 required="required"
-                 name="fotoproduk"
-                 autofocus="autofocus">
+          <input type="file" id="fotoproduk" class="form-control" required="required" name="fotoproduk" autofocus="autofocus">
           <label for="fotoproduk">Foto Produk</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="text"
-                 id="stokproduk"
-                 class="form-control"
-                 placeholder="Stok produk"
-                 name="stokproduk"
-                 required="required"
-                 onkeypress="return hanyaAngka(event)">
+          <input type="text" id="stokproduk" class="form-control" placeholder="Stok produk" name="stokproduk" required="required" onkeypress="return hanyaAngka(event)">
           <label for="stokproduk">Stok Produk</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="text"
-                 id="hargabeli"
-                 class="form-control"
-                 placeholder="Harga beli"
-                 name="hargabeli"
-                 required="required"
-                 onkeypress="return hanyaAngka(event)">
+          <input type="text" id="hargabeli" class="form-control" placeholder="Harga beli" name="hargabeli" required="required" onkeypress="return hanyaAngka(event)">
           <label for="hargabeli">Harga Beli</label>
         </div>
       </div>
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="text"
-                 id="hargajual"
-                 class="form-control"
-                 placeholder="Harga jual"
-                 name="hargajual"
-                 required="required"
-                 onkeypress="return hanyaAngka(event)">
+          <input type="text" id="hargajual" class="form-control" placeholder="Harga jual" name="hargajual" required="required" onkeypress="return hanyaAngka(event)">
           <label for="hargajual">Harga Jual</label>
         </div>
       </div>
@@ -139,7 +110,7 @@
 
   if (isset($_POST['tambahproduk'])) {
     $sql = $conn->query("INSERT INTO produk (ID_PRODUK, NAMA_PRODUK, FOTO_PRODUK, STOK_PRODUK, HARGA_BELI, HARGA_JUAL)
-    values('', '$namaproduk', '$fotoproduk', '$stokproduk', '$hargabeli', '$hargajual')");
+    values('$hasilkode', '$namaproduk', '$fotoproduk', '$stokproduk', '$hargabeli', '$hargajual')");
     if ($sql) {
       ?>
       <script type="text/javascript">
@@ -152,13 +123,13 @@
   ?>
 
   <script>
-		function hanyaAngka(evt) {
-		  var charCode = (evt.which) ? evt.which : event.keyCode
-		   if (charCode > 31 && (charCode < 48 || charCode > 57))
-		    return false;
-		  return true;
-		}
-	</script>
+    function hanyaAngka(evt) {
+      var charCode = (evt.which) ? evt.which : event.keyCode
+      if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+      return true;
+    }
+  </script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
