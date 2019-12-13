@@ -444,7 +444,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
 
-          <img width="555" height="700" src="img/Kripik.jpg" alt="">
+          <img width="465" height="602.78" src="img/Kripik.jpg" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
