@@ -92,6 +92,12 @@ if ($datakode) {
         Tambah Produk
       </button>
 
+      <a href="index.php?page=tabel-produk">
+        <button class="btn btn-danger" name="cancel">
+          Batal
+        </button>
+      </a>
+
     </form>
   </div>
 
