@@ -1,6 +1,44 @@
 <?php
+$conn = new mysqli("localhost", "root", "", "naura_farm");
+session_start();
 require 'functions.php';
 
+//mengambil id
+// $idu = $_SESSION['id_user'];
+// $id = $_GET['id'];
+
+//cek session
+if (!isset($_SESSION["login"])) {
+    header("location: homepage.php");
+    exit;
+}
+
+//auto increment id produk
+
+// $carikode = mysqli_query($conn, "select max(ID_TRANSAKSI)from keranjang") or die (mysqli_error($conn));
+// $datakode = mysqli_fetch_array($carikode);
+// if($datakode) {
+//     $nilaikode = substr($datakode[0], 1 );
+//     $kode = (int) $nilaikode;
+//     $kode = $kode + 1;
+//     $hasilkode = "T" .str_pad($kode, 3, "0", STR_PAD_LEFT);
+// }else{
+//     $hasilkode = "T001";
+// }
+
+
+//menampilkan produk berdasarkan id
+// $ambil = $conn->query("SELECT * FROM produk WHERE ID_PRODUK = '$id'");
+// $perproduk = mysqli_fetch_array($ambil);
+
+// //memasukkan keranjang
+// if (isset($_POST['beli'])){
+//     if (keranjang($_POST) == 1 ) {
+//         echo "<script>alert ('Berhasil Memasukkan ke Keranjang');</script>";
+//     }else {
+//         echo "<script>alert ('Gagal Memasukkan ke Keranjang');</script>";
+//     }
+// }
 
 ?>
 
@@ -23,7 +61,6 @@ require 'functions.php';
 
     <!-- Bootstrap CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="vendor/bootstrap/css/bootstrap1.css" rel="stylesheet">
 
     <!-- Custom fonts -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -38,6 +75,7 @@ require 'functions.php';
     <style>
         body {
             background-image: url(img/bg-masthead.JPG);
+            /* background-color: gray; */
         }
     </style>
 </head>
@@ -76,12 +114,7 @@ require 'functions.php';
                         <div class="dropdown">
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-user-circle fa-fw">
-                                        <?php
-                                        if (isset($_SESSION['login'])) {
-                                            echo $_SESSION["user"];
-                                        } ?>
-                                    </i>
+                                    <i class="fas fa-user-circle fa-fw"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                     <!-- Session utk merubah nav akun login/register menjadi akun/keluar saat kondisi user sedang login -->
@@ -105,17 +138,58 @@ require 'functions.php';
         </nav>
     </header>
     <section>
-        <?php $ambil = $conn->query("SELECT * FROM produk"); ?>
-        <?php while ($perproduk = $ambil->fetch_assoc()) { ?>
-            <div class="card tambah" style="width: 18rem;">
-                <img style="height: 190px; width: 265px;" class="card-img-top img" src="img/<?php echo $perproduk["FOTO_PRODUK"] ?>" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">Rp. <?php echo $perproduk["HARGA_JUAL"]; ?></h5>
-                    <p class="card-text"><?php echo $perproduk["NAMA_PRODUK"]; ?></p>
-                    <a href="transaksiproduk.php?id=<?php echo $perproduk["ID_PRODUK"]; ?>" class="btn btn-primary">Beli</a>
+        <form action="" method="POST">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="background-color: white">
+                        <thead>
+                            <tr>
+                                <th>ID Transaksi</th>
+                                <th>ID Produk</th>
+                                <th>ID User</th>
+                                <th>Jumlah Beli</th>
+                                <th>Tanggal Beli</th>
+                                <th>Alamat</th>
+                                <th>Opsi Pembayaran</th>
+                                <th>Total Bayar</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sql = $conn->query("select * from keranjang");
+                            while ($data = $sql->fetch_assoc()) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $data['ID_PRODUK']; ?></td>
+                                    <td><?php echo $data['ID_PRODUK']; ?></td>
+                                    <td><?php echo $data['ID_USER']; ?></td>
+                                    <td><?php echo $data['JUMLAH_BELI']; ?></td>
+                                    <td><?php echo $data['TGL_TRANSAKSI']; ?></td>
+                                    <td><?php echo $data['ALAMAT']; ?></td>
+                                    <td><?php echo $data['OPSI_PEMBAYARAN']; ?></td>
+                                    <td><?php echo $data['GRAND_TOTAL']; ?></td>
+                                    <td>
+                                        <a href="edit-keranjang.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-edit"></a>
+                                        <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="hapus-keranjang.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-trash"></a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        <?php } ?>
-        <a class="btn btn-warning" href="keranjang.php">Lihat Keranjang</a>
+        </form>
     </section>
+
+    <script>
+        function hitung() {
+            var txtFirstNumberValue = document.getElementById('harga').value;
+            var txtSecondNumberValue = document.getElementById('jumlah').value;
+            var result = parseInt(txtFirstNumberValue) * parseInt(txtSecondNumberValue);
+            if (!isNaN(txtSecondNumberValue)) {
+                document.getElementById('total').value = result;
+            }
+        }
+    </script>
 </body>
