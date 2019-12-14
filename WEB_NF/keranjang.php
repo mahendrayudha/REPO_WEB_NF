@@ -180,6 +180,7 @@ if (!isset($_SESSION["login"])) {
                 </div>
             </div>
         </form>
+        <a class="btn btn-warning" href="transaksi.php">kembali</a>
     </section>
 
     <script>
