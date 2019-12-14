@@ -1,7 +1,5 @@
 <?php
-
-  $conn = new mysqli ("localhost","root","","naura_farm");
-
+  include "koneksi.php";
 ?>
 
 <!DOCTYPE html>

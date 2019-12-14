@@ -1,4 +1,5 @@
 <?php
+include "koneksi.php";
 
 //auto increment id transaksi
 
@@ -102,10 +103,7 @@ if ($datakode) {
   </div>
 
   <?php
-  $conn = mysqli_connect("localhost", "root", "", "naura_farm");
-  if ($conn === false) {
-    die("ERROR: " . mysqli_connect_error());
-  }
+  include "koneksi.php";
 
   $namaproduk = isset($_POST['namaproduk']) ? $_POST['namaproduk'] : null;
   $fotoproduk = isset($_POST['fotoproduk']) ? $_POST['fotoproduk'] : null;

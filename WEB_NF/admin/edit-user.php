@@ -1,8 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "naura_farm");
-if($conn === false){
-    die("ERROR: " . mysqli_connect_error());
-}
+  include "koneksi.php";
 
   $id = $_GET['id'];
   $sql = $conn->query("SELECT * FROM user WHERE ID_USER='$id'");

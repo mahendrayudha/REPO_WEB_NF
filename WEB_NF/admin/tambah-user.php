@@ -1,4 +1,5 @@
 <?php
+include "koneksi.php";
 
 //auto increment id user
 
@@ -113,10 +114,7 @@ if ($datakode) {
   </div>
 
   <?php
-  $conn = mysqli_connect("localhost", "root", "", "naura_farm");
-  if ($conn === false) {
-    die("ERROR: " . mysqli_connect_error());
-  }
+  include "koneksi.php";
 
   $namalengkap = isset($_POST['namalengkap']) ? $_POST['namalengkap'] : null;
   $nomortelepon = isset($_POST['nomortelepon']) ? $_POST['nomortelepon'] : null;
