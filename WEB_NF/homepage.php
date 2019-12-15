@@ -194,7 +194,7 @@ if($datakode) {
     </form>
   </div>
 
-  <!-- action="/action_page.php"  -->
+  <!-- /*/////////////////////////////////// FORM REGISTER //////////////////////////////////*/ -->
 
   <div id="id02" class="modal">
     <form class="modal-content animate" method="post">
@@ -378,7 +378,6 @@ if($datakode) {
   <section id="produk" class="produk-section bg-light">
     <div class="container">
 
-      <!-- /////////////////////Produk Buah Naga Merah//////////////////////// -->
       <!-- /////////////////////Produk Buah Naga Merah//////////////////////// -->
       <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
