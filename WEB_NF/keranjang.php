@@ -74,8 +74,18 @@ if (!isset($_SESSION["login"])) {
     <link rel="shortcut icon" href="img/ic_nf.ico" />
     <style>
         body {
-            background-image: url(img/bg-masthead.JPG);
-            /* background-color: gray; */
+            width: 100%;
+            height: auto;
+            padding: 0;
+            display: block;
+            margin: 0 auto;
+            max-height: 100%;
+            max-width: 100%;
+            background: url(img/bg-masthead.JPG);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-size: cover;
         }
     </style>
 </head>
@@ -83,11 +93,9 @@ if (!isset($_SESSION["login"])) {
 
 
 <body>
-
     <header>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container-fluid" style="padding-left: 100px!important;
-    padding-right: 100px!important;">
+            <div class="container-fluid" style="padding-left: 100px!important; padding-right: 100px!important;">
                 <div class="logo">
                     <a class="navbar-brand js-scroll-trigger" href="#page-top"> <img src="img/logo_nf.png" style="width: 60px;">
                         Naura Farm
@@ -138,7 +146,7 @@ if (!isset($_SESSION["login"])) {
         </nav>
     </header>
     <section>
-        <form action="" method="POST">
+        <form style="padding-top: 100px" action="" method="POST">
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="background-color: white">
@@ -180,7 +188,9 @@ if (!isset($_SESSION["login"])) {
                 </div>
             </div>
         </form>
-        <a class="btn btn-warning" href="transaksi.php">kembali</a>
+        <div style="margin: 0px 0px 0px 20px">
+            <a class="btn btn-warning" href="transaksi.php">kembali</a>
+        </div>
     </section>
 
     <script>
