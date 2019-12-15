@@ -37,19 +37,27 @@ require 'functions.php';
     <link rel="shortcut icon" href="img/ic_nf.ico" />
     <style>
         body {
-            background-image: url(img/bg-masthead.JPG);
+            width: 100%;
+            height: auto;
+            padding: 0;
+            display: block;
+            margin: 0 auto;
+            max-height: 100%;
+            max-width: 100%;
+            background: url(img/bg-masthead.JPG);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-size: cover;
         }
     </style>
 </head>
 <!-- Navigation -->
 
-
 <body>
-
     <header>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container-fluid" style="padding-left: 100px!important;
-    padding-right: 100px!important;">
+            <div class="container-fluid" style="padding-left: 100px!important; padding-right: 100px!important;">
                 <div class="logo">
                     <a class="navbar-brand js-scroll-trigger" href="#page-top"> <img src="img/logo_nf.png" style="width: 60px;">
                         Naura Farm
@@ -112,10 +120,15 @@ require 'functions.php';
                 <div class="card-body">
                     <h5 class="card-title">Rp. <?php echo $perproduk["HARGA_JUAL"]; ?></h5>
                     <p class="card-text"><?php echo $perproduk["NAMA_PRODUK"]; ?></p>
-                    <a href="transaksiproduk.php?id=<?php echo $perproduk["ID_PRODUK"]; ?>" class="btn btn-primary">Beli</a>
+                    <div style="display: flex; justify-content: center;">
+                        <a href="transaksiproduk.php?id=<?php echo $perproduk["ID_PRODUK"]; ?>" class="btn btn-primary">Beli</a>
+                    </div>
                 </div>
             </div>
         <?php } ?>
-        <a class="btn btn-warning" href="keranjang.php">Lihat Keranjang</a>
+        <div style=" padding: 100px; display: flex; justify-content: center;">
+            <a class="btn btn-warning" style="align" href="keranjang.php">Lihat Keranjang</a>
+        </div>
     </section>
 </body>
+</html>
