@@ -160,7 +160,7 @@
       $katasandi = isset($_POST['katasandi']) ? $_POST['katasandi'] : null;
           
   $query = "UPDATE user SET
-  ID_USER='$id',
+    ID_USER='$id',
     NAMA='$namalengkap',
     NOMOR_TELEPON='$nomortelepon',
     ALAMAT='$alamat',
