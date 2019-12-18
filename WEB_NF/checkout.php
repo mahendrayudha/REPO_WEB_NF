@@ -8,8 +8,7 @@ $idu = $_SESSION['id_user'];
 $id = $_GET['id'];
 
 //menampilkan keranjang berdasarkan id
-$ambil = $conn->query("SELECT * FROM keranjang, produk
- WHERE keranjang.ID_TRANSAKSI = keranjang.ID_PRODUK");
+$ambil = $conn->query("SELECT * FROM keranjang WHERE ID_TRANSAKSI = '$id'");
 $perproduk = mysqli_fetch_array($ambil);
 
 //cek session
@@ -123,7 +122,7 @@ if(!isset($_SESSION["login"])){
                             <form method="POST">
                                 <div class="form-group">
                                     <div class="form-label-group">
-                                        <h1><?php echo $perproduk["NAMA_PRODUK"]; ?></h1>
+                                        
                                         <input type="hidden" name="tanggal" id="tanggal" value="<?php
                                                                                                 $tanggal = mktime(date("d"), date("m"), date("Y"));
                                                                                                 echo " " . date("d/m/Y", $tanggal) . " ";
@@ -176,7 +175,7 @@ if(!isset($_SESSION["login"])){
                                 <div class="form-group">
                                     <div class="form-label-group">
                                         <label for="opsi">Opsi Pembayaran
-                                        <input name="opsi" id="opsi" value="<?php echo $perproduk["OPSI_PEMBAYARAN"] ?>" readonly></input>
+                                        <input name="opsi" id="opsi" value="<?php echo $perproduk["OPSI_PEMBAYARAN"] ?>" readonly></input>Alamat :
                                         </label>
                                     </div>
                                 </div>
