@@ -4,8 +4,9 @@ session_start();
 require 'functions.php';
 
 //mengambil id
-// $idu = $_SESSION['id_user'];
+$idu = $_SESSION['id_user'];
 // $id = $_GET['id'];
+
 
 //cek session
 if (!isset($_SESSION["login"])) {
@@ -97,7 +98,7 @@ if (!isset($_SESSION["login"])) {
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container-fluid" style="padding-left: 100px!important; padding-right: 100px!important;">
                 <div class="logo">
-                    <a class="navbar-brand js-scroll-trigger" href="#page-top"> <img src="img/logo_nf.png" style="width: 60px;">
+                    <a class="navbar-brand js-scroll-trigger" href="homepage.php"> <img src="img/logo_nf.png" style="width: 60px;">
                         Naura Farm
                     </a>
                 </div>
@@ -128,12 +129,12 @@ if (!isset($_SESSION["login"])) {
                                     <!-- Session utk merubah nav akun login/register menjadi akun/keluar saat kondisi user sedang login -->
                                     <?php
                                     if (isset($_SESSION['login'])) {
-                                        ?>
+                                    ?>
                                         <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Akun</a>
                                         <a class="dropdown-item" href="keluar.php">Keluar</a>
                                     <?php
                                     } else {
-                                        ?>
+                                    ?>
                                         <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Masuk</a>
                                         <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'">Daftar</a>
                                     <?php } ?>
@@ -165,9 +166,9 @@ if (!isset($_SESSION["login"])) {
                         </thead>
                         <tbody>
                             <?php
-                            $sql = $conn->query("select * from keranjang");
-                            while ($data = $sql->fetch_assoc()) {
-                                ?>
+                                    $sql = $conn->query("select * from keranjang WHERE ID_USER ='$idu'");
+                                    while ($data = $sql->fetch_assoc()) {
+                            ?>
                                 <tr>
                                     <td><?php echo $data['ID_PRODUK']; ?></td>
                                     <td><?php echo $data['ID_PRODUK']; ?></td>
@@ -179,7 +180,7 @@ if (!isset($_SESSION["login"])) {
                                     <td><?php echo $data['GRAND_TOTAL']; ?></td>
                                     <td>
                                         <a href="edit-keranjang.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-edit"></a>
-                                        <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="hapus-keranjang.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-trash"></a>
+                                        <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="hapus-keranjang.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-trash"></a>
                                     </td>
                                 </tr>
                             <?php } ?>

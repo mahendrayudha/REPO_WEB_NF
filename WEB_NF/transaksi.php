@@ -67,46 +67,7 @@ require 'functions.php';
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#profil">Profil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#produk">Produk</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#fasilitas">Fasilitas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#kontak_kami">Kontak Kami</a>
-                        </li>
-                        <div class="dropdown">
-                            <li class="nav-item dropdown no-arrow">
-                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-user-circle fa-fw">
-                                        <?php
-                                        if (isset($_SESSION['login'])) {
-                                            echo $_SESSION["user"];
-                                        } ?>
-                                    </i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                    <!-- Session utk merubah nav akun login/register menjadi akun/keluar saat kondisi user sedang login -->
-                                    <?php
-                                    if (isset($_SESSION['login'])) {
-                                        ?>
-                                        <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Akun</a>
-                                        <a class="dropdown-item" href="keluar.php">Keluar</a>
-                                    <?php
-                                    } else {
-                                        ?>
-                                        <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Masuk</a>
-                                        <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'">Daftar</a>
-                                    <?php } ?>
-                            </li>
-                    </ul>
-                </div>
+                
                 </ul>
             </div>
             </div>

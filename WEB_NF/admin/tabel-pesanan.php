@@ -1,5 +1,5 @@
 <?php
-  include "koneksi.php";
+include "koneksi.php";
 ?>
 
 <!DOCTYPE html>
@@ -39,50 +39,41 @@
                 <thead>
                   <tr>
                     <th>ID Transaksi</th>
-                    <th>Nama Pemesan</th>
-                    <th>Tanggal Pesanan</th>
-                    <th>Produk Pesanan</th>
-                    <th>Sub Total</th>
-                    <th>Jumlah Pesanan</th>
-                    <th>Grand Total</th>
+                    <th>ID Produk</th>
+                    <th>ID User</th>
+                    <th>Jumlah Beli</th>
+                    <th>Tanggal</th>
+                    <th>JAlamat</th>
                     <th>Opsi Pembayaran</th>
-                    <th>Status Bayar</th>
-                    <th>Opsi Pengiriman</th>
-                    <th>Alamat Pengiriman</th>
+                    <th>Grand Total</th>
+                    <th>Setujui</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                    $sql = $conn->query("SELECT transaksi.ID_TRANSAKSI, user.NAMA
-                                         FROM transaksi, user
-                                         WHERE transaksi.ID_TRANSAKSI=user.ID_USER");
-//                     SELECT pelanggan.id_pelanggan, pelanggan.nm_pelanggan, pesan.id_pesan, pesan.tgl_pesan
-// FROM pelanggan, pesan
-// WHERE pelanggan.id_pelanggan=pesan.id_pelanggan; 
-//                    while($data = $sql->fetch_assoc()) {
+                  $sql = $conn->query("SELECT * FROM keranjang");
+                  while ($data = $sql->fetch_assoc()) {
                   ?>
-                  <tr>
-                    <td><?php echo $data['ID_TRANSAKSI']; ?></td>
-                    <td><?php echo $data['NAMA']; ?></td>
-                    <td><?php echo $data['TANGGAL_TRANSAKSI']; ?></td>
-                    <td><?php echo $data['NAMA_PRODUK']; ?></td>
-                    <td><?php echo $data['SUB_TOTAL']; ?></td>
-                    <td><?php echo $data['JUMLAH_BELI']; ?></td>
-                    <td><?php echo $data['GRAND_TOTAL']; ?></td>
-                    <td><?php echo $data['OPSI_PEMBAYARAN']; ?></td>
-                    <td>
-                      <?php echo $data['STATUS_BAYAR']; ?>
-                      <a href="?page=transaksi&aksi=lunas-transaksi&id=<?php echo $data['ID_TRANSAKSI'];?>" class="btn btn-success" >Lunas</a>
-                   </td>
-                    <td><?php echo $data['OPSI_PENGIRIMAN']; ?></td>
-                    <td><?php echo $data['ALAMAT_PENGIRIMAN']; ?></td>
-                    <td>
-                      <a href="?page=transaksi&aksi=edit-transaksi&id=<?php echo $data['ID_TRANSAKSI'];?>" class="fas fa-edit"></a>
-                      <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="?page=transaksi&aksi=hapus-transaksi&id=<?php echo $data['ID_TRANSAKSI'];?>" class="fas fa-trash"></a>
-                    </td>
-                  </tr>
-                  <!-- <?php //} ?> -->
+                    <tr>
+                      <td><?php echo $data['ID_TRANSAKSI']; ?></td>
+                      <td><?php echo $data['ID_PRODUK']; ?></td>
+                      <td><?php echo $data['ID_USER']; ?></td>
+                      <td><?php echo $data['JUMLAH_BELI']; ?></td>
+                      <td><?php echo $data['TGL_TRANSAKSI']; ?></td>
+                      <td><?php echo $data['ALAMAT']; ?></td>
+                      <td><?php echo $data['OPSI_PEMBAYARAN']; ?></td>
+                      <td><?php echo $data['GRAND_TOTAL']; ?></td>
+                      <td>
+                        <a href="?page=transaksi&aksi=lunas-transaksi&id=<?php echo $data['ID_TRANSAKSI']; ?>" class="btn btn-success">Lunas</a>
+                      </td>
+                      <td>
+                        <a href="?page=transaksi&aksi=edit-transaksi&id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-edit"></a>
+                        <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="hapus-pesanan.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-trash"></a>
+                      </td>
+                    </tr>
+                  <?php   }
+                  ?>
                 </tbody>
               </table>
             </div>

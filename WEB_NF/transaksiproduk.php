@@ -194,7 +194,8 @@ if (isset($_POST['beli'])){
                     </tr>
                     <tr>
                         <td>
-                            <button href="kembali.php" name="beli" class="btn btn-success">Masukkan Keranjang</button>
+                            <button href="transaksi.php" name="beli" class="btn btn-success">Masukkan Keranjang</button>
+                            <a href="transaksi.php" class="btn btn-warning">Kembali</a>
                             <!-- <a class="btn btn-success" href="kembali.php" name="beli">Masukkan Keranjang</a> -->
                         </td>
                     </tr>
