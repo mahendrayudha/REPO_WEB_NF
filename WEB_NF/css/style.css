@@ -546,6 +546,12 @@ body {
   padding-top:5rem;
 }
 
+.card-container {
+  background-color: white;
+  width: fit-content;
+  margin-top: 15%;
+}
+
 .container {
   width: 100%;
   padding-right: 15px;

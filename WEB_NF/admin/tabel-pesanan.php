@@ -43,10 +43,9 @@ include "koneksi.php";
                     <th>ID User</th>
                     <th>Jumlah Beli</th>
                     <th>Tanggal</th>
-                    <th>JAlamat</th>
+                    <th>Alamat</th>
                     <th>Opsi Pembayaran</th>
                     <th>Grand Total</th>
-                    <th>Setujui</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -63,13 +62,11 @@ include "koneksi.php";
                       <td><?php echo $data['TGL_TRANSAKSI']; ?></td>
                       <td><?php echo $data['ALAMAT']; ?></td>
                       <td><?php echo $data['OPSI_PEMBAYARAN']; ?></td>
-                      <td><?php echo $data['GRAND_TOTAL']; ?></td>
-                      <td>
-                        <a href="?page=transaksi&aksi=lunas-transaksi&id=<?php echo $data['ID_TRANSAKSI']; ?>" class="btn btn-success">Lunas</a>
-                      </td>
+                      <td><?php echo $data['GRAND_TOTAL']; ?></td>                      
                       <td>
                         <a href="?page=transaksi&aksi=edit-transaksi&id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-edit"></a>
                         <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="hapus-pesanan.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-trash"></a>
+                        <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="hapus-pesanan.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-check-circle" style="font-size:18px"></a>
                       </td>
                     </tr>
                   <?php   }

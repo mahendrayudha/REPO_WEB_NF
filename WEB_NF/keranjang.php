@@ -170,7 +170,7 @@ if (!isset($_SESSION["login"])) {
                                     while ($data = $sql->fetch_assoc()) {
                             ?>
                                 <tr>
-                                    <td><?php echo $data['ID_PRODUK']; ?></td>
+                                    <td><?php echo $data['ID_TRANSAKSI']; ?></td>
                                     <td><?php echo $data['ID_PRODUK']; ?></td>
                                     <td><?php echo $data['ID_USER']; ?></td>
                                     <td><?php echo $data['JUMLAH_BELI']; ?></td>
@@ -181,6 +181,7 @@ if (!isset($_SESSION["login"])) {
                                     <td>
                                         <a href="edit-keranjang.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-edit"></a>
                                         <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="hapus-keranjang.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-trash"></a>
+                                        <a href="checkout.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-check-circle" style="font-size:18px"></a>
                                     </td>
                                 </tr>
                             <?php } ?>

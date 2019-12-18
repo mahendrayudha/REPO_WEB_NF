@@ -88,7 +88,7 @@ require 'functions.php';
             </div>
         <?php } ?>
         <div style=" padding: 100px; display: flex; justify-content: center;">
-            <a class="btn btn-warning" style="align" href="keranjang.php">Lihat Keranjang</a>
+            <a class="btn btn-warning" href="keranjang.php">Lihat Keranjang</a>
         </div>
     </section>
 </body>
