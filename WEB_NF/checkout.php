@@ -1,4 +1,4 @@
-<?php 
+<?php
 $conn = new mysqli("localhost", "root", "", "naura_farm");
 session_start();
 require 'functions.php';
@@ -7,22 +7,23 @@ require 'functions.php';
 $idu = $_SESSION['id_user'];
 $id = $_GET['id'];
 
+//cek session
+if (!isset($_SESSION["login"])) {
+    header("location: homepage.php");
+    exit;
+}
+
 //menampilkan keranjang berdasarkan id
 $ambil = $conn->query("SELECT * FROM keranjang WHERE ID_TRANSAKSI = '$id'");
 $perproduk = mysqli_fetch_array($ambil);
 
 //cek session
-if(!isset($_SESSION["login"])){
+if (!isset($_SESSION["login"])) {
     header("location: homepage.php");
     exit;
 }
 
 ?>
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -122,7 +123,7 @@ if(!isset($_SESSION["login"])){
                             <form method="POST">
                                 <div class="form-group">
                                     <div class="form-label-group">
-                                        
+
                                         <input type="hidden" name="tanggal" id="tanggal" value="<?php
                                                                                                 $tanggal = mktime(date("d"), date("m"), date("Y"));
                                                                                                 echo " " . date("d/m/Y", $tanggal) . " ";
@@ -134,17 +135,18 @@ if(!isset($_SESSION["login"])){
 
                                 <div class="form-group">
                                     <div class="form-label-group">
-                                        <input type="text" name="id_transaksi" value="<?php echo $perproduk["ID_TRANSAKSI"]; ?>" readonly>
-                                        <input type="text" name="id_produk" value="<?php echo $perproduk["ID_PRODUK"]; ?>" readonly>
-                                        <input type="text" name="id_user" value="<?php echo $idu ?>" readonly>
+                                        <input type="hidden" name="id_transaksi" value="<?php echo $perproduk["ID_TRANSAKSI"]; ?>" readonly>
+                                        <input type="hidden" name="id_produk" value="<?php echo $perproduk["ID_PRODUK"]; ?>" readonly>
+                                        Nama Produk<input type="text" name="nama_produk" class="form-control" placeholder="Nama Produk" value="<?php echo $perproduk["NAMA_PRODUK"]; ?>" readonly>
+                                        <input type="hidden" name="id_user" value="<?php echo $idu ?>" readonly>
                                     </div>
                                 </div>
 
                                 <!-- <div class="form-group">
                                     <div class="form-label-group">
                                         <input id="harga" type="text" name="harga" value="
-                                        <?php 
-                                        // echo $perproduk["HARGA_JUAL"]; 
+                                        <?php
+                                                                                                // echo $perproduk["HARGA_JUAL"]; 
                                         ?>" readonly>Harga:
                                     </div>
                                 </div> -->
@@ -159,37 +161,34 @@ if(!isset($_SESSION["login"])){
 
                                 <div class="form-group">
                                     <div class="form-label-group">
-                                        <input id="jumlah" name="jumlah" type="number" value="<?php echo $perproduk["JUMLAH_BELI"] ?>" readonly>Jumlah Beli :
+                                    Jumlah Beli
+                                    <input id="jumlah" name="jumlah" type="number" value="<?php echo $perproduk["JUMLAH_BELI"] ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-label-group">
-                                        <input id="total" name="total" type="number" value="<?php echo $perproduk["GRAND_TOTAL"] ?>" readonly>Total :
+                                    Total<input id="total" name="total" type="number" value="<?php echo $perproduk["GRAND_TOTAL"] ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-label-group">
-                                        <input name="alamat" id="alamat" value="<?php echo $perproduk["ALAMAT"] ?>" readonly></input>Alamat :
+                                    Alamat<input name="alamat" id="alamat" value="<?php echo $perproduk["ALAMAT"] ?>" readonly></input>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="form-label-group">
-                                        <label for="opsi">Opsi Pembayaran
-                                        <input name="opsi" id="opsi" value="<?php echo $perproduk["OPSI_PEMBAYARAN"] ?>" readonly></input>Alamat :
-                                        </label>
+                                    <div class="form-label-group">                                        
+                                            <input type="hidden" name="opsi" id="opsi" value="<?php echo $perproduk["OPSI_PEMBAYARAN"] ?>" readonly></input>          
                                     </div>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary" name="pesan" href="#">
-                                    Pesan
-                                </button>
-
-                                <a href="keranjang.php">
-                                    <button class="btn btn-danger" name="batal">
+                                </div>                                
+                                    <a class="btn btn-danger" name="batal" href="keranjang.php">
                                         Batal
-                                    </button>
-                                </a>
+                                    </a>                            
                             </form>
+                            <a href="https://api.whatsapp.com/send?phone=6285229728848">
+                                <button class="btn btn-warning" name="send">
+                                    Kirim Bukti Pembayaran
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>

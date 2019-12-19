@@ -155,6 +155,7 @@ if (!isset($_SESSION["login"])) {
                             <tr>
                                 <th>ID Transaksi</th>
                                 <th>ID Produk</th>
+                                <th>NAMA PRODUK</th>
                                 <th>ID User</th>
                                 <th>Jumlah Beli</th>
                                 <th>Tanggal Beli</th>
@@ -172,6 +173,7 @@ if (!isset($_SESSION["login"])) {
                                 <tr>
                                     <td><?php echo $data['ID_TRANSAKSI']; ?></td>
                                     <td><?php echo $data['ID_PRODUK']; ?></td>
+                                    <td><?php echo $data['NAMA_PRODUK']; ?></td>
                                     <td><?php echo $data['ID_USER']; ?></td>
                                     <td><?php echo $data['JUMLAH_BELI']; ?></td>
                                     <td><?php echo $data['TGL_TRANSAKSI']; ?></td>

@@ -22,7 +22,7 @@ include "koneksi.php";
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Tabel Pesanan</title>
+  <title>Admin - Tabel Transaksi</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -48,37 +48,31 @@ include "koneksi.php";
                 <thead>
                   <tr>
                     <th>ID Transaksi</th>
-                    <th>ID Produk</th>
-                    <th>NAMA Produk</th>
                     <th>ID User</th>
-                    <th>Jumlah Beli</th>
                     <th>Tanggal</th>
+                    <th>Status Bayar</th>
+                    <th>Grand Total</th>
                     <th>Alamat</th>
                     <th>Opsi Pembayaran</th>
-                    <th>Grand Total</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                  $sql = $conn->query("SELECT * FROM keranjang");
+                  $sql = $conn->query("SELECT * FROM transaksi");
                   while ($data = $sql->fetch_assoc()) {
                   ?>
                     <tr>
-                      <td><?php echo $data['ID_TRANSAKSI']; ?></td>
-                      <td><?php echo $data['ID_PRODUK']; ?></td>
-                      <td><?php echo $data['NAMA_PRODUK']; ?></td>
+                      <td><?php echo $data['ID_TRANSAKSI']; ?></td>                    
                       <td><?php echo $data['ID_USER']; ?></td>
-                      <td><?php echo $data['JUMLAH_BELI']; ?></td>
-                      <td><?php echo $data['TGL_TRANSAKSI']; ?></td>
-                      <td><?php echo $data['ALAMAT']; ?></td>
-                      <td><?php echo $data['OPSI_PEMBAYARAN']; ?></td>
-                      <td><?php echo $data['GRAND_TOTAL']; ?></td>                      
+                      <td><?php echo $data['TANGGAL_TRANSAKSI']; ?></td>
+                      <td><?php echo $data['STATUS_BAYAR']; ?></td>
+                      <td><?php echo $data['GRAND_TOTAL']; ?></td>
+                      <td><?php echo $data['ALAMAT_PENGIRIMAN']; ?></td>
+                      <td><?php echo $data['OPSI_PEMBAYARAN']; ?></td>                      
                       <td>
                         <a href="?page=transaksi&aksi=edit-transaksi&id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-edit"></a>
-                        <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="hapus-pesanan.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-trash"></a>
-                        <!-- <a onclick="return confirm('Apakah Anda yakin untuk menerima pesanan?')" href="?page=transaksi&aksi=edit-transaksi?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-check-circle" style="font-size:18px"></a> -->
-                        <a href="?page=transaksi&aksi=insert-transaksi&id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-check-circle"></a>
+                        <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="hapus-transaksi.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-trash"></a>
                       </td>
                     </tr>
                   <?php   }

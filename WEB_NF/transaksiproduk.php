@@ -7,21 +7,21 @@ $idu = $_SESSION['id_user'];
 $id = $_GET['id'];
 
 //cek session
-if(!isset($_SESSION["login"])){
+if (!isset($_SESSION["login"])) {
     header("location: homepage.php");
     exit;
 }
 
 //auto increment id produk
 
-$carikode = mysqli_query($conn, "select max(ID_TRANSAKSI)from keranjang") or die (mysqli_error($conn));
+$carikode = mysqli_query($conn, "select max(ID_TRANSAKSI)from keranjang") or die(mysqli_error($conn));
 $datakode = mysqli_fetch_array($carikode);
-if($datakode) {
-    $nilaikode = substr($datakode[0], 1 );
+if ($datakode) {
+    $nilaikode = substr($datakode[0], 1);
     $kode = (int) $nilaikode;
     $kode = $kode + 1;
-    $hasilkode = "T" .str_pad($kode, 3, "0", STR_PAD_LEFT);
-}else{
+    $hasilkode = "T" . str_pad($kode, 3, "0", STR_PAD_LEFT);
+} else {
     $hasilkode = "T001";
 }
 
@@ -31,10 +31,10 @@ $ambil = $conn->query("SELECT * FROM produk WHERE ID_PRODUK = '$id'");
 $perproduk = mysqli_fetch_array($ambil);
 
 //memasukkan keranjang
-if (isset($_POST['beli'])){
-    if (keranjang($_POST) == 1 ) {
+if (isset($_POST['beli'])) {
+    if (keranjang($_POST) == 1) {
         echo "<script>alert ('Berhasil Memasukkan ke Keranjang');</script>";
-    }else {
+    } else {
         echo "<script>alert ('Gagal Memasukkan ke Keranjang');</script>";
     }
 }
@@ -119,12 +119,12 @@ if (isset($_POST['beli'])){
                                     <!-- Session utk merubah nav akun login/register menjadi akun/keluar saat kondisi user sedang login -->
                                     <?php
                                     if (isset($_SESSION['login'])) {
-                                        ?>
+                                    ?>
                                         <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Akun</a>
                                         <a class="dropdown-item" href="keluar.php">Keluar</a>
                                     <?php
                                     } else {
-                                        ?>
+                                    ?>
                                         <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Masuk</a>
                                         <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'">Daftar</a>
                                     <?php } ?>
@@ -145,30 +145,30 @@ if (isset($_POST['beli'])){
                     <tr>
                         <td>
                             <input type="hidden" name="tanggal" id="tanggal" value="<?php
-                                $tanggal= mktime(date("d"),date("m"),date("Y"));
-                                echo " ".date("d/m/Y", $tanggal)." ";
-                                date_default_timezone_set('Asia/Jakarta');
-                                // echo date("h:i:sa");
-                                ?>" readonly
-                            >
+                                                                                    $tanggal = mktime(date("d"), date("m"), date("Y"));
+                                                                                    echo " " . date("d/m/Y", $tanggal) . " ";
+                                                                                    date_default_timezone_set('Asia/Jakarta');
+                                                                                    // echo date("h:i:sa");
+                                                                                    ?>" readonly>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="hidden" name="id_transaksi" value="<?php echo $hasilkode?>">
+                            <input type="hidden" name="id_transaksi" value="<?php echo $hasilkode ?>">
                             <input type="hidden" name="id_produk" value="<?php echo $perproduk["ID_PRODUK"]; ?>">
+                            <input type="hidden" name="nama_produk" value="<?php echo $perproduk["NAMA_PRODUK"]; ?>">
                             <input type="hidden" name="id_user" value="<?php echo $idu ?>">
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <input id="harga" type="text" name="harga" onkeyup="hitung();" value="<?php echo $perproduk["HARGA_JUAL"]; ?>" readonly>
-                            Harga : 
+                            Harga :
                         </td>
                     </tr>
                     <tr>
                         <td><input type="text" name="" id="" value="<?php echo $perproduk["STOK_PRODUK"]; ?>" readonly>
-                            Stok : 
+                            Stok :
                         </td>
                     </tr>
                     <tr>
@@ -179,7 +179,7 @@ if (isset($_POST['beli'])){
                     </tr>
                     <tr>
                         <td>
-                            <textarea name="alamat" id="alamat" placeholder="Alamat" rows="5" required></textarea>Alamat : 
+                            <textarea name="alamat" id="alamat" placeholder="Alamat" rows="5" required></textarea>Alamat :
                         </td>
                     </tr>
                     <tr>

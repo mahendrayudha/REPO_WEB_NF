@@ -108,6 +108,11 @@
           <span>Tabel Pesanan</span></a>
       </li>
       <li class="nav-item active">
+        <a class="nav-link" href="?page=tabel-transaksi">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Tabel transaksi</span></a>
+      </li>
+      <li class="nav-item active">
         <a class="nav-link" href="?page=tabel-user">
           <i class="fas fa-fw fa-table"></i>
           <span>Tabel User</span></a>
@@ -141,6 +146,8 @@
           include "tabel-user.php";
         } elseif ($page == "tabel-produk") {
           include "tabel-produk.php";
+        } elseif ($page == "tabel-transaksi") {
+          include "tabel-transaksi.php";
         }
       }
 
@@ -165,6 +172,8 @@
           include "lunas-transaksi.php";
         } elseif ($aksi == "hapus-transaksi") {
           include "hapus-transaksi.php";
+        } elseif ($aksi == "insert-transaksi") {
+          include "insert-transaksi.php";
         }
       }
       ?>

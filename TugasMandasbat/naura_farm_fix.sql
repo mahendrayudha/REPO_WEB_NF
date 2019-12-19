@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Des 2019 pada 15.51
+-- Waktu pembuatan: 19 Des 2019 pada 08.44
 -- Versi server: 10.1.39-MariaDB
 -- Versi PHP: 7.3.5
 
@@ -34,6 +34,14 @@ CREATE TABLE `detail_jual` (
   `JUMLAH_BELI` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `detail_jual`
+--
+
+INSERT INTO `detail_jual` (`ID_TRANSAKSI`, `ID_PRODUK`, `JUMLAH_BELI`) VALUES
+('T003', 'P005', 2),
+('T004', 'P004', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -43,6 +51,7 @@ CREATE TABLE `detail_jual` (
 CREATE TABLE `keranjang` (
   `ID_TRANSAKSI` varchar(5) NOT NULL,
   `ID_PRODUK` varchar(5) NOT NULL,
+  `NAMA_PRODUK` varchar(20) NOT NULL,
   `ID_USER` varchar(5) NOT NULL,
   `JUMLAH_BELI` int(3) NOT NULL,
   `TGL_TRANSAKSI` varchar(15) NOT NULL,
@@ -55,14 +64,9 @@ CREATE TABLE `keranjang` (
 -- Dumping data untuk tabel `keranjang`
 --
 
-INSERT INTO `keranjang` (`ID_TRANSAKSI`, `ID_PRODUK`, `ID_USER`, `JUMLAH_BELI`, `TGL_TRANSAKSI`, `ALAMAT`, `OPSI_PEMBAYARAN`, `GRAND_TOTAL`) VALUES
-('100', '9', '8', 2, ' 12/12/2019 ', 'sdfghj', 1, 0),
-('100', '9', '8', 2, ' 12/12/2019 ', 'asdfg', 1, 0),
-('100', '9', '8', 2, ' 12/12/2019 ', 'asdfg', 1, 0),
-('100', '9', '8', 5, ' 12/12/2019 ', 'qwerty', 1, 20000),
-('100', '9', '8', 5, ' 12/12/2019 ', 'qwerty', 1, 20000),
-('T001', '9', '8', 5, ' 12/12/2019 ', 'ytrew', 1, 20000),
-('T002', 'P003', 'U001', 3, ' 13/12/2019 ', 'Jl. Mastrip 2 Gang 2 No.29', 1, 21000);
+INSERT INTO `keranjang` (`ID_TRANSAKSI`, `ID_PRODUK`, `NAMA_PRODUK`, `ID_USER`, `JUMLAH_BELI`, `TGL_TRANSAKSI`, `ALAMAT`, `OPSI_PEMBAYARAN`, `GRAND_TOTAL`) VALUES
+('T005', 'P005', 'Selai Buah Naga', 'U002', 4, ' 19/12/2019 ', 'asdfghjkmnbvcx', 1, 32000),
+('T006', 'P003', 'Jus Buah Naga', 'U002', 1, ' 19/12/2019 ', 'qwergfd', 2, 7000);
 
 -- --------------------------------------------------------
 
@@ -103,9 +107,16 @@ CREATE TABLE `transaksi` (
   `STATUS_BAYAR` int(3) DEFAULT NULL COMMENT '1. Sudah Bayar, 2. Belum Bayar',
   `GRAND_TOTAL` int(11) DEFAULT NULL,
   `ALAMAT_PENGIRIMAN` varchar(100) DEFAULT NULL,
-  `OPSI_PEMBAYARAN` int(1) NOT NULL COMMENT '1. Transfer, 2. Cash',
-  `TUJUAN_PEMBAYARAN` varchar(50) NOT NULL COMMENT 'Aun bank dll'
+  `OPSI_PEMBAYARAN` int(1) NOT NULL COMMENT '1. Transfer, 2. Cash'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `transaksi`
+--
+
+INSERT INTO `transaksi` (`ID_TRANSAKSI`, `ID_USER`, `TANGGAL_TRANSAKSI`, `STATUS_BAYAR`, `GRAND_TOTAL`, `ALAMAT_PENGIRIMAN`, `OPSI_PEMBAYARAN`) VALUES
+('T003', 'U001', '2019-12-19 14:10:48', 1, 16000, 'qwertyu', 1),
+('T004', 'U002', '2019-12-19 14:24:31', 1, 15000, 'gfdsa', 2);
 
 -- --------------------------------------------------------
 
@@ -132,7 +143,8 @@ INSERT INTO `user` (`ID_USER`, `NAMA`, `NOMOR_TELEPON`, `ALAMAT`, `EMAIL`, `USER
 ('U001', 'Andrea Santana A', '085257423236', 'Jl. Mastrip 2 Gang 2 No.29', 'andrea.santana986@gmail.com', 'Andreasantana', 'sagitarius34', 1),
 ('U002', 'Octavian Yudha M', '081252989930', 'Jl. Nangka 4/9 Perumnas Patrang', 'yudhaoctavian@gmail.com', 'Mahendrayudha', 'yudha12345', 1),
 ('U003', 'Dicky Irqi Z', '082312408105', 'Sumbersari Perum Taman Kampus C5/8', 'dickyirqi11@gmail.com', 'Dickyzulkarnaen', 'dicky12345', 3),
-('U004', 'Maulidia Priswanti', '0895395671103', 'Jl. Mastrip 3/89 Kel. Tegal Gede, Sumbersari', 'lidiapriswanti2000@gmail.com', 'Maulidiapriswanti', 'maul1506', 2);
+('U004', 'Maulidia Priswanti', '0895395671103', 'Jl. Mastrip 3/89 Kel. Tegal Gede, Sumbersari', 'lidiapriswanti2000@gmail.com', 'Maulidiapriswanti', 'maul1506', 2),
+('U005', 'Dimas Fajrul Falah', '088217942531', 'Jl. Nias 3 No.5 Sumbersari', 'dimasfajrul24@gmail.com', 'DimasFalah', 'dimas12345', 2);
 
 --
 -- Indexes for dumped tables
@@ -144,6 +156,12 @@ INSERT INTO `user` (`ID_USER`, `NAMA`, `NOMOR_TELEPON`, `ALAMAT`, `EMAIL`, `USER
 ALTER TABLE `detail_jual`
   ADD UNIQUE KEY `ID_TRANSAKSI` (`ID_TRANSAKSI`),
   ADD UNIQUE KEY `ID_PRODUK` (`ID_PRODUK`);
+
+--
+-- Indeks untuk tabel `keranjang`
+--
+ALTER TABLE `keranjang`
+  ADD PRIMARY KEY (`ID_TRANSAKSI`);
 
 --
 -- Indeks untuk tabel `produk`
