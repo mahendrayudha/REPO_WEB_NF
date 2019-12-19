@@ -105,58 +105,62 @@ if ($_POST) {
 
 <body id="page-top" class="bg-dark">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container-fluid" style="padding-left: 100px!important;
-    padding-right: 100px!important;">
-            <div class="logo">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top"> <img src="img/logo_nf.png" style="width: 60px;">
-                    Naura Farm
-                </a>
-            </div>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#profil">Profil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#produk">Produk</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#fasilitas">Fasilitas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#kontak_kami">Kontak Kami</a>
-                    </li>
-                    <div class="dropdown">
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user-circle fa-fw"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                <!-- Session utk merubah nav akun login/register menjadi akun/keluar saat kondisi user sedang login -->
-                                <?php
-                                if (isset($_SESSION['login'])) {
-                                    ?>
-                                    <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Akun</a>
-                                    <a class="dropdown-item" href="keluar.php">Keluar</a>
-                                <?php
-                                } else {
-                                    ?>
-                                    <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Masuk</a>
-                                    <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'">Daftar</a>
-                                <?php } ?>
-                        </li>
-                </ul>
-            </div>
-            </ul>
-        </div>
-        </div>
-    </nav>
+     <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container-fluid" style="padding-left: 100px!important; padding-right: 100px!important;">
+      <div class="logo">
+        <a class="navbar-brand js-scroll-trigger" href="homepage.php">
+          <img src="img/logo_nf.png" style="width: 60px">
+          Naura Farm
+        </a>
+      </div>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="homepage.php">Profil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="homepage.php">Produk</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="homepage.php">Fasilitas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="homepage.php">Kontak Kami</a>
+          </li>
+          <div class="dropdown">
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle fa-fw"></i>
+                <?php
+                if (isset($_SESSION['login'])) {
+                  echo $_SESSION["user"];
+                } ?>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <!-- Session utk merubah nav akun login/register menjadi akun/keluar saat kondisi user sedang login -->
+                <?php
+                if (isset($_SESSION['login'])) {
+                  ?>
+                  <a class="dropdown-item" href="akun.php">Akun</a>
+                  <a class="dropdown-item" href="keluar.php">Keluar</a>
+                <?php
+                } else {
+                  ?>
+                  <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Masuk</a>
+                  <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'">Daftar</a>
+                <?php } ?>
+            </li>
+          </div>
+        </ul>
+      </div>
+      </ul>
+    </div>
+  </nav>
 
     <!-- Header -->
     <header class="masthead">

@@ -272,7 +272,12 @@ if($datakode) {
           }
         </script>
 
-        <button type="submit" name="daftar" href="homepage.php">Daftar</button>
+        <button type="submit"
+                class="btn btn-primary"
+                name="daftar"
+                href="homepage.php">
+                Daftar
+        </button>
       </div>
       <div class="container" style="background-color:#f1f1f1">
         <!-- <button

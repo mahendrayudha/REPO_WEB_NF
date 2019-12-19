@@ -1,6 +1,19 @@
 <?php
+$conn = mysqli_connect("localhost","root","","naura_farm");
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "naura_farm");
+//$sql = $conn->query("SELECT * FROM user WHERE ID_USER='$id'");
+//$tampil = $sql->fetch_assoc();
+
+//mengambil id
+$idu = $_SESSION['id_user'];
+//$id = $_GET['id'];
+
+
+//cek session
+if (!isset($_SESSION["login"])) {
+    header("location: homepage.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -109,71 +122,91 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
           <div class="form-group">
             <div class="form-label-group">
               <input type="text"
-                     id="fullName"
-                     class="form-control"
-                     placeholder="Nama lengkap"
-                     required="required"
-                     name="namalengkap" disabled>
+                    id="iduser"
+                    class="form-control"
+                    placeholder="ID User"
+                    required="required"
+                    name="iduser"
+                    value="<?php echo $tampil['ID_USER'];?>" disabled>
+              <label for="iduser">ID User</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="text" id="fullName"
+                    class="form-control"
+                    placeholder="Nama lengkap"
+                    required="required"
+                    name="namalengkap"
+                    value="<?php echo $tampil['NAMA'];?>">
               <label for="fullName">Nama Lengkap</label>
             </div>
           </div>
-                
+        
           <div class="form-group">
             <div class="form-label-group">
               <input type="text"
-                     id="phoneNumber"
-                     class="form-control"
-                     placeholder="Nomor telepon"
-                     name="nomortelepon"
-                     required="required"
-                     onkeypress="return hanyaAngka(event)">
+                    id="phoneNumber"
+                    class="form-control"
+                    placeholder="Nomor telepon"
+                    name="nomortelepon"
+                    required="required"
+                    onkeypress="return hanyaAngka(event)"
+                    maxlength="14"
+                    value="<?php echo $tampil['NOMOR_TELEPON'];?>">
               <label for="phoneNumber">Nomor Telepon</label>
             </div>
           </div>
-                
+
           <div class="form-group">
             <div class="form-label-group">
               <input type="text"
-                     id="address"
-                     class="form-control"
-                     placeholder="Alamat"name="alamat"
-                     required="required">
+                    id="address"
+                    class="form-control"
+                    placeholder="Alamat"
+                    name="alamat"
+                    required="required"
+                    value="<?php echo $tampil['ALAMAT'];?>">
               <label for="address">Alamat</label>
             </div>
           </div>
-                
+
           <div class="form-group">
             <div class="form-label-group">
               <input type="email"
-                     id="inputEmail"
-                     class="form-control"
-                     placeholder="Email"
-                     name="email"
-                     required="required" disabled>
+                    id="inputEmail"
+                    class="form-control"
+                    placeholder="Email"
+                    name="email"
+                    required="required"
+                    value="<?php echo $tampil['EMAIL'];?>" disabled>
               <label for="inputEmail">Email</label>
             </div>
           </div>
-                
+
           <div class="form-group">
             <div class="form-label-group">
               <input type="text"
-                     id="username"
-                     class="form-control"
-                     placeholder="Username"
-                     required="required"
-                     name="username" disabled>
+                    id="username"
+                    class="form-control"
+                    placeholder="Username"
+                    required="required"
+                    name="username"
+                    value="<?php echo $tampil['USERNAME'];?>" disabled>
               <label for="username">Username</label>
             </div>
           </div>
-                
+
           <div class="form-group">
             <div class="form-label-group">
               <input type="password"
-                     id="inputPassword"
-                     class="form-control"
-                     placeholder="Kata sandi"
-                     name="katasandi"
-                     required="required">
+                      id="inputPassword"
+                      class="form-control"
+                      placeholder="Kata sandi"
+                      name="katasandi"
+                      required="required"
+                      value="<?php echo $tampil['PASSWORD'];?>">
               <label for="inputPassword">Kata Sandi</label>
             </div>
           </div>
@@ -197,6 +230,46 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
     </div>
   </section>
 </body>
+
+<?php
+
+  if(isset($_POST["edituser"])) {
+    //cek data berhasil ditambah?
+    if('edituser'($_POST) > 0){
+      echo "<script>
+      alert('Data Berhasil Diubah');
+      document.location.href =
+      '?page=tabel-user';
+      </script>";
+    } else {
+        echo "<script>alert('Gagal Mengubah Data')</script>";
+      }   
+  }
+
+  //ubah data
+  function edituser($data) {
+    global $conn;
+      $id = isset($_GET['id']) ? $_GET['id'] : null;
+      $namalengkap = isset($_POST['namalengkap']) ? $_POST['namalengkap'] : null;
+      $nomortelepon = isset($_POST['nomortelepon']) ? $_POST['nomortelepon'] : null;
+      $alamat = isset($_POST['alamat']) ? $_POST['alamat'] : null;
+      $email = isset($_POST['email']) ? $_POST['email'] : null;
+      $username = isset($_POST['username']) ? $_POST['username'] : null;
+      $katasandi = isset($_POST['katasandi']) ? $_POST['katasandi'] : null;
+          
+  $query = "UPDATE user SET
+    ID_USER='$id',
+    NAMA='$namalengkap',
+    NOMOR_TELEPON='$nomortelepon',
+    ALAMAT='$alamat',
+    EMAIL='$email',
+    USERNAME='$username',
+    PASSWORD='$katasandi'
+    WHERE ID_USER='$id'";
+  $sql= mysqli_query($conn, $query);
+  return mysqli_affected_rows($conn);
+  }
+  ?>
 
   <script>
 		function hanyaAngka(evt) {
