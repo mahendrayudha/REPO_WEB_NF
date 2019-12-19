@@ -58,7 +58,7 @@
     
     <div class="form-group">
       <div class="form-label-group">
-        <input type="number"
+        <input type="text"
                id="stokproduk"
                class="form-control"
                placeholder="Stok produk"
@@ -99,12 +99,17 @@
     </div>
 
   <button type="submit"
-     class="btn btn-primary"
-     name="editproduk"
-     href="tabel-produk.php"
-     value="">
-     Edit Produk
+      class="btn btn-primary"
+      name="editproduk"
+      href="tabel-produk.php">
+      Edit Produk
   </button>
+  <a href="?page=tabel-produk">
+    <button class="btn btn-danger"
+      name="cancel">
+      Batal
+    </button>
+  </a>
 
   </form>
 </div>

@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
 session_start();
 $conn = mysqli_connect("localhost", "root", "", "naura_farm");
 ?>
 
-<head>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
   <meta charset="utf-8">
-  <title>Naura Farm</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Akun</title>
 
   <!-- Bootstrap CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,18 +27,31 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
 
   <!-- Web Icon -->
   <link rel="shortcut icon" href="img/ic_nf.ico" />
+    <style>
+      body {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        display: block;
+        margin: 0 auto;
+        max-height: 100%;
+        max-width: 100%;
+        background: url(img/bg-masthead.JPG);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-size: cover;
+      }
+    </style>
 </head>
 
-<body id="page-top">
-
+<body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container-fluid" style="padding-left: 100px!important; padding-right: 100px!important;">
       <div class="logo">
-        <a class="navbar-brand js-scroll-trigger"
-           href="#page-top">
-           <img src="img/logo_nf.png"
-           style="width: 60px">
+        <a class="navbar-brand js-scroll-trigger" href="homepage.php">
+          <img src="img/logo_nf.png" style="width: 60px">
           Naura Farm
         </a>
       </div>
@@ -46,28 +62,32 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#profil">Profil</a>
+            <a class="nav-link js-scroll-trigger" href="homepage.php">Profil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#produk">Produk</a>
+            <a class="nav-link js-scroll-trigger" href="homepage.php">Produk</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#fasilitas">Fasilitas</a>
+            <a class="nav-link js-scroll-trigger" href="homepage.php">Fasilitas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#kontak_kami">Kontak Kami</a>
+            <a class="nav-link js-scroll-trigger" href="homepage.php">Kontak Kami</a>
           </li>
           <div class="dropdown">
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user-circle fa-fw"></i>
+                <?php
+                if (isset($_SESSION['login'])) {
+                  echo $_SESSION["user"];
+                } ?>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <!-- Session utk merubah nav akun login/register menjadi akun/keluar saat kondisi user sedang login -->
                 <?php
                 if (isset($_SESSION['login'])) {
                   ?>
-                  <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Akun</a>
+                  <a class="dropdown-item" href="akun.php">Akun</a>
                   <a class="dropdown-item" href="keluar.php">Keluar</a>
                 <?php
                 } else {
@@ -76,9 +96,125 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
                   <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'">Daftar</a>
                 <?php } ?>
             </li>
+          </div>
         </ul>
       </div>
       </ul>
     </div>
-    </div>
   </nav>
+  <section>
+    <div class="card card-akun">
+      <div class="card-body">
+        <form method="POST">
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="text"
+                     id="fullName"
+                     class="form-control"
+                     placeholder="Nama lengkap"
+                     required="required"
+                     name="namalengkap" disabled>
+              <label for="fullName">Nama Lengkap</label>
+            </div>
+          </div>
+                
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="text"
+                     id="phoneNumber"
+                     class="form-control"
+                     placeholder="Nomor telepon"
+                     name="nomortelepon"
+                     required="required"
+                     onkeypress="return hanyaAngka(event)">
+              <label for="phoneNumber">Nomor Telepon</label>
+            </div>
+          </div>
+                
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="text"
+                     id="address"
+                     class="form-control"
+                     placeholder="Alamat"name="alamat"
+                     required="required">
+              <label for="address">Alamat</label>
+            </div>
+          </div>
+                
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="email"
+                     id="inputEmail"
+                     class="form-control"
+                     placeholder="Email"
+                     name="email"
+                     required="required" disabled>
+              <label for="inputEmail">Email</label>
+            </div>
+          </div>
+                
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="text"
+                     id="username"
+                     class="form-control"
+                     placeholder="Username"
+                     required="required"
+                     name="username" disabled>
+              <label for="username">Username</label>
+            </div>
+          </div>
+                
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="password"
+                     id="inputPassword"
+                     class="form-control"
+                     placeholder="Kata sandi"
+                     name="katasandi"
+                     required="required">
+              <label for="inputPassword">Kata Sandi</label>
+            </div>
+          </div>
+
+          <button type="submit"
+                  class="btn btn-primary"
+                  style="width: 10rem"
+                  name="edit-user"
+                  href="akun.php">
+                  Edit
+          </button>
+
+      <a href="akun.php">
+        <button class="btn btn-danger"
+                style="width: 10rem"
+                name="cancel">
+                Batal
+        </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+
+  <script>
+		function hanyaAngka(evt) {
+		  var charCode = (evt.which) ? evt.which : event.keyCode
+		   if (charCode > 31 && (charCode < 48 || charCode > 57))
+		    return false;
+		  return true;
+		}
+	</script>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/grayscale.min.js"></script>
+
+</html>

@@ -47,6 +47,30 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
 
+#header-wrapper {
+	position: relative;
+	padding: 0.5em 0em 7em 0em;
+	width: 100%;
+  height: 40.5rem;
+	/* background: linear-gradient(to bottom, rgba(22, 22, 22, 0.2) 0%, rgba(22, 22, 22, 0.2) 100%, #161616 100%), url("images/header-bg.jpg") no-repeat center; */
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+  }
+  
+#wrapper {
+	position: relative;
+	background: #FFF;
+  }
+  
+.card-body-reg {
+	-webkit-box-flex: 1;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+	padding: 2rem 2rem 2rem 2rem;
+	}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

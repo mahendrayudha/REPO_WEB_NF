@@ -606,6 +606,11 @@ body {
   display: inline-block;
 }
 
+.card-akun {
+  position: relative;
+  margin: 5rem 30rem;
+}
+
 .img{
   margin: 10px 10px 0px 10px;
 }

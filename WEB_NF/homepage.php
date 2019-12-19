@@ -7,7 +7,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
 
 //auto increment id user
 
-$carikode = mysqli_query($conn, "select max(ID_USER)from user") or die (mysqli_error($conn));
+$carikode = mysqli_query($conn, "SELECT max(ID_USER)FROM user") or die (mysqli_error($conn));
 $datakode = mysqli_fetch_array($carikode);
 if($datakode) {
     $nilaikode = substr($datakode[0], 1 );
@@ -83,7 +83,7 @@ if($datakode) {
                 <?php
                 if (isset($_SESSION['login'])) {
                   ?>
-                  <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Akun</a>
+                  <a class="dropdown-item" href="akun.php">Akun</a>
                   <a class="dropdown-item" href="keluar.php">Keluar</a>
                 <?php
                 } else {
@@ -139,19 +139,26 @@ if($datakode) {
         <img src="img/user.svg" alt="Avatar" class="avatar" />
       </div>
       <div class="card-body">
-        <!-- <label for="nama"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="nama" required /> -->
           <div class="form-group">
             <div class="form-label-group">
-              <input type="text" id="username" class="form-control" placeholder="Username" required="required" name="nama">
+              <input type="text"
+                     id="username"
+                     class="form-control"
+                     placeholder="Username"
+                     required="required"
+                     name="nama">
               <label for="username">Username</label>
             </div>
           </div>
-          <!-- <div class="text"></div><label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" value="" id="myInput" required minlength="8" maxlength="20" /> -->
           <div class="form-group">
             <div class="form-label-group">
-              <input type="password" id="myInput" class="form-control" placeholder="Password" required="required" name="psw" minlength="8" maxlength="20">
+              <input type="password"
+                           id="myInput"
+                           class="form-control"
+                           placeholder="Password"
+                           required="required"
+                           name="psw"
+                           minlength="8" maxlength="20">
               <label for="inputPassword">Kata Sandi</label>
             </div>
           </div>
@@ -364,7 +371,7 @@ if($datakode) {
         <div class="col-lg-8 mx-auto">
           <img src="img/logo_nf.png" class="img-fluid" alt="Logo Naura Farm" style="width: 466px;">
           <h2 class="text-white mb-4">Apa itu Naura Farm?</h2>
-          <p class="text-white-50" style="text-align:justify">Naura Farm adalah perusahaan buah naga yang berada di kabupaten Jember
+          <p class="text-white" style="text-align:justify">Naura Farm adalah perusahaan buah naga yang berada di kabupaten Jember
             tepatnya di desa Karangrejo, Sumbersari. Perusahaan ini menghasilkan buah naga organik. Tanaman
             buah naga merupakan salah satu produk holtikultura yang termasuk komoditas Internasional. Tentu
             saja menjadi pertimbangan untuk agribisnis, mengingat harga jualnya yang tinggi dan bisa juga
