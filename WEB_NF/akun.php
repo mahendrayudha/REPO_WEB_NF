@@ -123,6 +123,7 @@ if (!isset($_SESSION["login"])) {
             <div class="form-label-group">
               <input type="text"
                     id="iduser"
+                    style="display: none;"
                     class="form-control"
                     placeholder="ID User"
                     required="required"
