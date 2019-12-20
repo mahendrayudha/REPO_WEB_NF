@@ -104,7 +104,7 @@
       href="tabel-produk.php">
       Edit Produk
   </button>
-  <a href="?page=tabel-produk">
+  <a href="index.php?page=tabel-produk">
     <button class="btn btn-danger"
       name="cancel">
       Batal
@@ -116,9 +116,9 @@
 
 <?php
 
-if( isset ($_POST["editproduk"])) {
+if( isset ($_POST['editproduk'])) {
   //cek data berhasil ditambah?
-  if('editproduk'($_POST) > 0){
+  if(isset($_POST) > 0){
     echo "<script>
     alert('Data Berhasil Diubah');
     document.location.href = '?page=tabel-produk';

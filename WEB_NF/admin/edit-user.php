@@ -137,7 +137,7 @@
 
   if(isset($_POST["edituser"])) {
     //cek data berhasil ditambah?
-    if('edituser'($_POST) > 0){
+    if(isset($_POST) > 0){
       echo "<script>
       alert('Data Berhasil Diubah');
       document.location.href =
