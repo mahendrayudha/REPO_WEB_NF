@@ -75,7 +75,6 @@ include "koneksi.php";
                       <td><?php echo $data['OPSI_PEMBAYARAN']; ?></td>
                       <td><?php echo $data['GRAND_TOTAL']; ?></td>                      
                       <td>
-                        <a href="?page=transaksi&aksi=edit-transaksi&id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-edit"></a>
                         <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="hapus-pesanan.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-trash"></a>
                         <!-- <a onclick="return confirm('Apakah Anda yakin untuk menerima pesanan?')" href="?page=transaksi&aksi=edit-transaksi?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-check-circle" style="font-size:18px"></a> -->
                         <a href="?page=transaksi&aksi=insert-transaksi&id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-check-circle"></a>
