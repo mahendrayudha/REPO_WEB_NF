@@ -84,7 +84,7 @@ if($datakode) {
                 if (isset($_SESSION['login'])) {
                   ?>
                   <a class="dropdown-item" href="akun.php">Akun</a>
-                  <a class="dropdown-item" href="keluar.php">Keluar</a>
+                  <a class="dropdown-item" onclick="return confirm('Apakah Anda yakin Ingin Keluar?')" href="keluar.php">Keluar</a>
                 <?php
                 } else {
                   ?>
@@ -574,7 +574,7 @@ if($datakode) {
 
             <tr>
               <td>Whatsapp</td>
-              <td>: 085229728848</td>
+              <td>: 082336055228</td>
             </tr>
 
             <tr>
