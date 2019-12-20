@@ -70,16 +70,13 @@ if (!isset($_SESSION["login"])) {
   <style>
       body {
         width: 100%;
-        height: auto;
+        height: 32rem;
         padding: 0;
         display: block;
         margin: 0 auto;
-        max-height: 100%;
-        max-width: 100%;
         background: url(img/bg-masthead.JPG);
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: scroll;
         background-size: cover;
       }
     </style>
@@ -149,10 +146,10 @@ if (!isset($_SESSION["login"])) {
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="background-color: white">
                         <thead>
                             <tr>
-                                <th>ID Transaksi</th>
-                                <th>ID Produk</th>
+                                <th style="display: none;">ID Transaksi</th>
+                                <th style="display: none;">ID Produk</th>
                                 <th>NAMA PRODUK</th>
-                                <th>ID User</th>
+                                <th style="display: none;">ID User</th>
                                 <th>Jumlah Beli</th>
                                 <th>Tanggal Beli</th>
                                 <th>Alamat</th>
@@ -165,21 +162,43 @@ if (!isset($_SESSION["login"])) {
                             <?php
                                     $sql = $conn->query("select * from keranjang WHERE ID_USER ='$idu'");
                                     while ($data = $sql->fetch_assoc()) {
+                                      $transfer = ($data['OPSI_PEMBAYARAN']==1);
+                                      $transfer = 'Transfer';
+                                      $bayartunai = ($data['OPSI_PEMBAYARAN']==2);
+                                      $bayartunai = 'Bayar Tunai';
                             ?>
                                 <tr>
-                                    <td><?php echo $data['ID_TRANSAKSI']; ?></td>
-                                    <td><?php echo $data['ID_PRODUK']; ?></td>
+                                    <td style="display: none;"><?php echo $data['ID_TRANSAKSI']; ?></td>
+                                    <td style="display: none;"><?php echo $data['ID_PRODUK']; ?></td>
                                     <td><?php echo $data['NAMA_PRODUK']; ?></td>
-                                    <td><?php echo $data['ID_USER']; ?></td>
+                                    <td style="display: none;"><?php echo $data['ID_USER']; ?></td>
                                     <td><?php echo $data['JUMLAH_BELI']; ?></td>
                                     <td><?php echo $data['TGL_TRANSAKSI']; ?></td>
                                     <td><?php echo $data['ALAMAT']; ?></td>
-                                    <td><?php echo $data['OPSI_PEMBAYARAN']; ?></td>
+                                    <td><?php if($data ['OPSI_PEMBAYARAN']==1) {
+                                      echo $transfer;
+                                    } elseif($data ['OPSI_PEMBAYARAN']==2) {
+                                      echo $bayartunai; 
+                                    } ?>
+                                    </td>
                                     <td><?php echo $data['GRAND_TOTAL']; ?></td>
                                     <td>
-                                        <a href="edit-keranjang.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-edit"></a>
-                                        <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="hapus-keranjang.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-trash"></a>
-                                        <a href="checkout.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-check-circle" style="font-size:18px"></a>
+                                        <a class="btn-primary"
+                                           style="padding: 10px; margin: 5px; border-radius: 5px;"
+                                           href="edit-keranjang.php?id=<?php echo $data['ID_TRANSAKSI'];?>">
+                                           Edit
+                                        </a>
+                                        <a class="btn-danger"
+                                           style="padding: 10px; margin: 5px; border-radius: 5px;"
+                                           href="hapus-keranjang.php?id=<?php echo $data['ID_TRANSAKSI']; ?>"
+                                           onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')">
+                                           Hapus
+                                        </a>
+                                        <a class="btn-info"
+                                           style="padding: 10px; margin: 5px; border-radius: 5px;"
+                                           href="checkout.php?id=<?php echo $data['ID_TRANSAKSI']; ?>">
+                                           Checkout
+                                        </a>
                                     </td>
                                 </tr>
                             <?php } ?>

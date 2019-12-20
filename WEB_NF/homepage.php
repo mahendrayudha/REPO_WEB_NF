@@ -533,14 +533,17 @@ if($datakode) {
             if (isset($_SESSION['login'])) {
               ?>
               <a href="transaksi.php">
-                <button class="out" style="width:auto;" class="btn btn-primary" style="width:auto; margin-top:50px;">
+                <button class="btn btn-primary"
+                        style="width:auto; margin-top:50px;">
                   Beli Produk
                 </button>
               </a>
             <?php
             } else {
               ?>
-              <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-primary" style="width:auto; margin-top:50px;">
+              <button onclick="document.getElementById('id01').style.display='block'"
+                      class="btn btn-primary"
+                      style="width:auto; margin-top:50px;">
                 Beli Produk
               </button>
             <?php
