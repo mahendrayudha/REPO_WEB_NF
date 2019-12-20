@@ -1,11 +1,14 @@
 <?php
-$conn = mysqli_connect("localhost","root","","naura_farm");
+$conn = new mysqli("localhost","root","","naura_farm");
 session_start();
-//$sql = $conn->query("SELECT * FROM user WHERE ID_USER='$id'");
-//$tampil = $sql->fetch_assoc();
+require 'functions.php';
+
+//menampilkan data user 
+$sql = $conn->query("SELECT * FROM user WHERE ID_USER = '$id'");
+$tampil = mysqli_fetch_array($sql);
 
 //mengambil id
-$idu = $_SESSION['id_user'];
+$id = $_SESSION['id_user'];
 //$id = $_GET['id'];
 
 
@@ -236,7 +239,7 @@ if (!isset($_SESSION["login"])) {
 
   if(isset($_POST["edituser"])) {
     //cek data berhasil ditambah?
-    if('edituser'($_POST) > 0){
+    if(isset($_POST) > 0){
       echo "<script>
       alert('Data Berhasil Diubah');
       document.location.href =
