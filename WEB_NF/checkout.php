@@ -169,7 +169,6 @@
                              name="nama_produk"
                              placeholder="Nama Produk"
                              type="text"
-                             placeholder="Nama Produk"
                              value="<?php echo $perproduk["NAMA_PRODUK"]; ?>" readonly>
                       <label for="nama_produk">Nama Produk</label>
                     </div>

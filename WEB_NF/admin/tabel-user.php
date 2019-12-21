@@ -70,7 +70,7 @@
                     <td><?php echo $data['NOMOR_TELEPON']; ?></td>
                     <td><?php echo $data['ALAMAT']; ?></td>
                     <td><?php echo $data['USERNAME']; ?></td>
-                    <td><?php echo $data['PASSWORD']; ?></td>
+                    <td><?php echo md5($data['PASSWORD']) ?></td>
                     <td><?php if($data ['LEVEL']==2) {
                       echo $karyawan;
                     } elseif($data ['LEVEL']==1) {
