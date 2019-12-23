@@ -3,12 +3,12 @@ $conn = new mysqli("localhost","root","","naura_farm");
 session_start();
 require 'functions.php';
 
+$id = $_SESSION['id_user'];
 //menampilkan data user 
 $sql = $conn->query("SELECT * FROM user WHERE ID_USER = '$id'");
 $tampil = mysqli_fetch_array($sql);
 
 //mengambil id
-$id = $_SESSION['id_user'];
 //$id = $_GET['id'];
 
 
@@ -121,7 +121,7 @@ if (!isset($_SESSION["login"])) {
   <section>
     <div class="card card-akun">
       <div class="card-body">
-        <form method="POST">
+        <form method="POST" action="">
           <div class="form-group">
             <div class="form-label-group">
               <input type="text"
@@ -131,7 +131,7 @@ if (!isset($_SESSION["login"])) {
                     placeholder="ID User"
                     required="required"
                     name="iduser"
-                    value="<?php echo $tampil['ID_USER'];?>" disabled>
+                    value="<?php echo $tampil['ID_USER'];?>">
               <label for="iduser">ID User</label>
             </div>
           </div>
@@ -218,17 +218,19 @@ if (!isset($_SESSION["login"])) {
           <button type="submit"
                   class="btn btn-primary"
                   style="width: 10rem"
-                  name="edit-user"
+                  name="edituser"
                   href="akun.php">
                   Edit
           </button>
 
-      <a href="akun.php">
+      <a href="homepage.php">
         <button class="btn btn-danger"
                 style="width: 10rem"
+                type="button"
                 name="cancel">
                 Batal
         </button>
+      </a>
         </form>
       </div>
     </div>
@@ -239,6 +241,8 @@ if (!isset($_SESSION["login"])) {
 
   if(isset($_POST["edituser"])) {
     //cek data berhasil ditambah?
+
+    edituser("parameter");
     if(isset($_POST) > 0){
       echo "<script>
       alert('Data Berhasil Diubah');
@@ -253,7 +257,7 @@ if (!isset($_SESSION["login"])) {
   //ubah data
   function edituser($data) {
     global $conn;
-      $id = isset($_GET['id']) ? $_GET['id'] : null;
+      $id = isset($_GET['id']) ? $_GET['id'] : $_POST['iduser'];
       $namalengkap = isset($_POST['namalengkap']) ? $_POST['namalengkap'] : null;
       $nomortelepon = isset($_POST['nomortelepon']) ? $_POST['nomortelepon'] : null;
       $alamat = isset($_POST['alamat']) ? $_POST['alamat'] : null;
@@ -266,10 +270,9 @@ if (!isset($_SESSION["login"])) {
     NAMA='$namalengkap',
     NOMOR_TELEPON='$nomortelepon',
     ALAMAT='$alamat',
-    EMAIL='$email',
-    USERNAME='$username',
     PASSWORD='$katasandi'
     WHERE ID_USER='$id'";
+    echo $query;
   $sql= mysqli_query($conn, $query);
   return mysqli_affected_rows($conn);
   }

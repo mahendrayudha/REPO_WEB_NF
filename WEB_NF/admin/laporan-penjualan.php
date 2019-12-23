@@ -1,5 +1,5 @@
 <?php
-  include "koneksi.php";
+include "koneksi.php";
 ?>
 
 <!DOCTYPE html>
@@ -31,75 +31,42 @@
     <div id="content-wrapper">
       <div class="container-fluid">
 
-      <!-- DataTables Example -->
-      <div class="card mb-3">
+        <!-- DataTables Example -->
+        <div class="card mb-3">
           <div class="card-header">
-          <a href="?page=user&aksi=tambah-user" class="btn btn-primary fas fa-user"> Tambah User</a>
+            <a onclick="window.print();" id="print" class="btn btn-primary "><i class="fa fa-book"></i>Cetak Laporan</a>
           </div>
+          <form action="?page=laporan-penjualan" method="get">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <input type="hidden" class="form-control" name="page" value="laporan-penjualan">
+                <input type="date" class="form-control" name="start_date">
+              </div>
+              <div class="form-group col-md-6">
+                <input type="date" class="form-control" name="end_date">
+              </div>
+              <button type="submit" name="cari">cari</button>
+            </div>
+          </form>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>ID User</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Nomor Telepon</th>
-                    <th>Alamat</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                    $sql = $conn->query("SELECT * FROM user");
-                    while($data = $sql->fetch_assoc()) {
-                      $admin = ($data['LEVEL']==1);
-                      $admin = 'Admin';
-                      $karyawan = ($data['LEVEL']==2);
-                      $karyawan = 'Karyawan';
-                      $user = ($data['LEVEL']==3);
-                      $user = 'User';
-                  ?>
-                  <tr>
-                    <td><?php echo $data['ID_USER']; ?></td>
-                    <td><?php echo $data['NAMA']; ?></td>
-                    <td><?php echo $data['EMAIL']; ?></td>
-                    <td><?php echo $data['NOMOR_TELEPON']; ?></td>
-                    <td><?php echo $data['ALAMAT']; ?></td>
-                    <td><?php echo $data['USERNAME']; ?></td>
-                    <td><?php echo $data['PASSWORD']; ?></td>
-                    <td><?php if($data ['LEVEL']==2) {
-                      echo $karyawan;
-                    } elseif($data ['LEVEL']==1) {
-                      echo $admin;
-                    } elseif($data['LEVEL']==3) {
-                      echo $user;
-                    } ?></td>
-                    <td>
-                      <a href="?page=user&aksi=edit-user&id=<?php echo $data['ID_USER'];?>" class="fas fa-edit"></a>
-                      <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="?page=user&aksi=hapus-user&id=<?php echo $data['ID_USER'];?>" class="fas fa-trash"></a>
-                    </td>
-                  </tr>
-                  <?php } ?>
-                </tbody>
-              </table>
+              <?php
+              include "laporan.php";
+              ?>
             </div>
           </div>
         </div>
 
         <!-- Area Grafik Penjualan-->
-        <div class="card mb-3">
+        <!-- <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-chart-area"></i>
             Grafik Penjualan</div>
           <div class="card-body">
             <canvas id="myAreaChart" width="100%" height="30"></canvas>
-          </div>
-          <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
-        </div>
+          </div> -->
+        <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
+        <!-- </div>
 
         <div class="row">
           <div class="col-lg-8">
@@ -109,9 +76,9 @@
                 Grafik Penjualan</div>
               <div class="card-body">
                 <canvas id="myBarChart" width="100%" height="50"></canvas>
-              </div>
-              <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
-            </div>
+              </div> -->
+        <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
+        <!-- </div>
           </div>
           <div class="col-lg-4">
             <div class="card mb-3">
@@ -120,16 +87,16 @@
                 Grafik Penjualan</div>
               <div class="card-body">
                 <canvas id="myPieChart" width="100%" height="100"></canvas>
-              </div>
-              <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
-            </div>
-          </div>
-        </div>
+              </div> -->
+        <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
       </div>
-      <!-- /.container-fluid -->
-
     </div>
-    <!-- /.content-wrapper -->
+  </div>
+  </div>
+  <!-- /.container-fluid -->
+
+  </div>
+  <!-- /.content-wrapper -->
 
   </div>
   <!-- /#wrapper -->

@@ -5,7 +5,9 @@ require 'functions.php';
 //mengambil id
 $idu = $_SESSION['id_user'];
 $id = $_GET['id'];
-
+if(!isset($_GET['id'])){
+  header("location: transaksi.php");
+}
 //cek session
 if (!isset($_SESSION["login"])) {
     header("location: homepage.php");
