@@ -61,15 +61,33 @@ include "koneksi.php";
                   <?php
                   $sql = $conn->query("SELECT * FROM transaksi");
                   while ($data = $sql->fetch_assoc()) {
+                    $transfer = ($data['OPSI_PEMBAYARAN']==1);
+                    $transfer = 'Transfer';
+                    $bayartunai = ($data['OPSI_PEMBAYARAN']==2);
+                    $bayartunai = 'Bayar Tunai';
+                    $lunas = ($data['STATUS_BAYAR']==1);
+                    $lunas = 'Lunas';
+                    $belumlunas = ($data['STATUS_BAYAR']==2);
+                    $belumlunas = 'Belum Lunas';
                   ?>
                     <tr>
                       <td><?php echo $data['ID_TRANSAKSI']; ?></td>                    
                       <td><?php echo $data['ID_USER']; ?></td>
                       <td><?php echo $data['TANGGAL_TRANSAKSI']; ?></td>
-                      <td><?php echo $data['STATUS_BAYAR']; ?></td>
+                      <td><?php if($data ['STATUS_BAYAR']==1) {
+                        echo $lunas;
+                      } elseif($data ['STATUS_BAYAR']==2) {
+                        echo $belumlunas;
+                        }?>
+                      </td>
                       <td><?php echo $data['GRAND_TOTAL']; ?></td>
                       <td><?php echo $data['ALAMAT_PENGIRIMAN']; ?></td>
-                      <td><?php echo $data['OPSI_PEMBAYARAN']; ?></td>                      
+                      <td><?php if($data ['OPSI_PEMBAYARAN']==1) {
+                        echo $transfer;
+                      } elseif($data ['OPSI_PEMBAYARAN']==2) {
+                        echo $bayartunai;
+                        }?>
+                      </td>
                       <td>
                         <a href="?page=transaksi&aksi=edit-transaksi&id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-edit"></a>
                         <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="hapus-transaksi.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-trash"></a>
