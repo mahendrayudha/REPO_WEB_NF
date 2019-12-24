@@ -80,19 +80,38 @@ if ($datakode) {
         <div class="form-row">
           <div class="col-md-6">
             <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Kata sandi" name="katasandi" required="required">
+              <input type="password" id="password" class="form-control" placeholder="Kata sandi" name="katasandi" required="required">
               <label for="inputPassword">Kata Sandi</label>
             </div>
           </div>
 
           <div class="col-md-6">
             <div class="form-label-group">
-              <input type="password" id="confirmPassword" class="form-control" placeholder="Konfirmasi kata sandi" required="required">
+              <input type="password" id="confir-password" class="form-control" placeholder="Konfirmasi kata sandi" required="required">
               <label for="confirmPassword">Konfirmasi Kata Sandi</label>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="form-group">
+        <div class="form-label-group">
+          <input type="checkbox" onclick="myFunction()">
+          <div class="show"> Show Password</div>
+        </div>
+      </div>
+
+      <script>
+        function myFunction() {
+          var x = document.getElementById("password");
+          var y = document.getElementById("confir-password");
+          if (x.type === "password" && y.type === "confir-password") {
+            x.type && y.type = "text";
+          } else {
+            x.type && y.type = "password";
+          }
+        }
+      </script>
 
       <button type="submit" class="btn btn-primary" name="tambahuser" href="tabel-user.php">
         Tambah User
@@ -128,7 +147,7 @@ if ($datakode) {
     $sql = $conn->query("INSERT INTO user (ID_USER, NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD, LEVEL)
     values('$hasilkode', '$namalengkap', '$nomortelepon', '$alamat', '$email', '$username', '$katasandi', '2')");
     if ($sql) {
-      ?>
+  ?>
       <script type="text/javascript">
         alert("Data Berhasil Disimpan");
         window.location.href = "?page=tabel-user";
