@@ -130,7 +130,7 @@ if($datakode) {
     </div>
   </header>
 
-  <div id="id01" class="modal">
+  <div id="id01" class="modall">
     <form class="modal-content animate" method="post">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Tutup">
         &times;
@@ -203,7 +203,7 @@ if($datakode) {
 
   <!-- /*/////////////////////////////////// FORM REGISTER //////////////////////////////////*/ -->
 
-  <div id="id02" class="modal">
+  <div id="id02" class="modalr">
     <form class="modal-content animate" method="post">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Tutup">
         &times;
