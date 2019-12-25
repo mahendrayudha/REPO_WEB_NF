@@ -55,7 +55,7 @@
           <label for="namaproduk">Nama Produk</label>
         </div>
       </div>
-    
+
     <div class="form-group">
       <div class="form-label-group">
         <input type="text"
@@ -118,14 +118,14 @@
 
 if( isset ($_POST['editproduk'])) {
   //cek data berhasil ditambah?
-  if(isset($_POST) > 0){
+  if(editproduk($_POST) == 1){
     echo "<script>
     alert('Data Berhasil Diubah');
     document.location.href = '?page=tabel-produk';
     </script>";
   } else {
       echo "<script>alert('Gagal Mengubah Data')</script>";
-    }   
+    }
 }
 
 //ubah data
@@ -136,7 +136,7 @@ function editproduk($data) {
     $stokproduk = isset($_POST['stokproduk']) ? $_POST['stokproduk'] : null;
     $hargabeli = isset($_POST['hargabeli']) ? $_POST['hargabeli'] : null;
     $hargajual = isset($_POST['hargajual']) ? $_POST['hargajual'] : null;
-        
+
 $query = "UPDATE produk SET
 ID_PRODUK='$id',
 NAMA_PRODUK='$namaproduk',
