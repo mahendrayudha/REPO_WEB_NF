@@ -1,9 +1,22 @@
 <?php
-  include "admin/koneksi.php";
+  //include "admin/koneksi.php";
 
+  session_start();
+  $conn = mysqli_connect("localhost", "root", "", "naura_farm");
   $id = $_GET['id'];
   $sql = $conn->query("SELECT * FROM keranjang WHERE ID_TRANSAKSI='$id'");
   $tampil = $sql->fetch_assoc();
+
+  $carikode = mysqli_query($conn, "SELECT max(ID_USER)FROM user") or die (mysqli_error($conn));
+$datakode = mysqli_fetch_array($carikode);
+if($datakode) {
+    $nilaikode = substr($datakode[0], 1 );
+    $kode = (int) $nilaikode;
+    $kode = $kode + 1;
+    $hasilkode = "U" .str_pad($kode, 3, "0", STR_PAD_LEFT);
+}else{
+    $hasilkode = "U001";
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,13 +48,15 @@
           <div class="form-label-group">
             <input type="hidden"
                     name="id_transaksi"
-                    value="<?php echo $hasilkode ?>">
+                    value="<?php 
+                    //$hasilkode = "TES";
+                    echo $hasilkode; ?>">
             <input type="hidden"
                     name="id_produk"
                     value="<?php echo $tampil["ID_PRODUK"]; ?>">
             <input type="hidden"
                     name="id_user"
-                    value="<?php echo $idu ?>">
+                    value="<?php echo $tampil["ID_USER"]; ?>">
           </div>
         </div>
 
@@ -51,7 +66,7 @@
                    type="text"
                    name="harga"
                    onkeyup="hitung();"
-                   value="<?php echo $tampil["HARGA_JUAL"]; ?>" readonly disabled>
+                   value="<?php echo $tampil["GRAND_TOTAL"]; ?>" readonly disabled>
             <label for="harga">Harga</label>
           </div>
         </div>
@@ -84,7 +99,8 @@
 
         <div class="form-group">
           <div class="form-label-group">
-            <textarea type="text"
+            <input type="text"
+                      size="25"
                       id="alamat"
                       class="form-control"
                       placeholder="Alamat"
@@ -92,7 +108,7 @@
                       required="required"
                       rows="5"
                       value="<?php echo $tampil['ALAMAT']; ?>">
-            </textarea>
+            </input>
             <label for="alamat">Alamat</label>
           </div>
         </div>
@@ -116,34 +132,52 @@
   <?php
 
   if (isset($_POST["editkeranjang"])) {
-    if ('editkeranjang'($_POST) > 0) {
-      echo "<script>
+    $jumlah = $_POST['jumlah'];
+    $alamat = $_POST['alamat'];
+    $opsi = $_POST['opsi'];
+    $update = "UPDATE keranjang SET ID_TRANSAKSI='$id', JUMLAH_BELI='$jumlah',
+    ALAMAT='$alamat',
+    OPSI_PEMBAYARAN='$opsi'
+    WHERE ID_TRANSAKSI='$id'";
+    if ($conn->query($update) === TRUE) {
+        echo "<script>
       alert('Data Berhasil Diubah');
       document.location.href =
       'keranjang.php';
       </script>";
     } else {
-        echo "<script>alert('Gagal Mengubah Data')</script>";
-      }
+      //echo "<script>alert('Gagal Mengubah Data')</script>";
+      echo "db error ". $conn->error;
+    }
+    $conn->close();
+    // if(editkeranjang($_POST) > 0) {
+    //   echo "<script>
+    //   alert('Data Berhasil Diubah');
+    //   document.location.href =
+    //   'keranjang.php';
+    //   </script>";
+    // } else {
+    //     echo "<script>alert('Gagal Mengubah Data')</script>";
+    //   }
   }
 
   //ubah data
-  function editkeranjang($data) {
-    global $conn;
-      $id = isset($_GET['id']) ? $_GET['id'] : null;
-      $jumlah = isset($_POST['jumlah']) ? $_POST['jumlah'] : null;
-      $alamat = isset($_POST['alamat']) ? $_POST['alamat'] : null;
-      $opsi = isset($_POST['opsi']) ? $_POST['opsi'] : null;
+  // function editkeranjang($data) {
+  //   global $conn;
+  //     $id = isset($_GET['id']) ? $_GET['id'] : null;
+  //     $jumlah = isset($_POST['jumlah']) ? $_POST['jumlah'] : null;
+  //     $alamat = isset($_POST['alamat']) ? $_POST['alamat'] : null;
+  //     $opsi = isset($_POST['opsi']) ? $_POST['opsi'] : null;
 
-  $query = "UPDATE keranjang SET
-    ID_TRANSAKI='$id',
-    JUMLAH_BELI='$jumlah',
-    ALAMAT='$alamat',
-    OPSI_PEMBAYARAN='$opsi',
-    WHERE ID_TRANSAKSI='$id'";
-  $sql = mysqli_query($conn, $query);
-  return mysqli_affected_rows($conn);
-  }
+  // $query = "UPDATE keranjang SET
+  //   ID_TRANSAKI='$id',
+  //   JUMLAH_BELI='$jumlah',
+  //   ALAMAT='$alamat',
+  //   OPSI_PEMBAYARAN='$opsi',
+  //   WHERE ID_TRANSAKSI='$id'";
+  // $sql = mysqli_query($conn, $query);
+  // return mysqli_affected_rows($conn);
+  // }
   ?>
 
   <script>
