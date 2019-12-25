@@ -76,6 +76,7 @@ if($datakode) {
                 <?php
                 if (isset($_SESSION['login'])) {
                   echo $_SESSION["user"];
+                  // echo
                 } ?>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -130,7 +131,7 @@ if($datakode) {
     </div>
   </header>
 
-  <div id="id01" class="modall">
+  <div id="id01" class="modal">
     <form class="modal-content animate" method="post">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Tutup">
         &times;
@@ -203,7 +204,7 @@ if($datakode) {
 
   <!-- /*/////////////////////////////////// FORM REGISTER //////////////////////////////////*/ -->
 
-  <div id="id02" class="modalr">
+  <div id="id02" class="modal">
     <form class="modal-content animate" method="post">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Tutup">
         &times;
@@ -326,12 +327,23 @@ if($datakode) {
       $_SESSION["login"] = true;
       $_SESSION['user'] = $row["USERNAME"];
       $_SESSION['id_user'] = $row["ID_USER"];
-      if ($row['LEVEL'] == 1) {
-        header('location:admin/index.php');
+      $_SESSION['level'] = $row['LEVEL'];
+      $lv = $row['LEVEL'];
+      // if ($row['LEVEL'] == 1) {
+      //   header("Location: admin/index.php");
+      // } else {
+      //   header("location: homepage.php");
+      // }
+      if($lv == 1){
+        echo "<script>alert ('Login Berhasil admin');window.location.href='admin/index.php'</script>";
+        // header("Location: admin/index.php");
+      } else if($lv == 2){
+        echo "<script>alert ('Login berhasil karyawan')</script>";
       } else {
-        header('location:homepage.php');
+        echo "<script>alert ('Login Berhasil');window.location.href='homepage.php'</script>";
+        // header("Location: homepage.php");
       }
-      echo "<script>alert ('Login Berhasil');window.location.href='homepage.php'</script>";
+      //echo "<script>alert ('Login Berhasil');window.location.href='homepage.php'</script>";
     } else {
       echo "<script>alert ('Login Gagal')</script>";
     }
