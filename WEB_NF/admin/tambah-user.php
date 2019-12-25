@@ -96,8 +96,7 @@ if ($datakode) {
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="checkbox" onclick="myFunction()">
-          <div class="show"> Show Password</div>
+          <input type="checkbox" onclick="myFunction()"> Show Password
         </div>
       </div>
 
@@ -105,10 +104,12 @@ if ($datakode) {
         function myFunction() {
           var x = document.getElementById("password");
           var y = document.getElementById("confir-password");
-          if (x.type === "password" && y.type === "confir-password") {
-            x.type && y.type = "text";
+          if (x.type === "password" && y.type === "password") {
+            x.type = "text";
+            y.type = "text";
           } else {
-            x.type && y.type = "password";
+            x.type = "password";
+            y.type = "password";
           }
         }
       </script>
