@@ -1,14 +1,7 @@
 <?php
   session_start();
   require 'functions.php';
-//mengambil id
-$idu = $_SESSION['id_user'];
-$id = $_GET['id'];
-if(!isset($_GET['id'])){
-  header("location: transaksi.php");
-}
-//cek session
-if (!isset($_SESSION["login"])) {
+
   //mengambil id
   $idu = $_SESSION['id_user'];
   $id = $_GET['id'];
@@ -30,12 +23,9 @@ if (!isset($_SESSION["login"])) {
   } else {
     $hasilkode = "T001";
   }
-
-
   //menampilkan produk berdasarkan id
   $ambil = $conn->query("SELECT * FROM produk WHERE ID_PRODUK = '$id'");
   $perproduk = mysqli_fetch_array($ambil);
-
   //memasukkan keranjang
   if (isset($_POST['beli'])) {
     if (keranjang($_POST) == 1) {
@@ -43,9 +33,20 @@ if (!isset($_SESSION["login"])) {
     } else {
         echo "<script>alert ('Gagal Memasukkan ke Keranjang');</script>";
     }
+    // }
+    // $id_transaksi = htmlspecialchars($_POST["id_transaksi"]);
+    // $id_produk = htmlspecialchars($_POST["id_produk"]);
+    // $nama_produk = htmlspecialchars($_POST["nama_produk"]);
+    // $id_user = htmlspecialchars($_POST["id_user"]);
+    // $jumlah = htmlspecialchars($_POST["jumlah"]);
+    // $tanggal = htmlspecialchars($_POST["tanggal"]);
+    // $alamat = htmlspecialchars($_POST["alamat"]);
+    // $opsi = htmlspecialchars($_POST["opsi"]);
+    // $total = htmlspecialchars($_POST["total"]);
+    // $trs = mysqli_query($conn, "INSERT INTO keranjang(ID_TRANSAKSI, ID_PRODUK, ID_USER, JUMLAH_BELI, TGL_TRANSAKSI, ALAMAT, OPSI_PEMBAYARAN, GRAND_TOTAL) VALUES ('$id_transaksi', '$id_produk','$nama_produk', '$id_user', '$jumlah', '$tanggal', '$alamat', '$opsi', '$total')");
+    // if($trs)
   }
   ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -156,7 +157,7 @@ if (!isset($_SESSION["login"])) {
                   <h1><?php echo $perproduk["NAMA_PRODUK"]; ?></h1>
                   <img src="img/<?php echo $perproduk["FOTO_PRODUK"]; ?>"
                        alt="Foto Produk"
-                       style="width: 20rem;">
+                       style="width: 20rem; align">
                        <div class="form-group">
 
                   <div class="form-label-group">
@@ -226,11 +227,11 @@ if (!isset($_SESSION["login"])) {
             </div>
           </div>
         </div>
-                
+
 
         <div class="transaksi-content tambah">
 
-          
+
             <table>
               <tr>
                 <td>
@@ -244,7 +245,7 @@ if (!isset($_SESSION["login"])) {
                     </tr>
                     <tr>
                         <td>
-                            <button href="transaksi.php" name="beli" class="btn btn-success">Masukkan Keranjang</button>
+                            <button name="beli" class="btn btn-success">Masukkan Keranjang</button>
                             <a href="transaksi.php" class="btn btn-warning">Kembali</a>
                             <!-- <a class="btn btn-success" href="kembali.php" name="beli">Masukkan Keranjang</a> -->
                         </td>
