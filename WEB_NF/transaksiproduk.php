@@ -74,7 +74,7 @@
     <style>
       body {
         width: 100%;
-        height: auto;
+        height: 100%;
         padding: 0;
         display: block;
         margin: 0 auto;
@@ -150,24 +150,16 @@
   <header class="masthead">
       <div class="container d-flex h-100">
         <div class="mx-auto">
-          <div class="card-container">
-            <div class="card-header">Checkout</div>
-              <div class="transaksi-content tambah">
-                <form method="POST">
-                  <h1><?php echo $perproduk["NAMA_PRODUK"]; ?></h1>
+          <div class="card-container"
+               style="margin-top:10%;">
+            <div class="card-header">Beli Produk</div>
+              <div class="transaksi-content" style="width: 50rem">
+                <form method="POST" style="padding: 0.5rem 3rem">
                   <img src="img/<?php echo $perproduk["FOTO_PRODUK"]; ?>"
                        alt="Foto Produk"
-                       style="width: 20rem; align">
-                       <div class="form-group">
-
-                  <div class="form-label-group">
-                    <input id="nama_produk"
-                           name="nama_produk"
-                           placeholder="Nama Produk"
-                           type="text"
-                           value="<?php echo $perproduk["NAMA_PRODUK"]; ?>" readonly>
-                  <label for="nama_produk">Nama Produk</label>
-
+                       style="width: 15rem; display: block; margin-left: auto; margin-right: auto;">
+                  <p style="text-align:center"><?php echo $perproduk["NAMA_PRODUK"]; ?></p>
+                  <div class="form-group">
                   <div class="form-label-group">
                     <input id="tanggal"
                            name="tanggal"
@@ -190,6 +182,7 @@
                            placeholder="Harga"
                            type="text"
                            onkeyup="hitung();"
+                           style="border-radius: 0"
                            value="<?php echo $perproduk["HARGA_JUAL"]; ?>" readonly>
                   <label for="harga">Harga</label>
 
@@ -198,6 +191,7 @@
                            name="stok"
                            placeholder="Stok"
                            type="text"
+                           style="border-radius: 0"
                            value="<?php echo $perproduk["STOK_PRODUK"]; ?>" readonly>
                   <label for="stok">Stok</label>
 
@@ -206,14 +200,19 @@
                            name="jumlah"
                            placeholder="Jumlah Beli"
                            type="number"
-                           onkeyup="hitung();" required>
+                           autofocus="autofocus"
+                           style="border-radius: 0"
+                           onkeyup="hitung();"
+                           min="0"
+                           max="1000" required>
                   <label for="jumlah">Jumlah Beli</label>
 
                   <div class="form-label-group">
                     <input id="total"
                            name="total"
                            placeholder="Total Harga"
-                           type="text" readonly>
+                           type="text" readonly
+                           style="border-radius: 0">
                   <label for="total">Total Harga</label>
 
                   <div class="form-label-group">
@@ -221,50 +220,46 @@
                            name="alamat"
                            placeholder="Alamat"
                            type="text"
+                           style="border-radius: 0"
                            row="5" required>
                   <label for="alamat">Alamat</label>
               </div>
             </div>
           </div>
         </div>
+        <table>
+          <tr>
+            <td>
+              <label style="color: black;" for="opsi">Opsi Pembayaran: 
+                <select name="opsi" id="opsi" style="color: black">
+                  <option value="1" style="color: black">Transfer</option>
+                  <option value="2" style="color: black">Bayar Tunai</option>
+                </select>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button href="transaksi.php" name="beli" class="btn btn-success btn-sm" style="width: 20rem">Masukkan Keranjang</button>
+              <button href="transaksi.php" class="btn btn-warning btn-sm" style="width: 10rem">Kembali</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </form>
+  </section>
 
-
-        <div class="transaksi-content tambah">
-
-
-            <table>
-              <tr>
-                <td>
-                  <label for="opsi">Opsi Pembayaran
-                                <select name="opsi" id="opsi" style="color: black">
-                                    <option value="1" style="color: black">Transfer</option>
-                                    <option value="2" style="color: black">Cash</option>
-                                </select>
-                            </label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button name="beli" class="btn btn-success">Masukkan Keranjang</button>
-                            <a href="transaksi.php" class="btn btn-warning">Kembali</a>
-                            <!-- <a class="btn btn-success" href="kembali.php" name="beli">Masukkan Keranjang</a> -->
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </form>
-    </section>
-
-    <script>
-        function hitung() {
-            var txtFirstNumberValue = document.getElementById('harga').value;
-            var txtSecondNumberValue = document.getElementById('jumlah').value;
-            var result = parseInt(txtFirstNumberValue) * parseInt(txtSecondNumberValue);
-            if (!isNaN(txtSecondNumberValue)) {
-                document.getElementById('total').value = result;
+  <script>
+      function hitung() {
+          var txtFirstNumberValue = document.getElementById('harga').value;
+          var txtSecondNumberValue = document.getElementById('jumlah').value;
+          var result = parseInt(txtFirstNumberValue) * parseInt(txtSecondNumberValue);
+          if (!isNaN(txtSecondNumberValue)) {
+            document.getElementById('total').value = result;
             }
-        }
-    </script>
+      }
+  </script>
+
 </body>
 
   <!-- Bootstrap core JavaScript -->

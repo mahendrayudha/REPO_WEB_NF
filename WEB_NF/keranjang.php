@@ -160,7 +160,7 @@ if (!isset($_SESSION["login"])) {
                         </thead>
                         <tbody>
                             <?php
-                                    $sql = $conn->query("select * from keranjang WHERE ID_USER ='$idu'");
+                                    $sql = $conn->query("SELECT * FROM keranjang WHERE ID_USER ='$idu'");
                                     while ($data = $sql->fetch_assoc()) {
                                       $transfer = ($data['OPSI_PEMBAYARAN']==1);
                                       $transfer = 'Transfer';
@@ -183,18 +183,18 @@ if (!isset($_SESSION["login"])) {
                                     </td>
                                     <td><?php echo $data['GRAND_TOTAL']; ?></td>
                                     <td>
-                                        <a class="btn-primary"
+                                        <a class="btn-primary btn-sm"
                                            style="padding: 10px; margin: 5px; border-radius: 5px;"
                                            href="edit-keranjang.php?id=<?php echo $data['ID_TRANSAKSI'];?>">
                                            Edit
                                         </a>
-                                        <a class="btn-danger"
+                                        <a class="btn-danger btn-sm"
                                            style="padding: 10px; margin: 5px; border-radius: 5px;"
                                            href="hapus-keranjang.php?id=<?php echo $data['ID_TRANSAKSI']; ?>"
                                            onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')">
                                            Hapus
                                         </a>
-                                        <a class="btn-info"
+                                        <a class="btn-info btn-sm"
                                            style="padding: 10px; margin: 5px; border-radius: 5px;"
                                            href="checkout.php?id=<?php echo $data['ID_TRANSAKSI']; ?>">
                                            Checkout
