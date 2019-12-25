@@ -25,7 +25,7 @@ if (isset($_POST['setujui'])) {
   if ($conn->query($simpan) === TRUE) {
     $h = mysqli_query($conn, "DELETE FROM keranjang WHERE ID_TRANSAKSI = '$idtrx'");
     if($h){
-      echo "<script>alert('Sukses !');window.location.href='/admin/index.php?page=tabel-pesanan'</script>";
+      echo "<script>alert('Sukses !');window.location.href='/REPO_WEB_NF/WEB_NF/admin/index.php?page=tabel-pesanan'</script>";
     } else {
       echo "<script>alert('Sesuatu yang salah')</script>";
     }
