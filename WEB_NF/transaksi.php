@@ -110,16 +110,16 @@ require 'functions.php';
       <div class="card tambah" style="width: 18rem;">
         <img style="height: 190px; width: 265px;" class="card-img-top img" src="img/<?php echo $perproduk["FOTO_PRODUK"] ?>" alt="">
         <div class="card-body">
-          <h5 class="card-title">Rp. <?php echo $perproduk["HARGA_JUAL"]; ?></h5>
+          <h5 class="card-title">Rp <?php echo $perproduk["HARGA_JUAL"]; ?></h5>
           <p class="card-text"><?php echo $perproduk["NAMA_PRODUK"]; ?></p>
           <div style="display: flex; justify-content: center;">
             <?php
             if($perproduk["STOK_PRODUK"] > 0){
-              echo '<a href="transaksiproduk.php?id='.$perproduk["ID_PRODUK"].'" class="btn btn-primary">Beli</a>';
+              echo '<a href="transaksiproduk.php?id='.$perproduk["ID_PRODUK"].'" class="btn btn-primary btn-sm">Beli</a>';
             } else if($perproduk["STOK_PRODUK"] < 0) {
-              echo '<a href="#" class="btn btn-primary">Stock Habis</a>';
+              echo '<a href="#" class="btn btn-secondary btn-sm disabled">Stok Habis</a>';
             } else {
-              echo '<a href="#" class="btn btn-primary">Stock Habis</a>';
+              echo '<a href="#" class="btn btn-secondary btn-sm disabled">Stok Habis</a>';
             }
             ?>
           </div>
