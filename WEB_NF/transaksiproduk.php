@@ -151,13 +151,13 @@
       <div class="container d-flex h-100">
         <div class="mx-auto">
           <div class="card-container"
-               style="margin-top:10%;">
+               style="margin-top:7%;">
             <div class="card-header">Beli Produk</div>
               <div class="transaksi-content" style="width: 50rem">
-                <form method="POST" style="padding: 0.5rem 3rem">
+                <form method="POST" style="padding: 0.4rem 3rem">
                   <img src="img/<?php echo $perproduk["FOTO_PRODUK"]; ?>"
                        alt="Foto Produk"
-                       style="width: 15rem; display: block; margin-left: auto; margin-right: auto;">
+                       style="height: 10rem; display: block; margin-left: auto; margin-right: auto;">
                   <p style="text-align:center"><?php echo $perproduk["NAMA_PRODUK"]; ?></p>
                   <div class="form-group">
                   <div class="form-label-group">
@@ -199,10 +199,11 @@
                     <input id="jumlah"
                            name="jumlah"
                            placeholder="Jumlah Beli"
-                           type="number"
+                           type="text"
                            autofocus="autofocus"
                            style="border-radius: 0"
                            onkeyup="hitung();"
+                           onkeypress="return hanyaAngka(event)"
                            min="0"
                            max="1000" required>
                   <label for="jumlah">Jumlah Beli</label>
@@ -211,8 +212,8 @@
                     <input id="total"
                            name="total"
                            placeholder="Total Harga"
-                           type="text" readonly
-                           style="border-radius: 0">
+                           type="text"
+                           style="border-radius: 0" readonly>
                   <label for="total">Total Harga</label>
 
                   <div class="form-label-group">
@@ -223,6 +224,20 @@
                            style="border-radius: 0"
                            row="5" required>
                   <label for="alamat">Alamat</label>
+
+                  <div class="form-group">
+                  <label for="opsi" style="color: black">Opsi Pembayaran</label>
+                    <div class="form-label-group">
+                      <Select type="text"
+                             class="form-control"
+                             id="opsi"
+                             name="opsi"
+                             style="color: black">
+                        <option value="1">Transfer</option>
+                        <option value="2">Bayar Tunai</option>
+                      </select>
+                    </div>
+                  </div>
               </div>
             </div>
           </div>
@@ -230,18 +245,17 @@
         <table>
           <tr>
             <td>
-              <label style="color: black;" for="opsi">Opsi Pembayaran: 
-                <select name="opsi" id="opsi" style="color: black">
-                  <option value="1" style="color: black">Transfer</option>
-                  <option value="2" style="color: black">Bayar Tunai</option>
-                </select>
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <button href="transaksi.php" name="beli" class="btn btn-success btn-sm" style="width: 20rem">Masukkan Keranjang</button>
-              <button href="transaksi.php" class="btn btn-warning btn-sm" style="width: 10rem">Kembali</button>
+              <button href="transaksi.php"
+                      name="beli"
+                      class="btn btn-success btn-sm"
+                      style="width: 20rem">
+                      Masukkan Keranjang
+              </button>
+              <a href="transaksi.php"
+                 name="kembali"
+                 class="btn btn-warning btn-sm">
+                 Kembali
+              </a>
             </td>
           </tr>
         </table>
@@ -259,6 +273,15 @@
             }
       }
   </script>
+
+  <script>
+      function hanyaAngka(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+            return true;
+      }
+    </script>
 
 </body>
 
