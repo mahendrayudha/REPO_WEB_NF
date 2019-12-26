@@ -9,7 +9,6 @@ $id = $_GET['id'];
 $ambil = $conn->query("SELECT * FROM keranjang WHERE ID_TRANSAKSI = '$id'");
 $perproduk = mysqli_fetch_array($ambil);
 
-
 //memasukkan transaksi
 if (isset($_POST['setujui'])) {
   $idtrx = $_POST['id_transaksi'];
@@ -61,65 +60,130 @@ if (isset($_POST['setujui'])) {
   <div class="card-header">Masukkan ke Transaksi</div>
   <div class="card-body">
     <form method="POST">
+      <div class="form-group">
+        <div class="form-label-group">
+          <input type="hidden"
+                 id="id_transaksi"
+                 name="id_transaksi"
+                 value="<?php echo $perproduk["ID_TRANSAKSI"]; ?>" readonly>
+          <label for="id_transaksi">ID Transaksi</label>
+        </div>
+      </div>
 
+      <div class="form-group">
+        <div class="form-label-group">
+          <input type="hidden"
+                 id="id_produk"
+                 name="id_produk"
+                 autofocus="autofocus"
+                 value="<?php echo $perproduk["ID_PRODUK"]; ?>" readonly>
+          <label for="id_produk">ID Produk</label>
+        </div>
+      </div>
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="hidden" name="id_transaksi" value="<?php echo $perproduk["ID_TRANSAKSI"]; ?>" readonly>
-          <input type="hidden" name="id_produk" value="<?php echo $perproduk["ID_PRODUK"]; ?>" readonly>
-          Nama Produk<input type="text" name="nama_produk" class="form-control" placeholder="Nama Produk" value="<?php echo $perproduk["NAMA_PRODUK"]; ?>" readonly>
-          <input type="hidden" name="id_user" value="<?php echo $perproduk["ID_USER"]; ?>" readonly>
+          <input type="text"
+                 id="nama_produk"
+                 name="nama_produk"
+                 value="<?php echo $perproduk["NAMA_PRODUK"]; ?>" readonly>
+          <label for="nama_produk">Nama Produk</label>
         </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="form-label-group">
-        Jumlah Beli
-        <input id="jumlah" name="jumlah" type="number" value="<?php echo $perproduk["JUMLAH_BELI"] ?>" readonly>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="form-label-group">
-        Total<input id="total" name="total" type="number" value="<?php echo $perproduk["GRAND_TOTAL"] ?>" readonly>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="form-label-group">
-        Status Bayar
-        <select name="status_bayar" id="status_bayar">
-          <option value="1">Lunas</option>
-          <option value="2">Belum lunas</option>
-        </select>
-      </div>
+
       <div class="form-group">
         <div class="form-label-group">
-          Alamat<input name="alamat" id="alamat" value="<?php echo $perproduk["ALAMAT"] ?>" readonly></input>
+          <input type="hidden"
+                 id="id_user"
+                 name="id_user"
+                 value="<?php echo $perproduk["ID_USER"]; ?>" readonly>
+          <label for="id_user">ID User</label>
         </div>
       </div>
+
       <div class="form-group">
         <div class="form-label-group">
-          <input type="text" name="opsi" id="opsi" value="<?php echo $perproduk["OPSI_PEMBAYARAN"] ?>" readonly></input>
+          <input type="text"
+                 id="jumlah"
+                 name="jumlah"
+                 onkeypress="return hanyaAngka(event)"
+                 value="<?php echo $perproduk["JUMLAH_BELI"] ?>" readonly>
+          <label for="jumlah">Jumlah Beli</label>
         </div>
       </div>
+
+      <div class="form-group">
+        <div class="form-label-group">
+          <input type="text"
+                 id="total"
+                 name="total"
+                 value="<?php echo $perproduk["GRAND_TOTAL"] ?>" readonly>
+          <label for="total">Grand Total</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-label-group">
+          Status Bayar: 
+          <select name="status_bayar" id="status_bayar">
+            <option value="1">Lunas</option>
+            <option value="2">Belum lunas</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-label-group">
+          <input type="text"
+                 id="alamat"
+                 name="alamat"
+                 value="<?php echo $perproduk["ALAMAT"] ?>" readonly>
+          <label for="alamat">Alamat</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-label-group">
+          <input type="text"
+                 id="opsi"
+                 name="opsi"
+                 value="<?php if($perproduk ['OPSI_PEMBAYARAN']==1) {
+                    echo 'Transfer';
+                  } elseif($perproduk ['OPSI_PEMBAYARAN']==2) {
+                    echo 'Bayar Tunai';
+                  }?>" readonly>
+          <label for="opsi">Opsi Pembayaran</label>
+        </div>
+      </div>
+
       <button type="submit" class="btn btn-primary" name="setujui">
         Insert Transaksi
       </button>
 
+      <a href="index.php?page=tabel-pesanan">
+        <button class="btn btn-danger" name="cancel">
+          Batal
+        </button>
+      </a>
+
     </form>
-    <a href="index.php?page=tabel-pesanan">
-      <button class="btn btn-danger" name="cancel">
-        Batal
-      </button>
-    </a>
   </div>
-</div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function hanyaAngka(evt) {
+      var charCode = (evt.which) ? evt.which : event.keyCode
+      if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+      return true;
+    }
+  </script>
 
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
 </body>
 
