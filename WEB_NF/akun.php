@@ -217,12 +217,11 @@ if (!isset($_SESSION["login"])) {
                   Edit
           </button>
 
-      <a href="akun.php">
-        <button class="btn btn-danger"
-                style="width: 10rem"
-                name="cancel">
-                Batal
-        </button>
+          <a href="homepage.php"
+             class="btn btn-danger"
+             style="width: 10rem"
+             name="cancel">Batal
+          </a>
         </form>
       </div>
     </div>
