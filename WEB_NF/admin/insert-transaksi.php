@@ -63,6 +63,7 @@ if (isset($_POST['setujui'])) {
       <div class="form-group">
         <div class="form-label-group">
           <input type="hidden"
+                 class="form-control"
                  id="id_transaksi"
                  name="id_transaksi"
                  value="<?php echo $perproduk["ID_TRANSAKSI"]; ?>" readonly>
@@ -73,6 +74,7 @@ if (isset($_POST['setujui'])) {
       <div class="form-group">
         <div class="form-label-group">
           <input type="hidden"
+                 class="form-control"
                  id="id_produk"
                  name="id_produk"
                  autofocus="autofocus"
@@ -84,6 +86,7 @@ if (isset($_POST['setujui'])) {
       <div class="form-group">
         <div class="form-label-group">
           <input type="text"
+                 class="form-control"
                  id="nama_produk"
                  name="nama_produk"
                  value="<?php echo $perproduk["NAMA_PRODUK"]; ?>" readonly>
@@ -94,6 +97,7 @@ if (isset($_POST['setujui'])) {
       <div class="form-group">
         <div class="form-label-group">
           <input type="hidden"
+                 class="form-control"
                  id="id_user"
                  name="id_user"
                  value="<?php echo $perproduk["ID_USER"]; ?>" readonly>
@@ -104,6 +108,7 @@ if (isset($_POST['setujui'])) {
       <div class="form-group">
         <div class="form-label-group">
           <input type="text"
+                 class="form-control"
                  id="jumlah"
                  name="jumlah"
                  onkeypress="return hanyaAngka(event)"
@@ -115,6 +120,7 @@ if (isset($_POST['setujui'])) {
       <div class="form-group">
         <div class="form-label-group">
           <input type="text"
+                 class="form-control"
                  id="total"
                  name="total"
                  value="<?php echo $perproduk["GRAND_TOTAL"] ?>" readonly>
@@ -123,18 +129,17 @@ if (isset($_POST['setujui'])) {
       </div>
 
       <div class="form-group">
-        <div class="form-label-group">
-          Status Bayar: 
-          <select name="status_bayar" id="status_bayar">
+        <label for="status_bayar">Status Bayar:</label>
+          <select class="form-control" id="status_bayar">
             <option value="1">Lunas</option>
             <option value="2">Belum lunas</option>
           </select>
-        </div>
       </div>
 
       <div class="form-group">
         <div class="form-label-group">
           <input type="text"
+                 class="form-control"
                  id="alamat"
                  name="alamat"
                  value="<?php echo $perproduk["ALAMAT"] ?>" readonly>
@@ -145,6 +150,7 @@ if (isset($_POST['setujui'])) {
       <div class="form-group">
         <div class="form-label-group">
           <input type="text"
+                 class="form-control"
                  id="opsi"
                  name="opsi"
                  value="<?php if($perproduk ['OPSI_PEMBAYARAN']==1) {
