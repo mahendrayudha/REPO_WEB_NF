@@ -1,3 +1,7 @@
+<?php
+  include "koneksi.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <script type="text/javascript" src="vendor/chart.js/Chart.js"></script>
 
   <title>Admin - Dashboard</title>
 
@@ -27,82 +32,17 @@
     <div id="content-wrapper">
       <div class="container-fluid">
 
-        <!-- Icon Cards-->
-        <div class="row">
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-primary o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
-                </div>
-                <div class="mr-5">Pesanan Masuk</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="?page=pesanan-masuk">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-warning o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
-                </div>
-                <div class="mr-5">Verifikasi Pembayaran</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="?page=pesanan-verifikasi">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-success o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
-                </div>
-                <div class="mr-5">Pesanan Lunas</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="?page=pesanan-lunas">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-danger o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
-                </div>
-                <div class="mr-5">Pesanan Dibatalkan</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="?page=pesanan-batal">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-
         <!-- Grafik Penjualan -->
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-chart-area"></i>
             Grafik Penjualan
           </div>
-          <div class="card-body">
+          <!-- <div class="card-body">
             <canvas id="myAreaChart" width="100%" height="30"></canvas>
+          </div> -->
+          <div style="width: 800px; margin: 0px auto;">
+	          <canvas id="myChart"></canvas>
           </div>
         </div>
 
@@ -119,6 +59,64 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
+
+  <!-- Grafik -->
+  <script>
+	var ctx = document.getElementById("myChart").getContext('2d');
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ["Buah Naga Merah", "Buah Naga Putih", "Jus Buah Naga", "Keripik Buah Naga", "Selai Buah Naga"],
+			datasets: [{
+				label: '',
+				data: [
+				<?php 
+				$jumlah_buah_naga_merah = mysqli_query($conn,"SELECT * FROM keranjang WHERE NAMA_PRODUK='Buah Naga Merah'");
+				echo mysqli_num_rows($jumlah_buah_naga_merah);
+				?>, 
+				<?php 
+				$jumlah_buah_naga_putih = mysqli_query($conn,"SELECT * FROM keranjang WHERE NAMA_PRODUK='Buah Naga Putih'");
+				echo mysqli_num_rows($jumlah_buah_naga_putih);
+				?>, 
+				<?php 
+				$jumlah_jus = mysqli_query($conn,"SELECT * FROM keranjang WHERE NAMA_PRODUK='Jus Buah Naga'");
+				echo mysqli_num_rows($jumlah_jus);
+				?>, 
+				<?php 
+				$jumlah_keripik = mysqli_query($conn,"SELECT * FROM keranjang WHERE NAMA_PRODUK='Keripik Buah Naga'");
+				echo mysqli_num_rows($jumlah_keripik);
+				?>,
+        <?php 
+				$jumlah_selai = mysqli_query($conn,"SELECT * FROM keranjang WHERE NAMA_PRODUK='Selai Buah Naga'");
+				echo mysqli_num_rows($jumlah_selai);
+				?>
+				],
+				backgroundColor: [
+				'rgba(255, 99, 132, 0.2)',
+				'rgba(54, 162, 235, 0.2)',
+				'rgba(255, 206, 86, 0.2)',
+				'rgba(75, 192, 192, 0.2)'
+				],
+				borderColor: [
+				'rgba(255,99,132,1)',
+				'rgba(54, 162, 235, 1)',
+				'rgba(255, 206, 86, 1)',
+				'rgba(75, 192, 192, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	});
+</script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

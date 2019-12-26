@@ -245,7 +245,7 @@
         <table>
           <tr>
             <td>
-              <button href="transaksi.php"
+              <button href="keranjang.php"
                       name="beli"
                       class="btn btn-success btn-sm"
                       style="width: 20rem">

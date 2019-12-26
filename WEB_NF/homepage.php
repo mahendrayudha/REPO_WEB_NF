@@ -335,7 +335,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
       //   header("location: homepage.php");
       // }
       if($lv == 1){
-        echo "<script>alert ('Login Berhasil admin');window.location.href='admin/index.php'</script>";
+        echo "<script>alert ('Login Berhasil admin');window.location.href='admin/index.php?page=dashboard'</script>";
         // header("Location: admin/index.php");
       } else if($lv == 2){
         echo "<script>alert ('Login berhasil karyawan')</script>";
