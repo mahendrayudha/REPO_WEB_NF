@@ -220,12 +220,28 @@
                              value="<?php echo $perproduk["OPSI_PEMBAYARAN"] ?>" readonly></input>          
                     </div>
                   </div>
-
-                  <a href="https://api.whatsapp.com/send?phone=6282336055228"
+                    <?php 
+                      if($perproduk["OPSI_PEMBAYARAN"]==1){
+                        echo '<a href="https://api.whatsapp.com/send?phone=6282336055228"
+                        class="btn btn-info"
+                        name="send">
+                        Kirim Bukti Pembayaran
+                     </a>';
+                      } else if($perproduk["OPSI_PEMBAYARAN"]==2){
+                        echo '<a class="btn btn-info"
+                        name="OK"
+                        href="keranjang.php">
+                        OK
+                     </a>';
+                      } else {
+                        echo 'error';
+                      }
+                    ?>
+                  <!-- <a href="https://api.whatsapp.com/send?phone=6282336055228"
                      class="btn btn-info"
                      name="send">
                      Kirim Bukti Pembayaran
-                  </a>
+                  </a> -->
                   <a class="btn btn-danger"
                      name="batal"
                      href="keranjang.php">
