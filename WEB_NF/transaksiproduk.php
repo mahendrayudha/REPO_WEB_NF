@@ -14,7 +14,7 @@
   }
 
   //auto increment id produk
-  $carikode = mysqli_query($conn, "SELECT max(ID_TRANSAKSI) FROM keranjang") or die(mysqli_error($conn));
+  $carikode = mysqli_query($conn, "SELECT max(ID_TRANSAKSI) FROM transaksi") or die(mysqli_error($conn));
   $datakode = mysqli_fetch_array($carikode);
   if ($datakode) {
     $nilaikode = substr($datakode[0], 1);
@@ -22,7 +22,17 @@
     $kode = $kode + 1;
     $hasilkode = "T" . str_pad($kode, 3, "0", STR_PAD_LEFT);
   } else {
-    $hasilkode = "T001";
+    $carikode2 = mysqli_query($conn, "SELECT max(ID_TRANSAKSI) FROM keranjang") or die(mysqli_error($conn));
+    $tesya = mysqli_fetch_array($carikode2);
+    if($tesya){
+      $nilaikode2 = substr($tesya[0], 1);
+      $kode2 = (int) $nilaikode2;
+      $kode2 = $kode2 + 1;
+      $hasilkode = "T" . str_pad($kode2, 3, "0", STR_PAD_LEFT);
+    } else {
+      $hasilkode = "ERROR";
+    }
+    //$hasilkode = "T001";
   }
   //menampilkan produk berdasarkan id
   $ambil = $conn->query("SELECT * FROM produk WHERE ID_PRODUK = '$id'");
@@ -35,7 +45,7 @@
   //memasukkan keranjang
   if (isset($_POST['beli'])) {
     if (keranjang($_POST) == 1) {
-        echo "<script>alert ('Berhasil Memasukkan ke Keranjang');</script>";
+        echo "<script>alert ('Berhasil Memasukkan ke Keranjang');window.location.href='keranjang.php'</script>";
     } else {
         echo "<script>alert ('Gagal Memasukkan ke Keranjang');</script>";
     }
