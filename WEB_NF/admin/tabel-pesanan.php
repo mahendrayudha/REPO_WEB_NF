@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 session_start();
 include "koneksi.php";
 $id = $_GET['id'];
@@ -10,8 +11,8 @@ if (!isset($_SESSION["login"])) {
 }
 
 //menampilkan produk berdasarkan id
-$ambil = $conn->query("SELECT * FROM user WHERE ID_USER = '$id'");
-$peruser = mysqli_fetch_array($ambil);
+// $ambil = $conn->query("SELECT * FROM user WHERE ID_USER = '$id'");
+// $peruser = mysqli_fetch_array($ambil);
 
 ?>
 
@@ -67,11 +68,15 @@ $peruser = mysqli_fetch_array($ambil);
                 <tbody>
                   <?php
                   $sql = $conn->query("SELECT * FROM keranjang");
+                  
                   while ($data = $sql->fetch_assoc()) {
                     $transfer = ($data['OPSI_PEMBAYARAN']==1);
                     $transfer = 'Transfer';
                     $bayartunai = ($data['OPSI_PEMBAYARAN']==2);
                     $bayartunai = 'Bayar Tunai';
+                    $asiap = $data['ID_USER'];
+                    $ambil = $conn->query("SELECT * FROM user WHERE ID_USER = '$asiap'");
+                    $peruser = mysqli_fetch_array($ambil);
                   ?>
                     <tr>
                       <td><?php echo $data['ID_TRANSAKSI']; ?></td>
