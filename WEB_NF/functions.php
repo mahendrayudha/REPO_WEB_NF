@@ -64,27 +64,27 @@ function hihi($hihi){
 }
 
 //memasukkan transaksi
-// if (isset($_POST['setujui'])) {
-//     $idtrx = $_POST['id_transaksi'];
-//     $id_produk = $_POST['id_produk'];
-//     $id_user = $_POST['id_user'];
-//     $jumlah = $_POST['jumlah'];
-//     $total = $_POST['total'];
-//     $status_bayar = $_POST['status_bayar'];
-//     $alamat = $_POST['alamat'];
-//     $opsi = $_POST['opsi'];
-//     $simpan = "INSERT INTO transaksi (ID_TRANSAKSI, ID_USER, TANGGAL_TRANSAKSI, STATUS_BAYAR, GRAND_TOTAL, ALAMAT_PENGIRIMAN, OPSI_PEMBAYARAN)
-//     VALUES('$idtrx','$id_user', now(),'$status_bayar','$total','$alamat','$opsi')";
-//     if ($conn->query($simpan) === TRUE) {
-//       $h = mysqli_query($conn, "DELETE FROM keranjang WHERE ID_TRANSAKSI = '$idtrx'");
-//       if($h){
-//         echo "<script>alert('Sukses !');window.location.href='/REPO_WEB_NF/WEB_NF/admin/index.php?page=tabel-pesanan'</script>";
-//       } else {
-//         echo "<script>alert('Sesuatu yang salah')</script>";
-//       }
+if (isset($_POST['setujui'])) {
+    $idtrx = $_POST['id_transaksi'];
+    $id_produk = $_POST['id_produk'];
+    $id_user = $_POST['id_user'];
+    $jumlah = $_POST['jumlah'];
+    $total = $_POST['total'];
+    $status_bayar = $_POST['status_bayar'];
+    $alamat = $_POST['alamat'];
+    $opsi = $_POST['opsi'];
+    $simpan = "INSERT INTO transaksi (ID_TRANSAKSI, ID_USER, TANGGAL_TRANSAKSI, STATUS_BAYAR, GRAND_TOTAL, ALAMAT_PENGIRIMAN, OPSI_PEMBAYARAN)
+    VALUES('$idtrx','$id_user', now(),'$status_bayar','$total','$alamat','$opsi')";
+    if ($conn->query($simpan) === TRUE) {
+      $h = mysqli_query($conn, "DELETE FROM keranjang WHERE ID_TRANSAKSI = '$idtrx'");
+      if($h){
+        echo "<script>alert('Sukses !');window.location.href='/REPO_WEB_NF/WEB_NF/admin/index.php?page=tabel-pesanan'</script>";
+      } else {
+        echo "<script>alert('Sesuatu yang salah')</script>";
+      }
   
-//     } else {
-//       echo "Error: " . $sql . "<br>" . $conn->error;
-//     }
-//   }
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+  }
 ?>

@@ -154,15 +154,11 @@ if (isset($_POST['setujui'])) {
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="text"
-                 class="form-control"
-                 id="opsi"
-                 name="opsi"
-                 value="<?php if($perproduk ['OPSI_PEMBAYARAN']==1) {
-                    echo 'Transfer';
-                  } elseif($perproduk ['OPSI_PEMBAYARAN']==2) {
-                    echo 'Bayar Tunai';
-                  }?>" readonly>
+        <input type="text" 
+               name="opsi" 
+               id="opsi" 
+               value="<?php echo $perproduk["OPSI_PEMBAYARAN"] ?>" readonly>
+              </input>
           <label for="opsi">Opsi Pembayaran</label>
         </div>
       </div>
