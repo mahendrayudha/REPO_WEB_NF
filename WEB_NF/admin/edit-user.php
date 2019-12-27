@@ -170,7 +170,6 @@
     USERNAME='$username',
     PASSWORD='$katasandi'
     WHERE ID_USER='$id'";
-    echo $query;
   $sql= mysqli_query($conn, $query);
   return mysqli_affected_rows($conn);
   }
