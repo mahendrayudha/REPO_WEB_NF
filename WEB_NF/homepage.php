@@ -7,16 +7,16 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
 
 //auto increment id user
 
-// $carikode = mysqli_query($conn, "SELECT max(ID_USER)FROM user") or die (mysqli_error($conn));
-// $datakode = mysqli_fetch_array($carikode);
-// if($datakode) {
-//     $nilaikode = substr($datakode[0], 1 );
-//     $kode = (int) $nilaikode;
-//     $kode = $kode + 1;
-//     $hasilkode = "U" .str_pad($kode, 3, "0", STR_PAD_LEFT);
-// }else{
-//     $hasilkode = "U001";
-// }
+$carikode = mysqli_query($conn, "SELECT max(ID_USER)FROM user") or die (mysqli_error($conn));
+$datakode = mysqli_fetch_array($carikode);
+if($datakode) {
+    $nilaikode = substr($datakode[0], 1 );
+    $kode = (int) $nilaikode;
+    $kode = $kode + 1;
+    $hasilkode = "U" .str_pad($kode, 3, "0", STR_PAD_LEFT);
+}else{
+    $hasilkode = "U001";
+}
 
 ?>
 
@@ -86,6 +86,7 @@ $conn = mysqli_connect("localhost", "root", "", "naura_farm");
                   ?>
                   <a class="dropdown-item" href="akun.php">Akun</a>
                   <a class="dropdown-item" onclick="return confirm('Apakah Anda yakin Ingin Keluar?')" href="keluar.php">Keluar</a>
+                  <a class="dropdown-item" href="keranjang.php">Keranjang</a>
                 <?php
                 } else {
                   ?>

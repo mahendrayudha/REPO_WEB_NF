@@ -134,6 +134,7 @@
                 ?>
                 <a class="dropdown-item" href="akun.php">Akun</a>
                 <a class="dropdown-item" href="keluar.php">Keluar</a>
+                <a class="dropdown-item" href="keranjang.php">Keranjang</a>
                 <?php
                   } else {
                 ?>
@@ -245,7 +246,7 @@
         <table>
           <tr>
             <td>
-              <button href="keranjang.php"
+              <button onclick="keranjang.php"
                       name="beli"
                       class="btn btn-success btn-sm"
                       style="width: 20rem">

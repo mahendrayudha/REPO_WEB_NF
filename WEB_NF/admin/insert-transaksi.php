@@ -130,7 +130,7 @@ if (isset($_POST['setujui'])) {
 
       <div class="form-group">
         <label for="status_bayar">Status Bayar:</label>
-          <select class="form-control" id="status_bayar">
+          <select class="form-control" id="status_bayar" name="status_bayar">
             <option value="1">Lunas</option>
             <option value="2">Belum lunas</option>
           </select>

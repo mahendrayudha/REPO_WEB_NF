@@ -1,7 +1,13 @@
 <?php
+require 'functions.php';
+
 session_start();
 $conn = mysqli_connect("localhost", "root", "", "naura_farm");
-require 'functions.php';
+$idu = $_SESSION['id_user'];
+  if (!isset($_SESSION["login"])) {
+    header("location: homepage.php");
+    exit;
+  }
 ?>
 
 <!DOCTYPE html>
@@ -90,6 +96,7 @@ require 'functions.php';
                   ?>
                   <a class="dropdown-item" href="akun.php">Akun</a>
                   <a class="dropdown-item" href="keluar.php">Keluar</a>
+                  <a class="dropdown-item" href="keranjang.php">Keranjang</a>
                   <?php
                 } else {
                   ?>
