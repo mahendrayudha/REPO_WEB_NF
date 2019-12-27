@@ -22,14 +22,13 @@
     $hasilkode = "U001";
   }
 
-//menampilkan produk berdasarkan id
-$ambil = $conn->query("SELECT * FROM produk WHERE ID_PRODUK = '$id'");
-$perproduk = mysqli_fetch_array($ambil);
-
 //menampilkan keranjang berdasarkan id
   $sql = $conn->query("SELECT * FROM keranjang WHERE ID_TRANSAKSI='$id'");
   $tampil = $sql->fetch_assoc();
-
+  $idproduknya = $tampil["ID_PRODUK"];
+//menampilkan produk berdasarkan id
+$ambil = $conn->query("SELECT * FROM produk WHERE ID_PRODUK = '$idproduknya'");
+$perproduk = mysqli_fetch_array($ambil);
 ?>
 
 <!DOCTYPE html>
@@ -180,7 +179,7 @@ $perproduk = mysqli_fetch_array($ambil);
                               type="text"
                               onkeyup="hitung();"
                               style="border-radius: 0"
-                              value="<?php echo $perproduk["HARGA_JUAL"]; ?>" readonly>
+                              value="<?php echo $perproduk["HARGA_JUAL"]; ?>" disabled readonly>
                         <label for="harga">Harga</label>
                     </div>
                   </div>
@@ -205,7 +204,7 @@ $perproduk = mysqli_fetch_array($ambil);
                              type="text"
                              style="border-radius: 0"
                              onkeyup="hitung();"
-                             value="<?php echo $tampil["GRAND_TOTAL"]; ?>" disabled readonly>
+                             value="<?php echo $tampil["GRAND_TOTAL"]; ?>" readonly>
                       <label for="total">Grand Total</label>
                     </div>
                   </div>
@@ -260,12 +259,10 @@ $perproduk = mysqli_fetch_array($ambil);
     <?php
     if (isset($_POST["editkeranjang"])) {
       $jumlah = $_POST['jumlah'];
+      $hg = $_POST['total'];
       $alamat = $_POST['alamat'];
       $opsi = $_POST['opsi'];
-      $update = "UPDATE keranjang SET ID_TRANSAKSI='$id', JUMLAH_BELI='$jumlah', GRAND_TOTAL='$harga', 
-      ALAMAT='$alamat',
-      OPSI_PEMBAYARAN='$opsi'
-      WHERE ID_TRANSAKSI='$id'";
+      $update = "UPDATE keranjang SET ID_TRANSAKSI='$id', JUMLAH_BELI='$jumlah', GRAND_TOTAL='$hg',ALAMAT='$alamat', OPSI_PEMBAYARAN='$opsi' WHERE ID_TRANSAKSI='$id'";
       if ($conn->query($update) === TRUE) {
           echo "<script>
         alert('Data Berhasil Diubah');
@@ -273,8 +270,8 @@ $perproduk = mysqli_fetch_array($ambil);
         'keranjang.php';
         </script>";
       } else {
-        //echo "<script>alert('Gagal Mengubah Data')</script>";
-        echo "db error ". $conn->error;
+        echo "<script>alert('Gagal Mengubah Data')</script>";
+        //echo "db error ". $conn->error;
       }
       $conn->close();
       // if(editkeranjang($_POST) > 0) {
