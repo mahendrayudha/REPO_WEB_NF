@@ -85,8 +85,8 @@ if($datakode) {
                 if (isset($_SESSION['login'])) {
                   ?>
                   <a class="dropdown-item" href="akun.php">Akun</a>
-                  <a class="dropdown-item" onclick="return confirm('Apakah Anda yakin Ingin Keluar?')" href="keluar.php">Keluar</a>
                   <a class="dropdown-item" href="keranjang.php">Keranjang</a>
+                  <a class="dropdown-item" onclick="return confirm('Apakah Anda yakin Ingin Keluar?')" href="keluar.php">Keluar</a>
                 <?php
                 } else {
                   ?>
