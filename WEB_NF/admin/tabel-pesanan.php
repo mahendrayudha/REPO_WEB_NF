@@ -52,7 +52,7 @@ $peruser = mysqli_fetch_array($ambil);
                 <thead>
                   <tr>
                     <th>ID Transaksi</th>
-                    <th>ID Produk</th>
+                    <th style="display: none;">ID Produk</th>
                     <th>NAMA Produk</th>
                     <th style="display: none;">ID User</th>
                     <th>Pemesan</th>
@@ -68,17 +68,26 @@ $peruser = mysqli_fetch_array($ambil);
                   <?php
                   $sql = $conn->query("SELECT * FROM keranjang");
                   while ($data = $sql->fetch_assoc()) {
+                    $transfer = ($data['OPSI_PEMBAYARAN']==1);
+                    $transfer = 'Transfer';
+                    $bayartunai = ($data['OPSI_PEMBAYARAN']==2);
+                    $bayartunai = 'Bayar Tunai';
                   ?>
                     <tr>
                       <td><?php echo $data['ID_TRANSAKSI']; ?></td>
-                      <td><?php echo $data['ID_PRODUK']; ?></td>
+                      <td style="display: none;"><?php echo $data['ID_PRODUK']; ?></td>
                       <td><?php echo $data['NAMA_PRODUK']; ?></td>
-                      <td><?php echo $data['ID_USER']; ?></td>
+                      <td style="display: none;"><?php echo $data['ID_USER']; ?></td>
                       <td><?php echo $peruser['NAMA']; ?></td>
                       <td><?php echo $data['JUMLAH_BELI']; ?></td>
                       <td><?php echo $data['TGL_TRANSAKSI']; ?></td>
                       <td><?php echo $data['ALAMAT']; ?></td>
-                      <td><?php echo $data['OPSI_PEMBAYARAN']; ?></td>
+                      <td><?php if($data ['OPSI_PEMBAYARAN']==1) {
+                        echo $transfer;
+                      } elseif($data ['OPSI_PEMBAYARAN']==2) {
+                        echo $bayartunai;
+                        }?>
+                      </td>
                       <td><?php echo $data['GRAND_TOTAL']; ?></td>                      
                       <td>
                         <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="hapus-pesanan.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-trash"></a>
