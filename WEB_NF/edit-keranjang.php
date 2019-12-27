@@ -1,22 +1,35 @@
 <?php
-  //include "admin/koneksi.php";
+  require 'functions.php';
 
   session_start();
   $conn = mysqli_connect("localhost", "root", "", "naura_farm");
+  $idu = $_SESSION['id_user'];
   $id = $_GET['id'];
-  $sql = $conn->query("SELECT * FROM keranjang WHERE ID_TRANSAKSI='$id'");
-  $tampil = $sql->fetch_assoc();
+
+  if (!isset($_SESSION["login"])) {
+    header("location: homepage.php");
+    exit;
+  }
 
   $carikode = mysqli_query($conn, "SELECT max(ID_USER)FROM user") or die (mysqli_error($conn));
-$datakode = mysqli_fetch_array($carikode);
-if($datakode) {
+  $datakode = mysqli_fetch_array($carikode);
+  if($datakode) {
     $nilaikode = substr($datakode[0], 1 );
     $kode = (int) $nilaikode;
     $kode = $kode + 1;
     $hasilkode = "U" .str_pad($kode, 3, "0", STR_PAD_LEFT);
-}else{
+  }else{
     $hasilkode = "U001";
-}
+  }
+
+//menampilkan produk berdasarkan id
+$ambil = $conn->query("SELECT * FROM produk WHERE ID_PRODUK = '$id'");
+$perproduk = mysqli_fetch_array($ambil);
+
+//menampilkan keranjang berdasarkan id
+  $sql = $conn->query("SELECT * FROM keranjang WHERE ID_TRANSAKSI='$id'");
+  $tampil = $sql->fetch_assoc();
+
 ?>
 
 <!DOCTYPE html>
@@ -144,7 +157,7 @@ if($datakode) {
 
                       <input type="hidden"
                              name="id_user"
-                             value="<?php echo $tampil["ID_USER"]; ?>">
+                             value="<?php echo $tampil["ID_USER"]; ?>">                            
                     </div>
                   </div>
 
@@ -156,6 +169,18 @@ if($datakode) {
                              style="border-radius: 0"
                              value="<?php echo $tampil['TGL_TRANSAKSI']; ?>" disabled readonly>
                       <label for="tglbeli">Tanggal Beli</label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                      <div class="form-label-group">
+                        <input id="harga"
+                              name="harga"                              
+                              type="text"
+                              onkeyup="hitung();"
+                              style="border-radius: 0"
+                              value="<?php echo $perproduk["HARGA_JUAL"]; ?>" readonly>
+                        <label for="harga">Harga</label>
                     </div>
                   </div>
 
@@ -174,13 +199,13 @@ if($datakode) {
 
                   <div class="form-group">
                     <div class="form-label-group">
-                      <input id="harga"
-                             name="harga"
+                      <input id="total"
+                             name="total"
                              type="text"
                              style="border-radius: 0"
                              onkeyup="hitung();"
                              value="<?php echo $tampil["GRAND_TOTAL"]; ?>" disabled readonly>
-                      <label for="harga">Grand Total</label>
+                      <label for="total">Grand Total</label>
                     </div>
                   </div>
 
@@ -236,7 +261,7 @@ if($datakode) {
       $jumlah = $_POST['jumlah'];
       $alamat = $_POST['alamat'];
       $opsi = $_POST['opsi'];
-      $update = "UPDATE keranjang SET ID_TRANSAKSI='$id', JUMLAH_BELI='$jumlah',
+      $update = "UPDATE keranjang SET ID_TRANSAKSI='$id', JUMLAH_BELI='$jumlah', GRAND_TOTAL='$harga', 
       ALAMAT='$alamat',
       OPSI_PEMBAYARAN='$opsi'
       WHERE ID_TRANSAKSI='$id'";
