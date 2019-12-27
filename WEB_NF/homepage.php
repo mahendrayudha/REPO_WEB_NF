@@ -330,21 +330,14 @@ if($datakode) {
       $_SESSION['id_user'] = $row["ID_USER"];
       $_SESSION['level'] = $row['LEVEL'];
       $lv = $row['LEVEL'];
-      // if ($row['LEVEL'] == 1) {
-      //   header("Location: admin/index.php");
-      // } else {
-      //   header("location: homepage.php");
-      // }
       if($lv == 1){
-        echo "<script>alert ('Login Berhasil admin');window.location.href='admin/index.php?page=dashboard'</script>";
-        // header("Location: admin/index.php");
+        echo "<script>alert ('Login Berhasil : Admin');window.location.href='admin/index.php?page=dashboard'</script>";
       } else if($lv == 2){
-        echo "<script>alert ('Login berhasil karyawan')</script>";
-      } else {
+        echo "<script>alert ('Login Berhasil : Karyawan');window.location.href='admin/index.php?page=dashboard'</script>";
+        include "tabel-user.php";
+      } else if($lv == 3){
         echo "<script>alert ('Login Berhasil');window.location.href='homepage.php'</script>";
-        // header("Location: homepage.php");
       }
-      //echo "<script>alert ('Login Berhasil');window.location.href='homepage.php'</script>";
     } else {
       echo "<script>alert ('Login Gagal')</script>";
     }
