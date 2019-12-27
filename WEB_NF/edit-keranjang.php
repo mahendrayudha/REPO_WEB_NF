@@ -167,7 +167,7 @@ $perproduk = mysqli_fetch_array($ambil);
                              name="tglbeli"
                              id="tglbeli"
                              style="border-radius: 0"
-                             value="<?php echo $tampil['TGL_TRANSAKSI']; ?>" disabled readonly>
+                             value="<?php echo $tampil['TGL_TRANSAKSI']; ?>" readonly>
                       <label for="tglbeli">Tanggal Beli</label>
                     </div>
                   </div>
