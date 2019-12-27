@@ -1,6 +1,6 @@
 <?php
   include "koneksi.php";
-
+  session_start();
   $id = $_GET['id'];
   $sql = $conn->query("SELECT * FROM user WHERE ID_USER='$id'");
   $tampil = $sql->fetch_assoc();
@@ -30,7 +30,7 @@
 <body>
   <div class="card-header">Edit Data User</div>
     <div class="card-body">
-      <form method="POST">
+      <form method="POST" action="">
           <div class="form-group">
             <div class="form-label-group">
               <input type="text"
@@ -137,6 +137,8 @@
 
   if(isset($_POST["edituser"])) {
     //cek data berhasil ditambah?
+
+    edituser("parameter");
     if(isset($_POST) > 0){
       echo "<script>
       alert('Data Berhasil Diubah');
@@ -151,7 +153,7 @@
   //ubah data
   function edituser($data) {
     global $conn;
-      $id = isset($_GET['id']) ? $_GET['id'] : null;
+      $id = isset($_GET['id']) ? $_GET['id'] : $_POST['id_user'];
       $namalengkap = isset($_POST['namalengkap']) ? $_POST['namalengkap'] : null;
       $nomortelepon = isset($_POST['nomortelepon']) ? $_POST['nomortelepon'] : null;
       $alamat = isset($_POST['alamat']) ? $_POST['alamat'] : null;
@@ -168,6 +170,7 @@
     USERNAME='$username',
     PASSWORD='$katasandi'
     WHERE ID_USER='$id'";
+    echo $query;
   $sql= mysqli_query($conn, $query);
   return mysqli_affected_rows($conn);
   }
