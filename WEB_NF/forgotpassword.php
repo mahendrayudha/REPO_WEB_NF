@@ -7,68 +7,43 @@ if ($conn === false) {
 
 <?php
 require 'functions.php';
-
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
+include "PHPMailer/classes/class.phpmailer.php";
+// require 'PHPMailer/src/Exception.php';
+// require 'PHPMailer/src/PHPMailer.php';
+// require 'PHPMailer/src/SMTP.php';
 
 session_start();
-
-
-// Import PHPMailer classes into the global namespace
-// These must be at the top of your script, not inside a function
-
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
-if ($_POST) {
-    $email = $_POST['email'];
-
+if(isset($_POST['ubahpw'])){
+  $email = $_POST['email'];
     $selectquery = mysqli_query($conn, "SELECT * FROM user WHERE EMAIL = '$email'");
     $count = mysqli_num_rows($selectquery);
     $row = mysqli_fetch_array($selectquery);
-
-    $tes = $row['PASSWORD'];
-
-    // echo $count;
-
-    if ($count > 0) {
-        // echo $row['PASSWORD'];
-
-        $mail = new PHPMailer(true);
-
-        try {
-
-            $mail->isSMTP();
-            $mail->Host       = 'smtp.gmail.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'naurafarmjember@gmail.com';
-            $mail->Password   = 'farmnaura321';
-            $mail->SMTPSecure =  'ssl';
-            $mail->Port       =  465;
-
-
-            $mail->setFrom('naurafarmjember@gmail.com', 'Admin Naura Farm');
-            $mail->addAddress($row["EMAIL"]);
-
-
-
-            $mail->isHTML(true);
-            $mail->Subject = 'Here is the subject';
-            $mail->Body    =  'Hai pelanggan setia NAURA FARM. Silahkan Ganti Password Anda di http://localhost/My_Clinic/web%20fix/web%20e/resetpass.php';
-            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-            // "Password anda adalah <b>$tes</b>"
-            $mail->send();
-            echo 'Message has been sent';
-        } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-        }
+    if($count > 0){
+      $pw = $row['PASSWORD'];
+      $name = $row['NAMA'];
+      $mail = new PHPMailer; 
+      $mail->IsSMTP();
+      $mail->SMTPSecure = 'nossl'; 
+      $mail->Host = "mail.smile-joke.com"; //host masing2 provider email
+      $mail->SMTPDebug = 1;
+      $mail->Port = 587;
+      $mail->SMTPAuth = true;
+      $mail->Username = "naura_farm@smile-joke.com"; //user email
+      $mail->Password = "S4&QgUNHiS;Z"; //password email 
+      $mail->SetFrom("naura_farm@smile-joke.com","CS Naura Farm"); //set email pengirim
+      $mail->Subject = "Lupa Password"; //subyek email
+      $mail->AddAddress($email,$name);  //tujuan email
+      $mail->MsgHTML("Password Anda Adalah : ".$pw."");
+      if($mail->send()){
+        $pesan = "Password Di kirim kemail anda<br> silahkan cek email anda";
+      } else {
+        $pesan = "Error";
+      }
+      //$pesan = "nama : ".$name." | pw ".$pw."";
+    } else {
+      $pesan = "Email tidak terdaftar"; 
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -142,6 +117,7 @@ if ($_POST) {
                 } ?>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                if
                 <!-- Session utk merubah nav akun login/register menjadi akun/keluar saat kondisi user sedang login -->
                 <?php
                 if (isset($_SESSION['login'])) {
@@ -172,7 +148,9 @@ if ($_POST) {
                         <div class="card-body">
                             <div class="text-center mb-4">
                                 <h4>Lupa Kata Sandi?</h4>
-                                <p>Masukkan alamat email Anda dan kami akan mengirim cara merubah kata sandi Anda.</p>
+                                <p><?php 
+                                if(isset($pesan)) { echo $pesan; } else { echo 'Masukkan alamat email Anda dan kami akan mengirim cara merubah kata sandi Anda.';}
+                                ?></p>
                             </div>
                             <form action="" method="POST">
                                 <div class="form-group">
@@ -181,10 +159,11 @@ if ($_POST) {
                                         <label for="inputEmail">Masukan alamat email</label> -->
                                         <input type="text" name="email" class="form-control" placeholder="Masukkan Email" required="required" autofocus="autofocus">
                                         <label for="email">Masukkan Email</label>
-                                        <input type="submit">
+                                        <!-- <input type="submit"> -->
                                     </div>
                                 </div>
-                                <a class="btn btn-primary btn-block" href="login.php">Ubah Kata Sandi</a>
+                                <!-- <a class="btn btn-primary btn-block" href="login.php">Ubah Kata Sandi</a> -->
+                                <button class="btn btn-primary btn-block" type="submit" name="ubahpw">Ubah Sandi</button>
                             </form>
                             <div class="text-center">
                                 <a class="d-block small mt-3" href="homepage.php">Kembali</a>
