@@ -4,7 +4,7 @@
 
   //mengambil id
   $idu = $_SESSION['id_user'];
-  $user = $_SESSION['nama_user'];
+  $iduser = $_SESSION['user'];
   $id = $_GET['id'];
 
   //cek session
@@ -14,7 +14,7 @@
   }
 
   //auto increment id produk
-  $carikode = mysqli_query($conn, "select max(ID_TRANSAKSI)from keranjang") or die(mysqli_error($conn));
+  $carikode = mysqli_query($conn, "SELECT max(ID_TRANSAKSI) FROM keranjang") or die(mysqli_error($conn));
   $datakode = mysqli_fetch_array($carikode);
   if ($datakode) {
     $nilaikode = substr($datakode[0], 1);
@@ -31,6 +31,7 @@
   //menampilkan user berdasarkan id
   $cek = $conn->query("SELECT * FROM user WHERE ID_USER = '$iduser'");
   $peruser = mysqli_fetch_array($cek);
+
   //memasukkan keranjang
   if (isset($_POST['beli'])) {
     if (keranjang($_POST) == 1) {
@@ -169,7 +170,7 @@
                     <input type="hidden" name="id_produk" value="<?php echo $perproduk["ID_PRODUK"]; ?>">
                     <input type="hidden" name="nama_produk" value="<?php echo $perproduk["NAMA_PRODUK"]; ?>">
                     <input type="hidden" name="id_user" value="<?php echo $idu ?>">
-                    <input type="text" name="nama_user" value="<?php echo $peruser["NAMA"]; ?>">
+                    <input type="text" name="user" value="<?php echo $peruser["NAMA"]; ?>">
 
                   <div class="form-label-group">
                     <input id="harga"
