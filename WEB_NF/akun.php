@@ -104,6 +104,7 @@ if (!isset($_SESSION["login"])) {
                 if (isset($_SESSION['login'])) {
                   ?>
                   <a class="dropdown-item" href="akun.php">Akun</a>
+                  <a class="dropdown-item" href="keranjang.php">Keranjang</a>
                   <a class="dropdown-item" href="keluar.php">Keluar</a>
                 <?php
                 } else {

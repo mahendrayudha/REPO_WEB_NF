@@ -87,6 +87,7 @@ $idu = $_SESSION['id_user'];
                 <?php
                 if (isset($_SESSION['login'])) {
                   echo $_SESSION["user"];
+
                 } ?>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -96,18 +97,17 @@ $idu = $_SESSION['id_user'];
                   ?>
                   <a class="dropdown-item" href="akun.php">Akun</a>
                   <a class="dropdown-item" href="keranjang.php">Keranjang</a>
-                  <a class="dropdown-item" onclick="return confirm('Apakah Anda yakin Ingin Keluar?')" href="keluar.php">Keluar</a>
-                  <?php
+                  <a class="dropdown-item" href="keluar.php">Keluar</a>
+                <?php
                 } else {
                   ?>
                   <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Masuk</a>
                   <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'">Daftar</a>
                 <?php } ?>
-
-            </div>
             </li>
-          
-        </div>
+          </div>
+        </ul>
+      </div>
       </ul>
     </div>
   </nav>
