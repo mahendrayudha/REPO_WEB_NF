@@ -168,7 +168,7 @@ $perproduk = mysqli_fetch_array($ambil);
                              name="tglbeli"
                              id="tglbeli"
                              style="border-radius: 0"
-                             value="<?php echo $tampil['TGL_TRANSAKSI']; ?>" disabled readonly>
+                             value="<?php echo $tampil['TGL_TRANSAKSI']; ?>" readonly>
                       <label for="tglbeli">Tanggal Beli</label>
                     </div>
                   </div>
@@ -205,7 +205,7 @@ $perproduk = mysqli_fetch_array($ambil);
                              type="text"
                              style="border-radius: 0"
                              onkeyup="hitung();"
-                             value="<?php echo $tampil["GRAND_TOTAL"]; ?>" disabled readonly>
+                             value="<?php echo $tampil["GRAND_TOTAL"]; ?>" readonly>
                       <label for="total">Grand Total</label>
                     </div>
                   </div>

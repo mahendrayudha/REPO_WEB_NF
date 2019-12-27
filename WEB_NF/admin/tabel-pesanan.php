@@ -1,16 +1,8 @@
 <?php
-session_start();
 include "koneksi.php";
-$id = $_GET['id'];
-
-//cek session
-if (!isset($_SESSION["login"])) {
-  header("location: homepage.php");
-  exit;
-}
 
 //menampilkan produk berdasarkan id
-$ambil = $conn->query("SELECT * FROM user WHERE ID_USER = '$id'");
+$ambil = $conn->query("SELECT user.NAMA FROM user INNER JOIN keranjang ON keranjang.ID_USER = user.ID_USER");
 $peruser = mysqli_fetch_array($ambil);
 
 ?>

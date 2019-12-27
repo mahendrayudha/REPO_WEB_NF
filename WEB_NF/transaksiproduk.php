@@ -29,7 +29,7 @@
   $perproduk = mysqli_fetch_array($ambil);
 
   //menampilkan user berdasarkan id
-  $cek = $conn->query("SELECT * FROM user WHERE ID_USER = '$iduser'");
+  $cek = $conn->query("SELECT * FROM user WHERE USERNAME = '$iduser'");
   $peruser = mysqli_fetch_array($cek);
 
   //memasukkan keranjang
@@ -170,7 +170,15 @@
                     <input type="hidden" name="id_produk" value="<?php echo $perproduk["ID_PRODUK"]; ?>">
                     <input type="hidden" name="nama_produk" value="<?php echo $perproduk["NAMA_PRODUK"]; ?>">
                     <input type="hidden" name="id_user" value="<?php echo $idu ?>">
-                    <input type="text" name="user" value="<?php echo $peruser["NAMA"]; ?>">
+                  
+                    <div class="form-label-group">
+                    <input id="user"
+                           name="user"
+                           placeholder="Nama"
+                           type="text"
+                           style="border-radius: 0"
+                           value="<?php echo $peruser["NAMA"] ?>">
+                  <label for="user">Nama</label>
 
                   <div class="form-label-group">
                     <input id="harga"
@@ -218,7 +226,8 @@
                            placeholder="Alamat"
                            type="text"
                            style="border-radius: 0"
-                           row="5" required>
+                           row="5" required
+                           value="<?php echo $peruser["ALAMAT"]; ?>">
                   <label for="alamat">Alamat</label>
 
                   <div class="form-group">
