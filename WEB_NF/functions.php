@@ -78,13 +78,24 @@ if (isset($_POST['setujui'])) {
     if ($conn->query($simpan) === TRUE) {
       $h = mysqli_query($conn, "DELETE FROM keranjang WHERE ID_TRANSAKSI = '$idtrx'");
       if($h){
-        echo "<script>alert('Sukses !');window.location.href='/REPO_WEB_NF/WEB_NF/admin/index.php?page=tabel-pesanan'</script>";
+        $trx = "INSERT INTO detail_jual (ID_TRANSAKSI, ID_PRODUK, JUMLAH_BELI) VALUES ('$idtrx','$id_produk','$jumlah')";
+        if($conn->query($trx) === TRUE){
+          //update stok produk akan dikurangi dari jumlah produk yg di beli
+          $updatestk = "UPDATE produk SET STOK_PRODUK = STOK_PRODUK-$jumlah WHERE ID_PRODUK='$id_produk'";
+          if($conn->query($updatestk) === TRUE){
+            echo "<script>alert('Sukses !');window.location.href='/REPO_WEB_NF/WEB_NF/admin/index.php?page=tabel-pesanan'</script>";
+          } else {
+            echo "Error: " . $updatestk . "<br>" . $conn->error;
+          }
+        } else {
+          echo "Error: " . $trx . "<br>" . $conn->error;
+        }
       } else {
-        echo "<script>alert('Sesuatu yang salah')</script>";
+        echo "Error: " . $h . "<br>" . $conn->error;
       }
   
     } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
+      echo "Error: " . $simpan . "<br>" . $conn->error;
     }
   }
 ?>
