@@ -4,6 +4,7 @@
 
   //mengambil id
   $idu = $_SESSION['id_user'];
+  $user = $_SESSION['nama_user'];
   $id = $_GET['id'];
 
   //cek session
@@ -26,6 +27,10 @@
   //menampilkan produk berdasarkan id
   $ambil = $conn->query("SELECT * FROM produk WHERE ID_PRODUK = '$id'");
   $perproduk = mysqli_fetch_array($ambil);
+
+  //menampilkan user berdasarkan id
+  $cek = $conn->query("SELECT * FROM user WHERE ID_USER = '$iduser'");
+  $peruser = mysqli_fetch_array($cek);
   //memasukkan keranjang
   if (isset($_POST['beli'])) {
     if (keranjang($_POST) == 1) {
@@ -33,18 +38,6 @@
     } else {
         echo "<script>alert ('Gagal Memasukkan ke Keranjang');</script>";
     }
-    // }
-    // $id_transaksi = htmlspecialchars($_POST["id_transaksi"]);
-    // $id_produk = htmlspecialchars($_POST["id_produk"]);
-    // $nama_produk = htmlspecialchars($_POST["nama_produk"]);
-    // $id_user = htmlspecialchars($_POST["id_user"]);
-    // $jumlah = htmlspecialchars($_POST["jumlah"]);
-    // $tanggal = htmlspecialchars($_POST["tanggal"]);
-    // $alamat = htmlspecialchars($_POST["alamat"]);
-    // $opsi = htmlspecialchars($_POST["opsi"]);
-    // $total = htmlspecialchars($_POST["total"]);
-    // $trs = mysqli_query($conn, "INSERT INTO keranjang(ID_TRANSAKSI, ID_PRODUK, ID_USER, JUMLAH_BELI, TGL_TRANSAKSI, ALAMAT, OPSI_PEMBAYARAN, GRAND_TOTAL) VALUES ('$id_transaksi', '$id_produk','$nama_produk', '$id_user', '$jumlah', '$tanggal', '$alamat', '$opsi', '$total')");
-    // if($trs)
   }
   ?>
 <!DOCTYPE html>
@@ -176,6 +169,7 @@
                     <input type="hidden" name="id_produk" value="<?php echo $perproduk["ID_PRODUK"]; ?>">
                     <input type="hidden" name="nama_produk" value="<?php echo $perproduk["NAMA_PRODUK"]; ?>">
                     <input type="hidden" name="id_user" value="<?php echo $idu ?>">
+                    <input type="text" name="nama_user" value="<?php echo $peruser["NAMA"]; ?>">
 
                   <div class="form-label-group">
                     <input id="harga"

@@ -1,14 +1,18 @@
 <?php
+session_start();
 include "koneksi.php";
+$id = $_GET['id'];
 
-//memasukkan keranjang
-// if (isset($_POST['beli'])) {
-//   if (keranjang($_POST) == 1) {
-//       echo "<script>alert ('Berhasil Memasukkan ke Keranjang');</script>";
-//   } else {
-//       echo "<script>alert ('Gagal Memasukkan ke Keranjang');</script>";
-//   }
-// }
+//cek session
+if (!isset($_SESSION["login"])) {
+  header("location: homepage.php");
+  exit;
+}
+
+//menampilkan produk berdasarkan id
+$ambil = $conn->query("SELECT * FROM user WHERE ID_USER = '$id'");
+$peruser = mysqli_fetch_array($ambil);
+
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +54,8 @@ include "koneksi.php";
                     <th>ID Transaksi</th>
                     <th>ID Produk</th>
                     <th>NAMA Produk</th>
-                    <th>ID User</th>
+                    <th style="display: none;">ID User</th>
+                    <th>Pemesan</th>
                     <th>Jumlah Beli</th>
                     <th>Tanggal</th>
                     <th>Alamat</th>
@@ -69,6 +74,7 @@ include "koneksi.php";
                       <td><?php echo $data['ID_PRODUK']; ?></td>
                       <td><?php echo $data['NAMA_PRODUK']; ?></td>
                       <td><?php echo $data['ID_USER']; ?></td>
+                      <td><?php echo $peruser['NAMA']; ?></td>
                       <td><?php echo $data['JUMLAH_BELI']; ?></td>
                       <td><?php echo $data['TGL_TRANSAKSI']; ?></td>
                       <td><?php echo $data['ALAMAT']; ?></td>
