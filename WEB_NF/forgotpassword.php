@@ -149,7 +149,7 @@ if(isset($_POST['ubahpw'])){
                             <div class="text-center mb-4">
                                 <h4>Lupa Kata Sandi?</h4>
                                 <p><?php 
-                                if(isset($pesan)) { echo $pesan; } else { echo 'Masukkan alamat email Anda dan kami akan mengirim cara merubah kata sandi Anda.';}
+                                if(isset($pesan)) { echo $pesan; } else { echo 'Masukkan alamat email Anda dan kami akan mengirimkan kata sandi Anda.';}
                                 ?></p>
                             </div>
                             <form action="" method="POST">
