@@ -45,7 +45,7 @@ include "koneksi.php";
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
+                <thead style="text-align: center;">
                   <tr>
                     <th>ID Transaksi</th>
                     <th>ID User</th>
@@ -57,7 +57,7 @@ include "koneksi.php";
                     <th>Aksi</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody style="text-align: center;">
                   <?php
                   $sql = $conn->query("SELECT * FROM transaksi");
                   while ($data = $sql->fetch_assoc()) {

@@ -38,31 +38,31 @@ function keranjang($krj){
 
 
 //setujui
-function huhu($huhu){
-    global $conn;
-        $id_transaksi = htmlspecialchars($huhu["id_transaksi"]);                
-        $id_user = htmlspecialchars($huhu["id_user"]);
-        $status_bayar = htmlspecialchars($huhu["status_bayar"]);     
-        $total = htmlspecialchars($huhu["total"]);   
-        $alamat = htmlspecialchars($huhu["alamat"]);
-        $opsi = htmlspecialchars($huhu["opsi"]);
+// function huhu($huhu){
+//     global $conn;
+//         $id_transaksi = htmlspecialchars($huhu["id_transaksi"]);                
+//         $id_user = htmlspecialchars($huhu["id_user"]);
+//         $status_bayar = htmlspecialchars($huhu["status_bayar"]);     
+//         $total = htmlspecialchars($huhu["total"]);   
+//         $alamat = htmlspecialchars($huhu["alamat"]);
+//         $opsi = htmlspecialchars($huhu["opsi"]);
         
-        $trs = mysqli_query($conn, "INSERT INTO transaksi VALUES ('$id_transaksi','$id_user', now(), '$status_bayar', '$total', '$alamat', $opsi)");
+//         $trs = mysqli_query($conn, "INSERT INTO transaksi VALUES ('$id_transaksi','$id_user', now(), '$status_bayar', '$total', '$alamat', $opsi)");
 
 
-        return $trs;
-}
+//         return $trs;
+// }
 
 //setujui
-function hihi($hihi){
-    global $conn;
-        $id_transaksi = htmlspecialchars($hihi["id_transaksi"]);                
-        $id_produk = htmlspecialchars($hihi["id_produk"]);
-        $jumlah = htmlspecialchars($hihi["jumlah"]);  
+// function hihi($hihi){
+//     global $conn;
+//         $id_transaksi = htmlspecialchars($hihi["id_transaksi"]);                
+//         $id_produk = htmlspecialchars($hihi["id_produk"]);
+//         $jumlah = htmlspecialchars($hihi["jumlah"]);  
 
-        $trs = mysqli_query($conn, "INSERT INTO detail_jual VALUES ('$id_transaksi','$id_produk','$jumlah')");
-        return $trs;
-}
+//         $trs = mysqli_query($conn, "INSERT INTO detail_jual VALUES ('$id_transaksi','$id_produk','$jumlah')");
+//         return $trs;
+// }
 
 //memasukkan transaksi
 if (isset($_POST['setujui'])) {

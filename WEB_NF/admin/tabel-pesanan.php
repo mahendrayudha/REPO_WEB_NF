@@ -46,7 +46,7 @@ $peruser = mysqli_fetch_array($ambil);
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
+                <thead style="text-align: center;">
                   <tr>
                     <th>ID Transaksi</th>
                     <th style="display: none;">ID Produk</th>
@@ -61,7 +61,7 @@ $peruser = mysqli_fetch_array($ambil);
                     <th>Aksi</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody style="text-align: center;">
                   <?php
                   $sql = $conn->query("SELECT * FROM keranjang");
                   

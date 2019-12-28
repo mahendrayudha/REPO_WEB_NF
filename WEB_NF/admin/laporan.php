@@ -1,6 +1,6 @@
 <!-- <a href="#" onclick="window.print();" class="btn btn-primary "><i class="fa fa-book"></i>  Laporan</a> -->
 <table class="table table-bordered" border="1" id="dataTable" width="100%" cellspacing="0">
-                <thead>
+                <thead style="text-align: center;">
                   <tr>
                     <th>ID Transaksi</th>
                     <th>Nama Pemesan</th>
@@ -11,7 +11,7 @@
                     <th>Metode Pembayaran</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody style="text-align: center;">
                   <?php
                   include "koneksi.php";
                   $where = "";
