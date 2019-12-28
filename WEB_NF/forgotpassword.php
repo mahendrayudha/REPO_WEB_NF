@@ -33,9 +33,9 @@ if(isset($_POST['ubahpw'])){
       $mail->SetFrom("naura_farm@smile-joke.com","CS Naura Farm"); //set email pengirim
       $mail->Subject = "Lupa Password"; //subyek email
       $mail->AddAddress($email,$name);  //tujuan email
-      $mail->MsgHTML("Password Anda Adalah : ".$pw."");
+      $mail->MsgHTML("Ini Adalah Password Anda Adalah : ".$pw." <br> Tolong Ingat dan Jangan Lupa Di Catat :)<br> Terima Kasih Telah Menjadi Pelanggan Setia Naura Farm.");
       if($mail->send()){
-        $pesan = "Password Di kirim kemail anda<br> silahkan cek email anda";
+        $pesan = "Password anda telah di kirim ke email anda.<br> Silahkan cek amail anda, apabila tidak terdapat pada pesan utama, cek di daftar Spam";
       } else {
         $pesan = "Error";
       }
@@ -149,7 +149,7 @@ if(isset($_POST['ubahpw'])){
                             <div class="text-center mb-4">
                                 <h4>Lupa Kata Sandi?</h4>
                                 <p><?php 
-                                if(isset($pesan)) { echo $pesan; } else { echo 'Masukkan alamat email Anda dan kami akan mengirimkan kata sandi Anda.';}
+                                if(isset($pesan)) { echo $pesan; } else { echo 'Masukkan alamat email Anda yang telah terdaftar dan kami akan mengirimkan kata sandi Anda.';}
                                 ?></p>
                             </div>
                             <form action="" method="POST">
@@ -163,7 +163,7 @@ if(isset($_POST['ubahpw'])){
                                     </div>
                                 </div>
                                 <!-- <a class="btn btn-primary btn-block" href="login.php">Ubah Kata Sandi</a> -->
-                                <button class="btn btn-primary btn-block" type="submit" name="ubahpw">Ubah Sandi</button>
+                                <button class="btn btn-primary btn-block" type="submit" name="ubahpw">Ingatkan Saya</button>
                             </form>
                             <div class="text-center">
                                 <a class="d-block small mt-3" href="homepage.php">Kembali</a>
