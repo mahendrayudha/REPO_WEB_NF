@@ -30,7 +30,7 @@ if(isset($_POST['ubahpw'])){
       $mail->SMTPAuth = true;
       $mail->Username = "naura_farm@smile-joke.com"; //user email
       $mail->Password = "S4&QgUNHiS;Z"; //password email 
-      $mail->SetFrom("naura_farm@smile-joke.com","CS Naura Farm"); //set email pengirim
+      $mail->SetFrom("naura_farm@smile-joke.com","Admin Naura Farm"); //set email pengirim
       $mail->Subject = "Lupa Password"; //subyek email
       $mail->AddAddress($email,$name);  //tujuan email
       $mail->MsgHTML("Ini Adalah Password Anda Adalah : ".$pw." <br> Tolong Ingat dan Jangan Lupa Di Catat :)<br> Terima Kasih Telah Menjadi Pelanggan Setia Naura Farm.");
