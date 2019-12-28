@@ -1,19 +1,14 @@
 <?php
-<<<<<<< HEAD
+
 error_reporting(0);
 session_start();
-=======
->>>>>>> 7586a5da6c9dcc5386386a1a63cd0ddc00a838f4
 include "koneksi.php";
 
 //menampilkan produk berdasarkan id
-<<<<<<< HEAD
 // $ambil = $conn->query("SELECT * FROM user WHERE ID_USER = '$id'");
 // $peruser = mysqli_fetch_array($ambil);
-=======
 $ambil = $conn->query("SELECT user.NAMA FROM user INNER JOIN keranjang ON keranjang.ID_USER = user.ID_USER");
 $peruser = mysqli_fetch_array($ambil);
->>>>>>> 7586a5da6c9dcc5386386a1a63cd0ddc00a838f4
 
 ?>
 

@@ -187,7 +187,7 @@
                            placeholder="Nama"
                            type="text"
                            style="border-radius: 0"
-                           value="<?php echo $peruser["NAMA"] ?>">
+                           value="<?php echo $peruser["NAMA"] ?>" readonly>
                   <label for="user">Nama</label>
 
                   <div class="form-label-group">
