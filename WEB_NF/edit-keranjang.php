@@ -181,8 +181,21 @@
                               name="harga"                              
                               type="text"
                               onkeyup="hitung();"
-                              style="border-radius: 0"
+                              style="border-radius: 0; width: 39rem;"
                               value="<?php echo $perproduk["HARGA_JUAL"]; ?>" disabled readonly>
+                              <span>
+                           <?php if($perproduk ['ID_PRODUK']=='P001') {
+                             echo '/kg';
+                            } elseif($perproduk ['ID_PRODUK']=='P002') {
+                              echo '/kg';
+                            } elseif($perproduk['ID_PRODUK']=='P003') {
+                              echo '/botol';
+                            } elseif($perproduk['ID_PRODUK']=='P004') {
+                              echo '/bungkus';
+                            } elseif($perproduk['ID_PRODUK']=='P005') {
+                              echo '/pcs';
+                            } ?>
+                           </span>
                         <label for="harga">Harga</label>
                     </div>
                   </div>
@@ -192,10 +205,23 @@
                       <input id="jumlah"
                              name="jumlah"
                              type="text"
-                             style="border-radius: 0"
+                             style="border-radius: 0; width: 39rem;"
                              onkeyup="hitung();"
                              onkeypress="return hanyaAngka(event)"
                              value="<?php echo $tampil['JUMLAH_BELI']; ?>">
+                             <span>
+                             <?php if($perproduk ['ID_PRODUK']=='P001') {
+                               echo 'kg';
+                             } elseif($perproduk ['ID_PRODUK']=='P002') {
+                               echo 'kg';
+                             } elseif($perproduk['ID_PRODUK']=='P003') {
+                               echo 'botol';
+                             } elseif($perproduk['ID_PRODUK']=='P004') {
+                               echo 'bungkus';
+                             } elseif($perproduk['ID_PRODUK']=='P005') {
+                               echo 'pcs';
+                             } ?>
+                           </span>
                       <label for="jumlah">Jumlah Beli</label>
                     </div>
                   </div>

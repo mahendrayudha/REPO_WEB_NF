@@ -173,7 +173,21 @@ if (!isset($_SESSION["login"])) {
                                     <td style="display: none;"><?php echo $data['ID_PRODUK']; ?></td>
                                     <td><?php echo $data['NAMA_PRODUK']; ?></td>
                                     <td style="display: none;"><?php echo $data['ID_USER']; ?></td>
-                                    <td><?php echo $data['JUMLAH_BELI']; ?></td>
+                                    <td><?php echo $data['JUMLAH_BELI']; ?>
+                                    <span>
+                                    <?php if($data ['ID_PRODUK']=='P001') {
+                                      echo 'kg';
+                                    } elseif($data ['ID_PRODUK']=='P002') {
+                                      echo 'kg';
+                                    } elseif($data['ID_PRODUK']=='P003') {
+                                      echo 'botol';
+                                    } elseif($data['ID_PRODUK']=='P004') {
+                                      echo 'bungkus';
+                                    } elseif($data['ID_PRODUK']=='P005') {
+                                      echo 'pcs';
+                                    } ?>
+                           </span>
+                                    </td>
                                     <td><?php echo $data['TGL_TRANSAKSI']; ?></td>
                                     <td><?php echo $data['ALAMAT']; ?></td>
                                     <td><?php if($data ['OPSI_PEMBAYARAN']==1) {
