@@ -267,8 +267,6 @@
                           <option value="2">Bayar Tunai</option>
                           <option value="1">Transfer</option>
                           <?php } ?>
-                        <!-- <option value="1">Transfer</option>
-                        <option value="2">Bayar Tunai</option> -->
                       </select>
                     </div>
                   </div>

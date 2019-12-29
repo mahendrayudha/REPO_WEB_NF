@@ -115,9 +115,21 @@ $idu = $_SESSION['id_user'];
     <?php $ambil = $conn->query("SELECT * FROM produk"); ?>
     <?php while ($perproduk = $ambil->fetch_assoc()) { ?>
       <div class="card tambah" style="width: 18rem;">
-        <img style="height: 190px; width: 265px;" class="card-img-top img" src="img/<?php echo $perproduk["FOTO_PRODUK"] ?>" alt="">
+        <img style="height: 190px; width: 265px;" class="card-img-top img" src="img/<?php echo $perproduk["FOTO_PRODUK"] ?>" alt="Foto Produk">
         <div class="card-body">
-          <h5 class="card-title">Rp <?php echo $perproduk["HARGA_JUAL"]; ?></h5>
+          <h5 class="card-title">Rp <?php echo $perproduk["HARGA_JUAL"]; ?>
+          <?php if($perproduk ['ID_PRODUK']=='P001') {
+            echo '/kg';
+          } elseif($perproduk ['ID_PRODUK']=='P002') {
+            echo '/kg';
+          } elseif($perproduk['ID_PRODUK']=='P003') {
+            echo '/botol';
+          } elseif($perproduk['ID_PRODUK']=='P004') {
+            echo '/bungkus';
+          } elseif($perproduk['ID_PRODUK']=='P005') {
+            echo '/pcs';
+            } ?>
+          </h5>
           <p class="card-text"><?php echo $perproduk["NAMA_PRODUK"]; ?></p>
           <div style="display: flex; justify-content: center;">
             <?php

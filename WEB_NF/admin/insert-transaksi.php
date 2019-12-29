@@ -153,15 +153,25 @@ $perproduk = mysqli_fetch_array($ambil);
       </div>
 
       <div class="form-group">
-        <div class="form-label-group">
-        <input type="text" 
-               name="opsi" 
-               id="opsi" 
-               value="<?php echo $perproduk["OPSI_PEMBAYARAN"] ?>" readonly>
-              </input>
-          <label for="opsi">Opsi Pembayaran</label>
-        </div>
-      </div>
+                  <label for="opsi" style="color: black">Opsi Pembayaran</label>
+                    <div class="form-label-group">
+                      <Select type="text"
+                             class="form-control"
+                             id="opsi"
+                             name="opsi"
+                             style="color: black">
+                        <?php if($perproduk ['OPSI_PEMBAYARAN']==1) {
+                          echo 'Transfer'; ?>
+                          <option value="1">Transfer</option>
+                          <option value="2">Bayar Tunai</option>
+                          <?php } elseif($perproduk ['OPSI_PEMBAYARAN']==2) {
+                          echo 'Transfer'; ?>
+                          <option value="2">Bayar Tunai</option>
+                          <option value="1">Transfer</option>
+                          <?php } ?>
+                      </select>
+                    </div>
+                  </div>
 
       <button type="submit" class="btn btn-primary" name="setujui">
         Insert Transaksi
