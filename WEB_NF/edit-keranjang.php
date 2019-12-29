@@ -27,8 +27,8 @@
   $tampil = $sql->fetch_assoc();
   $idproduknya = $tampil["ID_PRODUK"];
 //menampilkan produk berdasarkan id
-$ambil = $conn->query("SELECT * FROM produk WHERE ID_PRODUK = '$idproduknya'");
-$perproduk = mysqli_fetch_array($ambil);
+  $ambil = $conn->query("SELECT * FROM produk WHERE ID_PRODUK = '$idproduknya'");
+  $perproduk = mysqli_fetch_array($ambil);
 ?>
 
 <!DOCTYPE html>
@@ -157,7 +157,10 @@ $perproduk = mysqli_fetch_array($ambil);
 
                       <input type="hidden"
                              name="id_user"
-                             value="<?php echo $tampil["ID_USER"]; ?>">                            
+                             value="<?php echo $tampil["ID_USER"]; ?>">
+                      <input type="hidden"
+                             name="opsi_pembayaran"
+                             value="<?php echo $tampil["OPSI_PEMBAYARAN"]; ?>">
                     </div>
                   </div>
 
@@ -229,8 +232,17 @@ $perproduk = mysqli_fetch_array($ambil);
                              id="opsi"
                              name="opsi"
                              style="color: black">
-                        <option value="1">Transfer</option>
-                        <option value="2">Bayar Tunai</option>
+                        <?php if($tampil ['OPSI_PEMBAYARAN']==1) {
+                          echo 'Transfer'; ?>
+                          <option value="1">Transfer</option>
+                          <option value="2">Bayar Tunai</option>
+                          <?php } elseif($tampil ['OPSI_PEMBAYARAN']==2) {
+                          echo 'Transfer'; ?>
+                          <option value="2">Bayar Tunai</option>
+                          <option value="1">Transfer</option>
+                          <?php } ?>
+                        <!-- <option value="1">Transfer</option>
+                        <option value="2">Bayar Tunai</option> -->
                       </select>
                     </div>
                   </div>
