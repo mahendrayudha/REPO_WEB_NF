@@ -360,6 +360,12 @@ if($datakode) {
   $password = htmlspecialchars(isset($_POST['psw'])) ? $_POST['psw'] : null;
   $daftar = isset($_POST['daftar']) ? $_POST['daftar'] : null;
 
+  // $checklogin =mysqli_connect("SELECT * FROM user WHERE username = '".$username."'");
+  // if(htmlspecialchars($checklogin) != 0){
+  //   echo "this username has been taken please choose another one";
+  // }
+  // else
+  // {
   if (isset($_POST['daftar'])) {
     $sql = $conn->query("insert into user (ID_USER, NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD, LEVEL)
             values('$hasilkode', '$nama','$notelp','$alamat','$email','$username','$password','3')");
@@ -373,6 +379,7 @@ if($datakode) {
   <?php
     }
   }
+// }
   ?>
 
   <!-- ////////////////////////////Profil Section/////////////////////////// -->
