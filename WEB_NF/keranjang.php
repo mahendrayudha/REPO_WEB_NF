@@ -195,11 +195,17 @@ if (!isset($_SESSION["login"])) {
                                            onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')">
                                            Hapus
                                         </a>
+                                        <?php
+                                          if($data['OPSI_PEMBAYARAN'] == 1) {
+                                        ?>
                                         <a class="btn-info btn-sm"
                                            style="padding: 10px; margin: 5px; border-radius: 5px;"
                                            href="checkout.php?id=<?php echo $data['ID_TRANSAKSI']; ?>">
                                            Checkout
                                         </a>
+                                        <?php
+                                          }
+                                        ?>
                                     </td>
                                 </tr>
                             <?php } ?>

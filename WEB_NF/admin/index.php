@@ -82,16 +82,16 @@
           <span>Tabel transaksi</span></a>
       </li>
       <?php
-      session_start();
-      if($_SESSION['level'] == 1) {
-    ?>
+        session_start();
+        if($_SESSION['level'] == 1) {
+      ?>
       <li class="nav-item active">
         <a class="nav-link" href="?page=tabel-user">
           <i class="fas fa-fw fa-table"></i>
           <span>Tabel User</span></a>
       </li>
       <?php
-      }
+        }
       ?>
       <li class="nav-item active">
         <a class="nav-link" href="?page=laporan-penjualan">
