@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Des 2019 pada 16.39
+-- Waktu pembuatan: 29 Des 2019 pada 16.46
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.3
 
@@ -34,16 +34,6 @@ CREATE TABLE `detail_jual` (
   `JUMLAH_BELI` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `detail_jual`
---
-
-INSERT INTO `detail_jual` (`ID_TRANSAKSI`, `ID_PRODUK`, `JUMLAH_BELI`) VALUES
-('T003', 'P005', 2),
-('T004', 'P004', 3),
-('T008', 'P001', 1),
-('T010', 'P002', 5);
-
 -- --------------------------------------------------------
 
 --
@@ -62,14 +52,6 @@ CREATE TABLE `keranjang` (
   `OPSI_PEMBAYARAN` int(2) NOT NULL COMMENT '1. Transfer, 2. Bayar tunai',
   `GRAND_TOTAL` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `keranjang`
---
-
-INSERT INTO `keranjang` (`ID_TRANSAKSI`, `ID_PRODUK`, `NAMA_PRODUK`, `ID_USER`, `NAMA_USER`, `JUMLAH_BELI`, `TGL_TRANSAKSI`, `ALAMAT`, `OPSI_PEMBAYARAN`, `GRAND_TOTAL`) VALUES
-('T001', 'P003', 'Jus Buah Naga', 'U006', 'Agung Wahyu Gunawan', 2, ' 30/12/2019 ', 'Jl. Semeru, Sumbersari, Jember', 1, 14000),
-('T014', 'P002', 'Buah Naga Putih', 'U006', 'Agung Wahyu Gunawan', 10, ' 30/12/2019 ', 'Jl. Semeru, Sumbersari, Jember', 2, 130000);
 
 -- --------------------------------------------------------
 
