@@ -231,6 +231,11 @@
                           <?php } ?>
                         </tbody>
                       </table>
+
+                      <div class="" style="background: #28a745; padding: 0.5rem; color: white; border-radius: 3px; margin: 1rem 0rem;">
+                        <a>Silahkan melakukan pembayaran ke <strong>BANK ... A/N Naura Farm</strong></a>
+                      </div>
+
                     <?php
                       if($perproduk["OPSI_PEMBAYARAN"]==1){
                         echo '<a href="https://api.whatsapp.com/send?phone=6282336055228"
