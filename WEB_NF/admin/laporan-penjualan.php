@@ -34,7 +34,7 @@ include "koneksi.php";
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
-            <a onclick="window.print();" id="print" class="btn btn-primary "><i class="fa fa-book"></i> Cetak Laporan</a>
+            <a onclick="window.print();" id="print" class="btn btn-primary" style="color: white;"><i class="fa fa-book"></i> Cetak Laporan</a>
           </div>
           <form action="?page=laporan-penjualan" method="get">
             <div class="row">

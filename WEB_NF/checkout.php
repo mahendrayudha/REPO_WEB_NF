@@ -1,5 +1,4 @@
 <?php
-  $conn = new mysqli("localhost", "root", "", "naura_farm");
   session_start();
   require 'functions.php';
 
@@ -12,6 +11,14 @@
       header("location: homepage.php");
       exit;
   }
+
+  //menampilkan produk berdasarkan id
+  $ambil = $conn->query("SELECT produk.HARGA_JUAL FROM produk INNER JOIN keranjang ON keranjang.ID_PRODUK = produk.ID_PRODUK");
+  $produk = mysqli_fetch_array($ambil);
+
+  //menampilkan user berdasarkan id
+  $ambil = $conn->query("SELECT keranjang.TGL_TRANSAKSI, user.NAMA, user.NOMOR_TELEPON, user.ALAMAT FROM user INNER JOIN keranjang ON keranjang.ID_USER = user.ID_USER");
+  $peruser = mysqli_fetch_array($ambil);
 
   //menampilkan keranjang berdasarkan id
   $ambil = $conn->query("SELECT * FROM keranjang WHERE ID_TRANSAKSI = '$id'");
@@ -67,8 +74,8 @@
 </head>
 
 <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container-fluid" style="padding-left: 100px!important; padding-right: 100px!important;">
       <div class="logo">
         <a class="navbar-brand js-scroll-trigger" href="homepage.php">
@@ -99,52 +106,159 @@
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user-circle fa-fw"></i>
                 <?php
-                  if (isset($_SESSION['login'])) {
-                    echo $_SESSION["user"];
-                  }
-                ?>
+                if (isset($_SESSION['login'])) {
+                  echo $_SESSION["user"];
+                } ?>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <!-- Session utk merubah nav akun login/register menjadi akun/keluar saat kondisi user sedang login -->
                 <?php
-                  if (isset($_SESSION['login'])) {
-                ?>
-                <a class="dropdown-item" href="akun.php">Akun</a>
-                <a class="dropdown-item" href="keluar.php">Keluar</a>
+                if (isset($_SESSION['login'])) {
+                  ?>
+                  <a class="dropdown-item" href="akun.php">Akun</a>
+                  <a class="dropdown-item" href="keranjang.php">Keranjang</a>
+                  <a class="dropdown-item" href="keluar.php">Keluar</a>
                 <?php
-                  } else {
-                ?>
-                <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Masuk</a>
-                <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'">Daftar</a>
+                } else {
+                  ?>
+                  <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Masuk</a>
+                  <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'">Daftar</a>
                 <?php } ?>
             </li>
           </div>
         </ul>
       </div>
+      </ul>
     </div>
   </nav>
+  
   <section>
-    <header class="masthead">
+  <header class="masthead">
       <div class="container d-flex h-100">
         <div class="mx-auto">
           <div class="card-container"
                style="margin-top:10%;">
-            <div class="card-header">Beli Produk</div>
+            <div class="card-header">Invoice
+            <!-- <a onclick="window.print();" id="print" class="btn btn-primary" style="color: white;"><i class="fa fa-book"></i> Cetak Nota</a> -->
+            </div>
               <div class="transaksi-content" style="width: 50rem">
                 <form method="POST" style="padding: 1rem 3rem">
-                  <!-- <img src="img/<?php echo $perproduk["FOTO_PRODUK"]; ?>"
-                       alt="Foto Produk"
-                       style="width: 15rem; display: block; margin-left: auto; margin-right: auto;">
-                  <p style="text-align:center"><?php echo $perproduk["NAMA_PRODUK"]; ?></p> -->
 
-                  <div class="form-group">
+                  <div class="table-responsive">
+                    <div class="card-text">
+                      <span>ID Transaksi : </span>
+                      <?php echo $perproduk['ID_TRANSAKSI']; ?>
+                    </div>
+
+                    <div class="card-text">
+                      <span>Nama Pembeli : </span>
+                      <?php echo $peruser['NAMA']; ?>
+                    </div>
+
+                    <div class="card-text">
+                      <span>Nomor Telepon : </span>
+                      <?php echo $peruser['NOMOR_TELEPON']; ?>
+                    </div>
+
+                    <div class="card-text">
+                      <span>Alamat : </span>
+                      <?php echo $peruser['ALAMAT']; ?>
+                    </div>
+
+                    <div class="card-text">
+                      <span>Tanggal Transaksi : </span>
+                      <?php echo $peruser['TGL_TRANSAKSI']; ?></td>
+                    </div>
+
+                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="background-color: white; margin-top: 1rem;">
+                        <thead>
+                          <tr>
+                            <th style="display: none;">ID Produk</th>
+                            <th>Nama Produk</th>
+                            <th style="display: none;">ID User</th>
+                            <th>Jumlah Beli</th>
+                            <th>Harga Satuan</th>
+                            <th>Total Harga</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php $sql = $conn->query("SELECT * FROM keranjang WHERE ID_USER ='$idu'");
+                            while ($data = $sql->fetch_assoc()) {
+                              $transfer = ($data['OPSI_PEMBAYARAN']==1);
+                              $transfer = 'Transfer';
+                              $bayartunai = ($data['OPSI_PEMBAYARAN']==2);
+                              $bayartunai = 'Bayar Tunai';
+                          ?>
+                            <tr>
+                              <td style="display: none;"><?php echo $data['ID_PRODUK']; ?></td>
+                              <td><?php echo $data['NAMA_PRODUK']; ?></td>
+                              <td style="display: none;"><?php echo $data['ID_USER']; ?></td>
+                              <td><?php echo $data['JUMLAH_BELI']; ?>
+                                <span>
+                                  <?php if($data ['ID_PRODUK']=='P001') {
+                                      echo 'kg';
+                                    } elseif($data ['ID_PRODUK']=='P002') {
+                                      echo 'kg';
+                                    } elseif($data['ID_PRODUK']=='P003') {
+                                      echo 'botol';
+                                    } elseif($data['ID_PRODUK']=='P004') {
+                                      echo 'bungkus';
+                                    } elseif($data['ID_PRODUK']=='P005') {
+                                      echo 'pcs';
+                                    } ?>
+                                </span>
+                              </td>
+                              <td>Rp <?php echo $produk['HARGA_JUAL']; ?>
+                              <span>
+                                  <?php if($data ['ID_PRODUK']=='P001') {
+                                      echo '/kg';
+                                    } elseif($data ['ID_PRODUK']=='P002') {
+                                      echo '/kg';
+                                    } elseif($data['ID_PRODUK']=='P003') {
+                                      echo '/botol';
+                                    } elseif($data['ID_PRODUK']=='P004') {
+                                      echo '/bungkus';
+                                    } elseif($data['ID_PRODUK']=='P005') {
+                                      echo '/pcs';
+                                    } ?>
+                                </span>
+                              </td>
+                              <td>Rp <?php echo $data['GRAND_TOTAL']; ?></td>
+                            </tr>
+                          <?php } ?>
+                        </tbody>
+                      </table>
+                    <?php
+                      if($perproduk["OPSI_PEMBAYARAN"]==1){
+                        echo '<a href="https://api.whatsapp.com/send?phone=6282336055228"
+                        class="btn btn-info"
+                        name="send">
+                        Kirim Bukti Pembayaran
+                     </a>';
+                      } else if($perproduk["OPSI_PEMBAYARAN"]==2){
+                        echo '<a class="btn btn-info"
+                        name="OK"
+                        href="keranjang.php">
+                        OK
+                     </a>';
+                      } else {
+                        echo 'error';
+                      }
+                    ?>
+                  <a class="btn btn-danger"
+                     name="batal"
+                     href="keranjang.php">
+                     Batal
+                  </a>
+                </div>
+
+                  <!-- <div class="form-group">
                     <div class="form-label-group">
                       <input type="hidden"
                              name="tanggal" id="tanggal" value="<?php
                              $tanggal = mktime(date("d"), date("m"), date("Y"));
                              echo " " . date("d/m/Y", $tanggal) . " ";
                              date_default_timezone_set('Asia/Jakarta');
-                             // echo date("h:i:sa");
                              ?>" readonly>
                     </div>
                   </div>
@@ -219,30 +333,25 @@
                              type="hidden"
                              value="<?php echo $perproduk["OPSI_PEMBAYARAN"] ?>" readonly></input>          
                     </div>
-                  </div>
-                    <?php 
-                      if($perproduk["OPSI_PEMBAYARAN"]==1){
-                        echo '<a href="https://api.whatsapp.com/send?phone=6282336055228"
-                        class="btn btn-info"
-                        name="send">
-                        Kirim Bukti Pembayaran
-                     </a>';
-                      } else if($perproduk["OPSI_PEMBAYARAN"]==2){
-                        echo '<a class="btn btn-info"
-                        name="OK"
-                        href="keranjang.php">
-                        OK
-                     </a>';
-                      } else {
-                        echo 'error';
-                      }
-                    ?>
-                  <!-- <a href="https://api.whatsapp.com/send?phone=6282336055228"
-                     class="btn btn-info"
-                     name="send">
-                     Kirim Bukti Pembayaran
-                  </a> -->
-                  <a class="btn btn-danger"
+                  </div> -->
+                     <?php
+                    //   if($perproduk["OPSI_PEMBAYARAN"]==1){
+                    //     echo '<a href="https://api.whatsapp.com/send?phone=6282336055228"
+                    //     class="btn btn-info"
+                    //     name="send">
+                    //     Kirim Bukti Pembayaran
+                    //  </a>';
+                    //   } else if($perproduk["OPSI_PEMBAYARAN"]==2){
+                    //     echo '<a class="btn btn-info"
+                    //     name="OK"
+                    //     href="keranjang.php">
+                    //     OK
+                    //  </a>';
+                    //   } else {
+                    //     echo 'error';
+                    //   }
+                    // ?>
+                  <!-- <a class="btn btn-danger"
                      name="batal"
                      href="keranjang.php">
                      Batal
@@ -253,7 +362,7 @@
         </div>
       </div>
     </form>
-  </section>
+  </section> -->
 
     <script>
 		  function hanyaAngka(evt) {
