@@ -15,6 +15,11 @@ if (!isset($_SESSION["login"])) {
 }
 
 //menampilkan user berdasarkan id
+// $ambilkan = $conn->query("SELECT u.NAMA as user, k.NAMA as keranjang FROM user u
+//                           INNER JOIN transaksi t ON u.ID_USER = t.uID_USER 
+//                           INNER JOIN keranjang k ON t.kID_USER = k.ID_USER
+//                           ORDER BY u.NAMA");
+// $perusers = mysqli_fetch_array($ambilkan);
 $ambilkan = $conn->query("SELECT user.NAMA FROM user INNER JOIN keranjang ON keranjang.ID_USER = user.ID_USER");
 $perusers = mysqli_fetch_array($ambilkan);
 
