@@ -30,7 +30,7 @@ function keranjang($krj){
         $opsi = htmlspecialchars($krj["opsi"]);
         $total = htmlspecialchars($krj["total"]);
 
-        $trs = mysqli_query($conn, "INSERT INTO keranjang VALUES ('$id_transaksi', '$id_produk','$nama_produk', '$id_user', '$user', '$jumlah', now(), '$alamat', '$opsi', '$total')");
+        $trs = mysqli_query($conn, "INSERT INTO keranjang VALUES ('$id_transaksi', '$id_produk','$nama_produk', '$id_user', '$user', '$jumlah', now(), '$alamat', '$opsi', '$total','1')");
 
 
         return $trs;
@@ -77,8 +77,9 @@ if (isset($_POST['setujui'])) {
     $simpan = "INSERT INTO transaksi (ID_TRANSAKSI, ID_USER, TANGGAL_TRANSAKSI, STATUS_BAYAR, GRAND_TOTAL, ALAMAT_PENGIRIMAN, OPSI_PEMBAYARAN)
     VALUES('$idtrx','$id_user', now(),'$status_bayar','$total','$alamat','$opsi')";
     if ($conn->query($simpan) === TRUE) {
-      $h = mysqli_query($conn, "DELETE FROM keranjang WHERE ID_TRANSAKSI = '$idtrx'");
-      if($h){
+      //$h = mysqli_query($conn, "DELETE FROM keranjang WHERE ID_TRANSAKSI = '$idtrx'");
+      $h = "UPDATE keranjang SET STATUS_ACC = 2 WHERE ID_TRANSAKSI ='$idtrx'";
+      if($conn->query($h) === TRUE){
         $trx = "INSERT INTO detail_jual (ID_TRANSAKSI, ID_PRODUK, JUMLAH_BELI) VALUES ('$idtrx','$id_produk','$jumlah')";
         if($conn->query($trx) === TRUE){
           //update stok produk akan dikurangi dari jumlah produk yg di beli
