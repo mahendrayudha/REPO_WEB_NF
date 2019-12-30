@@ -43,7 +43,7 @@
     <a class="navbar-brand mr-1" href="?page=dashboard">Admin Naura Farm</a>
 
     <!-- Navbar -->
-    <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
+    <!-- <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-bell fa-fw"></i>
@@ -66,7 +66,7 @@
           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Keluar</a>
         </div>
       </li>
-    </ul>
+    </ul> -->
   </nav>
 
   <div id="wrapper">
