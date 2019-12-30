@@ -30,7 +30,7 @@ function keranjang($krj){
         $opsi = htmlspecialchars($krj["opsi"]);
         $total = htmlspecialchars($krj["total"]);
 
-        $trs = mysqli_query($conn, "INSERT INTO keranjang VALUES ('$id_transaksi', '$id_produk','$nama_produk', '$id_user', '$user', '$jumlah', '$tanggal', '$alamat', '$opsi', '$total')");
+        $trs = mysqli_query($conn, "INSERT INTO keranjang VALUES ('$id_transaksi', '$id_produk','$nama_produk', '$id_user', '$user', '$jumlah', now(), '$alamat', '$opsi', '$total')");
 
 
         return $trs;
