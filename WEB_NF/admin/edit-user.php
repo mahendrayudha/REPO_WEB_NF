@@ -129,6 +129,36 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <label for="opsi" style="color: black">Status</label>
+          <div class="form-label-group">
+            <select type="text"
+                  id="status"
+                  class="form-control"
+                  placeholder="Status"
+                  required="required"
+                  name="status"
+                  value="<?php echo $tampil['LEVEL'];?>">
+              <?php if($tampil ['LEVEL']==1) {
+                echo 'Admin'; ?>
+                <option value="1">Admin</option>
+                <option value="2">Karyawan</option>
+                <option value="3">User</option>
+              <?php } elseif($tampil ['LEVEL']==2) {
+                echo 'Karyawan'; ?>
+                <option value="2">Karyawan</option>
+                <option value="3">User</option>
+                <option value="1">Admin</option>
+              <?php } elseif($tampil ['LEVEL']==3) {
+                echo 'User'; ?>
+                <option value="3">User</option>
+                <option value="1">Admin</option>
+                <option value="2">Karyawan</option>
+              <?php } ?>
+            </select>
+          </div>
+        </div>
+
       <script>
           function myfunction() {
             var x = document.getElementById("inputPassword");
