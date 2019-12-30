@@ -1,6 +1,6 @@
 <?php
   include "koneksi.php";
-  session_start();
+  // session_start();
   $id = $_GET['id'];
   $sql = $conn->query("SELECT * FROM user WHERE ID_USER='$id'");
   $tampil = $sql->fetch_assoc();
@@ -122,6 +122,23 @@
             <label for="inputPassword">Kata Sandi</label>
           </div>
         </div>
+
+        <div class="form-group">
+        <div class="form-label-group">
+          <input type="checkbox" onclick="myfunction()"> Show Password
+        </div>
+      </div>
+
+      <script>
+          function myfunction() {
+            var x = document.getElementById("inputPassword");
+            if (x.type === "password") {
+              x.type = "text";
+            } else {
+              x.type = "password";
+            }
+          }
+        </script>
         
       <button type="submit"
         class="btn btn-primary"
@@ -130,6 +147,8 @@
         value="">
         Simpan
       </button>
+
+      <a href="index.php?page=tabel-user" class="btn btn-danger">Batal</a>
       </form>
     </div>
 
