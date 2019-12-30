@@ -71,23 +71,23 @@
 				label: '',
 				data: [
 				<?php 
-				$jumlah_buah_naga_merah = mysqli_query($conn,"SELECT * FROM keranjang WHERE NAMA_PRODUK='Buah Naga Merah'");
+				$jumlah_buah_naga_merah = mysqli_query($conn,"SELECT detail_jual.ID_PRODUK FROM detail_jual INNER JOIN transaksi ON transaksi.ID_TRANSAKSI = detail_jual.ID_TRANSAKSI WHERE ID_PRODUK='P001'");
 				echo mysqli_num_rows($jumlah_buah_naga_merah);
 				?>, 
 				<?php 
-				$jumlah_buah_naga_putih = mysqli_query($conn,"SELECT * FROM keranjang WHERE NAMA_PRODUK='Buah Naga Putih'");
+				$jumlah_buah_naga_putih = mysqli_query($conn,"SELECT detail_jual.ID_PRODUK FROM detail_jual INNER JOIN transaksi ON transaksi.ID_TRANSAKSI = detail_jual.ID_TRANSAKSI WHERE ID_PRODUK='P002'");
 				echo mysqli_num_rows($jumlah_buah_naga_putih);
 				?>, 
 				<?php 
-				$jumlah_jus = mysqli_query($conn,"SELECT * FROM keranjang WHERE NAMA_PRODUK='Jus Buah Naga'");
+				$jumlah_jus = mysqli_query($conn,"SELECT detail_jual.ID_PRODUK FROM detail_jual INNER JOIN transaksi ON transaksi.ID_TRANSAKSI = detail_jual.ID_TRANSAKSI WHERE ID_PRODUK='P003'");
 				echo mysqli_num_rows($jumlah_jus);
 				?>, 
 				<?php 
-				$jumlah_keripik = mysqli_query($conn,"SELECT * FROM keranjang WHERE NAMA_PRODUK='Keripik Buah Naga'");
+				$jumlah_keripik = mysqli_query($conn,"SELECT detail_jual.ID_PRODUK FROM detail_jual INNER JOIN transaksi ON transaksi.ID_TRANSAKSI = detail_jual.ID_TRANSAKSI WHERE ID_PRODUK='P004'");
 				echo mysqli_num_rows($jumlah_keripik);
 				?>,
         <?php 
-				$jumlah_selai = mysqli_query($conn,"SELECT * FROM keranjang WHERE NAMA_PRODUK='Selai Buah Naga'");
+				$jumlah_selai = mysqli_query($conn,"SELECT detail_jual.ID_PRODUK FROM detail_jual INNER JOIN transaksi ON transaksi.ID_TRANSAKSI = detail_jual.ID_TRANSAKSI WHERE ID_PRODUK='P005'");
 				echo mysqli_num_rows($jumlah_selai);
 				?>
 				],
