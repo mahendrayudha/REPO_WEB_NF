@@ -61,57 +61,8 @@ $peruser = mysqli_fetch_array($ambil);
                     <th>Aksi</th>
                   </tr>
                 </thead>
-                <tbody style="text-align: center;">
-                  <?php
-                  $sql = $conn->query("SELECT * FROM keranjang");
+                <tbody style="text-align: center;" id="tampil">
                   
-                  while ($data = $sql->fetch_assoc()) {
-                    $transfer = ($data['OPSI_PEMBAYARAN']==1);
-                    $transfer = 'Transfer';
-                    $bayartunai = ($data['OPSI_PEMBAYARAN']==2);
-                    $bayartunai = 'Bayar Tunai';
-                    $asiap = $data['ID_USER'];
-                    $ambil = $conn->query("SELECT * FROM user WHERE ID_USER = '$asiap'");
-                    $peruser = mysqli_fetch_array($ambil);
-                  ?>
-                    <tr>
-                      <td><?php echo $data['ID_TRANSAKSI']; ?></td>
-                      <td style="display: none;"><?php echo $data['ID_PRODUK']; ?></td>
-                      <td><?php echo $data['NAMA_PRODUK']; ?></td>
-                      <td style="display: none;"><?php echo $data['ID_USER']; ?></td>
-                      <td><?php echo $peruser['NAMA']; ?></td>
-                      <td><?php echo $data['JUMLAH_BELI']; ?>
-                      <span>
-                           <?php if($data ['ID_PRODUK']=='P001') {
-                             echo 'kg';
-                            } elseif($data ['ID_PRODUK']=='P002') {
-                              echo 'kg';
-                            } elseif($data['ID_PRODUK']=='P003') {
-                              echo 'botol';
-                            } elseif($data['ID_PRODUK']=='P004') {
-                              echo 'bungkus';
-                            } elseif($data['ID_PRODUK']=='P005') {
-                              echo 'pcs';
-                            } ?>
-                           </span>
-                      </td>
-                      <td><?php echo $data['TGL_TRANSAKSI']; ?></td>
-                      <td><?php echo $data['ALAMAT']; ?></td>
-                      <td><?php if($data ['OPSI_PEMBAYARAN']==1) {
-                        echo $transfer;
-                      } elseif($data ['OPSI_PEMBAYARAN']==2) {
-                        echo $bayartunai;
-                        }?>
-                      </td>
-                      <td><?php echo $data['GRAND_TOTAL']; ?></td>                      
-                      <td>
-                        <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="hapus-pesanan.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-trash"></a>
-                        <!-- <a onclick="return confirm('Apakah Anda yakin untuk menerima pesanan?')" href="?page=transaksi&aksi=edit-transaksi?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-check-circle" style="font-size:18px"></a> -->
-                        <a href="?page=transaksi&aksi=insert-transaksi&id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-check-circle"></a>
-                      </td>
-                    </tr>
-                  <?php   }
-                  ?>
                 </tbody>
               </table>
             </div>
@@ -131,9 +82,29 @@ $peruser = mysqli_fetch_array($ambil);
     <i class="fas fa-angle-up"></i>
   </a>
 
+  
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- JS auto refresh database -->
+  <script>
+    $(document).ready(function(){
+        function getData(){
+            $.ajax({
+                type: 'POST',
+                url: 'get_data.php',
+                success: function(data){
+                    $('#tampil').html(data);
+                }
+            });
+        }
+        getData();
+        setInterval(function () {
+            getData(); 
+        }, 1000);  // it will refresh your data every 1 sec
+
+    });
+</script>
 
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
