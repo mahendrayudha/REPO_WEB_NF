@@ -63,7 +63,7 @@ $peruser = mysqli_fetch_array($ambil);
                 </thead>
                 <tbody style="text-align: center;">
                   <?php
-                  $sql = $conn->query("SELECT * FROM transaksi");
+                  $sql = $conn->query("SELECT * FROM transaksi WHERE OPSI_PEMBAYARAN =1");
                   while ($data = $sql->fetch_assoc()) {
                     $transfer = ($data['OPSI_PEMBAYARAN'] == 1);
                     $transfer = 'Transfer';
