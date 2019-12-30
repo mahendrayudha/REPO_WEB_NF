@@ -117,7 +117,7 @@ $perproduk = mysqli_fetch_array($ambil);
                  name="jumlah"
                  style="width: 70rem;"
                  onkeypress="return hanyaAngka(event)"
-                 value="<?php echo $perproduk["JUMLAH_BELI"] ?>" disabled readonly>
+                 value="<?php echo $perproduk["JUMLAH_BELI"] ?>" readonly>
                  <span>
                              <?php if($perproduk ['ID_PRODUK']=='P001') {
                                echo 'kg';
