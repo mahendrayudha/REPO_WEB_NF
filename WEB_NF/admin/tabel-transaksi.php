@@ -14,11 +14,6 @@ if (!isset($_SESSION["login"])) {
     exit;
 }
 
-//menampilkan user berdasarkan id
-$ambilkan = $conn->query("SELECT user.NAMA FROM user INNER JOIN keranjang ON keranjang.ID_USER = user.ID_USER");
-$perusers = mysqli_fetch_array($ambilkan);
-
-
 //memasukkan keranjang
 // if (isset($_POST['beli'])) {
 //   if (keranjang($_POST) == 1) {
@@ -78,7 +73,8 @@ $perusers = mysqli_fetch_array($ambilkan);
                 </thead>
                 <tbody style="text-align: center;">
                   <?php
-                  $sql = $conn->query("SELECT * FROM transaksi");
+                  //$sql = $conn->query("SELECT * FROM transaksi");
+                  $sql = $conn->query("SELECT * FROM `transaksi` t INNER JOIN user u ON t.ID_USER =u.ID_USER");
                   while ($data = $sql->fetch_assoc()) {
                     $transfer = ($data['OPSI_PEMBAYARAN'] == 1);
                     $transfer = 'Transfer';
@@ -92,7 +88,7 @@ $perusers = mysqli_fetch_array($ambilkan);
                     <tr>
                       <td><?php echo $data['ID_TRANSAKSI']; ?></td>
                       <td style="display:none;"><?php echo $data['ID_USER']; ?></td>
-                      <td><?php echo $perusers['NAMA']; ?></td>
+                      <td><?php echo $data['NAMA']; ?></td>
                       <td><?php echo $data['TANGGAL_TRANSAKSI']; ?></td>
                       <td><?php if ($data['STATUS_BAYAR'] == 1) {
                             echo $lunas;
