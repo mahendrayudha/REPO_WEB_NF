@@ -14,33 +14,33 @@
   }
 
   //auto increment id produk
-  $carikode = mysqli_query($conn, "SELECT max(ID_TRANSAKSI) as maxKode FROM keranjang") or die(mysqli_error($conn));
+  $carikode = mysqli_query($conn, "SELECT max(ID_TRANSAKSI) FROM keranjang") or die(mysqli_error($conn));
   $datakode = mysqli_fetch_array($carikode);
-  $kdtrx = $datakode['maxKode'];
-  $noUrut = (int) substr($kdtrx, 3, 3);
-  $noUrut++;
-  $char = "T";
-  $kodeBarang = $char . sprintf("%03s", $noUrut);
-  //if ($datakode) {
-    // $nilaikode = substr($datakode[0], 1);
-    // $kode = (int) $nilaikode;
-    // $kode = $kode + 1;
-    // $hasilkode = "T" . str_pad($kode, 3, "0", STR_PAD_LEFT);
+  // $kdtrx = $datakode['maxKode'];
+  // $noUrut = (int) substr($kdtrx, 3, 3);
+  // $noUrut++;
+  // $char = "T";
+  // $kodeBarang = $char . sprintf("%03s", $noUrut);
+  if ($datakode) {
+    $nilaikode = substr($datakode[0], 1);
+    $kode = (int) $nilaikode;
+    $kode = $kode + 1;
+    $hasilkode = "T" . str_pad($kode, 3, "0", STR_PAD_LEFT);
     //$kdtrx = $datakode["maxKode"];
 
-  //} else {
-    // $carikode2 = mysqli_query($conn, "SELECT max(ID_TRANSAKSI) FROM keranjang") or die(mysqli_error($conn));
-    // $tesya = mysqli_fetch_array($carikode2);
-    // if($tesya){
-    //   $nilaikode2 = substr($tesya[0], 1);
-    //   $kode2 = (int) $nilaikode2;
-    //   $kode2 = $kode2 + 1;
-    //   $hasilkode = "T" . str_pad($kode2, 3, "0", STR_PAD_LEFT);
-    // } else {
-    //   $hasilkode = "ERROR";
-    // }
-    //$hasilkode = "ERROR";
-  //}
+  } else {
+    $carikode2 = mysqli_query($conn, "SELECT max(ID_TRANSAKSI) FROM keranjang") or die(mysqli_error($conn));
+    $tesya = mysqli_fetch_array($carikode2);
+    if($tesya){
+      $nilaikode2 = substr($tesya[0], 1);
+      $kode2 = (int) $nilaikode2;
+      $kode2 = $kode2 + 1;
+      $hasilkode = "T" . str_pad($kode2, 3, "0", STR_PAD_LEFT);
+    } else {
+      $hasilkode = "ERROR";
+    }
+    $hasilkode = "ERROR";
+  }
   //menampilkan produk berdasarkan id
   $ambil = $conn->query("SELECT * FROM produk WHERE ID_PRODUK = '$id'");
   $perproduk = mysqli_fetch_array($ambil);
@@ -183,7 +183,7 @@
                            // echo date("h:i:sa");?>" readonly>
                   </div>
 
-                    <input type="hidden" name="id_transaksi" value="<?php echo $kodeBarang; ?>">
+                    <input type="hidden" name="id_transaksi" value="<?php echo $hasilkode; ?>">
                     <input type="hidden" name="id_produk" value="<?php echo $perproduk["ID_PRODUK"]; ?>">
                     <input type="hidden" name="nama_produk" value="<?php echo $perproduk["NAMA_PRODUK"]; ?>">
                     <input type="hidden" name="id_user" value="<?php echo $idu ?>">
