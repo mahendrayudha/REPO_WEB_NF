@@ -50,7 +50,7 @@ $peruser = mysqli_fetch_array($ambil);
                   <tr>
                     <th>ID Transaksi</th>
                     <th style="display: none;">ID Produk</th>
-                    <th>NAMA Produk</th>
+                    <th>Nama Produk</th>
                     <th style="display: none;">ID User</th>
                     <th>Pemesan</th>
                     <th>Jumlah Beli</th>
