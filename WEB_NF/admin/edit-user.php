@@ -129,6 +129,36 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <label for="opsi" style="color: black">Status</label>
+          <div class="form-label-group">
+            <select type="text"
+                  id="status"
+                  class="form-control"
+                  placeholder="Status"
+                  required="required"
+                  name="status"
+                  value="<?php echo $tampil['LEVEL'];?>">
+              <?php if($tampil ['LEVEL']==1) {
+                echo 'Admin'; ?>
+                <option value="1">Admin</option>
+                <option value="2">Karyawan</option>
+                <option value="3">User</option>
+              <?php } elseif($tampil ['LEVEL']==2) {
+                echo 'Karyawan'; ?>
+                <option value="2">Karyawan</option>
+                <option value="3">User</option>
+                <option value="1">Admin</option>
+              <?php } elseif($tampil ['LEVEL']==3) {
+                echo 'User'; ?>
+                <option value="3">User</option>
+                <option value="1">Admin</option>
+                <option value="2">Karyawan</option>
+              <?php } ?>
+            </select>
+          </div>
+        </div>
+
       <script>
           function myfunction() {
             var x = document.getElementById("inputPassword");
@@ -178,6 +208,7 @@
       $email = isset($_POST['email']) ? $_POST['email'] : null;
       $username = isset($_POST['username']) ? $_POST['username'] : null;
       $katasandi = isset($_POST['katasandi']) ? $_POST['katasandi'] : null;
+      $status = isset($_POST['status']) ? $_POST['status'] : null;
           
   $query = "UPDATE user SET
     ID_USER='$id',
@@ -186,7 +217,8 @@
     ALAMAT='$alamat',
     EMAIL='$email',
     USERNAME='$username',
-    PASSWORD='$katasandi'
+    PASSWORD='$katasandi',
+    LEVEL = '$status'
     WHERE ID_USER='$id'";
   $sql= mysqli_query($conn, $query);
   return mysqli_affected_rows($conn);
