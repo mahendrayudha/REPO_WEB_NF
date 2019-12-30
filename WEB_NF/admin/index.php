@@ -202,7 +202,7 @@
         <div class="modal-body">Pilih "Keluar" jika Anda ingin keluar, pilih "Batal" jika ingin kembali ke Panel Admin.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-          <a class="btn btn-danger" href="?aksi=keluar">Keluar</a>
+          <a class="btn btn-danger" href="logout.php">Keluar</a>
         </div>
       </div>
     </div>
