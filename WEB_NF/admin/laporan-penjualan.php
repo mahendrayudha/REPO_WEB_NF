@@ -39,10 +39,12 @@ include "koneksi.php";
           <form action="?page=laporan-penjualan" method="get">
             <div class="row">
               <div class="form-group col-md-6">
+                <span>Mulai Tanggal :</span>
                 <input type="hidden" class="form-control" name="page" value="laporan-penjualan">
                 <input type="date" class="form-control" name="start_date">
               </div>
               <div class="form-group col-md-6">
+                <span>Sampai Tanggal :</span>
                 <input type="date" class="form-control" name="end_date">
               </div>
             </div>
