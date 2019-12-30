@@ -185,7 +185,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <?php $sql = $conn->query("SELECT * FROM keranjang WHERE ID_USER ='$idu'");
+                          <?php $sql = $conn->query("SELECT * FROM keranjang WHERE ID_USER ='$idu' AND STATUS_ACC = 1 AND OPSI_PEMBAYARAN =1");
                             while ($data = $sql->fetch_assoc()) {
                               $transfer = ($data['OPSI_PEMBAYARAN']==1);
                               $transfer = 'Transfer';
