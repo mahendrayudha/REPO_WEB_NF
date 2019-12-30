@@ -190,11 +190,7 @@ $perproduk = mysqli_fetch_array($ambil);
         Insert Transaksi
       </button>
 
-      <a href="index.php?page=tabel-pesanan">
-        <button class="btn btn-danger" name="cancel">
-          Batal
-        </button>
-      </a>
+      <a href="index.php?page=tabel-pesanan" class="btn btn-danger">Batal</a>
 
     </form>
   </div>
