@@ -1,9 +1,16 @@
 <!-- <a href="#" onclick="window.print();" class="btn btn-primary "><i class="fa fa-book"></i>  Laporan</a> -->
+<?php
+// $ambil = $conn->query("SELECT produk.NAMA_PRODUK FROM produk INNER JOIN detail_jual ON detail_jual.ID_PRODUK = produk.ID_USER");
+// $perproduk = mysqli_fetch_array($ambil);
+?>
+
 <table class="table table-bordered" border="1" id="dataTable" width="100%" cellspacing="0">
                 <thead style="text-align: center;">
                   <tr>
                     <th>ID Transaksi</th>
                     <th>Nama Pemesan</th>
+                    <!-- <th>Nama Produk</th>
+                    <th>Jumlah Pesanan</th> -->
                     <th>Tanggal Pemesanan</th>
                     <th>Status</th>
                     <th>Grand Total</th>

@@ -147,7 +147,6 @@
         value="">
         Simpan
       </button>
-
       <a href="index.php?page=tabel-user" class="btn btn-danger">Batal</a>
       </form>
     </div>

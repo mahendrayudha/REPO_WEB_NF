@@ -47,12 +47,10 @@ include "koneksi.php";
                 <span>Sampai Tanggal :</span>
                 <input type="date" class="form-control" name="end_date">
               </div>
-            </div>
-            <button type="submit"
-                      class="btn btn-primary"
-                      name="cari">
-                      Cari
-            </button>
+            </div>            
+              <button type="submit" class="btn btn-primary" name="cari">
+                Cari
+              </button>
           </form>
           <div class="card-body">
             <div class="table-responsive">
