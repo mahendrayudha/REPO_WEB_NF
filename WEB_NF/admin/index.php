@@ -1,12 +1,24 @@
 <?php
   include "koneksi.php";
+  session_start();
+  if (isset($_SESSION['login'])){
+
+  } else {
+    header("Location: /REPO_WEB_NF/WEB_NF/admin/login.php");
+    exit();
+  }
+  error_reporting(0);
+  $x = $_GET['aksi'];
+  if($x == 'keluar'){
+    session_destroy();
+    header("Location: REPO_WEB_NF/WEB_NF/admin/login.php");
+    exit();
+  }else{}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,7 +44,7 @@
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <!-- <li class="nav-item dropdown no-arrow mx-1">
+      <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-bell fa-fw"></i>
           <span class="badge badge-danger">9+</span>
@@ -53,7 +65,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Keluar</a>
         </div>
-      </li> -->
+      </li>
     </ul>
   </nav>
 
@@ -82,17 +94,17 @@
           <span>Tabel transaksi</span></a>
       </li>
       <?php
-        session_start();
-        if($_SESSION['level'] == 1) {
+      if($_SESSION['level'] == 1){
+        echo '<li class="nav-item active">
+          <a class="nav-link" href="?page=tabel-user">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Tabel User</span></a>
+        </li>';
+      } else {
+
+      }
       ?>
-      <li class="nav-item active">
-        <a class="nav-link" href="?page=tabel-user">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tabel User</span></a>
-      </li>
-      <?php
-        }
-      ?>
+
       <li class="nav-item active">
         <a class="nav-link" href="?page=laporan-penjualan">
           <i class="fas fa-fw fa-chart-area"></i>
@@ -129,7 +141,7 @@
 
       if(isset($_GET['aksi'])) {
         $aksi = $_GET['aksi'];
-        
+
         if($aksi == "tambah-user") {
           include "tambah-user.php";
         } elseif ($aksi == "edit-user") {
@@ -190,7 +202,7 @@
         <div class="modal-body">Pilih "Keluar" jika Anda ingin keluar, pilih "Batal" jika ingin kembali ke Panel Admin.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-          <a class="btn btn-danger" href="logout.php">Keluar</a>
+          <a class="btn btn-danger" href="?aksi=keluar">Keluar</a>
         </div>
       </div>
     </div>
