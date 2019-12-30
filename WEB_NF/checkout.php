@@ -4,6 +4,9 @@
 
   //mengambil id
   $idu = $_SESSION['id_user'];
+  //menampilkan data user 
+  $sql = $conn->query("SELECT * FROM user WHERE ID_USER = '$idu'");
+  $tampil = mysqli_fetch_array($sql);
   $id = $_GET['id'];
 
   //cek session
@@ -152,17 +155,17 @@
 
                     <div class="card-text">
                       <span>Nama Pembeli : </span>
-                      <?php echo $peruser['NAMA']; ?>
+                      <?php echo $tampil['NAMA']; ?>
                     </div>
 
                     <div class="card-text">
                       <span>Nomor Telepon : </span>
-                      <?php echo $peruser['NOMOR_TELEPON']; ?>
+                      <?php echo $tampil['NOMOR_TELEPON']; ?>
                     </div>
 
                     <div class="card-text">
                       <span>Alamat : </span>
-                      <?php echo $peruser['ALAMAT']; ?>
+                      <?php echo $tampil['ALAMAT']; ?>
                     </div>
 
                     <div class="card-text">
