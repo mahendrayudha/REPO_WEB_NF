@@ -2,17 +2,26 @@
 <?php
 // $ambil = $conn->query("SELECT produk.NAMA_PRODUK FROM produk INNER JOIN detail_jual ON detail_jual.ID_PRODUK = produk.ID_USER");
 // $perproduk = mysqli_fetch_array($ambil);
+
+//menampilkan produk berdasarkan id
+$ambil = $conn->query("SELECT produk.NAMA_PRODUK FROM produk INNER JOIN keranjang ON keranjang.ID_PRODUK = produk.ID_PRODUK");
+$produk = mysqli_fetch_array($ambil);
+
+//menampilkan produk berdasarkan id
+$ambil = $conn->query("SELECT detail_jual.JUMLAH_BELI, detail_jual.ID_PRODUK FROM detail_jual INNER JOIN transaksi ON transaksi.ID_TRANSAKSI = detail_jual.ID_TRANSAKSI");
+$hproduk = mysqli_fetch_array($ambil);
 ?>
+
 
 <table class="table table-bordered" border="1" id="dataTable" width="100%" cellspacing="0">
   <thead style="text-align: center;">
     <tr>
       <th>ID Transaksi</th>
-      <th>Nama Pemesan</th>
-      <!-- <th>Nama Produk</th>
-                    <th>Jumlah Pesanan</th> -->
-      <th>Tanggal Pemesanan</th>
-      <th>Status</th>
+      <th>Tanggal Pembelian</th>
+      <th>Nama Pembeli</th>
+      <th>Nama Produk</th>
+      <th>Jumlah Pembelian</th>
+      <th>Status Pembayaran</th>
       <th>Grand Total</th>
       <th>Alamat</th>
       <th>Metode Pembayaran</th>
@@ -41,8 +50,24 @@
     ?>
       <tr>
         <td><?php echo $data['ID_TRANSAKSI']; ?></td>
-        <td><?php echo $data['NAMA']; ?></td>
         <td><?php echo $data['TANGGAL_TRANSAKSI']; ?></td>
+        <td><?php echo $data['NAMA']; ?></td>
+        <td><?php echo $produk['NAMA_PRODUK']; ?></td>
+        <td><?php echo $hproduk['JUMLAH_BELI']; ?>
+          <span>
+            <?php if ($hproduk['ID_PRODUK'] == 'P001') {
+              echo 'kg';
+            } elseif ($hproduk['ID_PRODUK'] == 'P002') {
+              echo 'kg';
+            } elseif ($hproduk['ID_PRODUK'] == 'P003') {
+              echo 'botol';
+            } elseif ($hproduk['ID_PRODUK'] == 'P004') {
+              echo 'bungkus';
+            } elseif ($hproduk['ID_PRODUK'] == 'P005') {
+              echo 'pcs';
+            } ?>
+          </span>
+        </td>
         <td><?php if ($data['STATUS_BAYAR'] == 1) {
               echo $lunas;
             } elseif ($data['OPSI_PEMBAYARAN'] == 2) {
@@ -61,7 +86,3 @@
     <?php } ?>
   </tbody>
 </table>
-
-<!-- <script type="text/javascript">
-  window.print();
-</script> -->
