@@ -4,12 +4,18 @@
 // $perproduk = mysqli_fetch_array($ambil);
 
 //menampilkan produk berdasarkan id
-$ambil = $conn->query("SELECT produk.NAMA_PRODUK FROM produk INNER JOIN keranjang ON keranjang.ID_PRODUK = produk.ID_PRODUK");
-$produk = mysqli_fetch_array($ambil);
+// $ambil = $conn->query("SELECT produk.NAMA_PRODUK FROM `produk` INNER JOIN keranjang keranjang ON keranjang.ID_PRODUK = produk.ID_PRODUK");
+// while ($produk = $ambil->fetch_assoc()) {
+//   $tesya = $produk["NAMA_PRODUK"];
+// }
+// $ambil = $conn->query("SELECT detail_jual.ID_TRANSAKSI, detail_jual.ID_PRODUK, detail_jual.JUMLAH_BELI, transaksi.ID_TRANSAKSI, produk.NAMA_PRODUK FROM transaksi INNER JOIN detail_jual ON detail_jual.ID_TRANSAKSI = transaksi.ID_TRANSAKSI INNER JOIN produk ON detail_jual.ID_PRODUK = produk.ID_PRODUK");
+// while ($produk = $ambil->fetch_assoc()) {
+//   $tesya = $produk["NAMA_PRODUK"];
+// }
 
 //menampilkan produk berdasarkan id
-$ambil = $conn->query("SELECT detail_jual.JUMLAH_BELI, detail_jual.ID_PRODUK FROM detail_jual INNER JOIN transaksi ON transaksi.ID_TRANSAKSI = detail_jual.ID_TRANSAKSI");
-$hproduk = mysqli_fetch_array($ambil);
+// $ambil = $conn->query("SELECT detail_jual.JUMLAH_BELI, detail_jual.ID_PRODUK FROM detail_jual INNER JOIN transaksi ON transaksi.ID_TRANSAKSI = detail_jual.ID_TRANSAKSI");
+// $hproduk = mysqli_fetch_array($ambil);
 ?>
 
 
@@ -34,9 +40,11 @@ $hproduk = mysqli_fetch_array($ambil);
     if (isset($_GET['cari'])) {
       $from = $_GET['start_date'];
       $to = $_GET['end_date'];
-      $where = " WHERE t.TANGGAL_TRANSAKSI BETWEEN '$from' AND '$to' ";
+      $where = "WHERE t.TANGGAL_TRANSAKSI BETWEEN $from AND $to";
     }
-    $sql = $conn->query("SELECT t.ID_TRANSAKSI, u.NAMA, t.TANGGAL_TRANSAKSI, t.STATUS_BAYAR, t.GRAND_TOTAL, t.ALAMAT_PENGIRIMAN, t.OPSI_PEMBAYARAN FROM `transaksi` t JOIN user u ON t.ID_USER=u.ID_USER $where");
+  
+    $sql = $conn->query("SELECT t.ID_TRANSAKSI, u.NAMA, d.JUMLAH_BELI, p.NAMA_PRODUK, p.ID_PRODUK, t.TANGGAL_TRANSAKSI, t.STATUS_BAYAR, t.GRAND_TOTAL, t.ALAMAT_PENGIRIMAN, t.OPSI_PEMBAYARAN FROM `transaksi` t INNER JOIN user u ON t.ID_USER=u.ID_USER INNER JOIN detail_jual d ON t.ID_TRANSAKSI=d.ID_TRANSAKSI INNER JOIN produk p ON d.ID_PRODUK=p.ID_PRODUK $where");
+    
     while ($data = $sql->fetch_assoc()) {
       $transfer = ($data['OPSI_PEMBAYARAN'] == 1);
       $transfer = 'Transfer';
@@ -52,18 +60,18 @@ $hproduk = mysqli_fetch_array($ambil);
         <td><?php echo $data['ID_TRANSAKSI']; ?></td>
         <td><?php echo $data['TANGGAL_TRANSAKSI']; ?></td>
         <td><?php echo $data['NAMA']; ?></td>
-        <td><?php echo $produk['NAMA_PRODUK']; ?></td>
-        <td><?php echo $hproduk['JUMLAH_BELI']; ?>
+        <td><?php echo $data['NAMA_PRODUK']; ?></td>
+        <td><?php echo $data['JUMLAH_BELI']; ?>
           <span>
-            <?php if ($hproduk['ID_PRODUK'] == 'P001') {
+            <?php if ($data['ID_PRODUK'] == 'P001') {
               echo 'kg';
-            } elseif ($hproduk['ID_PRODUK'] == 'P002') {
+            } elseif ($data['ID_PRODUK'] == 'P002') {
               echo 'kg';
-            } elseif ($hproduk['ID_PRODUK'] == 'P003') {
+            } elseif ($data['ID_PRODUK'] == 'P003') {
               echo 'botol';
-            } elseif ($hproduk['ID_PRODUK'] == 'P004') {
+            } elseif ($data['ID_PRODUK'] == 'P004') {
               echo 'bungkus';
-            } elseif ($hproduk['ID_PRODUK'] == 'P005') {
+            } elseif ($data['ID_PRODUK'] == 'P005') {
               echo 'pcs';
             } ?>
           </span>
