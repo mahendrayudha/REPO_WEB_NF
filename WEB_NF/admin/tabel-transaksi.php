@@ -1,6 +1,9 @@
 <?php
 include "koneksi.php";
 
+$ambil = $conn->query("SELECT user.NAMA FROM user INNER JOIN keranjang ON keranjang.ID_USER = user.ID_USER");
+$peruser = mysqli_fetch_array($ambil);
+
 //memasukkan keranjang
 // if (isset($_POST['beli'])) {
 //   if (keranjang($_POST) == 1) {
@@ -48,7 +51,8 @@ include "koneksi.php";
                 <thead style="text-align: center;">
                   <tr>
                     <th>ID Transaksi</th>
-                    <th>ID User</th>
+                    <th style="display:none;">ID User</th>
+                    <th>Pemesan</th>
                     <th>Tanggal</th>
                     <th>Status Bayar</th>
                     <th>Grand Total</th>
@@ -72,7 +76,8 @@ include "koneksi.php";
                   ?>
                     <tr>
                       <td><?php echo $data['ID_TRANSAKSI']; ?></td>                    
-                      <td><?php echo $data['ID_USER']; ?></td>
+                      <td style="display:none;"><?php echo $data['ID_USER']; ?></td>
+                      <td><?php echo $peruser['NAMA']; ?></td>
                       <td><?php echo $data['TANGGAL_TRANSAKSI']; ?></td>
                       <td><?php if($data ['STATUS_BAYAR']==1) {
                         echo $lunas;

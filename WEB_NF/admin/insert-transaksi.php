@@ -113,11 +113,24 @@ $perproduk = mysqli_fetch_array($ambil);
       <div class="form-group">
         <div class="form-label-group">
           <input type="text"
-                 class="form-control"
                  id="jumlah"
                  name="jumlah"
+                 style="width: 70rem;"
                  onkeypress="return hanyaAngka(event)"
-                 value="<?php echo $perproduk["JUMLAH_BELI"] ?>" readonly>
+                 value="<?php echo $perproduk["JUMLAH_BELI"] ?>" disabled readonly>
+                 <span>
+                             <?php if($perproduk ['ID_PRODUK']=='P001') {
+                               echo 'kg';
+                             } elseif($perproduk ['ID_PRODUK']=='P002') {
+                               echo 'kg';
+                             } elseif($perproduk['ID_PRODUK']=='P003') {
+                               echo 'botol';
+                             } elseif($perproduk['ID_PRODUK']=='P004') {
+                               echo 'bungkus';
+                             } elseif($perproduk['ID_PRODUK']=='P005') {
+                               echo 'pcs';
+                             } ?>
+                           </span>
           <label for="jumlah">Jumlah Beli</label>
         </div>
       </div>
