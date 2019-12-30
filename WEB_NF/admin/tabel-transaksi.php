@@ -1,8 +1,23 @@
 <?php
 include "koneksi.php";
 
-$ambil = $conn->query("SELECT user.NAMA FROM user INNER JOIN keranjang ON keranjang.ID_USER = user.ID_USER");
-$peruser = mysqli_fetch_array($ambil);
+//mengambil id
+// $idus = $_SESSION['id_user'];
+//menampilkan data user 
+// $sqli = $conn->query("SELECT * FROM user WHERE ID_USER = '$idus'");
+// $tampilkan = mysqli_fetch_array($sqli);
+// $id = $_GET['id'];
+
+//cek session
+if (!isset($_SESSION["login"])) {
+    header("location: homepage.php");
+    exit;
+}
+
+//menampilkan user berdasarkan id
+$ambilkan = $conn->query("SELECT user.NAMA FROM user INNER JOIN keranjang ON keranjang.ID_USER = user.ID_USER");
+$perusers = mysqli_fetch_array($ambilkan);
+
 
 //memasukkan keranjang
 // if (isset($_POST['beli'])) {
@@ -77,7 +92,7 @@ $peruser = mysqli_fetch_array($ambil);
                     <tr>
                       <td><?php echo $data['ID_TRANSAKSI']; ?></td>
                       <td style="display:none;"><?php echo $data['ID_USER']; ?></td>
-                      <td><?php echo $peruser['NAMA']; ?></td>
+                      <td><?php echo $perusers['NAMA']; ?></td>
                       <td><?php echo $data['TANGGAL_TRANSAKSI']; ?></td>
                       <td><?php if ($data['STATUS_BAYAR'] == 1) {
                             echo $lunas;
