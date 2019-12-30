@@ -8,7 +8,7 @@ $ambil = $conn->query("SELECT produk.NAMA_PRODUK FROM produk INNER JOIN keranjan
 $produk = mysqli_fetch_array($ambil);
 
 //menampilkan produk berdasarkan id
-$ambil = $conn->query("SELECT detail_jual.JUMLAH_BELI FROM detail_jual INNER JOIN transaksi ON transaksi.ID_TRANSAKSI = detail_jual.ID_TRANSAKSI");
+$ambil = $conn->query("SELECT detail_jual.JUMLAH_BELI, detail_jual.ID_PRODUK FROM detail_jual INNER JOIN transaksi ON transaksi.ID_TRANSAKSI = detail_jual.ID_TRANSAKSI");
 $hproduk = mysqli_fetch_array($ambil);
 ?>
 
@@ -53,7 +53,21 @@ $hproduk = mysqli_fetch_array($ambil);
                       <td><?php echo $data['TANGGAL_TRANSAKSI']; ?></td>
                       <td><?php echo $data['NAMA']; ?></td>
                       <td><?php echo $produk['NAMA_PRODUK']; ?></td>
-                      <td><?php echo $hproduk['JUMLAH_BELI']; ?></td>
+                      <td><?php echo $hproduk['JUMLAH_BELI']; ?>
+                      <span>
+                                  <?php if($hproduk['ID_PRODUK']=='P001') {
+                                      echo 'kg';
+                                    } elseif($hproduk['ID_PRODUK']=='P002') {
+                                      echo 'kg';
+                                    } elseif($hproduk['ID_PRODUK']=='P003') {
+                                      echo 'botol';
+                                    } elseif($hproduk['ID_PRODUK']=='P004') {
+                                      echo 'bungkus';
+                                    } elseif($hproduk['ID_PRODUK']=='P005') {
+                                      echo 'pcs';
+                                    } ?>
+                                </span>
+                      </td>
                       <td><?php if ($data['STATUS_BAYAR'] == 1) {
                             echo $lunas;
                           } elseif ($data['OPSI_PEMBAYARAN'] == 2) {
