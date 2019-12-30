@@ -208,6 +208,7 @@
       $email = isset($_POST['email']) ? $_POST['email'] : null;
       $username = isset($_POST['username']) ? $_POST['username'] : null;
       $katasandi = isset($_POST['katasandi']) ? $_POST['katasandi'] : null;
+      $status = isset($_POST['status']) ? $_POST['status'] : null;
           
   $query = "UPDATE user SET
     ID_USER='$id',
@@ -216,7 +217,8 @@
     ALAMAT='$alamat',
     EMAIL='$email',
     USERNAME='$username',
-    PASSWORD='$katasandi'
+    PASSWORD='$katasandi',
+    LEVEL = '$status'
     WHERE ID_USER='$id'";
   $sql= mysqli_query($conn, $query);
   return mysqli_affected_rows($conn);
