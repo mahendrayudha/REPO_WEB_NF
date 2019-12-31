@@ -33,7 +33,7 @@ if(isset($_POST['ubahpw'])){
       $mail->SetFrom("naura_farm@smile-joke.com","Admin Naura Farm"); //set email pengirim
       $mail->Subject = "Lupa Password"; //subyek email
       $mail->AddAddress($email,$name);  //tujuan email
-      $mail->MsgHTML("Ini Adalah Password Anda Adalah : ".$pw." <br> Tolong Ingat dan Jangan Lupa Di Catat :)<br> Terima Kasih Telah Menjadi Pelanggan Setia Naura Farm.");
+      $mail->MsgHTML("Ini Adalah Password Anda : ".$pw." <br> Tolong ingat dan jangan lupa di catat :)<br> Terima Kasih Telah Menjadi Pelanggan Setia Naura Farm.");
       if($mail->send()){
         $pesan = "Password anda telah di kirim ke email anda.<br> Silahkan cek amail anda, apabila tidak terdapat pada pesan utama, cek di daftar Spam";
       } else {
