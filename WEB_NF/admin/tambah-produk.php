@@ -61,12 +61,12 @@ if ($datakode) {
         </div>
       </div>
 
-      <div class="form-group">
+      <!-- <div class="form-group" style="display: none;">
         <div class="form-label-group">
-          <input type="text" id="hargabeli" class="form-control" placeholder="Harga beli" name="hargabeli" required="required" onkeypress="return hanyaAngka(event)">
+          <input type="text" id="hargabeli" class="form-control" placeholder="Harga beli" name="hargabeli" onkeypress="return hanyaAngka(event)">
           <label for="hargabeli">Harga Beli</label>
         </div>
-      </div>
+      </div> -->
 
       <div class="form-group">
         <div class="form-label-group">
@@ -108,13 +108,13 @@ if ($datakode) {
   $namaproduk = isset($_POST['namaproduk']) ? $_POST['namaproduk'] : null;
   $fotoproduk = isset($_POST['fotoproduk']) ? $_POST['fotoproduk'] : null;
   $stokproduk = isset($_POST['stokproduk']) ? $_POST['stokproduk'] : null;
-  $hargabeli = isset($_POST['hargabeli']) ? $_POST['hargabeli'] : null;
+  // $hargabeli = isset($_POST['hargabeli']) ? $_POST['hargabeli'] : null;
   $hargajual = isset($_POST['hargajual']) ? $_POST['hargajual'] : null;
   $tambahproduk = isset($_POST['tambahproduk']) ? $_POST['tambahproduk'] : null;
 
   if (isset($_POST['tambahproduk'])) {
-    $sql = $conn->query("INSERT INTO produk (ID_PRODUK, NAMA_PRODUK, FOTO_PRODUK, STOK_PRODUK, HARGA_BELI, HARGA_JUAL)
-    values('$hasilkode', '$namaproduk', '$fotoproduk', '$stokproduk', '$hargabeli', '$hargajual')");
+    $sql = $conn->query("INSERT INTO produk (ID_PRODUK, NAMA_PRODUK, FOTO_PRODUK, STOK_PRODUK, HARGA_JUAL)
+    values('$hasilkode', '$namaproduk', '$fotoproduk', '$stokproduk', '$hargajual')");
     if ($sql) {
       ?>
       <script type="text/javascript">

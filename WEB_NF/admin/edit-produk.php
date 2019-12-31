@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" style="display: none;">
       <div class="form-label-group">
         <input type="text"
                id="hargabeli"

@@ -44,7 +44,7 @@
                     <th>ID Produk</th>
                     <th>Nama Produk</th>
                     <th>Stok</th>
-                    <th>Harga Beli</th>
+                    <th style="display: none;">Harga Beli</th>
                     <th>Harga Jual</th>
                     <th>Aksi</th>
                   </tr>
@@ -58,7 +58,7 @@
                     <td><?php echo $data['ID_PRODUK']; ?></td>
                     <td><?php echo $data['NAMA_PRODUK']; ?></td>
                     <td><?php echo $data['STOK_PRODUK']; ?></td>
-                    <td><?php echo $data['HARGA_BELI']; ?></td>
+                    <td style="display: none;"><?php echo $data['HARGA_BELI']; ?></td>
                     <td><?php echo $data['HARGA_JUAL']; ?></td>
                     <td>
                       <a href="?page=produk&aksi=edit-produk&id=<?php echo $data['ID_PRODUK'];?>" class="fas fa-edit"></a>

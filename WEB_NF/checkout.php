@@ -233,7 +233,7 @@
                       </table>
 
                       <div class="" style="background: #28a745; padding: 0.5rem; color: white; border-radius: 3px; margin: 1rem 0rem;">
-                        <a>Silahkan melakukan pembayaran ke <strong>Bank BNI 0327-1234-4365 A/N Naura Farm</strong></a>
+                        <a>Silahkan melakukan pembayaran ke <strong>Bank BNI 0801950724 A/N Naura Farm</strong></a>
                       </div>
 
                     <?php

@@ -78,6 +78,10 @@
   }
 }
 
+.notif {
+  margin: 0rem 5rem !important;
+}
+
 .masthead {
   position: relative;
   width: 100%;
