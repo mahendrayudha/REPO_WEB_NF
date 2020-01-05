@@ -61,13 +61,6 @@ if ($datakode) {
         </div>
       </div>
 
-      <!-- <div class="form-group" style="display: none;">
-        <div class="form-label-group">
-          <input type="text" id="hargabeli" class="form-control" placeholder="Harga beli" name="hargabeli" onkeypress="return hanyaAngka(event)">
-          <label for="hargabeli">Harga Beli</label>
-        </div>
-      </div> -->
-
       <div class="form-group">
         <div class="form-label-group">
           <input type="text" id="hargajual" class="form-control" placeholder="Harga jual" name="hargajual" required="required" onkeypress="return hanyaAngka(event)">
@@ -107,8 +100,7 @@ if ($datakode) {
 
   $namaproduk = isset($_POST['namaproduk']) ? $_POST['namaproduk'] : null;
   $fotoproduk = isset($_POST['fotoproduk']) ? $_POST['fotoproduk'] : null;
-  $stokproduk = isset($_POST['stokproduk']) ? $_POST['stokproduk'] : null;
-  // $hargabeli = isset($_POST['hargabeli']) ? $_POST['hargabeli'] : null;
+  $stokproduk = isset($_POST['stokproduk']) ? $_POST['stokproduk'] : null;  
   $hargajual = isset($_POST['hargajual']) ? $_POST['hargajual'] : null;
   $tambahproduk = isset($_POST['tambahproduk']) ? $_POST['tambahproduk'] : null;
 
@@ -118,8 +110,8 @@ if ($datakode) {
 
     if (mysqli_num_rows($sqlcek) > 0) {
       $row = mysqli_fetch_assoc($sqlcek);
-      if ($username == $row['NAMA_PRODUK']) {
-        echo "Username Already Exists";
+      if ($namaproduk == $row['NAMA_PRODUK']) {
+        echo "Produk Already Exists";
   ?>
         <script type="text/javascript">
           alert("Produk Already Exists");
