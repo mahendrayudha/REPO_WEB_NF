@@ -4,18 +4,19 @@
 <?php
 session_start();
 $conn = mysqli_connect("localhost", "root", "", "naura_farm");
+include "functions.php";
 
 //auto increment id user
 
-$carikode = mysqli_query($conn, "SELECT max(ID_USER)FROM user") or die (mysqli_error($conn));
+$carikode = mysqli_query($conn, "SELECT max(ID_USER)FROM user") or die(mysqli_error($conn));
 $datakode = mysqli_fetch_array($carikode);
-if($datakode) {
-    $nilaikode = substr($datakode[0], 1 );
-    $kode = (int) $nilaikode;
-    $kode = $kode + 1;
-    $hasilkode = "U" .str_pad($kode, 3, "0", STR_PAD_LEFT);
-}else{
-    $hasilkode = "U001";
+if ($datakode) {
+  $nilaikode = substr($datakode[0], 1);
+  $kode = (int) $nilaikode;
+  $kode = $kode + 1;
+  $hasilkode = "U" . str_pad($kode, 3, "0", STR_PAD_LEFT);
+} else {
+  $hasilkode = "U001";
 }
 
 ?>
@@ -83,13 +84,13 @@ if($datakode) {
                 <!-- Session utk merubah nav akun login/register menjadi akun/keluar saat kondisi user sedang login -->
                 <?php
                 if (isset($_SESSION['login'])) {
-                  ?>
+                ?>
                   <a class="dropdown-item" href="akun.php">Akun</a>
                   <a class="dropdown-item" href="keranjang.php">Keranjang</a>
                   <a class="dropdown-item" onclick="return confirm('Apakah Anda yakin Ingin Keluar?')" href="keluar.php">Keluar</a>
                 <?php
                 } else {
-                  ?>
+                ?>
                   <a class="dropdown-item" href="#" onclick="document.getElementById('id01').style.display='block'">Masuk</a>
                   <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'">Daftar</a>
                 <?php } ?>
@@ -113,7 +114,7 @@ if($datakode) {
         <!-- Session utk merubah button masuk menjadi keluar saat kondisi user sedang login -->
         <?php
         if (isset($_SESSION['login'])) {
-          ?>
+        ?>
           <!-- <a href="keluar.php">
             <button class="out" style="width:auto;">
               Keluar
@@ -121,7 +122,7 @@ if($datakode) {
           </a> -->
         <?php
         } else {
-          ?>
+        ?>
           <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-primary" style="width:auto; margin-top:50px;">
             Masuk
           </button>
@@ -141,53 +142,42 @@ if($datakode) {
         <img src="img/user.svg" alt="Avatar" class="avatar" />
       </div>
       <div class="card-body">
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="text"
-                     id="username"
-                     class="form-control"
-                     placeholder="Username"
-                     required="required"
-                     name="nama">
-              <label for="username">Username</label>
-            </div>
+        <div class="form-group">
+          <div class="form-label-group">
+            <input type="text" id="username" class="form-control" placeholder="Username" required="required" name="nama">
+            <label for="username">Username</label>
           </div>
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="password"
-                           id="myInput"
-                           class="form-control"
-                           placeholder="Password"
-                           required="required"
-                           name="psw"
-                           minlength="8" maxlength="20">
-              <label for="inputPassword">Kata Sandi</label>
-            </div>
+        </div>
+        <div class="form-group">
+          <div class="form-label-group">
+            <input type="password" id="myInput" class="form-control" placeholder="Password" required="required" name="psw" minlength="8" maxlength="20">
+            <label for="inputPassword">Kata Sandi</label>
           </div>
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="checkbox" onclick="myFunction()">
-              <div class="show"> Show Password</div>
-            </div>
+        </div>
+        <div class="form-group">
+          <div class="form-label-group">
+            <input type="checkbox" onclick="myFunction()">
+            <div class="show"> Show Password</div>
           </div>
+        </div>
 
-          <script>
-            function myFunction() {
-              var x = document.getElementById("myInput");
-              if (x.type === "password") {
-                x.type = "text";
-              } else {
-                x.type = "password";
-              }
+        <script>
+          function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+              x.type = "text";
+            } else {
+              x.type = "password";
             }
-          </script>
+          }
+        </script>
 
-          <button type="submit" class="btn btn-primary" name="masuk">Masuk</button>
+        <button type="submit" class="btn btn-primary" name="masuk">Masuk</button>
 
-          <label>
-            <input type="checkbox" checked="checked" name="remember">
-             Remember me
-          </label>
+        <label>
+          <input type="checkbox" checked="checked" name="remember">
+           Remember me
+        </label>
       </div>
 
       <div class="modal-footer" style="background-color: white">
@@ -274,11 +264,8 @@ if($datakode) {
           }
         </script>
 
-        <button type="submit"
-                class="btn btn-primary"
-                name="daftar"
-                href="homepage.php">
-                Daftar
+        <button type="submit" class="btn btn-primary" name="daftar" href="homepage.php">
+          Daftar
         </button>
       </div>
       <div class="container" style="background-color:#f1f1f1">
@@ -330,14 +317,14 @@ if($datakode) {
       $_SESSION['id_user'] = $row["ID_USER"];
       $_SESSION['level'] = $row['LEVEL'];
       $lv = $row['LEVEL'];
-      if($lv == 0){
+      if ($lv == 0) {
         echo "<script>alert ('Login Berhasil : Super Admin');window.location.href='admin/index.php?page=dashboard'</script>";
-      } else if($lv == 1){
+      } else if ($lv == 1) {
         echo "<script>alert ('Login Berhasil : Admin');window.location.href='admin/index.php?page=dashboard'</script>";
-      } else if($lv == 2){
+      } else if ($lv == 2) {
         echo "<script>alert ('Login Berhasil : Karyawan');window.location.href='admin/index.php?page=dashboard'</script>";
         include "tabel-user.php";
-      } else if($lv == 3){
+      } else if ($lv == 3) {
         echo "<script>alert ('Login Berhasil');window.location.href='homepage.php'</script>";
       }
     } else {
@@ -368,20 +355,43 @@ if($datakode) {
   // }
   // else
   // {
-  if (isset($_POST['daftar'])) {
-    $sql = $conn->query("insert into user (ID_USER, NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD, LEVEL)
-            values('$hasilkode', '$nama','$notelp','$alamat','$email','$username','$password','3')");
 
-    if ($sql) {
+  if (isset($_POST['daftar'])) {
+    $sqlcek = $conn->query("SELECT * FROM user WHERE USERNAME='$username' or EMAIL='$email'");
+    //$cek = mysqli_query($conn, $sqlcek);
+    echo mysqli_num_rows($sqlcek);
+    echo "SELECT * FROM user WHERE USERNAME='$username' or EMAIL='$email'";
+    
+    if (mysqli_num_rows($sqlcek) > 0) {
+      $row = mysqli_fetch_assoc($sqlcek);
+      if ($username == $row['USERNAME']) {
+         echo "Username Already Exists";
       ?>
-      <script type="text/javascript">
-        alert("Data Berhasil Disimpan");
-        window.location.href = "homepage.php";
-      </script> -->
-  <?php
+        <script type="text/javascript">
+          alert("Username Already Exists");
+        </script>
+      <?php
+      } elseif ($email == $row['EMAIL']) {
+         echo "Email Already Exists";
+      ?>
+        <script type="text/javascript">
+          alert("Email Already Exists");
+        </script>
+      <?php
+      }           
+
+    }else{
+      $sql = $conn->query("INSERT into user (ID_USER, NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD, LEVEL)
+            values('$hasilkode', '$nama','$notelp','$alamat','$email','$username','$password','3')");
+            ?>
+            <script type="text/javascript">
+             alert("Data Berhasil Disimpan");
+             window.location.href = "homepage.php";
+            </script>
+            <?php 
     }
   }
-// }
+
   ?>
 
   <!-- ////////////////////////////Profil Section/////////////////////////// -->
@@ -546,19 +556,16 @@ if($datakode) {
             <p class="text-black-50 mb-0" style="text-align:justify">Kita juga menjual Produk Buah Naga merah dan putih yang kita produksi sendri dan beberapa produk olahan yang di buat oleh Naura Farm yaitu selai buah, keripik buah, dan jus buah naga.</p>
             <?php
             if (isset($_SESSION['login'])) {
-              ?>
+            ?>
               <a href="transaksi.php">
-                <button class="btn btn-primary"
-                        style="width:auto; margin-top:50px;">
+                <button class="btn btn-primary" style="width:auto; margin-top:50px;">
                   Beli Produk
                 </button>
               </a>
             <?php
             } else {
-              ?>
-              <button onclick="document.getElementById('id01').style.display='block'"
-                      class="btn btn-primary"
-                      style="width:auto; margin-top:50px;">
+            ?>
+              <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-primary" style="width:auto; margin-top:50px;">
                 Beli Produk
               </button>
             <?php
