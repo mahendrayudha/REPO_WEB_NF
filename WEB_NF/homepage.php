@@ -330,7 +330,9 @@ if($datakode) {
       $_SESSION['id_user'] = $row["ID_USER"];
       $_SESSION['level'] = $row['LEVEL'];
       $lv = $row['LEVEL'];
-      if($lv == 1){
+      if($lv == 0){
+        echo "<script>alert ('Login Berhasil : Super Admin');window.location.href='admin/index.php?page=dashboard'</script>";
+      } else if($lv == 1){
         echo "<script>alert ('Login Berhasil : Admin');window.location.href='admin/index.php?page=dashboard'</script>";
       } else if($lv == 2){
         echo "<script>alert ('Login Berhasil : Karyawan');window.location.href='admin/index.php?page=dashboard'</script>";

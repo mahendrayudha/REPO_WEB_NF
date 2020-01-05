@@ -56,6 +56,8 @@
                   <?php
                     $sql = $conn->query("SELECT * FROM user");
                     while($data = $sql->fetch_assoc()) {
+                      $superadmin = ($data['LEVEL']==0);
+                      $superadmin = 'Super Admin';
                       $admin = ($data['LEVEL']==1);
                       $admin = 'Admin';
                       $karyawan = ($data['LEVEL']==2);
@@ -72,10 +74,12 @@
                     <td><?php echo $data['USERNAME']; ?></td>
                     <td style="max-width: 40px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;" >
                     <?php echo md5($data['PASSWORD']) ?></td>
-                    <td><?php if($data ['LEVEL']==2) {
-                      echo $karyawan;
+                    <td><?php if($data ['LEVEL']==0) {
+                      echo $superadmin;
                     } elseif($data ['LEVEL']==1) {
                       echo $admin;
+                    } elseif($data['LEVEL']==2) {
+                      echo $karyawan;
                     } elseif($data['LEVEL']==3) {
                       echo $user;
                     } ?></td>
