@@ -113,15 +113,28 @@ if ($datakode) {
   $tambahproduk = isset($_POST['tambahproduk']) ? $_POST['tambahproduk'] : null;
 
   if (isset($_POST['tambahproduk'])) {
-    $sql = $conn->query("INSERT INTO produk (ID_PRODUK, NAMA_PRODUK, FOTO_PRODUK, STOK_PRODUK, HARGA_JUAL)
+    $sqlcek = $conn->query("SELECT * FROM produk WHERE NAMA_PRODUK='$namaproduk'");
+    //$cek = mysqli_query($conn, $sqlcek);
+
+    if (mysqli_num_rows($sqlcek) > 0) {
+      $row = mysqli_fetch_assoc($sqlcek);
+      if ($username == $row['NAMA_PRODUK']) {
+        echo "Username Already Exists";
+  ?>
+        <script type="text/javascript">
+          alert("Produk Already Exists");
+        </script>
+      <?php
+      }
+    } else {
+      $sql = $conn->query("INSERT INTO produk (ID_PRODUK, NAMA_PRODUK, FOTO_PRODUK, STOK_PRODUK, HARGA_JUAL)
     values('$hasilkode', '$namaproduk', '$fotoproduk', '$stokproduk', '$hargajual')");
-    if ($sql) {
       ?>
       <script type="text/javascript">
         alert("Data Berhasil Disimpan");
         window.location.href = "?page=tabel-produk";
       </script>
-  <?php
+    <?php
     }
   }
   ?>

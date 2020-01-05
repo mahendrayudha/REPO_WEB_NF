@@ -145,15 +145,36 @@ if ($datakode) {
   $tambahuser = isset($_POST['tambahuser']) ? $_POST['tambahuser'] : null;
 
   if (isset($_POST['tambahuser'])) {
-    $sql = $conn->query("INSERT INTO user (ID_USER, NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD, LEVEL)
-    values('$hasilkode', '$namalengkap', '$nomortelepon', '$alamat', '$email', '$username', '$katasandi', '2')");
-    if ($sql) {
-  ?>
-      <script type="text/javascript">
-        alert("Data Berhasil Disimpan");
-        window.location.href = "?page=tabel-user";
-      </script>
-  <?php
+    $sqlcek = $conn->query("SELECT * FROM user WHERE USERNAME='$username' or EMAIL='$email'");
+    //$cek = mysqli_query($conn, $sqlcek);
+    
+    if (mysqli_num_rows($sqlcek) > 0) {
+      $row = mysqli_fetch_assoc($sqlcek);
+      if ($username == $row['USERNAME']) {
+         echo "Username Already Exists";
+      ?>
+        <script type="text/javascript">
+          alert("Username Already Exists");
+        </script>
+      <?php
+      } elseif ($email == $row['EMAIL']) {
+         echo "Email Already Exists";
+      ?>
+        <script type="text/javascript">
+          alert("Email Already Exists");
+        </script>
+      <?php
+      }           
+
+    }else{
+      $sql = $conn->query("INSERT into user (ID_USER, NAMA, NOMOR_TELEPON, ALAMAT, EMAIL, USERNAME, PASSWORD, LEVEL)
+            values('$hasilkode', '$namalengkap','$nomortelepon','$alamat','$email','$username','$password','2')");
+            ?>
+            <script type="text/javascript">
+             alert("Data Berhasil Disimpan");
+             window.location.href = "?page=tabel-user";
+            </script>
+            <?php 
     }
   }
   ?>

@@ -359,8 +359,6 @@ if ($datakode) {
   if (isset($_POST['daftar'])) {
     $sqlcek = $conn->query("SELECT * FROM user WHERE USERNAME='$username' or EMAIL='$email'");
     //$cek = mysqli_query($conn, $sqlcek);
-    echo mysqli_num_rows($sqlcek);
-    echo "SELECT * FROM user WHERE USERNAME='$username' or EMAIL='$email'";
     
     if (mysqli_num_rows($sqlcek) > 0) {
       $row = mysqli_fetch_assoc($sqlcek);
