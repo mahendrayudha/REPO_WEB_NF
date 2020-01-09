@@ -54,16 +54,8 @@
                 </thead>
                 <tbody>
                   <?php
-                    $sql = $conn->query("SELECT * FROM user");
-                    while($data = $sql->fetch_assoc()) {
-                      $superadmin = ($data['LEVEL']==0);
-                      $superadmin = 'Super Admin';
-                      $admin = ($data['LEVEL']==1);
-                      $admin = 'Admin';
-                      $karyawan = ($data['LEVEL']==2);
-                      $karyawan = 'Karyawan';
-                      $user = ($data['LEVEL']==3);
-                      $user = 'User';
+                  $sql = $conn->query("SELECT * FROM user");
+                  while($data = $sql->fetch_assoc()) {
                   ?>
                   <tr>
                     <td><?php echo $data['ID_USER']; ?></td>
@@ -74,18 +66,31 @@
                     <td><?php echo $data['USERNAME']; ?></td>
                     <td style="max-width: 40px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;" >
                     <?php echo md5($data['PASSWORD']) ?></td>
-                    <td><?php if($data ['LEVEL']==0) {
-                      echo $superadmin;
-                    } elseif($data ['LEVEL']==1) {
-                      echo $admin;
-                    } elseif($data['LEVEL']==2) {
-                      echo $karyawan;
-                    } elseif($data['LEVEL']==3) {
-                      echo $user;
-                    } ?></td>
                     <td>
-                      <a href="?page=user&aksi=edit-user&id=<?php echo $data['ID_USER'];?>" class="fas fa-edit"></a>
-                      <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="?page=user&aksi=hapus-user&id=<?php echo $data['ID_USER'];?>" class="fas fa-trash"></a>
+                      <?php if($data ['LEVEL']==0) {
+                          echo 'Super Admin';
+                        } elseif($data ['LEVEL']==1) {
+                          echo 'Admin';
+                        } elseif($data['LEVEL']==2) {
+                          echo 'Karyawan';
+                        } elseif($data['LEVEL']==3) {
+                          echo 'User';
+                        } ?>
+                    </td>
+                    <td>
+                      <?php
+                        if($_SESSION['level'] == 0) { ?>
+                            <a href="?page=user&aksi=edit-user&id=<?php echo $data['ID_USER'];?>" class="fas fa-edit"></a>
+                            <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="?page=user&aksi=hapus-user&id=<?php echo $data['ID_USER'];?>" class="fas fa-trash"></a>
+                      <?php
+                        } elseif($_SESSION['level'] == 1) {
+                            if($data ['LEVEL'] == 3) { ?>
+                              <a href="?page=user&aksi=edit-user&id=<?php echo $data['ID_USER'];?>" class="fas fa-edit"></a>
+                              <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="?page=user&aksi=hapus-user&id=<?php echo $data['ID_USER'];?>" class="fas fa-trash"></a>
+                          <?php
+                            }
+                        }
+                      ?>
                     </td>
                   </tr>
                   <?php } ?>
