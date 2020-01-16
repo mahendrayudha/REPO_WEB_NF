@@ -68,20 +68,6 @@ if ($datakode) {
         </div>
       </div>
 
-      <!-- <div class="form-group">
-      <div class="form-label-group">
-        <select id="status"
-                class="form-control"
-                required="required"
-                name="status"
-                autofocus="autofocus">
-        <label for="status">Status</label>
-        <option value="admin">1 Admin</option>
-        <option value="karyawan">2 Karyawan</option>
-        <option value="user">3 User</option>
-      </div>
-    </div> -->
-
       <button type="submit" class="btn btn-primary" name="tambahproduk" href="tabel-produk.php">
         Tambah Produk
       </button>
