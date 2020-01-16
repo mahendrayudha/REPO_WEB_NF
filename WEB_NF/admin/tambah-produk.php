@@ -111,10 +111,10 @@ if ($datakode) {
     if (mysqli_num_rows($sqlcek) > 0) {
       $row = mysqli_fetch_assoc($sqlcek);
       if ($namaproduk == $row['NAMA_PRODUK']) {
-        echo "Produk Already Exists";
+        //  echo "Produk Sudah Ada";
   ?>
         <script type="text/javascript">
-          alert("Produk Already Exists");
+          alert("Produk Sudah Ada");
         </script>
       <?php
       }

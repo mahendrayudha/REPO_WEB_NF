@@ -363,17 +363,17 @@ if ($datakode) {
     if (mysqli_num_rows($sqlcek) > 0) {
       $row = mysqli_fetch_assoc($sqlcek);
       if ($username == $row['USERNAME']) {
-         echo "Username Already Exists";
+        //  echo "Username Sudah Digunakan";
       ?>
         <script type="text/javascript">
-          alert("Username Already Exists");
+          alert("Username Sudah Digunakan");
         </script>
       <?php
       } elseif ($email == $row['EMAIL']) {
-         echo "Email Already Exists";
+        //  echo "Email Sudah Digunakan";
       ?>
         <script type="text/javascript">
-          alert("Email Already Exists");
+          alert("Email Sudah Digunakan");
         </script>
       <?php
       }           
