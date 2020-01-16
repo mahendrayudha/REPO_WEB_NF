@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Des 2019 pada 15.24
--- Versi server: 10.1.39-MariaDB
--- Versi PHP: 7.3.5
+-- Waktu pembuatan: 16 Jan 2020 pada 13.28
+-- Versi server: 10.1.38-MariaDB
+-- Versi PHP: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,11 +39,7 @@ CREATE TABLE `detail_jual` (
 --
 
 INSERT INTO `detail_jual` (`ID_TRANSAKSI`, `ID_PRODUK`, `JUMLAH_BELI`) VALUES
-('T001', 'P002', 2),
-('T002', 'P002', 4),
-('T003', 'P005', 11),
-('T004', 'P002', 12),
-('T005', 'P002', 11);
+('T001', 'P001', 5);
 
 -- --------------------------------------------------------
 
@@ -70,11 +66,9 @@ CREATE TABLE `keranjang` (
 --
 
 INSERT INTO `keranjang` (`ID_TRANSAKSI`, `ID_PRODUK`, `NAMA_PRODUK`, `ID_USER`, `NAMA_USER`, `JUMLAH_BELI`, `TGL_TRANSAKSI`, `ALAMAT`, `OPSI_PEMBAYARAN`, `GRAND_TOTAL`, `STATUS_ACC`) VALUES
-('T001', 'P002', 'Buah Naga Putih', 'U003', 'Dicky Irqi Z', 2, '2019-12-30 21:1', 'Sumbersari Perumahan Taman Kampus C5/8 jember', 1, 26000, '2'),
-('T002', 'P002', 'Buah Naga Putih', 'U003', 'Dicky Irqi Z', 4, '2019-12-30 21:1', 'Sumbersari Perumahan Taman Kampus C5/8 jember', 1, 52000, '2'),
-('T003', 'P005', 'Selai Buah Naga', 'U003', 'Dicky Irqi Z', 11, '2019-12-30 21:1', 'Sumbersari Perumahan Taman Kampus C5/8 jember', 1, 88000, '2'),
-('T004', 'P002', 'Buah Naga Putih', 'U003', 'Dicky Irqi Z', 12, '2019-12-30 21:2', 'Sumbersari Perumahan Taman Kampus C5/8 jember', 1, 156000, '2'),
-('T005', 'P002', 'Buah Naga Putih', 'U003', 'Dicky Irqi Z', 11, '2019-12-30 21:2', 'Sumbersari Perumahan Taman Kampus C5/8 jember', 1, 143000, '2');
+('T001', 'P001', 'Buah Naga Merah', 'U006', 'Agung Wahyu Gunawan', 5, '2019-12-31 12:2', 'Jl. Semeru, Sumbersari, Jember', 1, 50000, '2'),
+('T002', 'P001', 'Buah Naga Merah', 'U006', 'Agung Wahyu Gunawan', 3, '2019-12-31 12:2', 'Jl. Semeru, Sumbersari, Jember', 1, 30000, '1'),
+('T003', 'P001', 'Buah Naga Merah', 'U006', 'Agung Wahyu Gunawan', 12, '2020-01-01 12:3', 'Jl. Semeru, Sumbersari, Jember', 2, 120000, '1');
 
 -- --------------------------------------------------------
 
@@ -96,11 +90,12 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`ID_PRODUK`, `NAMA_PRODUK`, `FOTO_PRODUK`, `STOK_PRODUK`, `HARGA_BELI`, `HARGA_JUAL`) VALUES
-('P001', 'Buah Naga Merah', 'buah_merah.jpg', 0, 0, 10000),
-('P002', 'Buah Naga Putih', 'buah_putih.jpg', 50, 0, 13000),
-('P003', 'Jus Buah Naga', 'Jus.jpg', 58, 0, 7000),
-('P004', 'Keripik Buah Naga', 'Kripik.jpg', 7, 0, 5000),
-('P005', 'Selai Buah Naga', 'Selai.jpg', 77, 0, 8000);
+('P001', 'Buah Naga Merah', 'buah_merah.jpg', 295, 0, 10000),
+('P002', 'Buah Naga Putih', 'buah_putih.jpg', 0, 0, 25000),
+('P003', 'Jus Buah Naga', 'Jus.jpg', 0, 0, 5000),
+('P004', 'Keripik Buah Naga', 'Kripik.jpg', 0, 0, 5000),
+('P005', 'Selai Buah Naga', 'Selai.jpg', 0, 0, 18000),
+('P006', 'Buah Naga Kuning', 'PDM.png', 100, 0, 30000);
 
 -- --------------------------------------------------------
 
@@ -123,11 +118,7 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`ID_TRANSAKSI`, `ID_USER`, `TANGGAL_TRANSAKSI`, `STATUS_BAYAR`, `GRAND_TOTAL`, `ALAMAT_PENGIRIMAN`, `OPSI_PEMBAYARAN`) VALUES
-('T001', 'U003', '2019-12-30 21:14:48', 1, 26000, 'Sumbersari Perumahan Taman Kampus C5/8 jember', 1),
-('T002', 'U003', '2019-12-30 21:14:54', 1, 52000, 'Sumbersari Perumahan Taman Kampus C5/8 jember', 1),
-('T003', 'U003', '2019-12-30 21:15:50', 1, 88000, 'Sumbersari Perumahan Taman Kampus C5/8 jember', 1),
-('T004', 'U003', '2019-12-30 21:21:12', 1, 156000, 'Sumbersari Perumahan Taman Kampus C5/8 jember', 1),
-('T005', 'U003', '2019-12-30 21:22:45', 1, 143000, 'Sumbersari Perumahan Taman Kampus C5/8 jember', 1);
+('T001', 'U006', '2019-12-31 12:27:46', 1, 50000, 'Jl. Semeru, Sumbersari, Jember', 1);
 
 -- --------------------------------------------------------
 
@@ -143,7 +134,7 @@ CREATE TABLE `user` (
   `EMAIL` varchar(50) DEFAULT NULL,
   `USERNAME` varchar(20) DEFAULT NULL,
   `PASSWORD` varchar(20) DEFAULT NULL,
-  `LEVEL` int(3) NOT NULL COMMENT '1. Admin, 2. Karyawan, 3. User'
+  `LEVEL` int(3) NOT NULL COMMENT '0. Super Admin, 1. Admin, 2. Karyawan, 3. User'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -151,11 +142,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID_USER`, `NAMA`, `NOMOR_TELEPON`, `ALAMAT`, `EMAIL`, `USERNAME`, `PASSWORD`, `LEVEL`) VALUES
-('U001', 'Andrea Santana A', '085257423236', 'Jl. Mastrip 2 Gang 2 No.29', 'andrea.santana986@gmail.com', 'Andreasantana', 'sagitarius34', 1),
+('U001', 'Andrea Santana A', '085257423236', 'Jl. Mastrip 2 Gang 2 No.29', 'andrea.santana986@gmail.com', 'AndreaSantana', 'sagitarius', 0),
 ('U002', 'Octavian Yudha Mahendra', '081252989930', 'Jl. Nangka 4/9 Perumnas Patrang, Jember', 'yudhaoctavian01@gmail.com', 'mahendrayudha', 'yudha12345', 1),
-('U003', 'Dicky Irqi Z', '082312408105', 'Sumbersari Perumahan Taman Kampus C5/8 jember', 'dickyirqi11@gmail.com', 'Dickyzulkarnaen', 'dicky12345', 1),
+('U003', 'Dicky Irqi Z', '082312408105', 'Sumbersari Perumahan Taman Kampus C5/8 jember', 'dickyirqi11@gmail.com', 'Dickyzulkarnaen', 'dicky12345', 2),
 ('U004', 'Maulidia Priswanti', '0895395671103', 'Jl. Mastrip 3/89 Kel. Tegal Gede, Sumbersari', 'lidiapriswanti2000@gmail.com', 'Maulidiapriswanti', 'maul1506', 2),
-('U006', 'Agung Wahyu Gunawan', '085816908859', 'Jl. Semeru, Sumbersari, Jember', 'agungwahyu@gmail.com', 'agungwahyu', 'agung12345', 3);
+('U006', 'Agung Wahyu Gunawan', '085816908859', 'Jl. Semeru, Sumbersari, Jember', 'agungwahyu@gmail.com', 'agungwahyu', 'agung12345', 3),
+('U007', 'Jonathan Sterben', '098765432123', 'Jl. Mastrip 9 no 96', 'jonathansterben@gmail.com', 'Jonathan', 'sterben12345', 3),
+('U008', 'Raditya Dinantara Y', '085257423236', 'Jl. Sagitarius No. 34 Perum Satelit Permai', 'lyrawahyudi@gmail.com', 'Raditya ', 'radit12345', 1);
 
 --
 -- Indexes for dumped tables
