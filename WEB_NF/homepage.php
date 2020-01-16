@@ -144,7 +144,7 @@ if ($datakode) {
       <div class="card-body">
         <div class="form-group">
           <div class="form-label-group">
-            <input type="text" id="username" class="form-control" placeholder="Username" required="required" name="nama">
+            <input type="text" id="username" class="form-control" placeholder="Username" required="required" name="nama" autofocus>
             <label for="username">Username</label>
           </div>
         </div>

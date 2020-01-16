@@ -65,8 +65,35 @@
                name="stokproduk"
                required="required"
                onkeypress="return hanyaAngka(event)"
-               value="<?php echo $tampil['STOK_PRODUK'];?>">
+               value="<?php echo $tampil['STOK_PRODUK'];?>"
+               readonly>
         <label for="stokproduk">Stok Produk</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-label-group">
+        <input type="text"
+               id="stokbaru"
+               class="form-control"
+               placeholder="Tambah produk"
+               name="stokbaru"
+               required="required"
+               onkeyup="tambah();"
+               onkeypress="return hanyaAngka(event)">
+        <label for="stokbaru">Tambah Stok</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-label-group">
+        <input type="hidden"
+               id="resultstok"
+               class="form-control"
+               placeholder="Hasil tambah produk"
+               name="resultstok"
+               required="required" readonly>
+        <label for="resultstok">Hasil Tambah Stok</label>
       </div>
     </div>
 
@@ -128,7 +155,7 @@ function editproduk($data) {
   global $conn;
     $id = isset($_GET['id']) ? $_GET['id'] : null;
     $namaproduk = isset($_POST['namaproduk']) ? $_POST['namaproduk'] : null;
-    $stokproduk = isset($_POST['stokproduk']) ? $_POST['stokproduk'] : null;
+    $stokproduk = isset($_POST['resultstok']) ? $_POST['resultstok'] : null;
     $hargabeli = isset($_POST['hargabeli']) ? $_POST['hargabeli'] : null;
     $hargajual = isset($_POST['hargajual']) ? $_POST['hargajual'] : null;
 
@@ -143,6 +170,17 @@ $sql= mysqli_query($conn, $query);
 return mysqli_affected_rows($conn);
 }
 ?>
+
+  <script>
+    function tambah() {
+      var txtFirstNumberValue = document.getElementById('stokproduk').value;
+      var txtSecondNumberValue = document.getElementById('stokbaru').value;
+      var result = parseInt(txtFirstNumberValue) + parseInt(txtSecondNumberValue);
+      if (!isNaN(txtSecondNumberValue)) {
+        document.getElementById('resultstok').value = result;
+      }
+    }
+  </script>
 
   <script>
 		function hanyaAngka(evt) {

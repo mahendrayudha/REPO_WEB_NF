@@ -77,7 +77,7 @@ if (isset($_POST['setujui'])) {
     $simpan = "INSERT INTO transaksi (ID_TRANSAKSI, ID_USER, TANGGAL_TRANSAKSI, STATUS_BAYAR, GRAND_TOTAL, ALAMAT_PENGIRIMAN, OPSI_PEMBAYARAN)
     VALUES('$idtrx','$id_user', now(),'$status_bayar','$total','$alamat','$opsi')";
     if ($conn->query($simpan) === TRUE) {
-      //$h = mysqli_query($conn, "DELETE FROM keranjang WHERE ID_TRANSAKSI = '$idtrx'");
+      $h = mysqli_query($conn, "DELETE FROM keranjang WHERE ID_TRANSAKSI = '$idtrx'");
       $h = "UPDATE keranjang SET STATUS_ACC = 2 WHERE ID_TRANSAKSI ='$idtrx'";
       if($conn->query($h) === TRUE){
         $trx = "INSERT INTO detail_jual (ID_TRANSAKSI, ID_PRODUK, JUMLAH_BELI) VALUES ('$idtrx','$id_produk','$jumlah')";
