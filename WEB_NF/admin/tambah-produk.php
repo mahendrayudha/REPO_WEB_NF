@@ -51,6 +51,7 @@ if ($datakode) {
         <div class="form-label-group">
           <input type="file" id="fotoproduk" class="form-control" required="required" name="fotoproduk" autofocus="autofocus">
           <label for="fotoproduk">Foto Produk</label>
+          
         </div>
       </div>
 
@@ -92,6 +93,8 @@ if ($datakode) {
       <button type="submit" class="btn btn-primary" name="tambahproduk" href="tabel-produk.php">
         Tambah Produk
       </button>
+      
+      
 
       <a href="index.php?page=tabel-produk">
         <button class="btn btn-danger" name="cancel">
@@ -101,6 +104,8 @@ if ($datakode) {
 
     </form>
   </div>
+
+  
 
   <?php
   include "koneksi.php";
