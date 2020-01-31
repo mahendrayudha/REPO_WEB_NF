@@ -56,6 +56,17 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <div class="form-label-group">
+          <input type="file" id="fotoproduk"
+                 class="form-control"
+                 placeholder="Foto produk"
+                 name="fotoproduk"
+                 value="<?php echo $tampil['FOTO_PRODUK'];?>">
+          <label for="fotoproduk">Foto Produk</label>
+        </div>
+      </div>
+
     <div class="form-group">
       <div class="form-label-group">
         <input type="text"
@@ -155,6 +166,7 @@ function editproduk($data) {
   global $conn;
     $id = isset($_GET['id']) ? $_GET['id'] : null;
     $namaproduk = isset($_POST['namaproduk']) ? $_POST['namaproduk'] : null;
+    $fotoproduk = isset($_POST['fotoproduk']) ? $_POST['fotoproduk'] : null;
     $stokproduk = isset($_POST['resultstok']) ? $_POST['resultstok'] : null;
     $hargabeli = isset($_POST['hargabeli']) ? $_POST['hargabeli'] : null;
     $hargajual = isset($_POST['hargajual']) ? $_POST['hargajual'] : null;
@@ -162,6 +174,7 @@ function editproduk($data) {
 $query = "UPDATE produk SET
 ID_PRODUK='$id',
 NAMA_PRODUK='$namaproduk',
+FOTO_PRODUK='$fotoproduk',
 STOK_PRODUK='$stokproduk',
 HARGA_BELI='$hargabeli',
 HARGA_JUAL='$hargajual'
