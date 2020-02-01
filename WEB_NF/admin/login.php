@@ -20,7 +20,6 @@
       echo "<script>alert ('Login Berhasil');window.location.href='homepage.php'</script>";
     } else {
       echo "<script>alert ('Login Gagal')</script>";
-      // header("location: login.php?gagal");
     }
   }
   ?>

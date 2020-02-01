@@ -1,40 +1,13 @@
 <?php
 include "koneksi.php";
 
-//mengambil id
-// $idus = $_SESSION['id_user'];
-//menampilkan data user 
-// $sqli = $conn->query("SELECT * FROM user WHERE ID_USER = '$idus'");
-// $tampilkan = mysqli_fetch_array($sqli);
-// $id = $_GET['id'];
-
 //cek session
 if (!isset($_SESSION["login"])) {
     header("location: homepage.php");
     exit;
 }
-
-
-
-//menampilkan user berdasarkan id
-// $ambilkan = $conn->query("SELECT u.NAMA as user, k.NAMA as keranjang FROM user u
-//                           INNER JOIN transaksi t ON u.ID_USER = t.uID_USER 
-//                           INNER JOIN keranjang k ON t.kID_USER = k.ID_USER
-//                           ORDER BY u.NAMA");
-// $perusers = mysqli_fetch_array($ambilkan);
 $ambilkan = $conn->query("SELECT user.NAMA FROM user INNER JOIN keranjang ON keranjang.ID_USER = user.ID_USER");
 $perusers = mysqli_fetch_array($ambilkan);
-
-
-
-//memasukkan keranjang
-// if (isset($_POST['beli'])) {
-//   if (keranjang($_POST) == 1) {
-//       echo "<script>alert ('Berhasil Memasukkan ke Keranjang');</script>";
-//   } else {
-//       echo "<script>alert ('Gagal Memasukkan ke Keranjang');</script>";
-//   }
-// }
 ?>
 
 <!DOCTYPE html>
@@ -121,7 +94,6 @@ $perusers = mysqli_fetch_array($ambilkan);
                           } ?>
                       </td>
                       <td>
-                        <!-- <a href="?page=transaksi&aksi=edit-transaksi&id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-edit"></a> -->
                         <a onclick="return confirm('Apakah Anda yakin untuk menghapus pesanan?')" href="hapus-transaksi.php?id=<?php echo $data['ID_TRANSAKSI']; ?>" class="fas fa-trash"></a>
                       </td>
                     </tr>

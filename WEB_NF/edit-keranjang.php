@@ -140,10 +140,6 @@
             <div class="card-header">Edit Keranjang</div>
               <div class="transaksi-content" style="width: 50rem">
                 <form method="POST" style="padding: 1rem 3rem">
-                  <!-- <img src="img/<?php echo $perproduk["FOTO_PRODUK"]; ?>"
-                       alt="Foto Produk"
-                       style="width: 15rem; display: block; margin-left: auto; margin-right: auto;">
-                  <p style="text-align:center"><?php echo $perproduk["NAMA_PRODUK"]; ?></p> -->
 
                   <div class="form-group">
                     <div class="form-label-group">
@@ -307,37 +303,9 @@
         </script>";
       } else {
         echo "<script>alert('Gagal Mengubah Data')</script>";
-        //echo "db error ". $conn->error;
       }
       $conn->close();
-      // if(editkeranjang($_POST) > 0) {
-      //   echo "<script>
-      //   alert('Data Berhasil Diubah');
-      //   document.location.href =
-      //   'keranjang.php';
-      //   </script>";
-      // } else {
-      //     echo "<script>alert('Gagal Mengubah Data')</script>";
-      //   }
     }
-
-    //ubah data
-    // function editkeranjang($data) {
-    //   global $conn;
-    //     $id = isset($_GET['id']) ? $_GET['id'] : null;
-    //     $jumlah = isset($_POST['jumlah']) ? $_POST['jumlah'] : null;
-    //     $alamat = isset($_POST['alamat']) ? $_POST['alamat'] : null;
-    //     $opsi = isset($_POST['opsi']) ? $_POST['opsi'] : null;
-
-    // $query = "UPDATE keranjang SET
-    //   ID_TRANSAKI='$id',
-    //   JUMLAH_BELI='$jumlah',
-    //   ALAMAT='$alamat',
-    //   OPSI_PEMBAYARAN='$opsi',
-    //   WHERE ID_TRANSAKSI='$id'";
-    // $sql = mysqli_query($conn, $query);
-    // return mysqli_affected_rows($conn);
-    // }
     ?>
 
     <script>

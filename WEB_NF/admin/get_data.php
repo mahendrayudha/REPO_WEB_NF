@@ -3,10 +3,6 @@
                   $sql = $conn->query("SELECT * FROM keranjang WHERE STATUS_ACC = 1");
                   
                   while ($data = $sql->fetch_assoc()) {
-                    // $transfer = ($data['OPSI_PEMBAYARAN']==1);
-                    // $transfer = 'Transfer';
-                    // $bayartunai = ($data['OPSI_PEMBAYARAN']==2);
-                    // $bayartunai = 'Bayar Tunai';
                     $opspem = $data["OPSI_PEMBAYARAN"];
                     if($opspem == 1){
                         $atta = "Transfer";

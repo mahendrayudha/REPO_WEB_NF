@@ -18,7 +18,6 @@ if ($datakode) {
 } else {
   $hasilkode = "U001";
 }
-
 ?>
 
 <head>
@@ -115,11 +114,6 @@ if ($datakode) {
         <?php
         if (isset($_SESSION['login'])) {
         ?>
-          <!-- <a href="keluar.php">
-            <button class="out" style="width:auto;">
-              Keluar
-            </button>
-          </a> -->
         <?php
         } else {
         ?>
@@ -269,12 +263,6 @@ if ($datakode) {
         </button>
       </div>
       <div class="container" style="background-color:#f1f1f1">
-        <!-- <button
-        type="button"
-        onclick="document.getElementById('id01').style.display='none'"
-        class="cancelbtn">
-        Cancel
-      </button> -->
         <span class="psw">Sudah Punya Akun? <a href="#" onclick="back()" name="daftar">Masuk</a></span>
         <script>
           function back() {
@@ -349,28 +337,18 @@ if ($datakode) {
   $password = htmlspecialchars(isset($_POST['psw'])) ? $_POST['psw'] : null;
   $daftar = isset($_POST['daftar']) ? $_POST['daftar'] : null;
 
-  // $checklogin =mysqli_connect("SELECT * FROM user WHERE username = '".$username."'");
-  // if(htmlspecialchars($checklogin) != 0){
-  //   echo "this username has been taken please choose another one";
-  // }
-  // else
-  // {
-
   if (isset($_POST['daftar'])) {
     $sqlcek = $conn->query("SELECT * FROM user WHERE USERNAME='$username' or EMAIL='$email'");
-    //$cek = mysqli_query($conn, $sqlcek);
     
     if (mysqli_num_rows($sqlcek) > 0) {
       $row = mysqli_fetch_assoc($sqlcek);
       if ($username == $row['USERNAME']) {
-        //  echo "Username Sudah Digunakan";
       ?>
         <script type="text/javascript">
           alert("Username Sudah Digunakan");
         </script>
       <?php
       } elseif ($email == $row['EMAIL']) {
-        //  echo "Email Sudah Digunakan";
       ?>
         <script type="text/javascript">
           alert("Email Sudah Digunakan");

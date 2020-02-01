@@ -123,13 +123,6 @@ if ($datakode) {
           Batal
         </button>
       </a>
-
-      <!-- <a href="keluar.php">
-            <button class="out" style="width:auto;">
-              Keluar
-            </button>
-          </a> -->
-
     </form>
   </div>
 

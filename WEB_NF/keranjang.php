@@ -14,33 +14,6 @@ if (!isset($_SESSION["login"])) {
     exit;
 }
 
-//auto increment id produk
-
-// $carikode = mysqli_query($conn, "select max(ID_TRANSAKSI)from keranjang") or die (mysqli_error($conn));
-// $datakode = mysqli_fetch_array($carikode);
-// if($datakode) {
-//     $nilaikode = substr($datakode[0], 1 );
-//     $kode = (int) $nilaikode;
-//     $kode = $kode + 1;
-//     $hasilkode = "T" .str_pad($kode, 3, "0", STR_PAD_LEFT);
-// }else{
-//     $hasilkode = "T001";
-// }
-
-
-//menampilkan produk berdasarkan id
-// $ambil = $conn->query("SELECT * FROM produk WHERE ID_PRODUK = '$id'");
-// $perproduk = mysqli_fetch_array($ambil);
-
-// //memasukkan keranjang
-// if (isset($_POST['beli'])){
-//     if (keranjang($_POST) == 1 ) {
-//         echo "<script>alert ('Berhasil Memasukkan ke Keranjang');</script>";
-//     }else {
-//         echo "<script>alert ('Gagal Memasukkan ke Keranjang');</script>";
-//     }
-// }
-
 ?>
 
 <!DOCTYPE html>

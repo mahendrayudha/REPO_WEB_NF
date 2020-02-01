@@ -1,24 +1,3 @@
-<!-- <a href="#" onclick="window.print();" class="btn btn-primary "><i class="fa fa-book"></i>  Laporan</a> -->
-<?php
-// $ambil = $conn->query("SELECT produk.NAMA_PRODUK FROM produk INNER JOIN detail_jual ON detail_jual.ID_PRODUK = produk.ID_USER");
-// $perproduk = mysqli_fetch_array($ambil);
-
-//menampilkan produk berdasarkan id
-// $ambil = $conn->query("SELECT produk.NAMA_PRODUK FROM `produk` INNER JOIN keranjang keranjang ON keranjang.ID_PRODUK = produk.ID_PRODUK");
-// while ($produk = $ambil->fetch_assoc()) {
-//   $tesya = $produk["NAMA_PRODUK"];
-// }
-// $ambil = $conn->query("SELECT detail_jual.ID_TRANSAKSI, detail_jual.ID_PRODUK, detail_jual.JUMLAH_BELI, transaksi.ID_TRANSAKSI, produk.NAMA_PRODUK FROM transaksi INNER JOIN detail_jual ON detail_jual.ID_TRANSAKSI = transaksi.ID_TRANSAKSI INNER JOIN produk ON detail_jual.ID_PRODUK = produk.ID_PRODUK");
-// while ($produk = $ambil->fetch_assoc()) {
-//   $tesya = $produk["NAMA_PRODUK"];
-// }
-
-//menampilkan produk berdasarkan id
-// $ambil = $conn->query("SELECT detail_jual.JUMLAH_BELI, detail_jual.ID_PRODUK FROM detail_jual INNER JOIN transaksi ON transaksi.ID_TRANSAKSI = detail_jual.ID_TRANSAKSI");
-// $hproduk = mysqli_fetch_array($ambil);
-?>
-
-
 <table class="table table-bordered" border="1" id="dataTable" width="100%" cellspacing="0">
   <thead style="text-align: center;">
     <tr>

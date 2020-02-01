@@ -38,9 +38,7 @@
             <i class="fas fa-chart-area"></i>
             Grafik Pesanan
           </div>
-          <!-- <div class="card-body">
-            <canvas id="myAreaChart" width="100%" height="30"></canvas>
-          </div> -->
+
           <div style="width: 800px; margin: 0px auto;">
 	          <canvas id="myChart"></canvas>
           </div>
