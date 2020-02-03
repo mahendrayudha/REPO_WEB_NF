@@ -1,18 +1,5 @@
 <?php
 include "koneksi.php";
-
-//auto increment id produk
-
-// $carikode = mysqli_query($conn, "select max(ID_PRODUK)from produk") or die(mysqli_error($conn));
-// $datakode = mysqli_fetch_array($carikode);
-// if ($datakode) {
-//   $nilaikode = substr($datakode[0], 1);
-//   $kode = (int) $nilaikode;
-//   $kode = $kode + 1;
-//   $hasilkode = "P" . str_pad($kode, 3, "0", STR_PAD_LEFT);
-// } else {
-//   $hasilkode = "P001";
-// }
 ?>
 
 <!DOCTYPE html>
@@ -69,8 +56,6 @@ include "koneksi.php";
       </div>
 
       <input type="submit" class="btn btn-primary" id="tambahproduk" name="tambahproduk" value="Tambah Produk" href="tabel-produk.php">
-        <!-- Tambah Produk -->
-      <!-- </button> -->
 
       <a href="index.php?page=tabel-produk">
         <button class="btn btn-danger" name="cancel">
