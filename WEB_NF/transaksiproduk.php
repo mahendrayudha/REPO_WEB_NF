@@ -16,17 +16,11 @@
   //auto increment id produk
   $carikode = mysqli_query($conn, "SELECT max(ID_TRANSAKSI) FROM keranjang") or die(mysqli_error($conn));
   $datakode = mysqli_fetch_array($carikode);
-  // $kdtrx = $datakode['maxKode'];
-  // $noUrut = (int) substr($kdtrx, 3, 3);
-  // $noUrut++;
-  // $char = "T";
-  // $kodeBarang = $char . sprintf("%03s", $noUrut);
   if ($datakode) {
     $nilaikode = substr($datakode[0], 1);
     $kode = (int) $nilaikode;
     $kode = $kode + 1;
     $hasilkode = "T" . str_pad($kode, 3, "0", STR_PAD_LEFT);
-    //$kdtrx = $datakode["maxKode"];
 
   } else {
     $carikode2 = mysqli_query($conn, "SELECT max(ID_TRANSAKSI) FROM keranjang") or die(mysqli_error($conn));

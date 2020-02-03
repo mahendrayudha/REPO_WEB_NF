@@ -62,11 +62,6 @@
                     <td><?php echo $data['HARGA_JUAL']; ?></td>
                     <td>
                       <a href="?page=produk&aksi=edit-produk&id=<?php echo $data['ID_PRODUK'];?>" class="fas fa-edit"></a>
-                      <!-- <a class="fas fa-trash nav-link"
-                         href="?page=produk&aksi=hapus-produk&id=<?php echo $data['ID_PRODUK'];?>"
-                         data-toggle="modal"
-                         data-target="#deleteModal">
-                      </a> -->
                       <a onclick="return confirm('Apakah Anda yakin untuk menghapus?')" href="?page=produk&aksi=hapus-produk&id=<?php echo $data['ID_PRODUK'];?>" class="fas fa-trash"></a>
                     </td>
                   </tr>
@@ -89,25 +84,6 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
-  <!-- Delete Modal-->
-  <!-- <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Apakah Anda ingin menghapus produk?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Pilih "Hapus" jika Anda ingin menghapus produk, pilih "Batal" jika batal menghapus produk.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-          <a class="btn btn-danger" href="?page=produk&aksi=hapus-produk&id=<?php echo $data['ID_PRODUK'];?>">Hapus</a>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

@@ -8,9 +8,6 @@ if ($conn === false) {
 <?php
 require 'functions.php';
 include "PHPMailer/classes/class.phpmailer.php";
-// require 'PHPMailer/src/Exception.php';
-// require 'PHPMailer/src/PHPMailer.php';
-// require 'PHPMailer/src/SMTP.php';
 
 session_start();
 if(isset($_POST['ubahpw'])){

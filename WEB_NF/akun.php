@@ -8,10 +8,6 @@ $id = $_SESSION['id_user'];
 $sql = $conn->query("SELECT * FROM user WHERE ID_USER = '$id'");
 $tampil = mysqli_fetch_array($sql);
 
-//mengambil id
-//$id = $_GET['id'];
-
-
 //cek session
 if (!isset($_SESSION["login"])) {
     header("location: homepage.php");

@@ -49,7 +49,7 @@ if ($datakode) {
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="file" id="fotoproduk" class="form-control" required="required" name="fotoproduk" autofocus="autofocus">
+          <input type="file" accept="image/*" id="fotoproduk" class="form-control" required="required" name="fotoproduk" autofocus="autofocus">
           <label for="fotoproduk">Foto Produk</label>
           
         </div>

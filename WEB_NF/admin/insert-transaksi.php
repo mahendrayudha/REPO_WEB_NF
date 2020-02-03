@@ -1,43 +1,12 @@
 <?php
 include "../functions.php";
 
-//mengambil id
-// $idu = $_SESSION['id_user'];
 $id = $_GET['id'];
 
 //menampilkan keranjang berdasarkan id
 $ambil = $conn->query("SELECT * FROM keranjang WHERE ID_TRANSAKSI = '$id'");
 $perproduk = mysqli_fetch_array($ambil);
 
-//memasukkan transaksi
-// if (isset($_POST['setujui'])) {
-//   if ($conn->query($simpan) === TRUE) {
-//     $h = mysqli_query($conn, "DELETE FROM keranjang WHERE ID_TRANSAKSI = '$idtrx'");
-//     if($h){
-//       echo "<script>alert('Sukses !');window.location.href='/REPO_WEB_NF/WEB_NF/admin/index.php?page=tabel-pesanan'</script>";
-//     } else {
-//       echo "<script>alert('Sesuatu yang salah')</script>";
-//     }
-
-//   } else {
-//     echo "Error: " . $sql . "<br>" . $conn->error;
-//   }
-// }
-
-//memasukkan detail jual
-// if (isset($_POST['setujui'])) {
-//   if ($conn->query($simpan) === TRUE) {
-//     $h = mysqli_query($conn, "DELETE FROM keranjang WHERE ID_TRANSAKSI = '$idtrx'");
-//     if($h){
-//       echo "<script>alert('Sukses !');window.location.href='/REPO_WEB_NF/WEB_NF/admin/index.php?page=tabel-pesanan'</script>";
-//     } else {
-//       echo "<script>alert('Sesuatu yang salah')</script>";
-//     }
-
-//   } else {
-//     echo "Error: " . $sql . "<br>" . $conn->error;
-//   }
-// }
 ?>
 
 <!DOCTYPE html>
