@@ -64,31 +64,10 @@ if ($datakode) {
 
       <div class="form-group">
         <div class="form-label-group">
-          <input type="text" id="hargabeli" class="form-control" placeholder="Harga beli" name="hargabeli" required="required" onkeypress="return hanyaAngka(event)">
-          <label for="hargabeli">Harga Beli</label>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="form-label-group">
           <input type="text" id="hargajual" class="form-control" placeholder="Harga jual" name="hargajual" required="required" onkeypress="return hanyaAngka(event)">
           <label for="hargajual">Harga Jual</label>
         </div>
       </div>
-
-      <!-- <div class="form-group">
-      <div class="form-label-group">
-        <select id="status"
-                class="form-control"
-                required="required"
-                name="status"
-                autofocus="autofocus">
-        <label for="status">Status</label>
-        <option value="admin">1 Admin</option>
-        <option value="karyawan">2 Karyawan</option>
-        <option value="user">3 User</option>
-      </div>
-    </div> -->
 
       <button type="submit" class="btn btn-primary" name="tambahproduk" href="tabel-produk.php">
         Tambah Produk
@@ -112,15 +91,27 @@ if ($datakode) {
 
   $namaproduk = isset($_POST['namaproduk']) ? $_POST['namaproduk'] : null;
   $fotoproduk = isset($_POST['fotoproduk']) ? $_POST['fotoproduk'] : null;
-  $stokproduk = isset($_POST['stokproduk']) ? $_POST['stokproduk'] : null;
-  $hargabeli = isset($_POST['hargabeli']) ? $_POST['hargabeli'] : null;
+  $stokproduk = isset($_POST['stokproduk']) ? $_POST['stokproduk'] : null;  
   $hargajual = isset($_POST['hargajual']) ? $_POST['hargajual'] : null;
   $tambahproduk = isset($_POST['tambahproduk']) ? $_POST['tambahproduk'] : null;
 
   if (isset($_POST['tambahproduk'])) {
-    $sql = $conn->query("INSERT INTO produk (ID_PRODUK, NAMA_PRODUK, FOTO_PRODUK, STOK_PRODUK, HARGA_BELI, HARGA_JUAL)
-    values('$hasilkode', '$namaproduk', '$fotoproduk', '$stokproduk', '$hargabeli', '$hargajual')");
-    if ($sql) {
+    $sqlcek = $conn->query("SELECT * FROM produk WHERE NAMA_PRODUK='$namaproduk'");
+    //$cek = mysqli_query($conn, $sqlcek);
+
+    if (mysqli_num_rows($sqlcek) > 0) {
+      $row = mysqli_fetch_assoc($sqlcek);
+      if ($namaproduk == $row['NAMA_PRODUK']) {
+        //  echo "Produk Sudah Ada";
+  ?>
+        <script type="text/javascript">
+          alert("Produk Sudah Ada");
+        </script>
+      <?php
+      }
+    } else {
+      $sql = $conn->query("INSERT INTO produk (ID_PRODUK, NAMA_PRODUK, FOTO_PRODUK, STOK_PRODUK, HARGA_JUAL)
+    values('$hasilkode', '$namaproduk', '$fotoproduk', '$stokproduk', '$hargajual')");
       ?>
       <script type="text/javascript">
         alert("Data Berhasil Disimpan");

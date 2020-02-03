@@ -145,9 +145,16 @@ $idu = $_SESSION['id_user'];
         </div>
       </div>
     <?php } ?>
-    <div style=" padding: 100px; display: flex; justify-content: center;">
+
+    <div style="padding: 50px; display: flex; justify-content: center; ">
       <a class="btn btn-warning" href="keranjang.php">Lihat Keranjang</a>
     </div>
+
+    <div class="notif" style="background: #28a745; padding: 0.5rem; color: white; border-radius: 3px; margin: 1rem 0rem;">
+      <a>*Jika ingin membeli produk olahan (<strong>Jus Buah Naga, Keripik Buah Naga,</strong> dan <strong>Selai Buah Naga</strong>)
+        silahkan memesan melalui Whatsapp kami <a style="color:white;" href="https://api.whatsapp.com/send?phone=6282336055228"><u>082336055228</u></a> (Arik)</a>
+    </div>
+
   </section>
 </body>
 </html>

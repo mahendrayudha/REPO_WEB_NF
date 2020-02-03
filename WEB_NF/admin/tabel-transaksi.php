@@ -86,8 +86,11 @@ $perusers = mysqli_fetch_array($ambilkan);
                 </thead>
                 <tbody style="text-align: center;">
                   <?php
+                  $sql = $conn->query("SELECT * FROM transaksi");
+                  // $sql = $conn->query("SELECT * FROM transaksi INNER JOIN user ON transaksi.ID_USER = user.ID_USER");
                   //$sql = $conn->query("SELECT * FROM transaksi");
                   $sql = $conn->query("SELECT * FROM `transaksi` t INNER JOIN user u ON t.ID_USER =u.ID_USER");
+
                   while ($data = $sql->fetch_assoc()) {
                     $transfer = ($data['OPSI_PEMBAYARAN'] == 1);
                     $transfer = 'Transfer';

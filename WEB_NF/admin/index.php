@@ -94,14 +94,18 @@
           <span>Tabel transaksi</span></a>
       </li>
       <?php
-      if($_SESSION['level'] == 1){
+      if($_SESSION['level'] == 0){
         echo '<li class="nav-item active">
           <a class="nav-link" href="?page=tabel-user">
             <i class="fas fa-fw fa-table"></i>
             <span>Tabel User</span></a>
         </li>';
-      } else {
-
+      } else if($_SESSION['level'] == 1){
+        echo '<li class="nav-item active">
+          <a class="nav-link" href="?page=tabel-user">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Tabel User</span></a>
+        </li>';
       }
       ?>
 
@@ -111,8 +115,7 @@
           <span>Laporan Penjualan</span></a>
       </li>
       <li class="nav-item active">
-      <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">Keluar</a>
-          <span>Keluar</span></a>
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">Keluar</a>
       </li>
     </ul>
 

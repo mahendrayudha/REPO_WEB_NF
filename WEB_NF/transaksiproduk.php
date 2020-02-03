@@ -243,7 +243,7 @@
                            <span>
                            <?php if($perproduk ['ID_PRODUK']=='P001') {
                              echo 'kg';
-                            } elseif($perproduk ['ID_PRODUK']=='P002') {
+                            } elseif($perproduk ['ID_PRODUK']=='P002'){
                               echo 'kg';
                             } elseif($perproduk['ID_PRODUK']=='P003') {
                               echo 'botol';
