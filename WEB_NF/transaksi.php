@@ -2,7 +2,7 @@
 require 'functions.php';
 
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "naura_farm");
+$conn = mysqli_connect("localhost","u5445042_tifa","tifa2020","u5445042_naurafarm");
 $idu = $_SESSION['id_user'];
   if (!isset($_SESSION["login"])) {
     header("location: homepage.php");

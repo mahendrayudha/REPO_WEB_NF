@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "naura_farm");
+$conn = new mysqli("localhost","u5445042_tifa","tifa2020","u5445042_naurafarm");
 if ($conn === false) {
     die("ERROR: " . mysqli_connect_error());
 }
