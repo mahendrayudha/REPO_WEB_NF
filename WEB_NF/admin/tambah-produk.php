@@ -38,6 +38,7 @@ include "koneksi.php";
         <div class="form-label-group">
           <input type="file" accept="image/*" id="fotoproduk" class="form-control" required="required" name="fotoproduk" autofocus="autofocus">
           <label for="fotoproduk">Foto Produk</label>
+          
         </div>
       </div>
 
@@ -65,6 +66,8 @@ include "koneksi.php";
 
     </form>
   </div>
+
+  
 
   <?php
     if (isset($_POST['tambahproduk'])) {
