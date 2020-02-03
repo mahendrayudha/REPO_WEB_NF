@@ -1,18 +1,18 @@
 <?php
 include "koneksi.php";
 
-//auto increment id transaksi
+//auto increment id produk
 
-$carikode = mysqli_query($conn, "select max(ID_PRODUK)from produk") or die(mysqli_error($conn));
-$datakode = mysqli_fetch_array($carikode);
-if ($datakode) {
-  $nilaikode = substr($datakode[0], 1);
-  $kode = (int) $nilaikode;
-  $kode = $kode + 1;
-  $hasilkode = "P" . str_pad($kode, 3, "0", STR_PAD_LEFT);
-} else {
-  $hasilkode = "P001";
-}
+// $carikode = mysqli_query($conn, "select max(ID_PRODUK)from produk") or die(mysqli_error($conn));
+// $datakode = mysqli_fetch_array($carikode);
+// if ($datakode) {
+//   $nilaikode = substr($datakode[0], 1);
+//   $kode = (int) $nilaikode;
+//   $kode = $kode + 1;
+//   $hasilkode = "P" . str_pad($kode, 3, "0", STR_PAD_LEFT);
+// } else {
+//   $hasilkode = "P001";
+// }
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ if ($datakode) {
 <body>
   <div class="card-header">Tambah Produk</div>
   <div class="card-body">
-    <form method="POST">
+    <form action="upload.php" method="post" enctype="multipart/form-data">
       <div class="form-group">
         <div class="form-label-group">
           <input type="text" id="namaproduk" class="form-control" placeholder="Nama produk" required="required" name="namaproduk" autofocus="autofocus">
@@ -68,9 +68,9 @@ if ($datakode) {
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary" name="tambahproduk" href="tabel-produk.php">
-        Tambah Produk
-      </button>
+      <input type="submit" class="btn btn-primary" id="tambahproduk" name="tambahproduk" value="Tambah Produk" href="tabel-produk.php">
+        <!-- Tambah Produk -->
+      <!-- </button> -->
 
       <a href="index.php?page=tabel-produk">
         <button class="btn btn-danger" name="cancel">
@@ -82,22 +82,14 @@ if ($datakode) {
   </div>
 
   <?php
-  include "koneksi.php";
-
-  $namaproduk = isset($_POST['namaproduk']) ? $_POST['namaproduk'] : null;
-  $fotoproduk = isset($_POST['fotoproduk']) ? $_POST['fotoproduk'] : null;
-  $stokproduk = isset($_POST['stokproduk']) ? $_POST['stokproduk'] : null;  
-  $hargajual = isset($_POST['hargajual']) ? $_POST['hargajual'] : null;
-  $tambahproduk = isset($_POST['tambahproduk']) ? $_POST['tambahproduk'] : null;
-
-  if (isset($_POST['tambahproduk'])) {
+    if (isset($_POST['tambahproduk'])) {
     $sqlcek = $conn->query("SELECT * FROM produk WHERE NAMA_PRODUK='$namaproduk'");
-    //$cek = mysqli_query($conn, $sqlcek);
+    $cek = mysqli_query($conn, $sqlcek);
 
     if (mysqli_num_rows($sqlcek) > 0) {
       $row = mysqli_fetch_assoc($sqlcek);
       if ($namaproduk == $row['NAMA_PRODUK']) {
-        //  echo "Produk Sudah Ada";
+         echo "Produk Sudah Ada";
   ?>
         <script type="text/javascript">
           alert("Produk Sudah Ada");
