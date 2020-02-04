@@ -48,7 +48,7 @@ if (isset($_POST['setujui'])) {
     VALUES('$idtrx','$id_user', now(),'$status_bayar','$total','$alamat','$opsi')";
     if ($conn->query($simpan) === TRUE) {
 
-      //$h = mysqli_query($conn, "DELETE FROM keranjang WHERE ID_TRANSAKSI = '$idtrx'");
+      $h = mysqli_query($conn, "DELETE FROM keranjang WHERE ID_TRANSAKSI = '$idtrx'");
       $h = "UPDATE keranjang SET STATUS_ACC = 2 WHERE ID_TRANSAKSI ='$idtrx'";  
 
       $h = mysqli_query($conn, "DELETE FROM keranjang WHERE ID_TRANSAKSI = '$idtrx'");
