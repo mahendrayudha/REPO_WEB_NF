@@ -3,7 +3,7 @@
 
 <?php
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "naura_farm");
+$conn = mysqli_connect("localhost","u5445042_tifa","tifa2020","u5445042_naurafarm");
 include "functions.php";
 
 //auto increment id user
@@ -323,7 +323,7 @@ if ($datakode) {
 
   <!-- ////////////////////////////////////////DATABASE REGISTER////////////////////////////////////////// -->
   <?php
-  $conn = mysqli_connect("localhost", "root", "", "naura_farm");
+  $conn = mysqli_connect("localhost","u5445042_tifa","tifa2020","u5445042_naurafarm");
   if ($conn === false) {
     die("ERROR: " . mysqli_connect_error());
   }

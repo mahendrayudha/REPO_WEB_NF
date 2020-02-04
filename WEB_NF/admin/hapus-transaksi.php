@@ -1,14 +1,14 @@
 <?php
-$conn = mysqli_connect("localhost","root","","naura_farm");
+$conn = mysqli_connect("localhost","u5445042_tifa","tifa2020","u5445042_naurafarm");
   $id = $_GET['id'];
 
 
   $conn->query("DELETE FROM transaksi WHERE ID_TRANSAKSI = '$id'");
-  echo "<script>alert('data berhasil dihapus'); window.location.href='/REPO_WEB_NF/WEB_NF/admin/?page=tabel-transaksi'</script>";
+  echo "<script>alert('data berhasil dihapus'); window.history.back();</script>";
 
   $hapus = $conn->query ("DELETE FROM transaksi WHERE ID_TRANSAKSI = '$id'");
 
   $conn->query ("DELETE FROM transaksi WHERE ID_TRANSAKSI = '$id'");
 
-  echo "<script>alert('data berhasil dihapus'); window.location.href='http://127.0.0.1/REPO_WEB_NF/WEB_NF/admin/?page=tabel-pesanan'</script>";
+  echo "<script>alert('data berhasil dihapus'); window.history.back();</script>";
 ?>

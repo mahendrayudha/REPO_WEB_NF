@@ -140,7 +140,7 @@
           include "hapus-transaksi.php";
         } elseif ($aksi == "insert-transaksi") {
           include "insert-transaksi.php";
-        }
+        } 
       }
       ?>
 
