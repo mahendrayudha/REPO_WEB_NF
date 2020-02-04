@@ -5,7 +5,7 @@ session_start();
 $conn = mysqli_connect("localhost","u5445042_tifa","tifa2020","u5445042_naurafarm");
 $idu = $_SESSION['id_user'];
   if (!isset($_SESSION["login"])) {
-    header("location: homepage.php");
+    header("location: index.php");
     exit;
   }
 ?>
@@ -57,8 +57,8 @@ $idu = $_SESSION['id_user'];
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container-fluid" style="padding-left: 100px!important; padding-right: 100px!important;">
       <div class="logo">
-        <a class="navbar-brand js-scroll-trigger" href="homepage.php">
-          <img src="img/logo_nf.png" style="width: 60px">
+        <a class="navbar-brand js-scroll-trigger" href="index.php">
+          <img src="img/logo_nf.PNG" style="width: 60px">
           Naura Farm
         </a>
       </div>
@@ -69,16 +69,16 @@ $idu = $_SESSION['id_user'];
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="homepage.php">Profil</a>
+            <a class="nav-link js-scroll-trigger" href="index.php">Profil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="homepage.php">Produk</a>
+            <a class="nav-link js-scroll-trigger" href="index.php">Produk</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="homepage.php">Fasilitas</a>
+            <a class="nav-link js-scroll-trigger" href="index.php">Fasilitas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="homepage.php">Kontak Kami</a>
+            <a class="nav-link js-scroll-trigger" href="index.php">Kontak Kami</a>
           </li>
           <div class="dropdown">
             <li class="nav-item dropdown no-arrow">

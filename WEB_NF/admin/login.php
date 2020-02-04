@@ -15,9 +15,9 @@
       if ($row['LEVEL'] == 1) {
         header('location:admin/index.php');
       } else {
-        header('location:homepage.php');
+        header('location:index.php');
       }
-      echo "<script>alert ('Login Berhasil');window.location.href='homepage.php'</script>";
+      echo "<script>alert ('Login Berhasil');window.location.href='index.php'</script>";
     } else {
       echo "<script>alert ('Login Gagal')</script>";
     }

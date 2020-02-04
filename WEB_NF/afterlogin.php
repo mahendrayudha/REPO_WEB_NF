@@ -30,7 +30,7 @@ require 'functions.php'; ?>
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
       <div class="logo">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top"> <img src="img/logo_nf.png" style="width: 60px;">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"> <img src="img/logo_nf.PNG" style="width: 60px;">
           Naura Farm
         </a>
       </div>
@@ -54,9 +54,9 @@ require 'functions.php'; ?>
           </li>
           <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-            <a href="#"><img src="img/user.png" style="width: 30px; "></a></button>
+            <a href="#"><img src="img/user.PNG" style="width: 30px; "></a></button>
             <ul class="dropdown-menu">
-              <li><a href="homepage.php">Logout</a></li>
+              <li><a href="index.php">Logout</a></li>
             </ul>
           </div>
         </ul>
@@ -98,7 +98,7 @@ require 'functions.php'; ?>
       $row = mysqli_fetch_assoc($result);
       $_SESSION["login"] = true;
       $_SESSION['user'] = $row["NAMA"];
-      header("location: homepage.php");
+      header("location: index.php");
       echo "<script>alert ('Login Berhasil')</script>";
     } else {
       echo "<script>alert ('Login Gagal')</script>";
@@ -117,14 +117,14 @@ require 'functions.php'; ?>
     if (tambah($_POST) > 0) {
       echo "<script>
                 alert('Data Berhasil Ditambahkan');
-                document.location.href = 'homepage.php';
+                document.location.href = 'index.php';
                 </script>";
     } else {
       echo "<script>alert('Gagal Menambahkan Data')</script>";
     }
   }
   if (isset($_POST["batal"])) {
-    header("Location: homepage.php");
+    header("Location: index.php");
     exit;
   }
   ?>
@@ -136,7 +136,7 @@ require 'functions.php'; ?>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <img src="img/logo_nf.png" class="img-fluid" alt="Logo Naura Farm" style="width: 466px;">
+          <img src="img/logo_nf.PNG" class="img-fluid" alt="Logo Naura Farm" style="width: 466px;">
           <h2 class="text-white mb-4">Apa itu Naura Farm?</h2>
           <p class="text-white-50">Naura Farm adalah perusahaan buah naga yang berada di kabupaten Jember
             tepatnya di desa Karangrejo, Sumbersari. Perusahaan ini menghasilkan buah naga organik. Tanaman
@@ -156,7 +156,7 @@ require 'functions.php'; ?>
       <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
 
-          <img class="img-fluid" src="img/buah_merah.jpg" alt="">
+          <img class="img-fluid" src="img/buah_merah.JPG" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
@@ -176,7 +176,7 @@ require 'functions.php'; ?>
       <!-- ///////////////////////Produk Buah Naga Putih///////////////////// -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img class="img-fluid" src="img/buah_putih.jpg" alt="">
+          <img class="img-fluid" src="img/buah_putih.JPG" alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
@@ -202,7 +202,7 @@ require 'functions.php'; ?>
       <!-- ////////////////////////Fasilitas Agrowisata/////////////////////// -->
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
-          <img class="img-fluid mb-3 mb-lg-0" src="img/Agrowisata.png" alt="">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/Agrowisata.PNG" alt="">
         </div>
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
@@ -215,7 +215,7 @@ require 'functions.php'; ?>
         <!-- ////////////////////////Fasilitas Petik Buah/////////////////////// -->
         <div class="row align-items-center no-gutters mb-4 mb-lg-5">
           <div class="col-xl-8 col-lg-7">
-            <img class="img-fluid mb-3 mb-lg-0" src="img/petik_buah.png" alt="">
+            <img class="img-fluid mb-3 mb-lg-0" src="img/petik_buah.PNG" alt="">
           </div>
           <div class="col-xl-4 col-lg-5">
             <div class="featured-text text-center text-lg-left">
@@ -228,7 +228,7 @@ require 'functions.php'; ?>
           <!-- ////////////////////////Fasilitas Penjualan Produk/////////////////////// -->
           <div class="row align-items-center no-gutters mb-4 mb-lg-5">
             <div class="col-xl-8 col-lg-7">
-              <img class="img-fluid mb-3 mb-lg-0" src="img/penjualan_produk.png" alt="">
+              <img class="img-fluid mb-3 mb-lg-0" src="img/penjualan_produk.PNG" alt="">
             </div>
             <div class="col-xl-4 col-lg-5">
               <div class="featured-text text-center text-lg-left">

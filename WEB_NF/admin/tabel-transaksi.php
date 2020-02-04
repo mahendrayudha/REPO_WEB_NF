@@ -3,7 +3,7 @@ include "koneksi.php";
 
 //cek session
 if (!isset($_SESSION["login"])) {
-    header("location: homepage.php");
+    header("location: index.php");
     exit;
 }
 $ambilkan = $conn->query("SELECT user.NAMA FROM user INNER JOIN keranjang ON keranjang.ID_USER = user.ID_USER");
