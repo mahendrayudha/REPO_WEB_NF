@@ -63,7 +63,7 @@ if (!isset($_SESSION["login"])) {
     <div class="container-fluid" style="padding-left: 100px!important; padding-right: 100px!important;">
       <div class="logo">
         <a class="navbar-brand js-scroll-trigger" href="index.php">
-          <img src="img/logo_nf.PNG" style="width: 60px">
+          <img src="img/logo_nf.png" style="width: 60px">
           Naura Farm
         </a>
       </div>

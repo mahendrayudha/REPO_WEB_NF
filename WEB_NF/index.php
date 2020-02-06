@@ -47,7 +47,7 @@ if ($datakode) {
     <div class="container-fluid" style="padding-left: 100px!important; padding-right: 100px!important;">
       <div class="logo">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
-          <img src="img/logo_nf.PNG" style="width: 60px">
+          <img src="img/logo_nf.png" style="width: 60px">
           Naura Farm
         </a>
       </div>
@@ -258,7 +258,7 @@ if ($datakode) {
           }
         </script>
 
-        <button type="submit" class="btn btn-primary" name="daftar" href="homepage.php">
+        <button type="submit" class="btn btn-primary" name="daftar" href="index.php">
           Daftar
         </button>
       </div>
@@ -313,7 +313,7 @@ if ($datakode) {
         echo "<script>alert ('Login Berhasil : Karyawan');window.location.href='admin/index.php?page=dashboard'</script>";
         include "tabel-user.php";
       } else if ($lv == 3) {
-        echo "<script>alert ('Login Berhasil');window.location.href='homepage.php'</script>";
+        echo "<script>alert ('Login Berhasil');window.location.href='index.php'</script>";
       }
     } else {
       echo "<script>alert ('Login Gagal')</script>";
@@ -362,7 +362,7 @@ if ($datakode) {
             ?>
             <script type="text/javascript">
              alert("Data Berhasil Disimpan");
-             window.location.href = "homepage.php";
+             window.location.href = "index.php";
             </script>
             <?php 
     }
@@ -375,7 +375,7 @@ if ($datakode) {
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <img src="img/logo_nf.PNG" class="img-fluid" alt="Logo Naura Farm" style="width: 466px;">
+          <img src="img/logo_nf.png" class="img-fluid" alt="Logo Naura Farm" style="width: 466px;">
           <h2 class="text-white mb-4">Apa itu Naura Farm?</h2>
           <p class="text-white" style="text-align:justify">Naura Farm adalah perusahaan buah naga yang berada di kabupaten Jember
             tepatnya di desa Karangrejo, Sumbersari. Perusahaan ini menghasilkan buah naga organik. Tanaman
@@ -395,7 +395,7 @@ if ($datakode) {
       <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
 
-          <img width="555" height="453" src="img/buah_merah.JPG" alt="">
+          <img width="555" height="453" src="img/buah_merah.jpg" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
@@ -413,7 +413,7 @@ if ($datakode) {
       <!-- ///////////////////////Produk Buah Naga Putih///////////////////// -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img width="465" height="480" src="img/buah_putih.JPG" alt="">
+          <img width="465" height="480" src="img/buah_putih.jpg" alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
@@ -432,7 +432,7 @@ if ($datakode) {
       <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
 
-          <img width="555" height="453" src="img/Jus.JPG" alt="">
+          <img width="555" height="453" src="img/jus.jpg" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
@@ -450,7 +450,7 @@ if ($datakode) {
       <!-- ///////////////////////Produk Selai Buah Naga///////////////////// -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img width="465" height="453" src="img/Selai.JPG" alt="">
+          <img width="465" height="453" src="img/selai.jpg" alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
@@ -470,7 +470,7 @@ if ($datakode) {
       <div id="produk" class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
 
-          <img width="465" height="602.78" src="img/Kripik.JPG" alt="">
+          <img width="465" height="602.78" src="img/kripik.jpg" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
@@ -498,7 +498,7 @@ if ($datakode) {
       <!-- ////////////////////////Fasilitas Agrowisata/////////////////////// -->
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
-          <img width="580" height="416" src="img/Agrowisata.PNG" alt="Gambar Fasilitas Agrowisata">
+          <img width="580" height="416" src="img/agrowisata.png" alt="Gambar Fasilitas Agrowisata">
         </div>
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
@@ -511,7 +511,7 @@ if ($datakode) {
       <!-- ////////////////////////Fasilitas Petik Buah/////////////////////// -->
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
-          <img width="580" height="416" src="img/petik_buah.PNG" alt="Gambar Fasilitas Petik Buah">
+          <img width="580" height="416" src="img/petik_buah.png" alt="Gambar Fasilitas Petik Buah">
         </div>
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
@@ -524,7 +524,7 @@ if ($datakode) {
       <!-- ////////////////////////Fasilitas Penjualan Produk/////////////////////// -->
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
-          <img width="580" height="416" src="img/penjualan_produk.PNG" alt="Gambar Fasilitas Penjualan Produk">
+          <img width="580" height="416" src="img/penjualan_produk.png" alt="Gambar Fasilitas Penjualan Produk">
         </div>
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
